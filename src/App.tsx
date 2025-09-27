@@ -1,11 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
+import Layout from './layout'
 // import './App.css'
 
 function App() {
 
   return (
     <Routes>
-      <Route index element={<div className='flex justify-center text-7xl'>project</div>}/>
+      <Route index element={<Layout/>}/>
     </Routes>
   )
 }
