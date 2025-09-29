@@ -1,12 +1,15 @@
 import { Route, Routes } from 'react-router-dom'
 import Layout from './layout'
+import News from './pages/news'
 // import './App.css'
 
 function App() {
 
   return (
     <Routes>
-      <Route index element={<Layout/>}/>
+      <Route path="/" element={<Layout/>}>
+        <Route path="news" element={<News/>}></Route>
+      </Route>
     </Routes>
   )
 }
