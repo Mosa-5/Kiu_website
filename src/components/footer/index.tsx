@@ -71,7 +71,9 @@ const Footer = () => {
                 </li>
                 <li>
                   <img src={emailICon} alt="email icon" />
-                 <a className="border-b-1" href="mailto:info@kiu.edu.ge">info@kiu.edu.ge</a>
+                  <a className="border-b-1" href="mailto:info@kiu.edu.ge">
+                    info@kiu.edu.ge
+                  </a>
                 </li>
                 <li>
                   For international student and visitor enquiries:
