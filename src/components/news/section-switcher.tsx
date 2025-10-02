@@ -10,7 +10,7 @@ const SectionSwitcher = () => {
   return (
     <div className="mt-36 px-[120px]">
       <Tabs defaultValue="All" className="w-full">
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between h-12">
           <div className="flex items-center justify-between border-b border-gray-300 w-[920px] h-[45px]">
             <TabsList className="flex space-x-6 bg-transparent p-0 gap-10 w-full">
               {categories.map((cat) => (
@@ -25,9 +25,13 @@ const SectionSwitcher = () => {
               ))}
             </TabsList>
           </div>
-          <div className="relative w-80 mr-88">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input placeholder="Search articles..." className="pl-10" />
+          <div className="relative w-80 h-12 mr-auto ml-20 flex items-center">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5  text-[#4879B4]" />
+              <Input
+                placeholder="Search"
+                className="pl-10 text-black placeholder:text-[#4879B4] font-medium text-xl 
+                          border border-[#4879B4] focus:border-[#4879B4] focus:ring-1 focus:ring-[#4879B4] shadow-[4px_4px_6px_rgba(72,121,180,0.3)]"
+              />
           </div>
         </div>
 

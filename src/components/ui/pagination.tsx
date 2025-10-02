@@ -27,7 +27,7 @@ function PaginationContent({
   return (
     <ul
       data-slot="pagination-content"
-      className={cn("flex flex-row items-center gap-1", className)}
+      className={cn("flex flex-row items-center gap-3.5", className)}
       {...props}
     />
   )
@@ -45,7 +45,6 @@ type PaginationLinkProps = {
 function PaginationLink({
   className,
   isActive,
-  size = "icon",
   ...props
 }: PaginationLinkProps) {
   return (
@@ -54,10 +53,10 @@ function PaginationLink({
       data-slot="pagination-link"
       data-active={isActive}
       className={cn(
-        buttonVariants({
-          variant: isActive ? "outline" : "ghost",
-          size,
-        }),
+        "flex items-center justify-center w-10 h-10 rounded-md border-2 text-base font-medium transition-colors",
+        isActive 
+          ? "border-[#3C70AF] bg-[#3C70AF] text-white" 
+          : "border-[#3C70AF] bg-white text-[#3C70AF] hover:bg-[#3C70AF] hover:text-white",
         className
       )}
       {...props}
@@ -77,7 +76,6 @@ function PaginationPrevious({
       {...props}
     >
       <ChevronLeftIcon />
-      <span className="hidden sm:block">Previous</span>
     </PaginationLink>
   )
 }
@@ -93,7 +91,6 @@ function PaginationNext({
       className={cn("gap-1 px-2.5 sm:pr-2.5", className)}
       {...props}
     >
-      <span className="hidden sm:block">Next</span>
       <ChevronRightIcon />
     </PaginationLink>
   )
@@ -107,7 +104,7 @@ function PaginationEllipsis({
     <span
       aria-hidden
       data-slot="pagination-ellipsis"
-      className={cn("flex size-9 items-center justify-center", className)}
+      className={cn("flex w-10 h-10 items-center justify-center rounded-md border-2 border-[#3C70AF] bg-white text-[#3C70AF]", className)}
       {...props}
     >
       <MoreHorizontalIcon className="size-4" />

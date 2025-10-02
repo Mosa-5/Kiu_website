@@ -9,6 +9,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import kiuimage from "@/assets/KIU.jpg";
 
 interface NewsGridProps {
   items: typeof import("@/data/newsItems").default; 
@@ -25,9 +26,11 @@ const NewsGrid = ({ items }: NewsGridProps) => {
   return (
     <div className="py-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {currentItems.map((item, index) => (
+        {currentItems.map((item) => (
           <NewsCard
-            key={index}
+            id={item.id}
+            imageUrl={kiuimage}
+            key={item.id}
             date={item.date}
             title={item.title}
             description={item.description}
