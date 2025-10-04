@@ -6,6 +6,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+
+  --color-main: #3C70AF;
+
+  /* custom styles above this */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -128,6 +132,4 @@
      overflow-x: hidden;
   }
 }
-
-
 
