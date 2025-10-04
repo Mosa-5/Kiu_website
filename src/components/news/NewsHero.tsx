@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import newsHeroImage from "@/assets/image.png";
+import { newsHeroImage } from "@/assets";
 import { Link } from "react-router-dom";
 import {
   heroContainer,

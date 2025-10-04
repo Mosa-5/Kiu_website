@@ -9,7 +9,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import kiuimage from "@/assets/KIU.jpg";
+import { kiuCardImg } from "@/assets";
 import {
   container,
   grid,
@@ -35,7 +35,7 @@ const NewsGrid = ({ items }: NewsGridProps) => {
         {currentItems.map((item) => (
           <NewsCard
             id={item.id}
-            imageUrl={kiuimage}
+            imageUrl={kiuCardImg}
             key={item.id}
             date={item.date}
             title={item.title}

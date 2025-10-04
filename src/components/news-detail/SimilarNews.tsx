@@ -1,6 +1,6 @@
 import React from "react";
 import newsItems from "@/data/newsItems";
-import kiuimage from "@/assets/KIU.jpg";
+import { kiuCardImg } from "@/assets";
 import { useParams } from "react-router-dom";
 import {
   container,
@@ -42,7 +42,7 @@ const SimilarNews: React.FC = () => {
             <div key={item.id} className={card()}>
               <div className={hoverBar()} />
               <div className={imageWrapper()}>
-                <img src={kiuimage} alt={item.title} className={image()} />
+                <img src={kiuCardImg} alt={item.title} className={image()} />
               </div>
               <div className={cardContent()}>
                 <p className={date()}>{item.date}</p>

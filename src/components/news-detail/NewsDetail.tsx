@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import kiuimage from "@/assets/KIU.jpg";
+import { kiuCardImg } from "@/assets";
 import newsItems from "@/data/newsItems";
 import {
   container,
@@ -35,7 +35,7 @@ const NewsDetail = () => {
         <div className={contentWrapper()}>
           <div className={imageWrapper()}>
             <img
-              src={kiuimage}
+              src={kiuCardImg}
               alt="Event ceremony with participants"
               className={image()}
             />
