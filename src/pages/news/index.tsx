@@ -1,5 +1,5 @@
-import NewsHero from "@/components/news/news-hero";
-import SectionSwitcher from "@/components/news/section-switcher";
+import NewsHero from "@/components/news/NewsHero";
+import SectionSwitcher from "@/components/news/SectionSwitcher";
 
 const News = () => {
   return (

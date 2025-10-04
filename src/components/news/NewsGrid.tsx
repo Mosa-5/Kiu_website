@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NewsCard from "./news-card";
+import NewsCard from "./NewsCard";
 import {
   Pagination,
   PaginationContent,
@@ -10,9 +10,15 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import kiuimage from "@/assets/KIU.jpg";
+import {
+  container,
+  grid,
+  paginationWrapper,
+  paginationButton,
+} from "./NewsGrid.styles";
 
 interface NewsGridProps {
-  items: typeof import("@/data/newsItems").default; 
+  items: typeof import("@/data/newsItems").default;
 }
 
 const NewsGrid = ({ items }: NewsGridProps) => {
@@ -24,8 +30,8 @@ const NewsGrid = ({ items }: NewsGridProps) => {
   const currentItems = items.slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <div className="py-8">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className={container()}>
+      <div className={grid()}>
         {currentItems.map((item) => (
           <NewsCard
             id={item.id}
@@ -38,15 +44,15 @@ const NewsGrid = ({ items }: NewsGridProps) => {
         ))}
       </div>
 
-      <div className="mt-8 flex justify-center">
+      <div className={paginationWrapper()}>
         <Pagination>
           <PaginationContent>
             <PaginationItem>
               <PaginationPrevious
-                onClick={() =>
-                  setCurrentPage((prev) => Math.max(prev - 1, 1))
-                }
-                className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                className={paginationButton({
+                  disabled: currentPage === 1,
+                })}
               />
             </PaginationItem>
 
@@ -68,11 +74,9 @@ const NewsGrid = ({ items }: NewsGridProps) => {
                 onClick={() =>
                   setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                 }
-                className={
-                  currentPage === totalPages
-                    ? "pointer-events-none opacity-50"
-                    : ""
-                }
+                className={paginationButton({
+                  disabled: currentPage === totalPages,
+                })}
               />
             </PaginationItem>
           </PaginationContent>
