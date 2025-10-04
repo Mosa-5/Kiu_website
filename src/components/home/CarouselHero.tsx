@@ -1,6 +1,3 @@
-"use client";
-import * as React from "react";
-// import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -9,15 +6,23 @@ import {
   CarouselPreviousForHero,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
-import heroimg from "@/assets/masters_degree-slider-03 2.png";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import heroimg from "@/assets/masters_degree-slider.png";
+import {
+  container,
+  carousel,
+  carouselContent,
+  carouselItem,
+  carouselImage,
+  dotContainer,
+  carouselDot,
+} from "./CarouselHero.styles";
 
 const CarouselHero = () => {
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
-  const [count, setCount] = React.useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (!api) return;
@@ -77,21 +82,17 @@ const CarouselHero = () => {
   }, [api]);
 
   return (
-    <div className="w-full h-[707px] relative">
+    <div className={container()}>
       <Carousel
         setApi={setApi}
         opts={{ loop: true, duration: 50 }}
-        className="w-full h-full"
+        className={carousel()}
       >
-        <CarouselContent className="w-full h-full -ml-0">
+        <CarouselContent className={carouselContent()}>
           {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem className="w-full h-full pl-0" key={index}>
+            <CarouselItem className={carouselItem()} key={index}>
               <Link to="/home">
-                <img
-                  className="h-[707px] w-full"
-                  src={heroimg}
-                  alt="hero img"
-                />
+                <img className={carouselImage()} src={heroimg} alt="hero img" />
               </Link>
             </CarouselItem>
           ))}
@@ -99,19 +100,12 @@ const CarouselHero = () => {
         <CarouselPreviousForHero />
         <CarouselNextForHero />
       </Carousel>
-      <div className="flex justify-center items-center gap-2 z-2 absolute left-1/2 -translate-x-1/2 bottom-1/30">
+      <div className={dotContainer()}>
         {Array.from({ length: count }).map((_, index) => (
           <button
             key={index}
             onClick={() => api?.scrollTo(index)}
-            className={cn(
-              `h-3 w-3 rounded-full border-2 cursor-pointer duration-200 ${
-                current === index + 1 ? "" : "hover:bg-white"
-              }`,
-              {
-                "bg-[#3C70AF] border-[#3C70AF]": current === index + 1,
-              }
-            )}
+            className={carouselDot({ active: current === index + 1 })}
           />
         ))}
       </div>

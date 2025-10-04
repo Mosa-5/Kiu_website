@@ -1,5 +1,5 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import Footer from "@/components/Footer";
+import Header from "@/components/header/Header";
 import { Outlet } from "react-router-dom";
 
 const Layout = () => {
@@ -14,11 +14,5 @@ const Layout = () => {
     </div>
   );
 };
-
-<div className="min-h-screen flex flex-col">
-  <Header />
-  <main className="flex-1">{/* Your page content */}</main>
-  <Footer />
-</div>;
 
 export default Layout;
