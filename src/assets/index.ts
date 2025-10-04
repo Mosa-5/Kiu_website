@@ -17,7 +17,8 @@ export { default as flagUS } from "./usa-flag.svg";
 
 // Images
 export { default as heroImg } from "./masters_degree-slider.png";
-
+export { default as kiuCardImg } from "./KIU.jpg";
+export { default as newsHeroImage } from "./image.png";
 // Carousel arrows
 export { default as arrowLeft } from "./arrow-left.svg";
 export { default as arrowRight } from "./arrow-right.svg";

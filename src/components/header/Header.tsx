@@ -29,7 +29,7 @@ const Header = () => {
     { label: "Projects", path: "/" },
     { label: "Admission", path: "/" },
     { label: "Students", path: "/" },
-    { label: "News", path: "/" },
+    { label: "News", path: "/news" },
     { label: "Campus", path: "/" },
     { label: "Vacancies", path: "/" },
   ];
