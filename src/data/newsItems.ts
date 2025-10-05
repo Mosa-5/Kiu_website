@@ -5,15 +5,16 @@ const newsItems = [
     title: "Academic Registration for Fall 2025-2026 Now Open",
     description:
       "Please see the 2025-2026 Fall Semester course schedule available online. Registration begins today for all returning students.",
-    category: "Politics",
+    category: "Bachelor’s",
   },
   {
     id: 1,
     date: "Sep 14, 2025",
-    title: "At Kutaisi International University (KIU), the closing ceremony of the 2025 Innovation Summer School",
+    title:
+      "At Kutaisi International University (KIU), the closing ceremony of the 2025 Innovation Summer School",
     description:
       "Local tech companies collaborate to establish a new research and development center focusing on sustainable technology solutions.",
-    category: "Politics",
+    category: "Bachelor’s",
   },
   {
     id: 2,
@@ -21,7 +22,7 @@ const newsItems = [
     title: "Community Health Initiative Launches Citywide",
     description:
       "A comprehensive health program begins this month, offering free screenings and wellness workshops to residents across all districts.",
-    category: "Campus",
+    category: "Bachelor’s",
   },
   {
     id: 3,
@@ -29,6 +30,7 @@ const newsItems = [
     title: "Transportation Infrastructure Updates Begin",
     description:
       "Major improvements to public transit systems commence with new bus routes and upgraded railway connections throughout the metropolitan area.",
+    category: "Bachelor’s",
   },
   {
     id: 4,

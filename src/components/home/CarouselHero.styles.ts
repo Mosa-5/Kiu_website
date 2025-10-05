@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const container = cva("w-full h-[707px] relative");
+export const container = cva("w-full relative mb-36 border-b-3 border-b-main");
 
 export const carousel = cva("w-full h-full");
 
