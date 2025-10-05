@@ -6,7 +6,7 @@ export const header = cva(
     variants: {
       scrolled: {
         true: `max-w-full border-b-2 border-t-0 border-b-main rounded-none top-0 bg-white`,
-        false: `max-w-[1680px] rounded-2xl top-[24px] bg-[#FFFFFFE5] shadow-[2px_4px_4px_0px_#00000040]`,
+        false: `max-w-[1680px] rounded-2xl top-[24px] bg-[#FFFFFFE5] shadow-default`,
       },
     },
     defaultVariants: {

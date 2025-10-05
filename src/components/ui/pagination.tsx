@@ -55,8 +55,8 @@ function PaginationLink({
       className={cn(
         "flex items-center justify-center w-11 h-11 text-xl rounded-md border-2 font-medium transition-colors ",
         isActive
-          ? "border-[#3C70AF] bg-[#3C70AF] text-white"
-          : "border-[#3C70AF] bg-white text-[#3C70AF] hover:bg-[#3C70AF] hover:text-white hover:cursor-pointer",
+          ? "border-main bg-main text-white"
+          : "border-main bg-white text-main hover:bg-main hover:text-white hover:cursor-pointer",
         className
       )}
       {...props}
@@ -133,7 +133,7 @@ function PaginationEllipsis({
       aria-hidden
       data-slot="pagination-ellipsis"
       className={cn(
-        "flex w-10 h-10 items-center justify-center rounded-md border-2 border-[#3C70AF] bg-white text-[#3C70AF]",
+        "flex w-10 h-10 items-center justify-center rounded-md border-2 border-main bg-white text-main",
         className
       )}
       {...props}

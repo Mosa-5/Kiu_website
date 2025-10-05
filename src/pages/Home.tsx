@@ -1,7 +1,13 @@
-import CarouselHero from "@/components/home/CarouselHero";
+import CarouselHero from "@/components/home/carousel/CarouselHero";
+import Programs from "@/components/home/programsSection/ProgramsTabs";
 
 const Home = () => {
-  return <CarouselHero />;
+  return (
+    <>
+      <CarouselHero />
+      <Programs />
+    </>
+  );
 };
 
 export default Home;
