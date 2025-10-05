@@ -57,7 +57,7 @@ const programs = [
   },
   // Single-Cycle Programs
   {
-    id: 0,
+    id: 7,
     category: "Single-Cycle",
     name: "Medicine",
     description:

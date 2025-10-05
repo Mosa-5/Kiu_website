@@ -1,5 +1,5 @@
-import CarouselHero from "@/components/home/CarouselHero";
-import Programs from "@/components/home/Programs";
+import CarouselHero from "@/components/home/carousel/CarouselHero";
+import Programs from "@/components/home/programsSection/ProgramsTabs";
 
 const Home = () => {
   return (

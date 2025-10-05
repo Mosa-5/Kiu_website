@@ -1,5 +1,5 @@
 import programItems from "@/data/programItems";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../ui/tabs";
 import {
   activeIndicator,
   headerWrapper,
@@ -10,9 +10,9 @@ import {
   tabsTrigger,
   container,
   sectionName,
-} from "./Programs.styles";
+} from "./ProgramsTabs.styles";
 
-import ProgramsGrid from "./programsGrid";
+import ProgramsGrid from "./ProgramsGrid";
 
 const Programs = () => {
   const categories = ["Bachelor's", "Single-Cycle", "Master's", "Doctoral"];

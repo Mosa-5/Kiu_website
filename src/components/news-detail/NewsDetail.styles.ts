@@ -9,7 +9,7 @@ export const imageWrapper = cva(
 );
 
 export const image = cva(
-  "w-full h-auto rounded-lg shadow-lg border-2 border-[#3C70AF]"
+  "w-full h-auto rounded-lg shadow-lg border-2 border-main"
 );
 
 export const paragraph = cva(

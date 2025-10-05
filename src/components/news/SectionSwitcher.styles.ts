@@ -15,7 +15,7 @@ export const tabsList = cva("flex space-x-6 bg-transparent p-0 gap-10 w-full");
 export const tabsTrigger = cva([
   "relative rounded-none border-none bg-transparent px-0 pb-2 text-2xl font-semibold text-black",
   "data-[state=active]:text-black data-[state=active]:shadow-none data-[state=active]:after:opacity-100",
-  "after:block after:opacity-0 after:absolute after:-bottom-1 after:left-0 after:h-1 after:w-full after:bg-[#3C70AF]",
+  "after:block after:opacity-0 after:absolute after:-bottom-1 after:left-0 after:h-1 after:w-full after:bg-main",
   "after:transition-opacity after:duration-200",
   "hover:after:opacity-100 hover:cursor-pointer",
 ]);
