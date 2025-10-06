@@ -29,5 +29,5 @@ export const campusLink = cva(
 );
 
 export const readMoreButton = cva(
-  "bg-[#4879B4] w-40 h-12 shadow-[2px_3px_4px_0px_#00000040] font-medium text-lg hover:bg-main hover:cursor-pointer"
+  "bg-mainLight w-40 h-12 shadow-[2px_3px_4px_0px_#00000040] font-medium text-lg hover:bg-main hover:cursor-pointer"
 );
