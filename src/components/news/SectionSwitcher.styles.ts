@@ -28,13 +28,13 @@ export const searchWrapper = cva(
 );
 
 export const searchIcon = cva(
-  "absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[#4879B4]"
+  "absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-mainLight"
 );
 
 export const searchInput = cva([
   "pl-10 text-black font-medium h-full text-xl",
-  "placeholder:text-[#4879B4]",
-  "border border-[#4879B4] focus:border-[#4879B4] focus:ring-1 focus:ring-[#4879B4]",
+  "placeholder:text-mainLight",
+  "border border-mainLight focus:border-mainLight focus:ring-1 focus:ring-mainLight",
   "shadow-[2px_3px_4px_0px_rgba(72,121,180,0.3)]",
 ]);
 

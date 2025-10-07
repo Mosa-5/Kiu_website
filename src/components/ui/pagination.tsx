@@ -81,7 +81,7 @@ function PaginationPrevious({
         viewBox="0 0 16 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="fill-[#4879B4] group-hover:fill-white duration-200 rotate-180 size-7"
+        className="fill-mainLight group-hover:fill-white duration-200 rotate-180 size-7"
       >
         <path
           fill-rule="evenodd"
@@ -111,7 +111,7 @@ function PaginationNext({
         viewBox="0 0 16 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="fill-[#4879B4] group-hover:fill-white duration-200 size-7"
+        className="fill-mainLight group-hover:fill-white duration-200 size-7"
       >
         <path
           fill-rule="evenodd"
