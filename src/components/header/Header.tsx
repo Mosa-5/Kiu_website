@@ -26,7 +26,7 @@ const Header = () => {
     { label: "About KIU", path: "/" },
     { label: "Programs", path: "/" },
     { label: "Research", path: "/" },
-    { label: "Projects", path: "/" },
+    { label: "Projects", path: "/projects" },
     { label: "Admission", path: "/" },
     { label: "Students", path: "/" },
     { label: "News", path: "/news" },
