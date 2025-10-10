@@ -29,6 +29,11 @@ export { default as YouthUniCard} from "./YouthUniCard.png";
 export { default as FrontiersHero} from "./FrontiersHero.png";
 export { default as FrontiersConf} from "./MathConference.png";
 
+export { default as aboutB } from "./aboutB.png";
+export { default as aboutU } from "./aboutT.png";
+export { default as aboutR } from "./aboutR.png";
+
+// export { default as programImg } from "./program_img.jpg";
 // Carousel arrows
 export { default as arrowLeft } from "./arrow-left.svg";
 export { default as arrowRight } from "./arrow-right.svg";

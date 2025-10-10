@@ -14,13 +14,13 @@ export const contentInner = cva(
   "w-[1527px] py-5.5 flex flex-col justify-between"
 );
 
-export const title = cva("text-4xl font-semibold text-[#3C70AF]");
+export const title = cva("text-4xl font-semibold text-main");
 
-export const date = cva("text-[#3C70AF] font-medium text-xl mt-2");
+export const date = cva("text-main font-medium text-xl mt-2");
 
 export const backButton = cva([
-  "absolute bg-transparent bottom-6 left-[120px] text-[#3C70AF] hover:bg-transparent text-2xl font-medium hover:cursor-pointer",
-  "after:block after:absolute after:bottom-0 after:right-0 after:h-0.5 after:w-0 after:bg-[#3C70AF]",
+  "absolute bg-transparent bottom-6 left-[120px] text-main hover:bg-transparent text-2xl font-medium hover:cursor-pointer",
+  "after:block after:absolute after:bottom-0 after:right-0 after:h-0.5 after:w-0 after:bg-main",
   "after:transition-all after:duration-200 hover:after:w-4/6",
 ]);
 

@@ -254,7 +254,7 @@ function CarouselPreviousForHero({
       {...props}
     >
       <svg
-        className="size-8 group-hover:fill-white fill-[#4879B4]"
+        className="size-8 group-hover:fill-white fill-mainLight"
         width="16"
         height="32"
         viewBox="0 0 16 32"
@@ -298,7 +298,7 @@ function CarouselNextForHero({
       {...props}
     >
       <svg
-        className="size-8 group-hover:fill-white fill-[#4879B4]"
+        className="size-8 group-hover:fill-white fill-mainLight"
         width="16"
         height="32"
         viewBox="0 0 16 32"
