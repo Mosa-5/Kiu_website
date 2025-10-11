@@ -2,7 +2,7 @@ import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+// import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -183,7 +183,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-8 rounded-full",
+        "absolute w-[64px] h-[64px] rounded-full border-mainLight cursor-pointer group hover:bg-main",
         orientation === "horizontal"
           ? "top-1/2 -left-12 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -193,7 +193,20 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft />
+      <svg
+        className="size-8 group-hover:fill-white fill-mainLight"
+        width="16"
+        height="32"
+        viewBox="0 0 16 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M2.45726 16.948L9.99992 24.4907L11.8853 22.6054L5.28525 16.0054L11.8853 9.40535L9.99992 7.52002L2.45726 15.0627C2.20729 15.3127 2.06687 15.6518 2.06687 16.0054C2.06687 16.3589 2.20729 16.698 2.45726 16.948Z"
+        />
+      </svg>
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -213,7 +226,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-8 rounded-full",
+        "absolute w-[64px] h-[64px] rounded-full cursor-pointer group border-mainLight hover:bg-main",
         orientation === "horizontal"
           ? "top-1/2 -right-12 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -223,7 +236,20 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight />
+      <svg
+        className="size-8 group-hover:fill-white fill-mainLight"
+        width="16"
+        height="32"
+        viewBox="0 0 16 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M13.5427 16.948L6.00008 24.4907L4.11475 22.6054L10.7147 16.0054L4.11475 9.40535L6.00008 7.52002L13.5427 15.0627C13.7927 15.3127 13.9331 15.6518 13.9331 16.0054C13.9331 16.3589 13.7927 16.698 13.5427 16.948Z"
+        />
+      </svg>
       <span className="sr-only">Next slide</span>
     </Button>
   );

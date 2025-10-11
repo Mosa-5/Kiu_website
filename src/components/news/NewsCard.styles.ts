@@ -1,24 +1,28 @@
 import { cva } from "class-variance-authority";
 
 export const cardContainer = cva(
-  "overflow-hidden relative group hover:shadow-lg transition-all cursor-pointer max-w-[544px] max-h-[726px] border-2 hover:-translate-y-1 duration-200"
+  "overflow-hidden relative group gap-0 hover:shadow-lg transition-all cursor-pointer max-w-[402px] max-h-[726px] border-2 hover:-translate-y-1 duration-200"
 );
 
 export const imageWrapper = cva(
-  "relative aspect-[544/425] overflow-hidden border-b-1 border-b-main"
+  "relative aspect-[402/314] overflow-hidden border-b-1 border-b-main"
 );
 
 export const image = cva("w-full h-full object-cover");
 
-export const cardContentWrapper = cva("p-6 bg-white h-[300px] overflow-hidden");
+export const cardContentWrapper = cva("p-6 bg-white h-[221px] overflow-hidden");
 
 export const cardDate = cva("text-base font-medium text-black mb-3");
 
-export const cardTitle = cva("text-2xl font-medium mb-4 text-newsTitle");
+export const cardTitle = cva(
+  "text-lg font-medium mb-4 text-newsTitle line-clamp-2"
+);
 
 export const cardDivider = cva("w-[94px] h-[2px] bg-main mb-4");
 
-export const cardDescription = cva("text-base text-gray-700 leading-relaxed");
+export const cardDescription = cva(
+  "text-base line-clamp-2 text-gray-700 leading-relaxed"
+);
 
 export const cardHoverEffect = cva([
   "absolute bottom-0 left-0 w-full h-[5px] bg-main opacity-0",
