@@ -35,12 +35,12 @@ export const conferenceData = {
       { text: " Those wishing to present a contributed talk must submit their title and abstract by May 31, 2025.", type: "normal" },
       { text: "A conference website will be available for registration, abstract submission, and updates.", type: "normal" },
       { text: "Submit abstracts to the following email address: ", type: "normal" },
-      { text: "alexander.meskhi@kiu.edu.ge", type: "link", url: "mailto:alexander.meskhi@kiu.edu.ge" },
+      { text: "alexander.meskhi@kiu.edu.ge. ", type: "link", url: "mailto:alexander.meskhi@kiu.edu.ge. " },
       { text: "Abstract acceptance notifications will be sent by June 15.", type: "normal" }
     ],
     links: [
-      { text: "Abstract Template", url: "#" },
-      { text: "Sample tex file can be download here", url: "#" },
+      { text: "Abstract Template", url: "bla" },
+      { text: "Sample tex file can be download here", url: "lka" },
       { text: "Registration", url: "#" }
     ]
   },

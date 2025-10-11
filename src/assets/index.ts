@@ -23,7 +23,6 @@ export { default as ProgramHeroImage } from "./programpage.jpg";
 export { default as ProjectsHeroImage } from "./projects.png";
 export { default as ProjectsImage1} from "./advacning.jpg";
 export { default as ProjectsImage2} from "./youth uni.png";
-export { default as Frontiers} from "./frontiers.jpg";
 export { default as YouthUni} from "./youthuni.jpg";
 export { default as YouthUniCard} from "./YouthUniCard.png";
 export { default as FrontiersHero} from "./FrontiersHero.png";
