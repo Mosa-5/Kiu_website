@@ -1,11 +1,19 @@
-import React from "react";
-import newsItems from "@/data/newsItems";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { kiuCardImg } from "@/assets";
-import { useParams } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import {
   container,
   innerWrapper,
-  heading,
+  headerSection,
+  title,
+  seeAllButton,
   carousel,
   carouselContent,
   carouselItem,
@@ -18,37 +26,18 @@ import {
   date,
   newsTitle,
   carouselButton,
-} from "./SimilarNews.styles";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "../ui/carousel";
-import { Card, CardContent } from "../ui/card";
+} from "./News.styles";
 
-type NewsItem = {
-  id: number;
-  date: string;
-  title: string;
-};
-
-function getRandomNews(data: NewsItem[], count: number): NewsItem[] {
-  return [...data].sort(() => 0.5 - Math.random()).slice(0, count);
-}
-
-const SimilarNews: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const currentId = Number(id);
-
-  const filteredNews = newsItems.filter((item) => item.id !== currentId);
-  const randomNews = getRandomNews(filteredNews, 10);
-
+export default function SlideScale() {
   return (
     <div className={container()}>
       <div className={innerWrapper()}>
-        <h2 className={heading()}>Similar News</h2>
+        <div className={headerSection()}>
+          <h1 className={title()}>News</h1>
+          <Button className={seeAllButton()} variant={"secondary"}>
+            See All
+          </Button>
+        </div>
         <Carousel
           className={carousel()}
           opts={{
@@ -57,8 +46,8 @@ const SimilarNews: React.FC = () => {
           }}
         >
           <CarouselContent className={carouselContent()}>
-            {randomNews.map((item) => (
-              <CarouselItem key={item.id} className={carouselItem()}>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <CarouselItem key={index} className={carouselItem()}>
                 <Card className={card()}>
                   <CardContent className={cardContent()}>
                     <div className={hoverBar()} />
@@ -66,8 +55,10 @@ const SimilarNews: React.FC = () => {
                       <img src={kiuCardImg} alt="newsImg" className={image()} />
                     </div>
                     <div className={contentSection()}>
-                      <p className={date()}>{item.date}</p>
-                      <h3 className={newsTitle()}>{item.title}</h3>
+                      <p className={date()}>Sep 15, 2025</p>
+                      <h3 className={newsTitle()}>
+                        Academic Registration for Fall 2025-2026 Now Open
+                      </h3>
                     </div>
                   </CardContent>
                 </Card>
@@ -80,6 +71,4 @@ const SimilarNews: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default SimilarNews;
+}
