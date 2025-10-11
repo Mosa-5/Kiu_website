@@ -28,7 +28,7 @@ import {
   carouselButton,
 } from "./News.styles";
 
-export default function SlideScale() {
+const NewsSection = () => {
   return (
     <div className={container()}>
       <div className={innerWrapper()}>
@@ -71,4 +71,6 @@ export default function SlideScale() {
       </div>
     </div>
   );
-}
+};
+
+export default NewsSection;
