@@ -8,7 +8,7 @@ export const carouselContent = cva("w-full h-full -ml-0");
 
 export const carouselItem = cva("w-full h-full pl-0");
 
-export const carouselImage = cva("h-[707px] w-full");
+export const carouselImage = cva("h-[707px] w-full brightness-75");
 
 export const dotContainer = cva(
   "flex justify-center items-center gap-2 z-2 absolute left-1/2 -translate-x-1/2 bottom-1/30"

@@ -269,7 +269,7 @@ function CarouselPreviousForHero({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-[48px] h-[48px] rounded-full cursor-pointer group hover:bg-main",
+        "absolute w-[48px] h-[48px] rounded-full cursor-pointer group hover:bg-main border-main border-2",
         orientation === "horizontal"
           ? "bottom-5 right-1/10"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -313,7 +313,7 @@ function CarouselNextForHero({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-[48px] h-[48px] rounded-full cursor-pointer group hover:bg-main",
+        "absolute w-[48px] h-[48px] rounded-full cursor-pointer group hover:bg-main border-main border-2",
         orientation === "horizontal"
           ? "bottom-5 right-1/15"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",

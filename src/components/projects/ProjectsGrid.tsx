@@ -18,7 +18,7 @@ const ProjectsGrid = () => {
   ];
 
   return (
-    <div className="flex gap-6 my-28 px-[120px]">
+    <div className="flex gap-6 px-[120px]">
       {projects.map((project) => (
         <Link
           key={project.id}

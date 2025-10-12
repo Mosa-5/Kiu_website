@@ -7,7 +7,7 @@ export const card = cva([
 ]);
 
 export const overlay = cva([
-  "absolute inset-0 bg-main/95 text-white flex flex-col items-center justify-center",
+  "absolute inset-0 backdrop-blur-md text-white flex flex-col items-center justify-center",
   "translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-5",
   "text-center rounded-2xl",
 ]);
