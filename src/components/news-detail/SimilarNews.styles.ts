@@ -27,4 +27,4 @@ export const cardContent = cva("px-6 pt-8 pb-12 min-h-2");
 
 export const date = cva("text-lg text-black font-medium");
 
-export const title = cva("mt-4 text-2xl font-medium text-newsTitle");
+export const title = cva("mt-4 text-2xl font-medium text-mainDark");

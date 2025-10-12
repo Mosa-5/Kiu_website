@@ -14,7 +14,7 @@ export const cardContentWrapper = cva("p-6 bg-white h-[300px] overflow-hidden");
 
 export const cardDate = cva("text-base font-medium text-black mb-3");
 
-export const cardTitle = cva("text-2xl font-medium mb-4 text-newsTitle");
+export const cardTitle = cva("text-2xl font-medium mb-4 text-mainDark");
 
 export const cardDivider = cva("w-[94px] h-[2px] bg-main mb-4");
 
