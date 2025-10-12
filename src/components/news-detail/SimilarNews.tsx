@@ -16,8 +16,8 @@ import {
   image,
   contentSection,
   date,
-  newsTitle,
   carouselButton,
+  title,
 } from "./SimilarNews.styles";
 import {
   Carousel,
@@ -67,7 +67,7 @@ const SimilarNews: React.FC = () => {
                     </div>
                     <div className={contentSection()}>
                       <p className={date()}>{item.date}</p>
-                      <h3 className={newsTitle()}>{item.title}</h3>
+                      <h3 className={title()}>{item.title}</h3>
                     </div>
                   </CardContent>
                 </Card>

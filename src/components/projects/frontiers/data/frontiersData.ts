@@ -1,0 +1,81 @@
+export const conferenceData = {
+  about: {
+    title: "About Conference",
+    parts: [
+      { text: "The ", type: "normal" },
+      { text: "International Conference 'Advancing the Frontiers — International Conference on Algebra, Analysis, and Applications'", type: "blue" },
+      { text: " will take place on ", type: "normal" },
+      { text: "September 8-10, 2025", type: "blue" },
+      { text: ", at ", type: "normal" },
+      { text: "Kutaisi International University (KIU)", type: "blue" },
+      { text: ". This conference is a ", type: "normal" },
+      { text: "satellite event", type: "blue" },
+      { text: " of the ", type: "normal" },
+      { text: "XV International Conference of the Georgian Mathematical Union", type: "link", url: "#" },
+      { text: ", which will be held on ", type: "normal" },
+      { text: "September 1-6, 2025, in Batumi, Georgia", type: "blue" },
+      { text: ".", type: "normal" }
+    ]
+  },
+  program: {
+    title: "Scientific Program",
+    items: [
+      "Morning Sessions: 40-minute invited/plenary lectures",
+      "Afternoon Parallel Sessions: 20-minute contributed talks"
+    ]
+  },
+  accommodation: {
+    title: "Accommodation & Social Events",
+    text: "The organizing committee will provide free accommodation for participants and their accompanying persons on the KIU campus. A conference dinner and excursion will be organized for all attendees."
+  },
+  registration: {
+    title: "Registration & Abstract Submission",
+    parts: [
+      { text: "Registration is mandatory.", type: "highlight" },
+      { text: " Those wishing to present a contributed talk must submit their title and abstract by May 31, 2025.", type: "normal" },
+      { text: "A conference website will be available for registration, abstract submission, and updates.", type: "normal" },
+      { text: "Submit abstracts to the following email address: ", type: "normal" },
+      { text: "alexander.meskhi@kiu.edu.ge. ", type: "link", url: "mailto:alexander.meskhi@kiu.edu.ge. " },
+      { text: "Abstract acceptance notifications will be sent by June 15.", type: "normal" }
+    ],
+    links: [
+      { text: "Abstract Template", url: "bla" },
+      { text: "Sample tex file can be download here", url: "lka" },
+      { text: "Registration", url: "#" }
+    ]
+  },
+  fees: {
+    title: "Conference Fees",
+    items: [
+      "Regular participants: €60 EUR",
+      "Accompanying persons & Master/PhD students: €30 EUR"
+    ],
+    note: "Fees can be paid onsite during participant registration at KIU."
+  },
+  committee: {
+    title: "Scientific Committee",
+    members: [
+      "Anzor Beridze", "Ramaz Botchorishvili", "Giorgi Cheilidze",
+      "Besik Dundua", "Lasha Ephremidze", "Alexander Meskhi",
+      "Giorgi Nadareishvili", "Markus Neuhauser", "Giorgi Oniani",
+      "Florian Rupp", "Boris Vexler"
+    ]
+  },
+  speakers: {
+    title: "Speakers",
+    description: "We are pleased to present the plenary speakers of the Advancing the Frontiers — International Conference on Algebra, Analysis, and Applications",
+    list: [
+      { name: "Irakli Patchkoria", link: "#", affiliation: "University of Aberdeen, Aberdeen, Scotland, UK" },
+      { name: "Vladimir Goldshtein", link: "#", affiliation: "Ben-Gurion University, Israel" },
+      { name: "Delfim F. M. Torres", link: "#", affiliation: "University of Aveiro, Portugal" },
+      { name: "Peter Kloeden", link: "#", affiliation: "Auburn University, United States" },
+      { name: "Bernhard Heim", link: "#", affiliation: "Mathematical Institute, University of Cologne, Germany" },
+      { name: "Barrera Vargas Gerardo", link: "#", affiliation: "Instituto Superior Técnico, Lisbon, Portugal" },
+      { name: "Pankaj Jain", link: "#", affiliation: "South Asian University, New Delhi, India" },
+      { name: "Sigurður Freyr Hafstein", link: "#", affiliation: "University of Iceland, Reykjavik, Iceland" },
+      { name: "Peter Imkeller", link: "#", affiliation: "Humboldt University, Berlin, Germany" },
+      { name: "Thomas Hagen", link: "#", affiliation: "University of Memphis, USA, (online)" },
+      { name: "Alexei Miasnikov", link: "#", affiliation: "Stevens Institute of Technology, USA" }
+    ]
+  }
+};

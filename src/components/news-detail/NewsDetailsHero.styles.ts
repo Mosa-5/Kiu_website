@@ -4,7 +4,9 @@ export const container = cva(
   "relative w-full h-[907px] overflow-hidden flex flex-col items-center"
 );
 
-export const heroImage = cva("w-full h-full object-cover mb-[200px]");
+export const heroImage = cva(
+  "w-full h-full object-cover mb-[200px] brightness-75"
+);
 
 export const contentBox = cva(
   "absolute bg-gray-200 top-[635px] w-[1680px] rounded-2xl flex justify-center"

@@ -1,0 +1,60 @@
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import {
+  heroContainer,
+  heroImage,
+  contentWrapper,
+  title,
+  homeButton,
+} from "./HeroSection.styles";
+
+interface HeroSectionProps {
+  titleText: string;
+  imageSrc: string;
+  buttonLink?: string;
+  buttonLabel?: string;
+  buttonIcon?: React.ReactNode;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({
+  titleText,
+  imageSrc,
+  buttonLink = "/",
+  buttonLabel = "Home Page",
+  buttonIcon,
+}) => {
+  return (
+    <div className={heroContainer()}>
+      <img src={imageSrc} alt={titleText} className={heroImage()} />
+
+      <div className={contentWrapper()}>
+        <h1 className={title()}>{titleText}</h1>
+
+        <Link className="w-fit" to={buttonLink}>
+          <Button className={homeButton()}>
+            {buttonIcon ?? (
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16 5L9 12L16 19"
+                  stroke="#E7E7E6"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            )}
+            {buttonLabel}
+          </Button>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default HeroSection;

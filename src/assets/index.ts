@@ -19,6 +19,15 @@ export { default as flagUS } from "./usa-flag.svg";
 export { default as heroImg } from "./masters_degree-slider.png";
 export { default as kiuCardImg } from "./KIU.jpg";
 export { default as newsHeroImage } from "./image.png";
+export { default as ProgramHeroImage } from "./programpage.jpg";
+export { default as ProjectsHeroImage } from "./projects.png";
+export { default as ProjectsImage1} from "./advacning.jpg";
+export { default as ProjectsImage2} from "./youth uni.png";
+export { default as YouthUni} from "./youthuni.jpg";
+export { default as YouthUniCard} from "./YouthUniCard.png";
+export { default as FrontiersHero} from "./FrontiersHero.png";
+export { default as FrontiersConf} from "./MathConference.png";
+
 export { default as aboutB } from "./aboutB.png";
 export { default as aboutU } from "./aboutT.png";
 export { default as aboutR } from "./aboutR.png";
