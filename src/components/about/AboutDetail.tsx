@@ -21,8 +21,6 @@ const AboutDetail: React.FC = () => {
 
     setIsOpen(false);
   };
-  
-
 
   const sections = [
     { id: 'intro', label: 'Intro' },
@@ -44,7 +42,7 @@ const AboutDetail: React.FC = () => {
       />
 
       {/* Main Content */}
-      <div className="max-w-[1680px] mx-auto pb-10 font-sans">
+      <div className="max-w-[1680px] mx-auto font-sans">
         
         {/* Intro Section */}
         <section id="intro" className="mb-12">

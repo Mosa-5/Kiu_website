@@ -52,12 +52,6 @@ export const SideSectionsSheet: React.FC<SideSectionsSheetProps> = ({
                 ${isOpen ? "duration-500" : "duration-300"} 
                 relative z-50
             `}
-            style={{
-              position: "absolute",
-              left: isOpen ? "380px" : "0",
-              top: "50%",
-              transform: "translateY(-50%)",
-            }}
           >
             <span
               className="transform -rotate-90 whitespace-nowrap text-lg font-medium tracking-wider mt-7"
