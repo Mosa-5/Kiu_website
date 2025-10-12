@@ -24,7 +24,7 @@ const Header = () => {
 
   const navLinks = [
     { label: "About KIU", path: "/about" },
-    { label: "Programs", path: "/" },
+    { label: "Programs", path: "/programs" },
     { label: "Research", path: "/" },
     { label: "Projects", path: "/projects" },
     { label: "Admission", path: "/" },

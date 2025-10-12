@@ -9,8 +9,7 @@ import {
 } from "./YouthUniDetail.styles";
 
 const YouthUniDetail = () => {
-
-const textContent = `Kutaisi International University (KIU) Launches Youth University
+  const textContent = `Kutaisi International University (KIU) Launches Youth University
 
 Kutaisi International University (KIU) has launched a new initiative – the Youth University, a project designed for students in grades 9 to 12 from the Imereti, Guria and Samegrelo-Zemo Svaneti regions. The program includes a series of public lectures on various educational topics, delivered by KIU professors and invited lecturers.
 
@@ -18,7 +17,7 @@ The aim of the Youth University is to increase young people's access to non-form
 
 Due to high interest and demand, the project is gradually being made accessible to students from other regions as well.`;
 
-const paragraphs = textContent.split("\n\n").filter((p) => p.trim());
+  const paragraphs = textContent.split("\n\n").filter((p) => p.trim());
 
   return (
     <div className={container()}>
@@ -32,12 +31,14 @@ const paragraphs = textContent.split("\n\n").filter((p) => p.trim());
             />
           </div>
           <div>
-            <h1 className="font-semibold text-2xl pb-6 text-[#1B3D6E]">About the program</h1>
+            <h1 className="font-semibold text-2xl pb-6 text-mainDark">
+              About the program
+            </h1>
             {paragraphs.map((text, index) => (
-            <p key={index} className={paragraph()}>
-              {text}
-            </p>
-          ))}
+              <p key={index} className={paragraph()}>
+                {text}
+              </p>
+            ))}
           </div>
         </div>
 

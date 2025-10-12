@@ -30,7 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className={contentWrapper()}>
         <h1 className={title()}>{titleText}</h1>
 
-        <Link to={buttonLink}>
+        <Link className="w-fit" to={buttonLink}>
           <Button className={homeButton()}>
             {buttonIcon ?? (
               <svg

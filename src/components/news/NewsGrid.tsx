@@ -10,19 +10,14 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { kiuCardImg } from "@/assets";
-import {
-  container,
-  grid,
-  paginationWrapper,
-  paginationButton,
-} from "./NewsGrid.styles";
+import { grid, paginationWrapper, paginationButton } from "./NewsGrid.styles";
 
 interface NewsGridProps {
   items: typeof import("@/data/newsItems").default;
 }
 
 const NewsGrid = ({ items }: NewsGridProps) => {
-  const itemsPerPage = 6;
+  const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(items.length / itemsPerPage);
@@ -30,7 +25,7 @@ const NewsGrid = ({ items }: NewsGridProps) => {
   const currentItems = items.slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <div className={container()}>
+    <div>
       <div className={grid()}>
         {currentItems.map((item) => (
           <NewsCard

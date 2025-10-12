@@ -8,6 +8,7 @@ import Projects from "./pages/Projects";
 import YouthUni from "./pages/YouthUni";
 import Frontiers from "./pages/Frontiers";
 import About from "./pages/About";
+import Programs from "./pages/Programs";
 // import './App.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/projects/youthuni" element={<YouthUni/>} />
         <Route path="/projects/frontiers" element={<Frontiers/>} />
         <Route path="/about" element={<About />} />
+        <Route path="/programs" element={<Programs />} />
         <Route index element={<Home />} />
       </Route>
     </Routes>

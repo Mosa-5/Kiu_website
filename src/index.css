@@ -8,7 +8,7 @@
 @theme inline {
 
   --color-main: #3C70AF;
-  --color-newsTitle: #1b3d6e;
+  --color-mainDark: #1b3d6e;
   --color-mainLight: #4879B4;
   /* custom shadow */
   --shadow-default: [2px_4px_4px_0px_#00000040];

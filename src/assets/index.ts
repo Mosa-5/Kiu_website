@@ -28,9 +28,16 @@ export { default as YouthUniCard} from "./YouthUniCard.png";
 export { default as FrontiersHero} from "./FrontiersHero.png";
 export { default as FrontiersConf} from "./MathConference.png";
 export { default as Wolfgang} from "./wolfgang.jpg";
+export { default as ProgramsHeroImage } from "./programsHero.jpg";
 export { default as aboutB } from "./aboutB.png";
 export { default as aboutU } from "./aboutT.png";
 export { default as aboutR } from "./aboutR.png";
+
+//program images
+export { default as bechalor } from "./bechalors.png";
+export { default as doctoral } from "./doctoral.png";
+export { default as masters } from "./masters.png";
+export { default as singleCycle } from "./single-cycle.png";
 
 // export { default as programImg } from "./program_img.jpg";
 // Carousel arrows
