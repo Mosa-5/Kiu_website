@@ -7,6 +7,7 @@ import SingleProgram from "./pages/SingleProgram";
 import Projects from "./pages/Projects";
 import YouthUni from "./pages/YouthUni";
 import Frontiers from "./pages/Frontiers";
+import About from "./pages/About";
 // import './App.css'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/projects" element={<Projects/>} />
         <Route path="/projects/youthuni" element={<YouthUni/>} />
         <Route path="/projects/frontiers" element={<Frontiers/>} />
+        <Route path="/about" element={<About />} />
         <Route index element={<Home />} />
       </Route>
     </Routes>

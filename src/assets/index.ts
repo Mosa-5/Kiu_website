@@ -27,7 +27,7 @@ export { default as YouthUni} from "./youthuni.jpg";
 export { default as YouthUniCard} from "./YouthUniCard.png";
 export { default as FrontiersHero} from "./FrontiersHero.png";
 export { default as FrontiersConf} from "./MathConference.png";
-
+export { default as Wolfgang} from "./wolfgang.jpg";
 export { default as aboutB } from "./aboutB.png";
 export { default as aboutU } from "./aboutT.png";
 export { default as aboutR } from "./aboutR.png";
