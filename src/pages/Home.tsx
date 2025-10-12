@@ -10,7 +10,6 @@ const Home = () => {
     <div className="space-y-[120px]">
       <CarouselHero />
       <About />
-      {/* <Programs /> */}
       <div className="flex flex-col gap-20 my-20">
         <CarouselNews />
         {/* <Experimental /> */}

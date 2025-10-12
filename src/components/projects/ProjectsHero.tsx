@@ -1,7 +1,7 @@
 import HeroSection from "@/components/hero-section";
 import { ProjectsHeroImage } from "@/assets";
 
-const SingleProgramHero = () => {
+const SingleProjectHero = () => {
   return (
     <HeroSection
       titleText="Projects"
@@ -12,4 +12,4 @@ const SingleProgramHero = () => {
   );
 };
 
-export default SingleProgramHero;
+export default SingleProjectHero;

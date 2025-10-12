@@ -1,5 +1,5 @@
 import programItems from "@/data/programItems";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import {
   activeIndicator,
   headerWrapper,
@@ -9,18 +9,15 @@ import {
   tabsListWrapper,
   tabsTrigger,
   container,
-  sectionName,
 } from "./ProgramsTabs.styles";
 
 import ProgramsGrid from "./ProgramsGrid";
 
-const Programs = () => {
+const ProgramTabs = () => {
   const categories = ["Bachelor's", "Single-Cycle", "Master's", "Doctoral"];
 
   return (
     <div className={container()}>
-      <h2 className={sectionName()}>Programs</h2>
-
       <Tabs defaultValue="Bachelor's" className={tabsContainer()}>
         <div className={headerWrapper()}>
           <div className={tabsListWrapper()}>
@@ -52,4 +49,4 @@ const Programs = () => {
   );
 };
 
-export default Programs;
+export default ProgramTabs;
