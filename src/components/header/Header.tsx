@@ -31,7 +31,7 @@ const Header = () => {
     { label: "Students", path: "/" },
     { label: "News", path: "/news" },
     { label: "Campus", path: "/" },
-    { label: "Vacancies", path: "/" },
+    { label: "Vacancies", path: "/vacancies" },
   ];
 
   return (
