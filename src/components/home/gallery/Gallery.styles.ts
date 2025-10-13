@@ -34,3 +34,38 @@ export const carouselButton = cva("border-2");
 export const prevButton = cva("border-2 -left-4");
 
 export const nextButton = cva("border-2 -right-4");
+
+// Video container styles
+export const videoContainer = cva(
+  "relative w-full h-full group cursor-pointer"
+);
+
+export const thumbnailWrapper = cva("relative w-full h-full");
+
+export const playOverlay = cva(
+  "absolute inset-0 flex flex-col items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all"
+);
+
+export const playButton = cva(
+  "w-20 h-20 opacity-90 group-hover:opacity-100 group-hover:scale-105 duration-200 transition-all"
+);
+
+export const playButtonPolygon = cva("fill-none stroke-white");
+
+export const playButtonCircle = cva("fill-none stroke-white");
+
+export const videoTitle = cva(
+  "mt-4 text-white absolute bottom-0 opacity-0 group-hover:bottom-3 group-hover:opacity-100 duration-200 text-center px-4 py-1 backdrop-blur-sm rounded-md text-sm font-medium"
+);
+
+export const thumbnailImage = cva("absolute inset-0");
+
+export const loadingContainer = cva(
+  "absolute inset-0 flex items-center justify-center bg-black/40 z-10"
+);
+
+export const loadingSpinner = cva(
+  "w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"
+);
+
+export const videoIframe = cva("w-full h-full relative z-20");
