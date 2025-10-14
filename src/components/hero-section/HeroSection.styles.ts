@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const heroContainer = cva(
-  "relative w-full h-[707px] overflow-hidden mb-36 border-b-2 border-main"
+  "relative w-full h-[707px] overflow-hidden mb-20 border-b-2 border-main"
 );
 
 export const heroImage = cva("w-full h-full object-cover brightness-75");

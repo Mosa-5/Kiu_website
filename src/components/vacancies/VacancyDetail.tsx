@@ -10,7 +10,7 @@ const VacancyDetail = () => {
     submitting,
     submitStatus,
     errors,
-    toggleSubject
+    toggleSubject,
   } = useVacancyForm();
 
   return (
@@ -18,9 +18,11 @@ const VacancyDetail = () => {
       <div className="max-w-[1280px] mx-auto rounded-lg shadow-xl p-8 border-2">
         {/* Header */}
         <div className="mb-8">
-          <div className="bg-[#E3F0FF] inline-flex items-center gap-3 px-4 py-2 rounded mb-6">   
-            <h1 className="text-3xl font-medium text-[#1B3D6E]">Expression Of Interest</h1>
-            <span className="text-[#1B3D6E]">{AboutIcon}</span>
+          <div className="bg-[#E3F0FF] inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
+            <h1 className="text-3xl font-medium text-mainDark">
+              Expression Of Interest
+            </h1>
+            <span className="text-mainDark">{AboutIcon}</span>
           </div>
 
           <p className="text-sm  mb-2">
@@ -135,9 +137,7 @@ const VacancyDetail = () => {
 
           {/* Address */}
           <div className="mb-6">
-            <label className="block text-sm font-medium  mb-2">
-              Address
-            </label>
+            <label className="block text-sm font-medium  mb-2">Address</label>
             <input
               type="text"
               name="address"
@@ -154,9 +154,7 @@ const VacancyDetail = () => {
           {/* Email + Phone */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-sm font-medium  mb-2">
-                E-mail
-              </label>
+              <label className="block text-sm font-medium  mb-2">E-mail</label>
               <input
                 type="email"
                 name="email"
@@ -265,9 +263,7 @@ const VacancyDetail = () => {
 
           {/* Teaching */}
           <div className="mb-8">
-            <h3 className="text-sm font-semibold text-main mb-3">
-              Teaching
-            </h3>
+            <h3 className="text-sm font-semibold text-main mb-3">Teaching</h3>
             <div className="flex flex-wrap gap-3">
               {[
                 "On Campus",
@@ -324,73 +320,102 @@ const VacancyDetail = () => {
           </div>
 
           {/* Fields of Interest */}
-            <div className="mb-8">
+          <div className="mb-8">
             <p className="text-sm italic text-main mb-4">
-                Please, choose fields of interest and subjects you would like to be involved at the KIU:
+              Please, choose fields of interest and subjects you would like to
+              be involved at the KIU:
             </p>
-            
+
             <div className="mb-4">
-                <h3 className="font-medium mb-3">Mathematics (choose 3)</h3>
-                
-                {/* Button Pills - Top 6 */}
-                <div className="flex flex-wrap gap-3 mb-6">
-                {['Calculus', 'Vector Calculus', 'Linear Algebra', 'Probability', 'Statistics', 'Numerical Linear Algebra'].map((subject) => (
-                    <button
+              <h3 className="font-medium mb-3">Mathematics (choose 3)</h3>
+
+              {/* Button Pills - Top 6 */}
+              <div className="flex flex-wrap gap-3 mb-6">
+                {[
+                  "Calculus",
+                  "Vector Calculus",
+                  "Linear Algebra",
+                  "Probability",
+                  "Statistics",
+                  "Numerical Linear Algebra",
+                ].map((subject) => (
+                  <button
                     key={subject}
                     type="button"
                     onClick={() => toggleSubject(subject)}
-                    disabled={!formData.fieldsOfInterest.includes(subject) && formData.fieldsOfInterest.length >= 3}
+                    disabled={
+                      !formData.fieldsOfInterest.includes(subject) &&
+                      formData.fieldsOfInterest.length >= 3
+                    }
                     className={`px-4 py-2 rounded-full border transition-all ${
-                        formData.fieldsOfInterest.includes(subject)
-                        ? 'bg-main text-white border-blue-900'
-                        : 'bg-white  border-gray-300 hover:border-blue-400'
+                      formData.fieldsOfInterest.includes(subject)
+                        ? "bg-main text-white border-blue-900"
+                        : "bg-white  border-gray-300 hover:border-blue-400"
                     } ${
-                        !formData.fieldsOfInterest.includes(subject) && formData.fieldsOfInterest.length >= 3
-                        ? 'opacity-50 cursor-not-allowed'
-                        : ''
+                      !formData.fieldsOfInterest.includes(subject) &&
+                      formData.fieldsOfInterest.length >= 3
+                        ? "opacity-50 cursor-not-allowed"
+                        : ""
                     }`}
-                    >
-                    {formData.fieldsOfInterest.includes(subject) && '☑ '}
+                  >
+                    {formData.fieldsOfInterest.includes(subject) && "☑ "}
                     {subject}
-                    </button>
+                  </button>
                 ))}
-                </div>
+              </div>
 
-                {/* Full Checkbox List */}
-                <div className="space-y-2">
+              {/* Full Checkbox List */}
+              <div className="space-y-2">
                 {[
-                    'Calculus', 'Vector Calculus', 'Linear Algebra', 'Probability', 'Statistics',
-                    'Numerical Linear Algebra', 'Numerical Analysis', 'Discrete Structures',
-                    'Ordinary Differential Equations (ODEs)', 'Numerical Methods for ODEs',
-                    'Functional Analysis and PDEs', 'Numerical Methods for PDEs',
-                    'Introduction to Optimization', 'Operations Research', 'Convex Optimization',
-                    'Nonlinear Optimization', 'Mathematical Modelling'
+                  "Calculus",
+                  "Vector Calculus",
+                  "Linear Algebra",
+                  "Probability",
+                  "Statistics",
+                  "Numerical Linear Algebra",
+                  "Numerical Analysis",
+                  "Discrete Structures",
+                  "Ordinary Differential Equations (ODEs)",
+                  "Numerical Methods for ODEs",
+                  "Functional Analysis and PDEs",
+                  "Numerical Methods for PDEs",
+                  "Introduction to Optimization",
+                  "Operations Research",
+                  "Convex Optimization",
+                  "Nonlinear Optimization",
+                  "Mathematical Modelling",
                 ].map((subject) => (
-                    <label
+                  <label
                     key={subject}
                     className={`flex items-center space-x-2 ${
-                        !formData.fieldsOfInterest.includes(subject) && formData.fieldsOfInterest.length >= 3
-                        ? 'opacity-50 cursor-not-allowed'
-                        : 'cursor-pointer'
+                      !formData.fieldsOfInterest.includes(subject) &&
+                      formData.fieldsOfInterest.length >= 3
+                        ? "opacity-50 cursor-not-allowed"
+                        : "cursor-pointer"
                     }`}
-                    >
+                  >
                     <input
-                        type="checkbox"
-                        checked={formData.fieldsOfInterest.includes(subject)}
-                        onChange={() => toggleSubject(subject)}
-                        disabled={!formData.fieldsOfInterest.includes(subject) && formData.fieldsOfInterest.length >= 3}
-                        className="w-4 h-4"
+                      type="checkbox"
+                      checked={formData.fieldsOfInterest.includes(subject)}
+                      onChange={() => toggleSubject(subject)}
+                      disabled={
+                        !formData.fieldsOfInterest.includes(subject) &&
+                        formData.fieldsOfInterest.length >= 3
+                      }
+                      className="w-4 h-4"
                     />
                     <span className="text-sm">{subject}</span>
-                    </label>
+                  </label>
                 ))}
-                </div>
+              </div>
             </div>
 
             {errors.fieldsOfInterest && (
-                <p className="text-sm text-red-500 mt-1">{errors.fieldsOfInterest}</p>
+              <p className="text-sm text-red-500 mt-1">
+                {errors.fieldsOfInterest}
+              </p>
             )}
-            </div>
+          </div>
 
           {/* Submit */}
           <div className="flex flex-col items-end gap-3">
