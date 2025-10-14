@@ -244,7 +244,7 @@ const AboutDetail: React.FC = () => {
               (discipline, i) => (
                 <div
                   key={i}
-                  className="px-4 py-3 bg-main rounded-sm text-center font-medium border-2 text-lg border-main pointer-events-none text-white shadow-md"
+                  className="px-4 py-3 bg-main rounded-md text-center font-medium border-2 text-lg border-main pointer-events-none text-white shadow-md"
                 >
                   {discipline}
                 </div>
