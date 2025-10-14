@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { introData } from "./data/AboutData";
-import { AboutIcon } from "../projects/frontiers/data/icons";
-import { SideSectionsSheet } from "./sections-sidebar";
+import { AboutIcon } from "../../assets/icons/icons";
+import { SideSectionsSheet } from "../ui/sections-sidebar";
 
 const AboutDetail: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

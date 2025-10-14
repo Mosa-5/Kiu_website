@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { kiuLogo } from "@/assets";
 import LanguageSelect from "./LanguageSelect";
 import { useEffect, useState } from "react";
@@ -37,7 +37,7 @@ const Header = () => {
   return (
     <div className={header({ scrolled })}>
       <div className={innerContainer()}>
-        <img className={logo()} src={kiuLogo} alt="Kiu logo" />
+        <Link to="/"><img className={logo()} src={kiuLogo} alt="Kiu logo" /></Link>
         <nav className={nav()}>
           {navLinks.map((link) => (
             <NavLink className={navLinkBase()} key={link.label} to={link.path}>

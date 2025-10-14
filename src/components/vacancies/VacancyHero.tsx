@@ -1,4 +1,4 @@
-import HeroSection from "@/components/hero-section";
+import HeroSection from "@/components/ui/hero-section";
 import { VacanciesHero } from "@/assets";
 
 const VacancyHero = () => {

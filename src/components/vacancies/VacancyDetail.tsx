@@ -1,4 +1,4 @@
-import { AboutIcon } from "../projects/frontiers/data/icons";
+import { AboutIcon } from "../../assets/icons/icons";
 import { useVacancyForm } from "./hooks/useVacancyForm";
 
 const VacancyDetail = () => {

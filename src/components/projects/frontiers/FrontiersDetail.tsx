@@ -1,6 +1,6 @@
 import React from "react";
 import { conferenceData } from "./data/frontiersData";
-import { AboutIcon, SpeakerIcon } from "./data/icons";
+import { AboutIcon, SpeakerIcon } from "../../../assets/icons/icons";
 import { FrontiersConf } from "@/assets";
 
 const FrontiersDetail: React.FC = () => {

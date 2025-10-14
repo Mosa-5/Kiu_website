@@ -1,4 +1,4 @@
-import HeroSection from "@/components/hero-section";
+import HeroSection from "@/components/ui/hero-section";
 import { newsHeroImage } from "@/assets";
 
 const NewsHero = () => {

@@ -22,7 +22,7 @@ export const SideSectionsSheet: React.FC<SideSectionsSheetProps> = ({
   scrollToSection,
 }) => {
   return (
-    <div className="sticky left-0 top-1/2 -translate-y-1/2 z-50">
+    <div className="sticky left-0 top-1/2 -translate-y-1/2 z-50 h-0">
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetContent
           side="left"
