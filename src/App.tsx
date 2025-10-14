@@ -9,6 +9,7 @@ import YouthUni from "./pages/YouthUni";
 import Frontiers from "./pages/Frontiers";
 import About from "./pages/About";
 import Programs from "./pages/Programs";
+import Vacancies from "./pages/Vacancies";
 // import './App.css'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/projects/frontiers" element={<Frontiers/>} />
         <Route path="/about" element={<About />} />
         <Route path="/programs" element={<Programs />} />
+        <Route path="/vacancies" element={<Vacancies />} />
         <Route index element={<Home />} />
       </Route>
     </Routes>

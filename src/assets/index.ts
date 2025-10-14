@@ -32,6 +32,7 @@ export { default as ProgramsHeroImage } from "./programsHero.jpg";
 export { default as aboutB } from "./aboutB.png";
 export { default as aboutU } from "./aboutT.png";
 export { default as aboutR } from "./aboutR.png";
+export { default as VacanciesHero } from "./vacancies.jpg";
 
 //program images
 export { default as bechalor } from "./bechalors.png";
