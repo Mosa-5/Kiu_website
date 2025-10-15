@@ -8,7 +8,7 @@ const FrontiersDetail: React.FC = () => {
     <div className="max-w-[1680px] mx-auto py-10 font-sans">
       <img src={FrontiersConf} className="brightness-75 py-10" />
       {/* About */}
-      <div className="bg-[#E3F0FF] inline-flex items-center gap-4 px-4 py-2 rounded mb-6">
+      <div className="bg-headingBg inline-flex items-center gap-4 px-4 py-2 rounded mb-6">
         <h1 className="text-3xl font-medium text-mainDark">
           {conferenceData.about.title}
         </h1>
@@ -119,7 +119,7 @@ const FrontiersDetail: React.FC = () => {
       </ul>
 
       {/* Speakers */}
-      <div className="bg-[#E3F0FF] inline-flex items-center gap-4 px-4 py-2 rounded mb-6">
+      <div className="bg-headingBg inline-flex items-center gap-4 px-4 py-2 rounded mb-6">
         <h2 className="text-3xl font-medium text-mainDark">
           {conferenceData.speakers.title}
         </h2>

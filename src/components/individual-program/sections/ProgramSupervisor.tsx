@@ -11,15 +11,19 @@ const ProgramSupervisorSection: React.FC<Props> = ({ programData }) => {
 
   return (
     <section id="program-supervisor" className="mb-12 scroll-mt-8">
-      <div className="bg-[#E3F0FF] inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-        <h2 className="text-3xl font-medium text-[#1B3D6E]">{data.title}</h2>
-        <span className="text-[#1B3D6E]">{SupervisorIcon}</span>
+      <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
+        <h2 className="text-3xl font-medium text-mainDark">{data.title}</h2>
+        <span className="text-mainDark">{SupervisorIcon}</span>
       </div>
 
       <h3 className="text-2xl font-medium text-slate-900 mb-4">{data.name}</h3>
 
       <div className="float-right ml-8 mb-6 w-[476px]">
-        <img src={data.image} alt={data.name} className="w-full rounded-lg shadow-lg" />
+        <img
+          src={data.image}
+          alt={data.name}
+          className="w-full rounded-lg shadow-lg"
+        />
       </div>
 
       <p className="text-lg mb-6">{data.position}</p>
