@@ -25,7 +25,7 @@ export const subtitle = cva("text-main font-medium text-2xl mb-10");
 export const textContent = cva("text-lg space-y-4 mb-10");
 
 export const campusLink = cva(
-  "text-main font-medium underline underline-offset-5"
+  "text-link hover:text-linkDark font-medium underline underline-offset-5"
 );
 
 export const readMoreButton = cva(

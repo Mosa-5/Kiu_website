@@ -18,11 +18,11 @@ export const dotContainer = cva(
   "mt-4 flex items-center justify-center gap-2 absolute bottom-1/30 left-1/2 -translate-x-1/2"
 );
 
-export const dot = cva("h-3 w-3 rounded-full border-2", {
+export const dot = cva("h-3 w-3 rounded-full border-2 hover:cursor-pointer", {
   variants: {
     active: {
       true: "border-main bg-main",
-      false: "",
+      false: "hover:bg-border",
     },
   },
 });
