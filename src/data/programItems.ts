@@ -1,6 +1,6 @@
 const programs = [
   {
-    id: 0,
+    id: "mathsAndApplications",
     category: "Bachelor's",
     name: "Mathematics & Applications",
     description:
@@ -8,7 +8,7 @@ const programs = [
     image: "/src/assets/programImages/math&applCard.jpg",
   },
   {
-    id: 1,
+    id: "computerscience",
     category: "Bachelor's",
     name: "Computer Science, BSc",
     description:
@@ -16,7 +16,7 @@ const programs = [
     image: "/src/assets/programImages/csCard.jpg",
   },
   {
-    id: 2,
+    id: "maths",
     category: "Bachelor's",
     name: "Mathematics, BSc",
     description:
@@ -24,7 +24,7 @@ const programs = [
     image: "/src/assets/programImages/mathCard.jpg",
   },
   {
-    id: 3,
+    id: "fin",
     category: "Bachelor's",
     name: "Management, BSc",
     description:
@@ -32,7 +32,7 @@ const programs = [
     image: "/src/assets/programImages/mnscCard.jpg",
   },
   {
-    id: 4,
+    id: "fin",
     category: "Bachelor's",
     name: "Design",
     description:
@@ -40,7 +40,7 @@ const programs = [
     image: "/src/assets/programImages/designCard.jpg",
   },
   {
-    id: 5,
+    id: "fin",
     category: "Bachelor's",
     name: "Psychology",
     description:
@@ -48,7 +48,7 @@ const programs = [
     image: "/src/assets/programImages/psychCard.jpg",
   },
   {
-    id: 6,
+    id: "law",
     category: "Bachelor's",
     name: "Law",
     description:
@@ -57,7 +57,7 @@ const programs = [
   },
   // Single-Cycle Programs
   {
-    id: 7,
+    id: "medical",
     category: "Single-Cycle",
     name: "Medicine",
     description:
@@ -67,7 +67,7 @@ const programs = [
 
   // Master’s Programs
   {
-    id: 8,
+    id: "intprop",
     category: "Master's",
     name: "Intellectual Property, Innovations and Entrepreneurship",
     description:
@@ -75,7 +75,7 @@ const programs = [
     image: "/src/assets/programImages/intCard.jpg",
   },
   {
-    id: 9,
+    id: "fin",
     category: "Master's",
     name: "Embedded Computing System",
     description:
@@ -83,7 +83,7 @@ const programs = [
     image: "/src/assets/programImages/embadCard.jpg",
   },
   {
-    id: 10,
+    id: "fin",
     category: "Master's",
     name: "Finance and Information Management, MSc",
     description:
@@ -93,3 +93,4 @@ const programs = [
 ];
 
 export default programs;
+

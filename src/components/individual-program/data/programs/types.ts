@@ -26,6 +26,7 @@ export interface Link {
 }
 
 export interface ProgramData {
+  id: string;
   aboutSchool: {
     title: string;
     paragraphs: Paragraph[];

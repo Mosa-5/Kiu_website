@@ -16,8 +16,7 @@ const SingleProgramDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [isOpen, setIsOpen] = useState(false);
 
-  const programId = parseInt(id || "0");
-  const programData = programsData[programId];
+  const programData = programsData[id || ""];
 
   if (!programData) {
     return (

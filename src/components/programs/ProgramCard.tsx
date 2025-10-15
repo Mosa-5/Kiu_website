@@ -8,7 +8,7 @@ import {
 } from "./ProgramCard.styles";
 
 interface ProgramCardProps {
-  id: number;
+  id: number | string;
   name: string;
   description: string;
   image: string;
