@@ -32,6 +32,14 @@ export { default as ProgramsHeroImage } from "./programsHero.jpg";
 export { default as aboutB } from "./aboutB.png";
 export { default as aboutU } from "./aboutT.png";
 export { default as aboutR } from "./aboutR.png";
+export { default as NikaGagua } from "./NikaGagua.jpg";
+export { default as BesikDundua } from "./BesikDundua.png";
+export { default as EvaKnirsch } from "./Eva.png";
+export { default as WalterTichy } from "./walterTychy.png";
+export { default as GiorgiNadareishvili } from "./Nadareishvili.png";
+export { default as IaMosasvhili } from "./Ia_Mosashvili.png";
+export { default as Konstantinos } from "./Konstantinos.png";
+export { default as NinoDemetrashvili } from "./NinoDemetrashvili.jpg";
 export { default as VacanciesHero } from "./Vacancies.jpg";
 
 //program images
