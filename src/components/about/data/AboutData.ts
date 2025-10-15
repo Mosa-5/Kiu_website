@@ -30,7 +30,7 @@ export interface Program {
   url: string;
 }
 
-export interface IntroData {
+export interface aboutData {
   intro: {
     title: string;
     paragraphs: string[];
@@ -74,21 +74,13 @@ export interface IntroData {
   };
 }
 
-
-
-
-
-
-
-
-
-export const introData: IntroData = {
+export const aboutData: aboutData = {
   intro: {
     title: "Intro",
     paragraphs: [
       "The 21st century promises to be an era of unprecedentedly rapid scientific and technological advancements. The world is changing every year, even every day. Knowledge and education serve as a major foundation for this change.",
       "Our ancestors worked hard and fought tough to preserve our beautiful country. Georgia today faces a major challenge of keeping pace with global scientific and technological developments. At the same time we have very talented youth, who need support with adequate conditions to help them put their talent to use for their future progress and success.",
-      "This is the main reason why we have decided to establish a new university in Kutaisi. The university will offer ultramodern infrastructure, will be equipped with state-of-the-art technologies. This will be the new educational complex poised to serve as a flagship in the era of technological advancements."
+      "This is the main reason why we have decided to establish a new university in Kutaisi. The university will offer ultramodern infrastructure, will be equipped with state-of-the-art technologies. This will be the new educational complex poised to serve as a flagship in the era of technological advancements.",
     ],
     signature: {
       name: "Bidzina Ivanishvili",
@@ -96,9 +88,9 @@ export const introData: IntroData = {
       date: "September 18, 2019",
       link: {
         text: "International Charity Foundation Cartu",
-        url: "#"
-      }
-    }
+        url: "#",
+      },
+    },
   },
   president: {
     title: "Honorary President's Welcome Note",
@@ -110,16 +102,16 @@ export const introData: IntroData = {
       "To this end, extensive student and faculty exchange with renowned international universities is considered a key issue of success. The study and research environment is to meet top-level standards to shape the profile of KIU from the very beginning. In fact, KIU faces the unique opportunity of gaining viability where science, engineering and humanities meet. Therefore, a broad portfolio of disciplines will be designed such that they interact with each other. Both basic and applied research should coin KIU´s profile. Economic spin-offs are expected to result from this unifying approach.",
       "Partnered with TUM International Ltd., the organizational frame will be provided upon which the academic contents can come to the fore. It is to be considered great luck that the financial prerequisites are available in Georgia in order to develop a new, dynamic, avant-gardistic university.",
       "KIU is being designed for students who are willing to open their intellectual horizon to the world, gain experience also by joining foreign academic institutions, perform internships in international companies abroad and at home, and develop an entrepreneurial spirit to finally transfer their knowledge into new business.",
-      "Congratulations to the founders of Kutaisi International University, and good luck for the future!"
+      "Congratulations to the founders of Kutaisi International University, and good luck for the future!",
     ],
     signature: {
       name: "Prof. Wolfgang A. Herrmann",
       link: {
         text: "Biography",
-        url: "#"
-      }
+        url: "#",
+      },
     },
-    image: Wolfgang
+    image: Wolfgang,
   },
   advisoryCouncil: {
     title: "International Advisory Council",
@@ -128,80 +120,98 @@ export const introData: IntroData = {
         name: "Professor Dr. Wolfgang A. Herrmann",
         lines: [
           "Emeritus President of the Technical University of Munich, Germany",
-          "Honorary President of the Kutaisi International University"
-        ]
+          "Honorary President of the Kutaisi International University",
+        ],
       },
       {
         name: "Professor Dr. Markus Schwaiger",
         lines: [
           "President of the Bavarian Academy of Sciences and Humanities,",
-          "founding director of TranslaTUM"
-        ]
+          "founding director of TranslaTUM",
+        ],
       },
       {
         name: "Professor Dr. Claus-Christian Carbon",
         lines: [
-          "Director of the Department of General Psychology and Methodology at the Faculty of Humanities and Education of the University of Bamberg"
-        ]
+          "Director of the Department of General Psychology and Methodology at the Faculty of Humanities and Education of the University of Bamberg",
+        ],
       },
       {
         name: "Professor Dr. Werner G. Faix",
         lines: [
           "Founder of the School of International Business and",
-          "Entrepreneurship (SIBE), Steinbeis University Berlin"
-        ]
+          "Entrepreneurship (SIBE), Steinbeis University Berlin",
+        ],
       },
       {
         name: "Professor Dr. Helmut Friess",
         lines: [
-          "Director of the Surgical Clinic and Policlinic at Technical University of Munich's Klinikum rechts der Isar."
-        ]
-      }
-    ]
+          "Director of the Surgical Clinic and Policlinic at Technical University of Munich's Klinikum rechts der Isar.",
+        ],
+      },
+    ],
   },
   team: {
     title: "Team",
     paragraphs: [
       {
         parts: [
-          { text: "KIU's aim is to help reverse brain drain by returning prominent and successful Georgian scholars, academics, and practitioners back to Georgia by offering internationally competitive and intellectually demanding teaching and research positions at the university.", type: "normal" }
-        ]
+          {
+            text: "KIU's aim is to help reverse brain drain by returning prominent and successful Georgian scholars, academics, and practitioners back to Georgia by offering internationally competitive and intellectually demanding teaching and research positions at the university.",
+            type: "normal",
+          },
+        ],
       },
       {
         parts: [
-          { text: "Honorary President of KIU is former Rector of TUM ", type: "normal" },
+          {
+            text: "Honorary President of KIU is former Rector of TUM ",
+            type: "normal",
+          },
           { text: "Prof. Dr. Wolfgang A. Herrmann", type: "link", url: "#" },
           { text: ". Acting Rector of KIU is Professor ", type: "normal" },
           { text: "Paata Turava", type: "link", url: "#" },
-          { text: ". The Chancellor of Kutaisi International University (KIU) is ", type: "normal" },
+          {
+            text: ". The Chancellor of Kutaisi International University (KIU) is ",
+            type: "normal",
+          },
           { text: "Levan Kopaliani", type: "link", url: "#" },
-          { text: ".", type: "normal" }
-        ]
+          { text: ".", type: "normal" },
+        ],
       },
       {
         parts: [
-          { text: "KIU offers a unique learning experience and environment to students by offering face to face and online teaching experiences. Faculty members and instructors, both Georgian and international, are experienced and well established scholars and professors in their respective field. KIU's language of instruction is English and language of operation is both Georgian and English.", type: "normal" }
-        ]
+          {
+            text: "KIU offers a unique learning experience and environment to students by offering face to face and online teaching experiences. Faculty members and instructors, both Georgian and international, are experienced and well established scholars and professors in their respective field. KIU's language of instruction is English and language of operation is both Georgian and English.",
+            type: "normal",
+          },
+        ],
       },
       {
         parts: [
-          { text: "KIU has highly qualified international academic personnel working in the Schools of ", type: "normal" },
-          { text: "Mathematics", type: "blue" },
+          {
+            text: "KIU has highly qualified international academic personnel working in the Schools of ",
+            type: "normal",
+          },
+          { text: "Mathematics", type: "link", url: "#" },
           { text: ", ", type: "normal" },
-          { text: "Computer Science", type: "blue" },
+          { text: "Computer Science", type: "link", url: "#" },
           { text: " and ", type: "normal" },
-          { text: "Management", type: "blue" },
-          { text: ".", type: "normal" }
-        ]
+          { text: "Management", type: "link", url: "#" },
+          { text: ".", type: "normal" },
+        ],
       },
       {
         parts: [
-          { text: "For the full list of academic personnel, please visit ", type: "normal" },
+          {
+            text: "For the full list of academic personnel, please visit ",
+            type: "normal",
+          },
           { text: "HERE", type: "link", url: "#" },
-          { text: ".", type: "normal" }
-        ]
-      }
-    ]
+          { text: ".", type: "normal" },
+        ],
+      },
+    ],
   },
   academicPrograms: {
     title: "Academic Programs",
@@ -209,23 +219,38 @@ export const introData: IntroData = {
       "The Kutaisi International University opened its doors to students in 2020-2021 academic year with three undergraduate programs delivered exclusively in English and developed in partnership with leading international institutions. Initially established in collaboration with the Technical University of Munich (TUM) and TUM International, KIU has since expanded its academic network to include the University of Naples Federico II and the University of Bamberg. These partnerships support the implementation of dual and double degree programs in line with international standards.",
       "The programs are delivered by both Georgian and international faculty. The programs have been vetted by an International Advisory Board consisting of prominent and leading scholars and professors from different countries of the world.",
       "KIU students benefit from a unique experience of studying and living in a comfortable, safe, well equipped campus with dormitories and all necessary amenities.",
-      "KIU continues admission of students in the following undergraduate programs:"
+      "KIU continues admission of students in the following undergraduate programs:",
     ],
     undergraduatePrograms: [
       { text: "Bachelor of Science (BSc) in Computer Science", url: "#" },
       { text: "Bachelor of Science (BSc) in Mathematics", url: "#" },
       { text: "Bachelor of Science (BSc) in Management", url: "#" },
-      { text: "Bachelor of Science program in Mathematics & Applications: Foundations of Artificial Intelligence, Scientific Computing, and Financial Mathematicsand", url: "#" },
-      { text: "Bachelor of Science in Design (Double Diploma with University of Naples Federico II)", url: "#" },
-      { text: "Bachelor of Science in Psychology (Joint Program with University of Bamberg)", url: "#" },
+      {
+        text: "Bachelor of Science program in Mathematics & Applications: Foundations of Artificial Intelligence, Scientific Computing, and Financial Mathematicsand",
+        url: "#",
+      },
+      {
+        text: "Bachelor of Science in Design (Double Diploma with University of Naples Federico II)",
+        url: "#",
+      },
+      {
+        text: "Bachelor of Science in Psychology (Joint Program with University of Bamberg)",
+        url: "#",
+      },
       { text: "Bachelor of Science in Law", url: "#" },
-      { text: "Medical Doctor Program (Double Diploma with University of Naples Federico II)", url: "#" }
+      {
+        text: "Medical Doctor Program (Double Diploma with University of Naples Federico II)",
+        url: "#",
+      },
     ],
     masterText: "Master of Science degree programs",
     masterPrograms: [
       { text: "Finance and Information Management,", url: "#" },
-      { text: "Intellectual Property, Innovations and Entrepreneurship", url: "#" },
-      { text: "Embedded Computing Systems (ECSY)", url: "#" }
+      {
+        text: "Intellectual Property, Innovations and Entrepreneurship",
+        url: "#",
+      },
+      { text: "Embedded Computing Systems (ECSY)", url: "#" },
     ],
     futureText: "From the next stage KIU plans to add following disciplines:",
     futureDisciplines: [
@@ -236,12 +261,13 @@ export const introData: IntroData = {
       "Electrical Engineering",
       "Energy Engineering",
       "Education",
-      "Arts and Humanities"
+      "Arts and Humanities",
     ],
-    closingText: "KIU is working with various international universities and accreditation agencies to offer internationally accredited and/or world standard programs.",
+    closingText:
+      "KIU is working with various international universities and accreditation agencies to offer internationally accredited and/or world standard programs.",
     calendarLink: {
       text: "Academic Calendar",
-      url: "/path/to/academic-calendar.pdf"
-    }
-  }
+      url: "/path/to/academic-calendar.pdf",
+    },
+  },
 };
