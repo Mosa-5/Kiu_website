@@ -1,3 +1,15 @@
+import mathAndApplCard from "@/assets/programImages/math&applCard.jpg";
+import csCard from "@/assets/programImages/csCard.jpg";
+import mathCard from "@/assets/programImages/mathCard.jpg";
+import mnscCard from "@/assets/programImages/mnscCard.jpg";
+import designCard from "@/assets/programImages/designCard.jpg";
+import psychCard from "@/assets/programImages/psychCard.jpg";
+import lawCard from "@/assets/programImages/lawCard.jpg";
+import medCard from "@/assets/programImages/medCard.jpg";
+import intCard from "@/assets/programImages/intCard.jpg";
+import embadCard from "@/assets/programImages/embadCard.jpg";
+import financeCard from "@/assets/programImages/financeCard.jpg";
+
 const programs = [
   {
     id: 0,
@@ -5,7 +17,7 @@ const programs = [
     name: "Mathematics & Applications",
     description:
       "Foundations of Artificial Intelligence, Scientific Computing, and Financial Mathematics",
-    image: "/src/assets/programImages/math&applCard.jpg",
+    image: mathAndApplCard,
   },
   {
     id: 1,
@@ -13,7 +25,7 @@ const programs = [
     name: "Computer Science, BSc",
     description:
       "Software Development, Data Structures & Algorithms, and Cybersecurity",
-    image: "/src/assets/programImages/csCard.jpg",
+    image: csCard,
   },
   {
     id: 2,
@@ -21,7 +33,7 @@ const programs = [
     name: "Mathematics, BSc",
     description:
       "Pure Mathematics, Applied Statistics, and Mathematical Modeling",
-    image: "/src/assets/programImages/mathCard.jpg",
+    image: mathCard,
   },
   {
     id: 3,
@@ -29,7 +41,7 @@ const programs = [
     name: "Management, BSc",
     description:
       "Organizational Behavior, Strategic Management, and Project Leadership",
-    image: "/src/assets/programImages/mnscCard.jpg",
+    image: mnscCard,
   },
   {
     id: 4,
@@ -37,7 +49,7 @@ const programs = [
     name: "Design",
     description:
       "Graphic Design, UX/UI Principles, and Creative Project Development",
-    image: "/src/assets/programImages/designCard.jpg",
+    image: designCard,
   },
   {
     id: 5,
@@ -45,7 +57,7 @@ const programs = [
     name: "Psychology",
     description:
       "Cognitive Psychology, Behavioral Research, and Mental Health Studies",
-    image: "/src/assets/programImages/psychCard.jpg",
+    image: psychCard,
   },
   {
     id: 6,
@@ -53,7 +65,7 @@ const programs = [
     name: "Law",
     description:
       "Constitutional Law, International Law, and Legal Practice Fundamentals",
-    image: "/src/assets/programImages/lawCard.jpg",
+    image: lawCard,
   },
   // Single-Cycle Programs
   {
@@ -62,9 +74,8 @@ const programs = [
     name: "Medicine",
     description:
       "Foundations of Clinical Practice, Medical Research, and Patient Care",
-    image: "/src/assets/programImages/medCard.jpg",
+    image: medCard,
   },
-
   // Master’s Programs
   {
     id: 8,
@@ -72,7 +83,7 @@ const programs = [
     name: "Intellectual Property, Innovations and Entrepreneurship",
     description:
       "Innovation Management, Intellectual Property Law, and Entrepreneurial Strategy",
-    image: "/src/assets/programImages/intCard.jpg",
+    image: intCard,
   },
   {
     id: 9,
@@ -80,7 +91,7 @@ const programs = [
     name: "Embedded Computing System",
     description:
       "Advanced Microcontrollers, IoT Design, and Real-Time Systems Engineering",
-    image: "/src/assets/programImages/embadCard.jpg",
+    image: embadCard,
   },
   {
     id: 10,
@@ -88,7 +99,7 @@ const programs = [
     name: "Finance and Information Management, MSc",
     description:
       "Financial Analytics, Information Systems, and Strategic Risk Management",
-    image: "/src/assets/programImages/financeCard.jpg",
+    image: financeCard,
   },
 ];
 
