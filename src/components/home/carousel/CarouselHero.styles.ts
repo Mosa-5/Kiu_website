@@ -15,12 +15,12 @@ export const dotContainer = cva(
 );
 
 export const carouselDot = cva(
-  "h-3 w-3 rounded-full border-2 cursor-pointer duration-200",
+  "h-3 w-3 rounded-full border-2 pointer-events-none duration-200",
   {
     variants: {
       active: {
         true: "bg-main border-main",
-        false: "hover:bg-white",
+        // false: "hover:bg-white",
       },
     },
   }
