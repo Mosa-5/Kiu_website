@@ -1,159 +1,78 @@
 import React from "react";
-import { AboutIcon } from "../../assets/icons/icons";
-import { AdmissionData } from "./data/AdmissionData";
+import { AboutIcon } from "@/assets/icons/icons";
+import { useAdmissionTranslations } from "./admissionHelper/translations";
+import { RenderParagraphs, ProgramGrid } from "./admissionHelper/components";
+
 
 const AdmissionDetail: React.FC = () => {
+  const {
+    t,
+    getTranslatedArray,
+    getTranslatedParagraphs,
+    getTranslatedLinks,
+  } = useAdmissionTranslations();
+
   return (
     <div className="max-w-[1680px] mx-auto font-sans">
-      {/* Intro Section */}
-      <section id="intro" className="mb-12">
+      {/* Header */}
+      <section className="mb-12">
         <div className="bg-[#E3F0FF] inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
           <h1 className="text-3xl font-medium text-mainDark">
-            {AdmissionData.intro.title}
+            {t("intro.title")}
           </h1>
           <span className="text-mainDark">{AboutIcon}</span>
         </div>
-
-        <h2 className="text-2xl font-semibold text-main mb-6">
-          {AdmissionData.intro.subtitle}
+        <h2 className="text-xl font-semibold text-main mb-6">
+          {t("intro.subtitle")}
         </h2>
-
-        {AdmissionData.intro.paragraphs.map((paragraph, i) => (
-          <p key={i} className="mb-6 text-lg">
-            {paragraph.parts.map((part, j) => {
-              if (part.type === "link") {
-                return (
-                  <a
-                    key={j}
-                    href={part.url}
-                    className="text-link underline underline-offset-2 hover:text-linkDark font-medium"
-                  >
-                    {part.text}
-                  </a>
-                );
-              }
-              return <span key={j}>{part.text}</span>;
-            })}
-          </p>
-        ))}
-
-        <p className="mb-6 text-lg">
-          {AdmissionData.intro.programsIntro}
-        </p>
-
-        {/* Undergraduate Programs */}
-        <div className="mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-            {AdmissionData.intro.undergraduatePrograms.map(
-              (program, i) => (
-                <div
-                  key={i}
-                  className="px-4 py-3 bg-[#1a1a4d] rounded-md text-center font-medium text-white shadow-md min-h-[60px] flex items-center justify-center"
-                >
-                  {program}
-                </div>
-              )
-            )}
-          </div>
-        </div>
-
-        {/* Master Programs */}
-        <p className="mb-4 text-lg">
-          {AdmissionData.intro.masterText}
-        </p>
-
-        <div className="mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-            {AdmissionData.intro.masterPrograms.map((program, i) => (
-              <div
-                key={i}
-                className="px-4 py-3 bg-[#1a1a4d] rounded-md text-center font-medium text-white shadow-md min-h-[60px] flex items-center justify-center"
-              >
-                {program}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Doctoral Programs */}
-        <p className="mb-4 text-lg">
-          {AdmissionData.intro.doctoralText}
-        </p>
-
-        <div className="mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-            {AdmissionData.intro.doctoralPrograms.map(
-              (program, i) => (
-                <div
-                  key={i}
-                  className="px-4 py-3 bg-[#1a1a4d] rounded-md text-center font-medium text-white shadow-md min-h-[60px] flex items-center justify-center"
-                >
-                  {program}
-                </div>
-              )
-            )}
-          </div>
-        </div>
-
-        {/* Closing paragraphs */}
-        {AdmissionData.intro.closingParagraphs.map((paragraph, i) => (
-          <p key={i} className="mb-6 text-lg">
-            {paragraph.parts.map((part, j) => {
-              if (part.type === "link") {
-                return (
-                  <a
-                    key={j}
-                    href={part.url}
-                    className="text-link underline underline-offset-2 hover:text-linkDark font-medium"
-                  >
-                    {part.text}
-                  </a>
-                );
-              }
-              return <span key={j}>{part.text}</span>;
-            })}
-          </p>
-        ))}
       </section>
 
-      {/* Campus Section */}
+      {/* Intro */}
+      <section className="mb-12">
+        <RenderParagraphs paragraphs={getTranslatedParagraphs("intro.paragraphs")} />
+        <p className="mb-6 text-lg">{t("intro.programsIntro")}</p>
+      </section>
+
+      {/* Programs */}
+      <section className="mb-12">
+        <ProgramGrid programs={getTranslatedArray("intro.undergraduatePrograms")} />
+      </section>
+
+      <section className="mb-12">
+        <ProgramGrid
+          programs={getTranslatedArray("intro.masterPrograms")}
+          title={t("intro.masterText")}
+        />
+      </section>
+
+      <section className="mb-12">
+        <ProgramGrid
+          programs={getTranslatedArray("intro.doctoralPrograms")}
+          title={t("intro.doctoralText")}
+        />
+      </section>
+
+      {/* Closing */}
+      <section className="mb-12">
+        <RenderParagraphs paragraphs={getTranslatedParagraphs("intro.closingParagraphs")} />
+      </section>
+
+      {/* Campus */}
       <section id="campus" className="mb-12">
         <h2 className="text-2xl font-semibold text-main mb-6">
-          {AdmissionData.campus.title}
+          {t("campus.title")}
         </h2>
-
-        {AdmissionData.campus.paragraphs.map((paragraph, i) => (
-          <p key={i} className="mb-6 text-lg">
-            {paragraph.parts.map((part, j) => {
-              if (part.type === "link") {
-                return (
-                  <a
-                    key={j}
-                    href={part.url}
-                    className="text-link underline underline-offset-2 hover:text-linkDark font-medium"
-                  >
-                    {part.text}
-                  </a>
-                );
-              }
-              return <span key={j}>{part.text}</span>;
-            })}
-          </p>
-        ))}
+        <RenderParagraphs paragraphs={getTranslatedParagraphs("campus.paragraphs")} />
       </section>
 
-      {/* How to Apply Section */}
+      {/* Apply */}
       <section id="apply" className="mb-12">
         <h2 className="text-2xl font-semibold text-main mb-6">
-          {AdmissionData.apply.title}
+          {t("apply.title")}
         </h2>
-
-        <p className="mb-4 text-lg">
-          {AdmissionData.apply.introText}
-        </p>
-
+        <p className="mb-4 text-lg">{t("apply.introText")}</p>
         <ul className="list-none space-y-2">
-          {AdmissionData.apply.links.map((link, i) => (
+          {getTranslatedLinks("apply.links").map((link, i) => (
             <li key={i}>
               <a
                 href={link.url}
@@ -166,30 +85,12 @@ const AdmissionDetail: React.FC = () => {
         </ul>
       </section>
 
-      {/* Admissions Timeline Section */}
+      {/* Timeline */}
       <section id="timeline" className="mb-12">
         <h2 className="text-2xl font-semibold text-main mb-6">
-          {AdmissionData.timeline.title}
+          {t("timeline.title")}
         </h2>
-
-        {AdmissionData.timeline.paragraphs.map((paragraph, i) => (
-          <p key={i} className="mb-4 text-lg">
-            {paragraph.parts.map((part, j) => {
-              if (part.type === "link") {
-                return (
-                  <a
-                    key={j}
-                    href={part.url}
-                    className="text-link underline underline-offset-2 hover:text-linkDark font-medium"
-                  >
-                    {part.text}
-                  </a>
-                );
-              }
-              return <span key={j}>{part.text}</span>;
-            })}
-          </p>
-        ))}
+        <RenderParagraphs paragraphs={getTranslatedParagraphs("timeline.paragraphs")} />
       </section>
     </div>
   );

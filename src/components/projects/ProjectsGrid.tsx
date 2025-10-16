@@ -1,32 +1,23 @@
 import { ProjectsImage1, ProjectsImage2 } from "@/assets";
 import { Link } from "react-router-dom";
+import { useProjectsTranslations } from "./hooks/useProjectsTranslations";
 
 const ProjectsGrid = () => {
-  const projects = [
-    {
-      id: 1,
-      title: "Advancing the Frontiers",
-      image: ProjectsImage1,
-      path: "/projects/frontiers",
-    },
-    {
-      id: 2,
-      title: "Youth University",
-      image: ProjectsImage2,
-      path: "/projects/youthuni",
-    },
-  ];
+  const { getProjects } = useProjectsTranslations();
+  const projectsData = getProjects();
+
+  const projectImages = [ProjectsImage1, ProjectsImage2];
 
   return (
     <div className="flex gap-6 px-[120px]">
-      {projects.map((project) => (
+      {projectsData.map((project, index) => (
         <Link
           key={project.id}
           to={project.path}
           className="relative hover:-translate-y-1 duration-200 aspect-[550/260] h-65 rounded-2xl overflow-hidden group cursor-pointer shadow-[2px_4px_4px_rgba(0,0,0,0.25)] border-2 border-[#3C70AF]"
         >
           <img
-            src={project.image}
+            src={projectImages[index]}
             alt={project.title}
             className="w-full h-full object-cover"
           />

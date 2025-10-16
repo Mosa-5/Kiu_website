@@ -6,16 +6,28 @@ import {
   SelectValue,
 } from "../ui/select";
 import { flagUS, flagGeo, globeIcon } from "@/assets";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { trigger, content, item } from "./LanguageSelect.styles";
 
 const LanguageSelect = () => {
-  const [selectedValue, setSelectedValue] = useState<string>();
+  const { i18n } = useTranslation();
+  const [selectedValue, setSelectedValue] = useState<string>(i18n.language || "en");
+
+  useEffect(() => {
+    // Sync with current i18n language on mount
+    setSelectedValue(i18n.language);
+  }, [i18n.language]);
+
+  const handleLanguageChange = (value: string) => {
+    setSelectedValue(value);
+    i18n.changeLanguage(value);
+  };
 
   return (
     <Select
-      defaultValue="eng"
-      onValueChange={(value) => setSelectedValue(value)}
+      value={selectedValue}
+      onValueChange={handleLanguageChange}
     >
       <SelectTrigger className={trigger()}>
         <img src={globeIcon} alt="globe icon" />
@@ -27,7 +39,7 @@ const LanguageSelect = () => {
           <img src={flagGeo} alt="georgia flag" />
           GEO
         </SelectItem>
-        <SelectItem className={item()} value="eng">
+        <SelectItem className={item()} value="en">
           <img src={flagUS} alt="usa flag" />
           ENG
         </SelectItem>

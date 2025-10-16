@@ -1,13 +1,16 @@
 import HeroSection from "@/components/ui/hero-section";
 import { ProjectsHeroImage } from "@/assets";
+import { useProjectsTranslations } from "./hooks/useProjectsTranslations";
 
 const SingleProjectHero = () => {
+  const { t } = useProjectsTranslations();
+
   return (
     <HeroSection
-      titleText="Projects"
+      titleText={t("hero.title")}
       imageSrc={ProjectsHeroImage}
       buttonLink="/"
-      buttonLabel="Home Page"
+      buttonLabel={t("hero.buttonLabel")}
     />
   );
 };

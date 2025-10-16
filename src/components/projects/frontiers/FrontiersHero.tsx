@@ -1,13 +1,16 @@
 import HeroSection from "@/components/ui/hero-section";
 import { FrontiersHero } from "@/assets";
+import { useFrontiersTranslations } from "./hooks/useFrontiersTranslations";
 
 const AdvancingFrontiersHero = () => {
+  const { t } = useFrontiersTranslations();
+
   return (
     <HeroSection
-      titleText="Advancing the Frontiers"
+      titleText={t("hero.title")}
       imageSrc={FrontiersHero}
       buttonLink="/projects"
-      buttonLabel="Projects"
+      buttonLabel={t("hero.buttonLabel")}
     />
   );
 };

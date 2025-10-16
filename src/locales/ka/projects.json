@@ -1,0 +1,20 @@
+{
+  "hero": {
+    "title": "პროექტები",
+    "buttonLabel": "მთავარი გვერდი"
+  },
+  "grid": {
+    "projects": [
+      {
+        "id": 1,
+        "title": "საზღვრების გადალახვა",
+        "path": "/projects/frontiers"
+      },
+      {
+        "id": 2,
+        "title": "ახალგაზრდული უნივერსიტეტი",
+        "path": "/projects/youthuni"
+      }
+    ]
+  }
+}
