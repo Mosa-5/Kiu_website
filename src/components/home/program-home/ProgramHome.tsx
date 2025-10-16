@@ -1,19 +1,46 @@
 import { bechalor, masters, doctoral, singleCycle } from "@/assets";
+import { useNavigate } from "react-router-dom";
+import {
+  containerVariants,
+  wrapperVariants,
+  headerSectionVariants,
+  titleVariants,
+  gridVariants,
+  programImageVariants,
+} from "./ProgramHome.styles";
 
 const ProgramHome = () => {
+  const navigate = useNavigate();
+
+  const programs = [
+    { img: bechalor, label: "Bachelor's", category: "Bachelor" },
+    { img: singleCycle, label: "Single-Cycle", category: "Single-Cycle" },
+    { img: masters, label: "Master's", category: "Master" },
+    { img: doctoral, label: "Doctoral", category: "Doctoral" },
+  ];
+
+  const handleProgramClick = (category: string) => {
+    // Navigate to programs page with tab parameter
+    navigate(`/programs?tab=${encodeURIComponent(category)}`);
+  };
+
   return (
-    <div className="flex items-center justify-center">
-      <div className="max-w-[1680px] w-full relative">
-        <div className="w-full mb-10">
-          <h2 className="text-[40px] text-main font-semibold w-fit rounded-xl py-1 px-5">
-            Programs
-          </h2>
+    <div className={containerVariants()}>
+      <div className={wrapperVariants()}>
+        <div className={headerSectionVariants()}>
+          <h2 className={titleVariants()}>Programs</h2>
         </div>
-        <div className="grid grid-cols-2 gap-6 *:rounded-[8px] *:hover:cursor-pointer *:hover:-translate-y-1 transition-all *:duration-200">
-          <img src={bechalor} alt="bechalor" />
-          <img src={masters} alt="master's" />
-          <img src={singleCycle} alt="single-cycle" />
-          <img src={doctoral} alt="doctoral" />
+
+        <div className={gridVariants()}>
+          {programs.map((program) => (
+            <img
+              key={program.category}
+              onClick={() => handleProgramClick(program.category)}
+              src={program.img}
+              alt={program.label}
+              className={programImageVariants()}
+            />
+          ))}
         </div>
       </div>
     </div>

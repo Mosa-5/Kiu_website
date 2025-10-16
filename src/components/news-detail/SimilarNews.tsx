@@ -1,7 +1,7 @@
 import React from "react";
 import newsItems from "@/data/newsItems";
 import { kiuCardImg } from "@/assets";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import {
   container,
   innerWrapper,
@@ -29,20 +29,19 @@ import {
 import { Card, CardContent } from "../ui/card";
 
 type NewsItem = {
-  id: number;
+  id: string;
   date: string;
   title: string;
 };
 
-function getRandomNews(data: NewsItem[], count: number): NewsItem[] {
+const getRandomNews = (data: NewsItem[], count: number): NewsItem[] => {
   return [...data].sort(() => 0.5 - Math.random()).slice(0, count);
-}
+};
 
 const SimilarNews: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const currentId = Number(id);
 
-  const filteredNews = newsItems.filter((item) => item.id !== currentId);
+  const filteredNews = newsItems.filter((item) => item.id !== id);
   const randomNews = getRandomNews(filteredNews, 10);
 
   return (
@@ -59,18 +58,24 @@ const SimilarNews: React.FC = () => {
           <CarouselContent className={carouselContent()}>
             {randomNews.map((item) => (
               <CarouselItem key={item.id} className={carouselItem()}>
-                <Card className={card()}>
-                  <CardContent className={cardContent()}>
-                    <div className={hoverBar()} />
-                    <div className={imageWrapper()}>
-                      <img src={kiuCardImg} alt="newsImg" className={image()} />
-                    </div>
-                    <div className={contentSection()}>
-                      <p className={date()}>{item.date}</p>
-                      <h3 className={title()}>{item.title}</h3>
-                    </div>
-                  </CardContent>
-                </Card>
+                <Link to={`/news/${item.id}`}>
+                  <Card className={card()}>
+                    <CardContent className={cardContent()}>
+                      <div className={hoverBar()} />
+                      <div className={imageWrapper()}>
+                        <img
+                          src={kiuCardImg}
+                          alt="newsImg"
+                          className={image()}
+                        />
+                      </div>
+                      <div className={contentSection()}>
+                        <p className={date()}>{item.date}</p>
+                        <h3 className={title()}>{item.title}</h3>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
               </CarouselItem>
             ))}
           </CarouselContent>

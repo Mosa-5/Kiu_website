@@ -27,6 +27,8 @@ import {
   newsTitle,
   carouselButton,
 } from "./News.styles";
+import { Link } from "react-router-dom";
+import newsItems from "@/data/newsItems";
 
 const NewsSection = () => {
   return (
@@ -34,9 +36,11 @@ const NewsSection = () => {
       <div className={innerWrapper()}>
         <div className={headerSection()}>
           <h1 className={title()}>News</h1>
-          <Button className={seeAllButton()} variant={"secondary"}>
-            See All
-          </Button>
+          <Link to="/news">
+            <Button className={seeAllButton()} variant={"secondary"}>
+              See All
+            </Button>
+          </Link>
         </div>
         <Carousel
           className={carousel()}
@@ -46,22 +50,26 @@ const NewsSection = () => {
           }}
         >
           <CarouselContent className={carouselContent()}>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index} className={carouselItem()}>
-                <Card className={card()}>
-                  <CardContent className={cardContent()}>
-                    <div className={hoverBar()} />
-                    <div className={imageWrapper()}>
-                      <img src={kiuCardImg} alt="newsImg" className={image()} />
-                    </div>
-                    <div className={contentSection()}>
-                      <p className={date()}>Sep 15, 2025</p>
-                      <h3 className={newsTitle()}>
-                        Academic Registration for Fall 2025-2026 Now Open
-                      </h3>
-                    </div>
-                  </CardContent>
-                </Card>
+            {newsItems.slice(0, 5).map((item) => (
+              <CarouselItem key={item.id} className={carouselItem()}>
+                <Link to={`/news/${item.id}`}>
+                  <Card className={card()}>
+                    <CardContent className={cardContent()}>
+                      <div className={hoverBar()} />
+                      <div className={imageWrapper()}>
+                        <img
+                          src={kiuCardImg}
+                          alt="newsImg"
+                          className={image()}
+                        />
+                      </div>
+                      <div className={contentSection()}>
+                        <p className={date()}>{item.date}</p>
+                        <h3 className={newsTitle()}>{item.title}</h3>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
               </CarouselItem>
             ))}
           </CarouselContent>
