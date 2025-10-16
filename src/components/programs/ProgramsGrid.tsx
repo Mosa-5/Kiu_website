@@ -6,6 +6,18 @@ interface NewsGridProps {
 }
 
 const ProgramsGrid = ({ items }: NewsGridProps) => {
+  if (items.length === 0) {
+    return (
+      <div className={container()}>
+        <div className="flex items-center justify-center py-12">
+          <p className="text-xl text-gray-600 font-medium">
+            No programs available
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={container()}>
       <div className={grid()}>

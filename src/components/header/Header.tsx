@@ -23,7 +23,7 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { label: "About KIU", path: "/about" },
+    { label: "About KIU", path: "/about-us" },
     { label: "Programs", path: "/programs" },
     { label: "Research", path: "/" },
     { label: "Projects", path: "/projects" },
@@ -37,7 +37,9 @@ const Header = () => {
   return (
     <div className={header({ scrolled })}>
       <div className={innerContainer()}>
-        <Link to="/"><img className={logo()} src={kiuLogo} alt="Kiu logo" /></Link>
+        <Link to="/">
+          <img className={logo()} src={kiuLogo} alt="Kiu logo" />
+        </Link>
         <nav className={nav()}>
           {navLinks.map((link) => (
             <NavLink className={navLinkBase()} key={link.label} to={link.path}>

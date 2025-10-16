@@ -10,8 +10,15 @@ import {
   textContent,
   readMoreButton,
 } from "./Campus.styles";
+import { useNavigate } from "react-router-dom";
 
 const Campus = () => {
+  const nav = useNavigate();
+
+  const navigate = () => {
+    return nav("campus");
+  };
+
   return (
     <div className={container()}>
       <div className={headerSection()}>
@@ -56,7 +63,9 @@ const Campus = () => {
               supports growth, creativity, and collaboration.
             </p>
           </div>
-          <Button className={readMoreButton()}>Read More</Button>
+          <Button onClick={navigate} className={readMoreButton()}>
+            Read More
+          </Button>
         </div>
         <CarouselWithPagination />
       </div>

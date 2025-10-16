@@ -13,7 +13,7 @@ import {
 } from "./NewsCard.styles";
 
 interface NewsCardProps {
-  id: number;
+  id: string;
   date: string;
   title: string;
   description: string;

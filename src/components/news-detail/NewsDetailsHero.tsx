@@ -15,7 +15,7 @@ import {
 
 const NewsDetailsHero = () => {
   const { id } = useParams<{ id: string }>();
-  const item = newsItems[Number(id)];
+  const item = newsItems.find((news) => news.id === id);
 
   if (!item) {
     return <p className={notFound()}>News not found</p>;
