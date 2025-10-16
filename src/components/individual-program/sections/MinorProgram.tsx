@@ -11,15 +11,15 @@ const MinorProgramSection: React.FC<Props> = ({ programData }) => {
 
   return (
     <section id="minor-program" className="mb-12 scroll-mt-8">
-      <div className="bg-[#E3F0FF] inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-        <h2 className="text-3xl font-medium text-[#1B3D6E]">{data.title}</h2>
-        <span className="text-[#1B3D6E]">{MinorIcon}</span>
+      <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
+        <h2 className="text-3xl font-medium text-mainDark">{data.title}</h2>
+        <span className="text-mainDark">{MinorIcon}</span>
       </div>
 
       <h3 className="text-xl font-medium text-main mb-4">
         <a
           href={data.subtitle[0].url}
-          className="text-main hover:underline"
+          className="text-link hover:text-linkDark underline-offset-2 underline"
           target="_blank"
           rel="noopener noreferrer"
         >

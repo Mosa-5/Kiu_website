@@ -11,9 +11,11 @@ const AboutSchoolSection: React.FC<Props> = ({ programData }) => {
 
   return (
     <section id="about-school" className="mb-12">
-      <div className="bg-[#E3F0FF] inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-        <h1 className="text-3xl font-medium text-[#1B3D6E]">{aboutSchool.title}</h1>
-        <span className="text-[#1B3D6E]">{SchoolIcon}</span>
+      <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
+        <h1 className="text-3xl font-medium text-mainDark">
+          {aboutSchool.title}
+        </h1>
+        <span className="text-mainDark">{SchoolIcon}</span>
       </div>
 
       {aboutSchool.paragraphs.map((paragraph, i) => (
@@ -21,13 +23,17 @@ const AboutSchoolSection: React.FC<Props> = ({ programData }) => {
           {paragraph.parts.map((part, j) => {
             if (part.type === "link")
               return (
-                <a key={j} href={part.url} className="text-blue-400 hover:underline font-medium">
+                <a
+                  key={j}
+                  href={part.url}
+                  className="text-link hover:text-linkDark underline-offset-2 underline font-medium"
+                >
                   {part.text}
                 </a>
               );
             if (part.type === "blue")
               return (
-                <span key={j} className="text-[#1B3D6E] font-medium">
+                <span key={j} className="text-mainDark font-medium">
                   {part.text}
                 </span>
               );

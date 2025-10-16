@@ -19,7 +19,7 @@ const FrontiersDetail: React.FC = () => {
       <img src={FrontiersConf} className="brightness-75 py-10" />
       
       {/* About */}
-      <div className="bg-[#E3F0FF] inline-flex items-center gap-4 px-4 py-2 rounded mb-6">
+      <div className="bg-headingBg inline-flex items-center gap-4 px-4 py-2 rounded mb-6">
         <h1 className="text-3xl font-medium text-mainDark">
           {t("about.title")}
         </h1>
@@ -130,7 +130,7 @@ const FrontiersDetail: React.FC = () => {
       </ul>
 
       {/* Speakers */}
-      <div className="bg-[#E3F0FF] inline-flex items-center gap-4 px-4 py-2 rounded mb-6">
+      <div className="bg-headingBg inline-flex items-center gap-4 px-4 py-2 rounded mb-6">
         <h2 className="text-3xl font-medium text-mainDark">
           {t("speakers.title")}
         </h2>

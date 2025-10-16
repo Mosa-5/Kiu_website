@@ -46,7 +46,7 @@ const AboutDetail: React.FC = () => {
       <div className="max-w-[1680px] mx-auto font-sans">
         {/* Intro Section */}
         <section id="intro" className="mb-12">
-          <div className="bg-[#E3F0FF] inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
+          <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
             <h1 className="text-3xl font-medium text-mainDark">
               {aboutData.intro.title}
             </h1>
@@ -80,7 +80,7 @@ const AboutDetail: React.FC = () => {
 
         {/* Honorary President's Welcome Note Section */}
         <section id="president" className="mb-12 scroll-mt-8">
-          <div className="bg-[#E3F0FF] inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
+          <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
             <h2 className="text-3xl font-medium text-mainDark">
               {aboutData.president.title}
             </h2>
@@ -99,7 +99,7 @@ const AboutDetail: React.FC = () => {
             <img
               src={aboutData.president.image}
               alt="Prof. Dr. Wolfgang A. Herrmann"
-              className="w-full rounded-lg shadow-lg"
+              className="w-full rounded-lg shadow-lg border-2 border-main"
             />
           </div>
 
@@ -124,7 +124,7 @@ const AboutDetail: React.FC = () => {
 
         {/* International Advisory Council Section */}
         <section id="advisory" className="mb-12 scroll-mt-8">
-          <div className="bg-[#E3F0FF] inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
+          <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
             <h2 className="text-3xl font-medium text-mainDark">
               {aboutData.advisoryCouncil.title}
             </h2>
@@ -149,7 +149,7 @@ const AboutDetail: React.FC = () => {
 
         {/* Team Section */}
         <section id="team" className="mb-12 scroll-mt-8">
-          <div className="bg-[#E3F0FF] inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
+          <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
             <h2 className="text-3xl font-medium text-mainDark">
               {aboutData.team.title}
             </h2>
@@ -188,7 +188,7 @@ const AboutDetail: React.FC = () => {
 
         {/* Academic Programs Section */}
         <section id="programs" className="mb-12 scroll-mt-8">
-          <div className="bg-[#E3F0FF] inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
+          <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
             <h2 className="text-3xl font-medium text-mainDark">
               {aboutData.academicPrograms.title}
             </h2>
