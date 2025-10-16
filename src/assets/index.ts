@@ -35,7 +35,7 @@ export { default as aboutR } from "./aboutR.png";
 export { default as NikaGagua } from "./NikaGagua.jpg";
 export { default as BesikDundua } from "./BesikDundua.png";
 export { default as EvaKnirsch } from "./Eva.png";
-export { default as WalterTichy } from "./walterTychy.png";
+export { default as WalterTichy } from "./WalterTychy.png";
 export { default as GiorgiNadareishvili } from "./Nadareishvili.png";
 export { default as IaMosasvhili } from "./Ia_Mosashvili.png";
 export { default as Konstantinos } from "./Konstantinos.png";
