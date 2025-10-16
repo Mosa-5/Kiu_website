@@ -10,6 +10,7 @@ import Frontiers from "./pages/Frontiers";
 import About from "./pages/About";
 import Programs from "./pages/Programs";
 import Vacancies from "./pages/Vacancies";
+import Admission from "./pages/Admission";
 // import './App.css'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/about-us" element={<About />} />
         <Route path="/programs" element={<Programs />} />
         <Route path="/vacancies" element={<Vacancies />} />
+        <Route path="/admission" element={<Admission />} />
         <Route index element={<Home />} />
       </Route>
     </Routes>
