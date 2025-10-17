@@ -33,6 +33,7 @@ import {
   loadingContainer,
   loadingSpinner,
   videoIframe,
+  counter,
 } from "./Gallery.styles";
 
 const Gallery = () => {
@@ -108,8 +109,8 @@ const Gallery = () => {
                 <CarouselItem key={index} className={carouselItem()}>
                   <Card
                     className={cn(card(), {
-                      "scale-[1.15]": isActive,
-                      "scale-[0.8]": !isActive,
+                      "sm:scale-[1.15]": isActive,
+                      "sm:scale-[0.8]": !isActive,
                     })}
                   >
                     <CardContent className={cardContent()}>
@@ -184,6 +185,7 @@ const Gallery = () => {
               );
             })}
           </CarouselContent>
+          <div className={counter()}>{(current % 5) + 1}/5</div>
           <CarouselPrevious className={prevButton()} />
           <CarouselNext className={nextButton()} />
         </Carousel>

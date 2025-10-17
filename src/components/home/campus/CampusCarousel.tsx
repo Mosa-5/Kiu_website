@@ -16,7 +16,7 @@ import {
   dot,
 } from "./CampusCarousel.styles";
 
-export default function CarouselWithPagination() {
+const CampusCarousel = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -68,4 +68,6 @@ export default function CarouselWithPagination() {
       </div>
     </div>
   );
-}
+};
+
+export default CampusCarousel;
