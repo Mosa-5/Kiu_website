@@ -21,6 +21,7 @@ import {
   footerBottomInner,
   copyrightText,
   socialLinks,
+  footerLogo,
 } from "./Footer.styles";
 
 const USEFUL_LINKS = [
@@ -62,7 +63,11 @@ const Footer = () => {
     <footer className={footerContainer()}>
       <div className={footerContent()}>
         <div className={footerInner()}>
-          <img src={kiuWhiteLogo} alt="Kutaisi International University logo" />
+          <img
+            className={footerLogo()}
+            src={kiuWhiteLogo}
+            alt="Kutaisi International University logo"
+          />
 
           <div className={linksContainer()}>
             {/* useful links section */}
@@ -131,14 +136,14 @@ const Footer = () => {
           </nav>
 
           <span className={copyrightText()}>
-            Hosted by{" "}
+            Hosted on{" "}
             <a
-              href="https://proservice.ge/"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className={emailLink()}
             >
-              Proservice
+              Vercel
             </a>
           </span>
         </div>

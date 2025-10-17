@@ -183,9 +183,9 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-[64px] h-[64px] rounded-full border-mainLight cursor-pointer group hover:bg-main",
+        "absolute w-14 h-14 sm:w-16 sm:h-16 rounded-full border-mainLight cursor-pointer group hover:bg-main",
         orientation === "horizontal"
-          ? "top-1/2 -left-12 -translate-y-1/2"
+          ? "top-1/2 -left-8 sm:-left-12 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -226,9 +226,9 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-[64px] h-[64px] rounded-full cursor-pointer group border-mainLight hover:bg-main",
+        "absolute w-14 h-14 sm:w-16 sm:h-16 rounded-full cursor-pointer group border-mainLight hover:bg-main",
         orientation === "horizontal"
-          ? "top-1/2 -right-12 -translate-y-1/2"
+          ? "top-1/2 -right-8 sm:-right-12 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -269,7 +269,7 @@ function CarouselPreviousForHero({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-[48px] h-[48px] rounded-full cursor-pointer group hover:bg-main border-main border-2",
+        "absolute w-[48px] h-[48px] rounded-full cursor-pointer group hover:bg-main border-main border-2 max-sm:hidden",
         orientation === "horizontal"
           ? "bottom-5 right-1/10"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -313,7 +313,7 @@ function CarouselNextForHero({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-[48px] h-[48px] rounded-full cursor-pointer group hover:bg-main border-main border-2",
+        "absolute w-[48px] h-[48px] rounded-full cursor-pointer group hover:bg-main border-main border-2 max-sm:hidden",
         orientation === "horizontal"
           ? "bottom-5 right-1/15"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",

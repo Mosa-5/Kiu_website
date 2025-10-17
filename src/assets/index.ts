@@ -32,6 +32,7 @@ export { default as ProgramsHeroImage } from "./programsHero.jpg";
 export { default as aboutB } from "./aboutB.png";
 export { default as aboutU } from "./aboutT.png";
 export { default as aboutR } from "./aboutR.png";
+export { default as aboutMobile } from "./aboutMobile.png";
 export { default as NikaGagua } from "./NikaGagua.jpg";
 export { default as BesikDundua } from "./BesikDundua.png";
 export { default as EvaKnirsch } from "./Eva.png";

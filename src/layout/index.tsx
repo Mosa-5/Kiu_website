@@ -2,6 +2,7 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import HeaderMobile from "@/components/header/HeaderMobile";
 
 const Layout = () => {
   const location = useLocation();
@@ -13,6 +14,7 @@ const Layout = () => {
   return (
     <div className="min-h-screen">
       <Header />
+      <HeaderMobile />
       <Outlet />
       <Footer />
     </div>

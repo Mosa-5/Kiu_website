@@ -6,20 +6,20 @@ export const innerWrapper = cva(
   "mx-auto flex flex-col items-center justify-center max-w-[1680px]"
 );
 
-export const headerSection = cva("text-center w-full mb-[48px]");
+export const headerSection = cva("text-center w-full mb-6 sm:mb-[48px]");
 
-export const title = cva("text-main text-4xl font-semibold");
+export const title = cva("text-main text-2xl sm:text-4xl font-semibold");
 
 export const carousel = cva("w-full mx-auto max-w-[1680px]");
 
-export const carouselContent = cva("py-8 -ml-4");
+export const carouselContent = cva("pb-8 sm:py-8 -ml-4");
 
 export const carouselItem = cva(
-  "pl-4 flex-[0_0_33.333%] flex items-center justify-center"
+  "pl-4  sm:flex-[0_0_33.333%] flex items-center justify-center"
 );
 
 export const card = cva([
-  "relative w-full max-w-[672px] h-[309px] rounded-[16px] overflow-hidden",
+  "relative w-full max-w-[672px] h-[185px] sm:h-[309px] rounded-lg sm:rounded-[16px] overflow-hidden",
   "border-2s border-main shadow-sm cursor-pointer",
   "transition-all duration-500 ease-out shadow-sm",
   "hover:-translate-y-2",
@@ -31,9 +31,17 @@ export const image = cva("w-full h-full object-cover");
 
 export const carouselButton = cva("border-2");
 
-export const prevButton = cva("border-2 -left-4");
+export const prevButton = cva(
+  "border-2 max-sm:w-12 max-sm:h-12 max-sm:left-1/3 max-sm:top-[100%] max-sm:-translate-x-1/2"
+);
 
-export const nextButton = cva("border-2 -right-4");
+export const nextButton = cva(
+  "border-2 max-sm:w-12 max-sm:h-12 max-sm:right-1/3 max-sm:top-[100%] max-sm:translate-x-1/2"
+);
+
+export const counter = cva(
+  "sm:hidden text-lg absolute left-1/2 -bottom-3 -translate-x-1/2 text-main font-semibold text-center"
+);
 
 // Video container styles
 export const videoContainer = cva(
