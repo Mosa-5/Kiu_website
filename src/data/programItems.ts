@@ -13,47 +13,47 @@ import financeCard from "@/assets/programImages/financeCard.jpg";
 const programs = [
   {
     id: "mathsAndApplications",
-    category: "Bachelor's",
+    category: "Bachelor",
     name: "Mathematics & Applications",
     description:
       "Foundations of Artificial Intelligence, Scientific Computing, and Financial Mathematics",
     image: mathAndApplCard,
   },
   {
-    id: "computerscience",
-    category: "Bachelor's",
+    id: "computerScience",
+    category: "Bachelor",
     name: "Computer Science, BSc",
     description:
       "Software Development, Data Structures & Algorithms, and Cybersecurity",
     image: csCard,
   },
   {
-    id: "maths",
-    category: "Bachelor's",
+    id: "mathematics",
+    category: "Bachelor",
     name: "Mathematics, BSc",
     description:
       "Pure Mathematics, Applied Statistics, and Mathematical Modeling",
     image: mathCard,
   },
   {
-    id: "fin",
-    category: "Bachelor's",
+    id: "management",
+    category: "Bachelor",
     name: "Management, BSc",
     description:
       "Organizational Behavior, Strategic Management, and Project Leadership",
     image: mnscCard,
   },
   {
-    id: "fin",
-    category: "Bachelor's",
+    id: "design",
+    category: "Bachelor",
     name: "Design",
     description:
       "Graphic Design, UX/UI Principles, and Creative Project Development",
     image: designCard,
   },
   {
-    id: "fin",
-    category: "Bachelor's",
+    id: "psychology",
+    category: "Bachelor",
     name: "Psychology",
     description:
       "Cognitive Psychology, Behavioral Research, and Mental Health Studies",
@@ -61,7 +61,7 @@ const programs = [
   },
   {
     id: "law",
-    category: "Bachelor's",
+    category: "Bachelor",
     name: "Law",
     description:
       "Constitutional Law, International Law, and Legal Practice Fundamentals",
@@ -69,33 +69,33 @@ const programs = [
   },
   // Single-Cycle Programs
   {
-    id: "medical",
+    id: "medicine",
     category: "Single-Cycle",
     name: "Medicine",
     description:
       "Foundations of Clinical Practice, Medical Research, and Patient Care",
     image: medCard,
   },
-  // Master’s Programs
+  // Master's Programs
   {
-    id: "intprop",
-    category: "Master's",
+    id: "intellectualProperty",
+    category: "Master",
     name: "Intellectual Property, Innovations and Entrepreneurship",
     description:
       "Innovation Management, Intellectual Property Law, and Entrepreneurial Strategy",
     image: intCard,
   },
   {
-    id: "fin",
-    category: "Master's",
+    id: "embeddedComputing",
+    category: "Master",
     name: "Embedded Computing System",
     description:
       "Advanced Microcontrollers, IoT Design, and Real-Time Systems Engineering",
     image: embadCard,
   },
   {
-    id: "fin",
-    category: "Master's",
+    id: "financeAndInformationManagement",
+    category: "Master",
     name: "Finance and Information Management, MSc",
     description:
       "Financial Analytics, Information Systems, and Strategic Risk Management",
@@ -104,4 +104,3 @@ const programs = [
 ];
 
 export default programs;
-

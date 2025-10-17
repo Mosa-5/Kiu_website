@@ -20,10 +20,10 @@ function App() {
         <Route path="news" element={<News />}></Route>
         <Route path="/news/:id" element={<SingleNews />} />
         <Route path="/programs/:id" element={<SingleProgram />} />
-        <Route path="/projects" element={<Projects/>} />
-        <Route path="/projects/youthuni" element={<YouthUni/>} />
-        <Route path="/projects/frontiers" element={<Frontiers/>} />
-        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/youthuni" element={<YouthUni />} />
+        <Route path="/projects/frontiers" element={<Frontiers />} />
+        <Route path="/about-us" element={<About />} />
         <Route path="/programs" element={<Programs />} />
         <Route path="/vacancies" element={<Vacancies />} />
         <Route path="/admission" element={<Admission />} />

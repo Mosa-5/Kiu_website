@@ -12,13 +12,33 @@ import {
 } from "./ProgramsTabs.styles";
 
 import ProgramsGrid from "./ProgramsGrid";
+import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const ProgramTabs = () => {
-  const categories = ["Bachelor's", "Single-Cycle", "Master's", "Doctoral"];
+  const categories = ["Bachelor", "Single-Cycle", "Master", "Doctoral"];
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeTab, setActiveTab] = useState("Bachelor");
+
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    if (tabParam && categories.includes(tabParam)) {
+      setActiveTab(tabParam);
+    }
+  }, [searchParams]);
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    setSearchParams({ tab: value });
+  };
 
   return (
     <div className={container()}>
-      <Tabs defaultValue="Bachelor's" className={tabsContainer()}>
+      <Tabs
+        value={activeTab}
+        onValueChange={handleTabChange}
+        className={tabsContainer()}
+      >
         <div className={headerWrapper()}>
           <div className={tabsListWrapper()}>
             <TabsList className={tabsList()}>

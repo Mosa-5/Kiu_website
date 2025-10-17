@@ -99,7 +99,7 @@ const AboutDetail: React.FC = () => {
             <img
               src={aboutData.president.image}
               alt="Prof. Dr. Wolfgang A. Herrmann"
-              className="w-full rounded-lg shadow-lg border-2 border-main"
+              className="w-full rounded-lg shadow-lg"
             />
           </div>
 

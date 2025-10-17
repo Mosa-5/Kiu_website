@@ -17,4 +17,5 @@ export const computerScienceProgram: ProgramData = {
   academicPersonnel,
   tuitionAndCosts,
   newsletterArchive,
+  id: "CS",
 };
