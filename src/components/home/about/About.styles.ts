@@ -5,7 +5,7 @@ export const container = cva(
 );
 
 export const imageSection = cva(
-  "w-full max-w-[613px] flex flex-shrink-0 justify-end"
+  "w-full max-w-[613px] flex flex-shrink-0 justify-center sm:justify-end"
 );
 
 export const imageWrapper = cva(

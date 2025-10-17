@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const footerContainer = cva("w-full bg-[#192735] mt-36");
+export const footerContainer = cva("w-full bg-[#192735] mt-16 sm:mt-36");
 
 export const footerContent = cva(
   "sm:h-[403px] px-4 sm:px-[120px] pb-12 pt-8 sm:py-[80px]"
