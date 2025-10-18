@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const container = cva("px-4 sm:px-[120px]");
+export const container = cva("max-w-[1680px] m-auto");
 
 export const tabsContainer = cva("w-full gap-12");
 
