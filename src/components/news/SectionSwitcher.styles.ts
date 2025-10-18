@@ -9,15 +9,15 @@ export const headerWrapper = cva(
 );
 
 export const tabsListWrapper = cva(
-  "flex items-center justify-between max-sm:border-0 border-b-2 border-gray-200 w-full sm:h-[45px]"
+  "flex items-center justify-between border-0 sm:border-b-2 border-gray-200 w-full sm:h-[45px]"
 );
 
 export const tabsList = cva(
-  "max-sm:grid max-sm:grid-cols-2 max-sm:h-full gap-x-1 gap-y-1 sm:flex sm:gap-16 bg-transparent p-0 w-full"
+  "max-sm:grid max-sm:grid-cols-2 max-sm:h-full gap-1 sm:flex sm:gap-16 bg-transparent p-0 w-full"
 );
 
 export const tabsTrigger = cva([
-  "max-sm:after:hidden  border-1 border-gray-200 max-sm:bg-gray-100 max-sm:data-[state=active]:bg-main max-sm:shadow-md max-sm:data-[state=active]:border-main max-sm:rounded-md relative rounded-none sm:border-none bg-transparent px-0 py-1.5 sm:pb-2 text-[22px] font-semibold text-black",
+  "max-sm:after:hidden  border-1 border-gray-200 max-sm:bg-gray-100 max-sm:data-[state=active]:bg-main max-sm:shadow-md max-sm:data-[state=active]:border-main max-sm:rounded-sm relative rounded-none sm:border-none bg-transparent px-0 py-1.5 sm:pb-2 text-[22px] font-semibold text-black",
   "data-[state=active]:text-white sm:data-[state=active]:text-black data-[state=inactive]:text-gray-500 data-[state=active]:shadow-none data-[state=active]:after:opacity-100",
   "after:block after:opacity-0 after:absolute after:-bottom-[5px] after:left-0 after:h-1 after:w-full after:bg-main",
   "after:transition-opacity after:duration-200",
