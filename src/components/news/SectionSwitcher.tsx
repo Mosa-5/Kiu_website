@@ -10,7 +10,6 @@ import {
   tabsListWrapper,
   tabsList,
   tabsTrigger,
-  activeIndicator,
   searchWrapper,
   searchIcon,
   searchInput,
@@ -36,7 +35,6 @@ const SectionSwitcher = () => {
               {categories.map((cat) => (
                 <TabsTrigger key={cat} value={cat} className={tabsTrigger()}>
                   {cat}
-                  <span className={activeIndicator()} />
                 </TabsTrigger>
               ))}
             </TabsList>

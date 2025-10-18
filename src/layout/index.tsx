@@ -15,7 +15,9 @@ const Layout = () => {
     <div className="min-h-screen">
       <Header />
       <HeaderMobile />
-      <Outlet />
+      <div className="max-sm:mt-[67px]">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
