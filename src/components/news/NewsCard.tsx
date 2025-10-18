@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   cardContainer,
   imageWrapper,
@@ -27,8 +27,10 @@ const NewsCard = ({
   description,
   imageUrl,
 }: NewsCardProps) => {
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
   return (
-    <Link to={`/news/${id}`}>
+    <Link to={`/${currentLang}/news/${id}`}>
       <Card className={cardContainer()}>
         <div className={cardHoverEffect()} />
         <div className={imageWrapper()}>

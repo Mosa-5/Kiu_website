@@ -27,6 +27,7 @@ import {
   CarouselPrevious,
 } from "../ui/carousel";
 import { Card, CardContent } from "../ui/card";
+import { useNewsTranslations } from "./hooks/useNewsTranslations";
 
 type NewsItem = {
   id: string;
@@ -40,6 +41,9 @@ const getRandomNews = (data: NewsItem[], count: number): NewsItem[] => {
 
 const SimilarNews: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const { t } = useNewsTranslations();
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
 
   const filteredNews = newsItems.filter((item) => item.id !== id);
   const randomNews = getRandomNews(filteredNews, 10);
@@ -47,7 +51,7 @@ const SimilarNews: React.FC = () => {
   return (
     <div className={container()}>
       <div className={innerWrapper()}>
-        <h2 className={heading()}>Similar News</h2>
+        <h2 className={heading()}>{t("similarNews")}</h2>
         <Carousel
           className={carousel()}
           opts={{
@@ -58,7 +62,7 @@ const SimilarNews: React.FC = () => {
           <CarouselContent className={carouselContent()}>
             {randomNews.map((item) => (
               <CarouselItem key={item.id} className={carouselItem()}>
-                <Link to={`/news/${item.id}`}>
+                <Link to={`/${currentLang}/news/${item.id}`}>
                   <Card className={card()}>
                     <CardContent className={cardContent()}>
                       <div className={hoverBar()} />

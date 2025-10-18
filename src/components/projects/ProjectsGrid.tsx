@@ -1,8 +1,10 @@
 import { ProjectsImage1, ProjectsImage2 } from "@/assets";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useProjectsTranslations } from "./hooks/useProjectsTranslations";
 
 const ProjectsGrid = () => {
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
   const { getProjects } = useProjectsTranslations();
   const projectsData = getProjects();
 
@@ -13,7 +15,7 @@ const ProjectsGrid = () => {
       {projectsData.map((project, index) => (
         <Link
           key={project.id}
-          to={project.path}
+          to={`/${currentLang}${project.path}`}
           className="relative hover:-translate-y-1 duration-200 aspect-[550/260] h-65 rounded-2xl overflow-hidden group cursor-pointer shadow-[2px_4px_4px_rgba(0,0,0,0.25)] border-2 border-[#3C70AF]"
         >
           <img

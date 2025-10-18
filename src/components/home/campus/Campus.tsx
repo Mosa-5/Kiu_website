@@ -11,18 +11,20 @@ import {
   readMoreButton,
 } from "./Campus.styles";
 import { useNavigate } from "react-router-dom";
+import { useHomeTranslations } from "../hooks/useHomeTranslation";
 
 const Campus = () => {
   const nav = useNavigate();
+  const { t, getTranslatedArray } = useHomeTranslations();
 
-  const navigate = () => {
-    return nav("campus");
-  };
+  const paragraphs = getTranslatedArray("campus.paragraphs");
+
+  const navigate = () => nav("campus");
 
   return (
     <div className={container()}>
       <div className={headerSection()}>
-        <h1 className={title()}>Our Campus</h1>
+        <h1 className={title()}>{t("campus.title")}</h1>
         <span className={subtitle()}>
           <svg
             width="16"
@@ -39,32 +41,19 @@ const Campus = () => {
               strokeWidth="2"
             />
           </svg>
-          A vibrant social life is part of the Experience
+          {t("campus.subtitle")}
         </span>
       </div>
+
       <div className={contentWrapper()}>
         <div className={textSection()}>
           <div className={textContent()}>
-            <p>
-              The Kutaisi International University (KIU) campus is located in
-              the green and environmentally clean area of Kutaisi, Georgia's
-              third-largest city. Spread across 160 hectares of beautiful land
-              surrounded by forest and a river, the campus offers a peaceful and
-              inspiring setting for study and innovation. It is easily
-              accessible, only 25 km from Kutaisi International Airport and
-              about three hours from Tbilisi.
-            </p>
-            <p>
-              KIU is Georgia's only university providing fully furnished
-              on-campus housing for both students and academic staff. The campus
-              features state-of-the-art laboratories, co-working spaces,
-              libraries, cafeterias, and digital learning systems — all designed
-              to create a modern, technology-driven educational environment that
-              supports growth, creativity, and collaboration.
-            </p>
+            {paragraphs.map((text, i) => (
+              <p key={i}>{text}</p>
+            ))}
           </div>
           <Button onClick={navigate} className={readMoreButton()}>
-            Read More
+            {t("campus.button")}
           </Button>
         </div>
         <CarouselWithPagination />

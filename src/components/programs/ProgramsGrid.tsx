@@ -1,17 +1,20 @@
 import ProgramCard from "./ProgramCard";
 import { container, grid } from "./ProgramsGrid.styles";
+import { useTranslation } from "react-i18next";
 
-interface NewsGridProps {
+interface ProgramsGridProps {
   items: typeof import("@/data/programItems").default;
 }
 
-const ProgramsGrid = ({ items }: NewsGridProps) => {
+const ProgramsGrid = ({ items }: ProgramsGridProps) => {
+  const { t } = useTranslation("programs");
+
   if (items.length === 0) {
     return (
       <div className={container()}>
         <div className="flex items-center justify-center py-12">
           <p className="text-xl text-gray-600 font-medium">
-            No programs available
+            {t("noPrograms")}
           </p>
         </div>
       </div>

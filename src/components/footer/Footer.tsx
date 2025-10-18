@@ -22,6 +22,7 @@ import {
   copyrightText,
   socialLinks,
 } from "./Footer.styles";
+import { useFooterTranslations } from "./hooks/useFooterTranslations";
 
 const USEFUL_LINKS = [
   { href: "https://mes.gov.ge/", label: "MESCS" },
@@ -30,14 +31,6 @@ const USEFUL_LINKS = [
   { href: "https://www.naec.ge/", label: "NCEQE" },
 ];
 
-const CONTACT_INFO = [
-  {
-    icon: mapIcon,
-    alt: "map icon",
-    text: "Legal address: Akhalgazrdoba Ave. Lane 5/7, Kutaisi, 4600 Georgia",
-  },
-  { icon: phoneIcon, alt: "phone icon", text: "(+995) 577 477197" },
-];
 
 const SOCIAL_LINKS = [
   {
@@ -58,6 +51,16 @@ const SOCIAL_LINKS = [
 ];
 
 const Footer = () => {
+  const { t } = useFooterTranslations();
+  const CONTACT_INFO = [
+  {
+    icon: mapIcon,
+    alt: "map icon",
+    text: t("contactInfo.address"),
+  },
+  { icon: phoneIcon, alt: "phone icon", text: "(+995) 577 477197" },
+];
+
   return (
     <footer className={footerContainer()}>
       <div className={footerContent()}>
@@ -67,7 +70,7 @@ const Footer = () => {
           <div className={linksContainer()}>
             {/* useful links section */}
             <div className={linkSection()}>
-              <h2 className={sectionTitle()}>Useful Links</h2>
+              <h2 className={sectionTitle()}>{t("usefulLinks")}</h2>
               <ul className={linksList()}>
                 {USEFUL_LINKS.map((link) => (
                   <li key={link.label}>
@@ -85,7 +88,7 @@ const Footer = () => {
 
             {/* contact us section */}
             <div>
-              <h2 className={sectionTitle()}>Contact Us</h2>
+              <h2 className={sectionTitle()}>{t("contactUs")}</h2>
               <ul className={contactList()}>
                 {CONTACT_INFO.map((contact) => (
                   <li key={contact.alt}>
@@ -100,8 +103,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  For international student and visitor enquiries:
-                  international@kiu.edu.ge
+                  {t("contactInfo.intlEmail")}
                 </li>
               </ul>
             </div>
@@ -113,7 +115,7 @@ const Footer = () => {
       <div className={footerBottom()}>
         <div className={footerBottomInner()}>
           <span className={copyrightText()}>
-            2025 kiu.edu.ge © All rights reserved
+            {t("copyright")}
           </span>
 
           <nav className={socialLinks()} aria-label="Social media links">
@@ -131,7 +133,7 @@ const Footer = () => {
           </nav>
 
           <span className={copyrightText()}>
-            Hosted by{" "}
+            Hosted By{" "}
             <a
               href="https://proservice.ge/"
               target="_blank"

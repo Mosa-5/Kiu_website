@@ -1,4 +1,14 @@
-const newsItems = [
+import i18n from "@/i18n";
+
+export interface NewsItem {
+  id: string;
+  date: string;
+  title: string;
+  description: string;
+  category?: string;
+}
+
+const newsItemsEn: NewsItem[] = [
   {
     id: "academic-registration-fall-2025",
     date: "Sep 15, 2025",
@@ -76,4 +86,95 @@ const newsItems = [
   },
 ];
 
-export default newsItems;
+const newsItemsKa: NewsItem[] = [
+  {
+    id: "academic-registration-fall-2025",
+    date: "15 სექტემბერი, 2025",
+    title: "აკადემიური რეგისტრაცია შემოდგომა 2025-2026-ისთვის ახლა გახსნილია",
+    description:
+      "გთხოვთ იხილოთ 2025-2026 შემოდგომის სემესტრის საკურსო განრიგი ხელმისაწვდომი ონლაინ. რეგისტრაცია იწყება დღეს ყველა დაბრუნებული სტუდენტისთვის.",
+    category: "Bachelor's",
+  },
+  {
+    id: "kiu-innovation-summer-school-closing",
+    date: "14 სექტემბერი, 2025",
+    title:
+      "ქუთაისის საერთაშორისო უნივერსიტეტში (KIU), 2025 წლის ინოვაციური ზაფხულის სკოლის დახურვის ცერემონია",
+    description:
+      "ადგილობრივი ტექ-კომპანიები თანამშრომლობენ კვლევისა და განვითარების ახალი ცენტრის შესაქმნელად, რომელიც ფოკუსირებულია მდგრადი ტექნოლოგიური გადაწყვეტილებების შემუშავებაზე.",
+    category: "Bachelor's",
+  },
+  {
+    id: "community-health-initiative-launches",
+    date: "13 სექტემბერი, 2025",
+    title: "საზოგადოებრივი ჯანმრთელობის ინიციატივა იწყება ქალაქის მასშტაბით",
+    description:
+      "ყოვლისმომცველი ჯანმრთელობის პროგრამა იწყება ამ თვეში, რომელიც სთავაზობს უფასო გამოკვლევებსა და ჯანმრთელობის სემინარებს ყველა უბნის მაცხოვრებლებს.",
+    category: "Bachelor's",
+  },
+  {
+    id: "transportation-infrastructure-updates",
+    date: "12 სექტემბერი, 2025",
+    title: "სატრანსპორტო ინფრასტრუქტურის განახლება იწყება",
+    description:
+      "საზოგადოებრივი ტრანსპორტის სისტემების მთავარი გაუმჯობესება იწყება ახალი ავტობუსის მარშრუტებითა და განახლებული რკინიგზის შეერთებებით მეტროპოლიტენური ტერიტორიის მასშტაბით.",
+    category: "Bachelor's",
+  },
+  {
+    id: "environmental-protection-measures",
+    date: "11 სექტემბერი, 2025",
+    title: "გარემოს დაცვის ზომები დანერგილია",
+    description:
+      "ახალი რეგულაციები მწვანე სამშენებლო სტანდარტებისა და განახლებადი ენერგიის სტიმულებისთვის ძალაში შედის მდგრადი ურბანული განვითარების მხარდასაჭერად.",
+  },
+  {
+    id: "education-reform-bill-passes",
+    date: "10 სექტემბერი, 2025",
+    title: "განათლების რეფორმის კანონპროექტი გაიარა საბოლოო განხილვა",
+    description:
+      "ყოვლისმომცველმა საგანმანათლებლო კანონმდებლობამ მიიღო დამტკიცება, რომელიც შემოაქვს განახლებული სასწავლო გეგმები და გაძლიერებული დაფინანსება საჯარო სასკოლო სისტემებისთვის.",
+  },
+  {
+    id: "university-science-laboratory-opens",
+    date: "9 სექტემბერი, 2025",
+    title: "უნივერსიტეტი ხსნის ახალ სამეცნიერო ლაბორატორიას",
+    description:
+      "უახლესი ლაბორატორია ფოკუსირებული იქნება განახლებადი ენერგიის ექსპერიმენტებსა და წამყვან ბიოლოგიურ კვლევაზე.",
+  },
+  {
+    id: "sports-complex-expansion-announced",
+    date: "8 სექტემბერი, 2025",
+    title: "სპორტული კომპლექსის გაფართოება გამოცხადდა",
+    description:
+      "დამტკიცდა გეგმები ქალაქის სპორტული დაწესებულებების გაფართოებისთვის, მათ შორის ახალი არენები და საზოგადოებრივი რეკრეაციული ცენტრები.",
+  },
+  {
+    id: "historic-building-restored-downtown",
+    date: "7 სექტემბერი, 2025",
+    title: "ისტორიული შენობა აღდგენილია ცენტრში",
+    description:
+      "ნიშანდობლივი სტრუქტურა იღებს კონსერვაციის ძალისხმევას და კვლავ გაიხსნება როგორც კულტურული და საგანმანათლებლო ცენტრი.",
+  },
+  {
+    id: "public-safety-awareness-campaign",
+    date: "6 სექტემბერი, 2025",
+    title: "საზოგადოებრივი უსაფრთხოების ცნობიერების კამპანია დაიწყო",
+    description:
+      "ოფიციალური პირები იწყებენ საინფორმაციო პროგრამებს უსაფრთხოების განათლების გასაზრდელად უბნებში.",
+  },
+];
+
+// Function to get news items based on current language
+const getNewsItems = (lang?: string): NewsItem[] => {
+  const language = lang || i18n.language;
+  return language === "ka" ? newsItemsKa : newsItemsEn;
+};
+
+// Export the getter function as default
+export default getNewsItems();
+
+// Also export the getter function for reactive use
+export { getNewsItems };
+
+// Export individual arrays if needed
+export { newsItemsEn, newsItemsKa };

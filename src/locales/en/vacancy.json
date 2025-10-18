@@ -1,0 +1,109 @@
+{
+  "hero": {
+    "title": "Vacancies",
+    "buttonLabel": "Home"
+  },
+  "detail": {
+    "heading": "Expression Of Interest",
+    "intro": "If you are interested to work with us you can see our vacancies or contact us at",
+    "email": "admin@kiu.edu.ge",
+    "description": "We are seeking expressions of interest (EOI) from the future academic personnel and teaching assistants to be involved in the teaching and research activities at Kutaisi International University (KIU).",
+    "seeDetails": "See Detailed Information",
+    "formTitle": "Expression Of Interest (EOI) Form",
+    "fields": {
+      "firstName": {
+        "label": "First name",
+        "placeholder": "First name"
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "Last name"
+      },
+      "fieldOfInterest": {
+        "label": "Field of Interest",
+        "placeholder": "Your field of interest"
+      },
+      "currentPosition": {
+        "label": "Current Position",
+        "placeholder": "Current position"
+      },
+      "address": {
+        "label": "Address",
+        "placeholder": "Your address"
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "example@mail.com"
+      },
+      "phoneNumber": {
+        "label": "Phone Number",
+        "placeholder": "+995 5XX XXX XXX"
+      }
+    },
+    "scopeHeading": "Please, specify the scope of your interest",
+    "academicPosition": {
+      "title": "Academic Position",
+      "options": [
+        "Professor",
+        "Associate Professor",
+        "Assistant Professor",
+        "Visiting Professor",
+        "Teaching Assistant"
+      ]
+    },
+    "assignmentType": {
+      "title": "Assignment Type",
+      "options": [
+        "Full Time",
+        "Part Time",
+        "Visiting / Adjunct Position"
+      ]
+    },
+    "teaching": {
+      "title": "Teaching",
+      "options": [
+        "On Campus",
+        "Off campus (online teaching)",
+        "Combined (online off campus/on campus)"
+      ]
+    },
+    "instructionLanguage": {
+      "title": "Instruction Language",
+      "options": ["English", "Georgian"]
+    },
+    "fieldsOfInterest": {
+      "heading": "Please, choose fields of interest and subjects you would like to be involved at the KIU:",
+      "mathTitle": "Mathematics (choose 3)",
+      "subjects": [
+        "Calculus",
+        "Vector Calculus",
+        "Linear Algebra",
+        "Probability",
+        "Statistics",
+        "Numerical Linear Algebra",
+        "Numerical Analysis",
+        "Discrete Structures",
+        "Ordinary Differential Equations (ODEs)",
+        "Numerical Methods for ODEs",
+        "Functional Analysis and PDEs",
+        "Numerical Methods for PDEs",
+        "Introduction to Optimization",
+        "Operations Research",
+        "Convex Optimization",
+        "Nonlinear Optimization",
+        "Mathematical Modelling"
+      ]
+    },
+    "submit": {
+      "button": "Submit",
+      "submitting": "Submitting...",
+      "success": "✓ Your expression of interest has been submitted successfully!",
+      "error": "✗ Failed to submit. Please try again later."
+    },
+    "errors": {
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "invalidPhone": "Please enter a valid phone number"
+    }
+  }
+}

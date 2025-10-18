@@ -1,7 +1,8 @@
 import newsHeroImage from "@/assets/image.png";
-import newsItems from "@/data/newsItems";
+import { getNewsItems } from "@/data/newsItems";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "../ui/button";
+import { useNewsTranslations } from "./hooks/useNewsTranslations";
 import {
   container,
   heroImage,
@@ -14,8 +15,14 @@ import {
 } from "./NewsDetailsHero.styles";
 
 const NewsDetailsHero = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id, lang } = useParams<{ id: string; lang: string }>();
+  const currentLang = lang || "en";
+
+  // Get news items based on currentLang
+  const newsItems = getNewsItems(currentLang); 
   const item = newsItems.find((news) => news.id === id);
+
+  const { t } = useNewsTranslations();
 
   if (!item) {
     return <p className={notFound()}>News not found</p>;
@@ -30,7 +37,8 @@ const NewsDetailsHero = () => {
           <p className={date()}>{item.date}</p>
         </div>
       </div>
-      <Link to="/news">
+
+      <Link to={`/${currentLang}/news`}>
         <Button className={backButton()}>
           <svg
             width="29"
@@ -47,7 +55,7 @@ const NewsDetailsHero = () => {
               strokeLinejoin="round"
             />
           </svg>
-          News
+          {t("backButton")}
         </Button>
       </Link>
     </div>

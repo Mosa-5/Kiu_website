@@ -8,20 +8,39 @@ import {
 import { flagUS, flagGeo, globeIcon } from "@/assets";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { trigger, content, item } from "./LanguageSelect.styles";
 
 const LanguageSelect = () => {
   const { i18n } = useTranslation();
-  const [selectedValue, setSelectedValue] = useState<string>(i18n.language || "en");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { lang } = useParams<{ lang: string }>();
+  const [selectedValue, setSelectedValue] = useState<string>(lang || "en");
 
   useEffect(() => {
-    // Sync with current i18n language on mount
-    setSelectedValue(i18n.language);
-  }, [i18n.language]);
+    // Sync with URL param
+    if (lang) {
+      setSelectedValue(lang);
+    }
+  }, [lang]);
 
-  const handleLanguageChange = (value: string) => {
-    setSelectedValue(value);
-    i18n.changeLanguage(value);
+  const handleLanguageChange = (newLang: string) => {
+    setSelectedValue(newLang);
+    
+    // Change i18n language
+    i18n.changeLanguage(newLang);
+    
+    // Update URL by replacing current language with new one
+    const pathParts = location.pathname.split('/').filter(Boolean);
+    
+    // Replace the first part (language) with new language
+    if (pathParts.length > 0) {
+      pathParts[0] = newLang;
+      navigate(`/${pathParts.join('/')}`, { replace: true });
+    } else {
+      navigate(`/${newLang}`, { replace: true });
+    }
   };
 
   return (

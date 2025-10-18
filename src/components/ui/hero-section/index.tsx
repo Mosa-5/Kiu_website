@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   heroContainer,
   heroImage,
@@ -23,6 +23,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   buttonLabel = "Home Page",
   buttonIcon,
 }) => {
+  
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
   return (
     <div className={heroContainer()}>
       <img src={imageSrc} alt={titleText} className={heroImage()} />
@@ -30,7 +33,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className={contentWrapper()}>
         <h1 className={title()}>{titleText}</h1>
 
-        <Link className="w-fit" to={buttonLink}>
+        <Link className="w-fit" to={`/${currentLang}${buttonLink}`}>
           <Button className={homeButton()}>
             {buttonIcon ?? (
               <svg

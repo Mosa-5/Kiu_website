@@ -6,7 +6,6 @@ import {
   CarouselPreviousForHero,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import heroimg from "@/assets/masters_degree-slider.png";
 import {
@@ -91,9 +90,7 @@ const CarouselHero = () => {
         <CarouselContent className={carouselContent()}>
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem className={carouselItem()} key={index}>
-              <Link to="/home">
                 <img className={carouselImage()} src={heroimg} alt="hero img" />
-              </Link>
             </CarouselItem>
           ))}
         </CarouselContent>

@@ -2,8 +2,17 @@ import React, { useState } from "react";
 import { AboutIcon } from "../../assets/icons/icons";
 import { SideSectionsSheet } from "../ui/sections-sidebar";
 import { aboutData } from "./data/AboutData";
+import { useAboutTranslations } from "./hooks/useAboutTranslations";
 
 const AboutDetail: React.FC = () => {
+  const {
+    t,
+    getTranslatedArray,
+    getTranslatedParagraphs,
+    getTranslatedMembers,
+    getTranslatedPrograms,
+  } = useAboutTranslations();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
@@ -23,14 +32,25 @@ const AboutDetail: React.FC = () => {
     setIsOpen(false);
   };
 
-  const sections = [
-    { id: "intro", label: "Intro" },
-    { id: "president", label: "Honorary President's Welcome Note" },
-    { id: "advisory", label: "International Advisory Council" },
-    { id: "team", label: "Team" },
-    { id: "programs", label: "Academic Programs" },
-    { id: "calendar", label: "Academic Calendar" },
-  ];
+  const sections = getTranslatedArray("sections").map((section: any) => ({
+    id: section.id,
+    label: section.label,
+  }));
+
+  const introParagraphs = getTranslatedArray("intro.paragraphs");
+  const presidentParagraphs = getTranslatedArray("president.paragraphs");
+  const advisoryMembers = getTranslatedMembers("advisoryCouncil.members");
+  const teamParagraphs = getTranslatedParagraphs("team.paragraphs");
+  const introText = getTranslatedArray("academicPrograms.introText");
+  const undergraduatePrograms = getTranslatedPrograms(
+    "academicPrograms.undergraduatePrograms"
+  );
+  const masterPrograms = getTranslatedPrograms(
+    "academicPrograms.masterPrograms"
+  );
+  const futureDisciplines = getTranslatedArray(
+    "academicPrograms.futureDisciplines"
+  );
 
   return (
     <>
@@ -48,12 +68,12 @@ const AboutDetail: React.FC = () => {
         <section id="intro" className="mb-12">
           <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
             <h1 className="text-3xl font-medium text-mainDark">
-              {aboutData.intro.title}
+              {t("intro.title")}
             </h1>
             <span className="text-mainDark">{AboutIcon}</span>
           </div>
 
-          {aboutData.intro.paragraphs.map((paragraph, i) => (
+          {introParagraphs.map((paragraph, i) => (
             <p key={i} className="mb-6 text-lg">
               {paragraph}
             </p>
@@ -61,19 +81,19 @@ const AboutDetail: React.FC = () => {
 
           <div className="mt-10 pl-6 border-l-2 border-slate-200">
             <p className="text-base font-semibold text-slate-900 mb-1">
-              {aboutData.intro.signature.name}
+              {t("intro.signature.name")}
             </p>
             <p className="text-sm text-slate-600 mb-0.5">
-              {aboutData.intro.signature.title}
+              {t("intro.signature.title")}
             </p>
             <p className="text-sm text-slate-500 mb-3">
-              {aboutData.intro.signature.date}
+              {t("intro.signature.date")}
             </p>
             <a
               href={aboutData.intro.signature.link.url}
               className="text-sm text-link underline underline-offset-2 hover:text-linkDark transition-colors font-medium"
             >
-              {aboutData.intro.signature.link.text}
+              {t("intro.signature.linkText")}
             </a>
           </div>
         </section>
@@ -82,17 +102,17 @@ const AboutDetail: React.FC = () => {
         <section id="president" className="mb-12 scroll-mt-8">
           <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
             <h2 className="text-3xl font-medium text-mainDark">
-              {aboutData.president.title}
+              {t("president.title")}
             </h2>
             <span className="text-mainDark">{AboutIcon}</span>
           </div>
 
           <h3 className="text-xl font-medium text-main mb-4">
-            {aboutData.president.subtitle}
+            {t("president.subtitle")}
           </h3>
 
           <p className="text-lg font-medium mb-6">
-            {aboutData.president.greeting}
+            {t("president.greeting")}
           </p>
 
           <div className="float-right ml-8 mb-6 w-[400px] h-[430px]">
@@ -103,7 +123,7 @@ const AboutDetail: React.FC = () => {
             />
           </div>
 
-          {aboutData.president.paragraphs.map((paragraph, i) => (
+          {presidentParagraphs.map((paragraph, i) => (
             <p key={i} className="mb-6 text-lg ">
               {paragraph}
             </p>
@@ -111,13 +131,13 @@ const AboutDetail: React.FC = () => {
 
           <div className="clear-both mt-10 pl-6 border-l-2 border-slate-200">
             <p className="text-base font-semibold text-slate-900 mb-3">
-              {aboutData.president.signature.name}
+              {t("president.signatureName")}
             </p>
             <a
               href={aboutData.president.signature.link.url}
               className="text-sm text-link underline underline-offset-2 hover:text-linkDark transition-colors font-medium"
             >
-              {aboutData.president.signature.link.text}
+              {t("president.signatureLinkText")}
             </a>
           </div>
         </section>
@@ -126,13 +146,13 @@ const AboutDetail: React.FC = () => {
         <section id="advisory" className="mb-12 scroll-mt-8">
           <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
             <h2 className="text-3xl font-medium text-mainDark">
-              {aboutData.advisoryCouncil.title}
+              {t("advisoryCouncil.title")}
             </h2>
             <span className="text-mainDark">{AboutIcon}</span>
           </div>
 
           <div className="space-y-6">
-            {aboutData.advisoryCouncil.members.map((member, i) => (
+            {advisoryMembers.map((member, i) => (
               <div key={i}>
                 <h3 className="text-lg font-semibold text-main mb-1">
                   {member.name}
@@ -151,12 +171,12 @@ const AboutDetail: React.FC = () => {
         <section id="team" className="mb-12 scroll-mt-8">
           <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
             <h2 className="text-3xl font-medium text-mainDark">
-              {aboutData.team.title}
+              {t("team.title")}
             </h2>
             <span className="text-mainDark">{AboutIcon}</span>
           </div>
 
-          {aboutData.team.paragraphs.map((paragraph, i) => (
+          {teamParagraphs.map((paragraph, i) => (
             <p key={i} className="mb-6 text-lg ">
               {paragraph.parts.map((part, j) => {
                 if (part.type === "link") {
@@ -170,16 +190,6 @@ const AboutDetail: React.FC = () => {
                     </a>
                   );
                 }
-                // if (part.type === "blue") {
-                //   return (
-                //     <span
-                //       key={j}
-                //       className="text-link underline underline-offset-2 font-medium"
-                //     >
-                //       {part.text}
-                //     </span>
-                //   );
-                // }
                 return <span key={j}>{part.text}</span>;
               })}
             </p>
@@ -190,39 +200,19 @@ const AboutDetail: React.FC = () => {
         <section id="programs" className="mb-12 scroll-mt-8">
           <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
             <h2 className="text-3xl font-medium text-mainDark">
-              {aboutData.academicPrograms.title}
+              {t("academicPrograms.title")}
             </h2>
             <span className="text-mainDark">{AboutIcon}</span>
           </div>
 
-          {aboutData.academicPrograms.introText.map((text, i) => (
+          {introText.map((text, i) => (
             <p key={i} className="mb-6 text-lg ">
               {text}
             </p>
           ))}
 
           <ul className="list-none mb-6 text-lg space-y-2">
-            {aboutData.academicPrograms.undergraduatePrograms.map(
-              (program, i) => (
-                <li key={i} className="text-link hover:text-linkDark">
-                  •{" "}
-                  <a
-                    href={program.url}
-                    className="underline underline-offset-2 font-medium"
-                  >
-                    {program.text}
-                  </a>
-                </li>
-              )
-            )}
-          </ul>
-
-          <p className="mb-3 text-lg ">
-            {aboutData.academicPrograms.masterText}
-          </p>
-
-          <ul className="list-none mb-6 text-lg space-y-2">
-            {aboutData.academicPrograms.masterPrograms.map((program, i) => (
+            {undergraduatePrograms.map((program, i) => (
               <li key={i} className="text-link hover:text-linkDark">
                 •{" "}
                 <a
@@ -236,24 +226,40 @@ const AboutDetail: React.FC = () => {
           </ul>
 
           <p className="mb-3 text-lg ">
-            {aboutData.academicPrograms.futureText}
+            {t("academicPrograms.masterText")}
+          </p>
+
+          <ul className="list-none mb-6 text-lg space-y-2">
+            {masterPrograms.map((program, i) => (
+              <li key={i} className="text-link hover:text-linkDark">
+                •{" "}
+                <a
+                  href={program.url}
+                  className="underline underline-offset-2 font-medium"
+                >
+                  {program.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mb-3 text-lg ">
+            {t("academicPrograms.futureText")}
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-            {aboutData.academicPrograms.futureDisciplines.map(
-              (discipline, i) => (
-                <div
-                  key={i}
-                  className="px-4 py-3 bg-main rounded-md text-center font-medium border-2 text-lg border-main pointer-events-none text-white shadow-md"
-                >
-                  {discipline}
-                </div>
-              )
-            )}
+            {futureDisciplines.map((discipline, i) => (
+              <div
+                key={i}
+                className="px-4 py-3 bg-main rounded-md text-center font-medium border-2 text-lg border-main pointer-events-none text-white shadow-md"
+              >
+                {discipline}
+              </div>
+            ))}
           </div>
 
           <p className="mb-6 text-lg ">
-            {aboutData.academicPrograms.closingText}
+            {t("academicPrograms.closingText")}
           </p>
         </section>
 
@@ -265,7 +271,7 @@ const AboutDetail: React.FC = () => {
               download
               className="inline-flex items-center gap-2 px-6 py-3 bg-mainLight hover:bg-main text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 text-lg"
             >
-              {aboutData.academicPrograms.calendarLink.text}
+              {t("academicPrograms.calendarLinkText")}
               <span className="text-xl">↓</span>
             </a>
           </div>

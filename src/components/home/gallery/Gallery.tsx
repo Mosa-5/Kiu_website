@@ -34,10 +34,12 @@ import {
   loadingSpinner,
   videoIframe,
 } from "./Gallery.styles";
+import { useHomeTranslations } from "../hooks/useHomeTranslation";
 
 const Gallery = () => {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
+  const { t } = useHomeTranslations();
 
   const [playingVideo, setPlayingVideo] = React.useState<number | null>(null);
 
@@ -97,7 +99,7 @@ const Gallery = () => {
     <div className={container()}>
       <div className={innerWrapper()}>
         <div className={headerSection()}>
-          <h1 className={title()}>Video Gallery</h1>
+          <h1 className={title()}>{t("home.videogallery")}</h1>
         </div>
         <Carousel setApi={setApi} className={carousel()} opts={{ loop: true }}>
           <CarouselContent className={carouselContent()}>

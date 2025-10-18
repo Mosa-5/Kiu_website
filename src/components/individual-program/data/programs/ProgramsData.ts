@@ -1,6 +1,8 @@
 import type { ProgramData } from "./types";
-import { computerScienceProgram } from "./ComputerScience";
+import { getComputerScienceProgram } from "./ComputerScience";
 
-export const programsData: Record<string, ProgramData> = {
-  computerScience: computerScienceProgram,
+export const getProgramsData = (lang: string): Record<string, ProgramData> => {
+  return {
+    computerScience: getComputerScienceProgram(lang),
+  };
 };

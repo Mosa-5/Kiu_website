@@ -27,18 +27,23 @@ import {
   newsTitle,
   carouselButton,
 } from "./News.styles";
-import { Link } from "react-router-dom";
-import newsItems from "@/data/newsItems";
+import { Link, useParams } from "react-router-dom";
+import { useHomeTranslations } from "../hooks/useHomeTranslation";
+import { useNewsItems } from "@/hooks/useNewsItems";
 
 const NewsSection = () => {
+  const { t } = useHomeTranslations();
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
+  const newsItems = useNewsItems();
   return (
     <div className={container()}>
       <div className={innerWrapper()}>
         <div className={headerSection()}>
-          <h1 className={title()}>News</h1>
-          <Link to="/news">
+          <h1 className={title()}>{t("home.news")}</h1>
+          <Link to={`/${currentLang}/news`}>
             <Button className={seeAllButton()} variant={"secondary"}>
-              See All
+              {t("home.seeall")}
             </Button>
           </Link>
         </div>
@@ -52,7 +57,7 @@ const NewsSection = () => {
           <CarouselContent className={carouselContent()}>
             {newsItems.slice(0, 5).map((item) => (
               <CarouselItem key={item.id} className={carouselItem()}>
-                <Link to={`/news/${item.id}`}>
+                <Link to={`/${currentLang}/news/${item.id}`}>
                   <Card className={card()}>
                     <CardContent className={cardContent()}>
                       <div className={hoverBar()} />

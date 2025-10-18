@@ -11,12 +11,13 @@ import {
 } from "@/components/ui/pagination";
 import { kiuCardImg } from "@/assets";
 import { grid, paginationWrapper, paginationButton } from "./NewsGrid.styles";
+import type { NewsItem } from "@/data/newsItems"; // ✅ import the type
 
 interface NewsGridProps {
-  items: typeof import("@/data/newsItems").default;
+  items: NewsItem[];
 }
 
-const NewsGrid = ({ items }: NewsGridProps) => {
+const NewsGrid = ({ items }: NewsGridProps) => { // ✅ accept items as a prop
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
