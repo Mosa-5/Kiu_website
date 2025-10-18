@@ -1,5 +1,6 @@
 import { useState } from "react";
 import NewsCard from "./NewsCard";
+import NewsCardMobile from "./NewsCardMobile";
 import {
   Pagination,
   PaginationContent,
@@ -28,14 +29,29 @@ const NewsGrid = ({ items }: NewsGridProps) => {
     <div>
       <div className={grid()}>
         {currentItems.map((item) => (
-          <NewsCard
-            id={item.id}
-            imageUrl={kiuCardImg}
-            key={item.id}
-            date={item.date}
-            title={item.title}
-            description={item.description}
-          />
+          <div key={item.id}>
+            {/* Desktop version - hidden on mobile */}
+            <div className="hidden md:block">
+              <NewsCard
+                id={item.id}
+                imageUrl={kiuCardImg}
+                date={item.date}
+                title={item.title}
+                description={item.description}
+              />
+            </div>
+
+            {/* Mobile version - hidden on desktop */}
+            <div className="md:hidden">
+              <NewsCardMobile
+                id={item.id}
+                imageUrl={kiuCardImg}
+                date={item.date}
+                title={item.title}
+                description={item.description}
+              />
+            </div>
+          </div>
         ))}
       </div>
 
