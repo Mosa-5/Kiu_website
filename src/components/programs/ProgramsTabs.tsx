@@ -2,7 +2,6 @@ import programItems from "@/data/programItems";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import {
   activeIndicator,
-  headerWrapper,
   tabsContainer,
   tabsContent,
   tabsList,
@@ -39,17 +38,15 @@ const ProgramTabs = () => {
         onValueChange={handleTabChange}
         className={tabsContainer()}
       >
-        <div className={headerWrapper()}>
-          <div className={tabsListWrapper()}>
-            <TabsList className={tabsList()}>
-              {categories.map((cat) => (
-                <TabsTrigger key={cat} value={cat} className={tabsTrigger()}>
-                  {cat}
-                  <span className={activeIndicator()} />
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
+        <div className={tabsListWrapper()}>
+          <TabsList className={tabsList()}>
+            {categories.map((cat) => (
+              <TabsTrigger key={cat} value={cat} className={tabsTrigger()}>
+                {cat}
+                <span className={activeIndicator()} />
+              </TabsTrigger>
+            ))}
+          </TabsList>
         </div>
 
         {categories.map((cat) => {
