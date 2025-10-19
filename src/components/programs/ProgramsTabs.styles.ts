@@ -13,7 +13,7 @@ export const tabsList = cva(
 );
 
 export const tabsTrigger = cva([
-  "max-sm:after:hidden  border-1 border-gray-200 max-sm:bg-gray-100 max-sm:data-[state=active]:bg-main max-sm:shadow-md max-sm:data-[state=active]:border-main max-sm:rounded-sm relative rounded-none sm:border-none bg-transparent px-0 py-1.5 sm:pb-2 text-[22px] font-semibold text-black",
+  "max-sm:after:hidden  border-1 border-gray-200 max-sm:bg-gray-100 max-sm:data-[state=active]:bg-main max-sm:shadow-md max-sm:data-[state=active]:border-main max-sm:rounded-sm relative rounded-none sm:border-none bg-transparent px-0 py-1.5 sm:pb-2 text-lg sm:text-[22px] font-semibold text-black",
   "data-[state=active]:text-white sm:data-[state=active]:text-black data-[state=inactive]:text-gray-500 data-[state=active]:shadow-none data-[state=active]:after:opacity-100",
   "after:block after:opacity-0 after:absolute after:-bottom-[5px] after:left-0 after:h-1 after:w-full after:bg-main",
   "after:transition-opacity after:duration-200",
