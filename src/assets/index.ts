@@ -41,6 +41,17 @@ export { default as IaMosasvhili } from "./Ia_Mosashvili.png";
 export { default as Konstantinos } from "./Konstantinos.png";
 export { default as NinoDemetrashvili } from "./NinoDemetrashvili.jpg";
 export { default as VacanciesHero } from "./Vacancies.jpg";
+export { default as GeorgeOniani } from "./giorgi-oniani.jpg";
+export { default as AlexanderMeskhi } from "./meskhi.jpg";
+export { default as FlorianRupp } from "./F.Rupp.jpg";
+export { default as MatthewZabka } from "./metthew.jpg";
+export { default as GeorgeChelidze } from "./chelidze.1.jpg";
+export { default as MarkusNeuhauser } from "./neuhauser.jpg";
+export { default as AnzorBeridze } from "./beridze012.jpg";
+export { default as JakobWagner } from "./jakob_wagner.jpg";
+export { default as BorisVexler } from "./thumbnail_boris_vexler_foto_1.jpg";
+export { default as RamazBochorishvili } from "./ramaz_botchorishvili_photo.jpeg";
+export { default as MathHero } from "./programImages/mathCard.jpg";
 
 //program images
 export { default as bechalor } from "./bechalors.png";
