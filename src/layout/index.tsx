@@ -3,6 +3,7 @@ import Header from "@/components/header/Header";
 import { Outlet, useLocation, useParams, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import SeoHead from "@/components/SeoHead";
 
 const Layout = () => {
   const location = useLocation();
@@ -31,6 +32,7 @@ const Layout = () => {
 
   return (
     <div className="min-h-screen">
+      <SeoHead />
       <Header />
       <Outlet />
       <Footer />
