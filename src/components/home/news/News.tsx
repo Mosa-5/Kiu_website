@@ -21,9 +21,11 @@ const NewsSection = () => {
         </Link>
       </div>
       <NewsCarousel />
-      <Button className={seeAllButtonMobile()} variant={"secondary"}>
-        See All
-      </Button>
+      <Link to="/news">
+        <Button className={seeAllButtonMobile()} variant={"secondary"}>
+          See All
+        </Button>
+      </Link>
     </div>
   );
 };
