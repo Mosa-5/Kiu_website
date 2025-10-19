@@ -7,11 +7,11 @@ export const headerSection = cva(
 );
 
 export const title = cva(
-  "font-semibold text-2xl text-center sm:text-[40px] text-main mb-4"
+  "font-semibold text-2xl max-sm:text-center sm:text-[40px] text-main mb-4"
 );
 
 export const subtitle = cva(
-  "text-base sm:text-lg font-medium text-main flex items-center gap-2"
+  "text-base sm:text-lg font-medium text-main flex items-center max-sm:justify-center gap-2"
 );
 export const smallSvg = cva("max-sm:hidden");
 

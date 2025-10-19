@@ -3,7 +3,8 @@ import {
   innerWrapper,
   headerSection,
   title,
-  seeAllButton,
+  seeAllButtonDesktop,
+  seeAllButtonMobile,
 } from "./News.styles";
 import { Link } from "react-router-dom";
 import NewsCarousel from "./NewsCarousel";
@@ -14,12 +15,15 @@ const NewsSection = () => {
       <div className={headerSection()}>
         <h1 className={title()}>News</h1>
         <Link to="/news">
-          <Button className={seeAllButton()} variant={"secondary"}>
+          <Button className={seeAllButtonDesktop()} variant={"secondary"}>
             See All
           </Button>
         </Link>
       </div>
       <NewsCarousel />
+      <Button className={seeAllButtonMobile()} variant={"secondary"}>
+        See All
+      </Button>
     </div>
   );
 };

@@ -9,7 +9,7 @@ export const headerSectionVariants = cva(
 );
 
 export const titleVariants = cva(
-  "text-2xl sm:text-[40px] text-main font-semibold w-fit rounded-xl py-1 px-5"
+  "text-2xl sm:text-[40px] text-main font-semibold w-fit rounded-xl"
 );
 
 export const gridVariants = cva("grid sm:grid-cols-2 gap-2 sm:gap-6");

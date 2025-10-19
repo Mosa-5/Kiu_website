@@ -10,8 +10,12 @@ export const headerSection = cva(
 
 export const title = cva("text-main text-2xl sm:text-4xl font-semibold");
 
-export const seeAllButton = cva(
+export const seeAllButtonDesktop = cva(
   "max-sm:hidden w-[160px] h-[48px] text-lg font-semibold text-mainLight bg-white border-mainLight border-2 shadow-[2px_3px_4px_0px_#00000040] hover:cursor-pointer"
+);
+
+export const seeAllButtonMobile = cva(
+  "sm:hidden mt-4 w-[160px] h-[48px] text-lg font-semibold text-mainLight bg-white border-mainLight border-2 shadow-[2px_3px_4px_0px_#00000040] hover:cursor-pointer"
 );
 
 export const carousel = cva("w-full mx-auto max-w-[300px] sm:max-w-[1680px]");
