@@ -13,6 +13,7 @@
   "auth": {
     "login": "შესვლა",
     "logout": "გამოსვლა",
-    "goToLMS": "LMS-ზე გადასვლა"
+    "goToLMS": "LMS-ზე გადასვლა",
+    "profile": "პროფილი"
   }
 }

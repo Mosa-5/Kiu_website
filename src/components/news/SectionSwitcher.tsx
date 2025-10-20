@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -22,10 +22,21 @@ const SectionSwitcher = () => {
   const { t } = useNewsTranslations();
 
   const [items, setItems] = useState(getNewsItems());
+  const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("");
 
   useEffect(() => {
     setItems(getNewsItems());
   }, [t]);
+
+  // Debounce search query
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
 
   const categoryKeys = [
     "All",
@@ -37,6 +48,26 @@ const SectionSwitcher = () => {
   ];
 
   const categoryLabels = categoryKeys.map((key) => t(`categories.${key}`));
+
+  // Filter items based on debounced search query
+  const filteredItems = useMemo(() => {
+    if (!debouncedSearchQuery.trim()) {
+      return items;
+    }
+
+    const query = debouncedSearchQuery.toLowerCase();
+    return items.filter((item) => {
+      return (
+        item.title.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query) ||
+        item.category?.toLowerCase().includes(query)
+      );
+    });
+  }, [items, debouncedSearchQuery]);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
 
   return (
     <div className={container()}>
@@ -57,19 +88,21 @@ const SectionSwitcher = () => {
             <Input
               placeholder={t("searchPlaceholder")}
               className={searchInput()}
+              value={searchQuery}
+              onChange={handleSearchChange}
             />
           </div>
         </div>
 
         {categoryKeys.map((key) => {
-          const filtered =
+          const categoryFiltered =
             key === "All"
-              ? items
-              : items.filter((item) => item.category === key);
+              ? filteredItems
+              : filteredItems.filter((item) => item.category === key);
 
           return (
             <TabsContent key={key} value={key} className={tabsContent()}>
-              <NewsGrid items={filtered} />
+              <NewsGrid items={categoryFiltered} />
             </TabsContent>
           );
         })}

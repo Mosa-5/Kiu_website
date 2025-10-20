@@ -13,6 +13,7 @@
   "auth": {
     "login": "Login",
     "logout": "Logout",
-    "goToLMS": "Go to LMS"
+    "goToLMS": "Go to LMS",
+    "profile": "Profile"
   }
 }

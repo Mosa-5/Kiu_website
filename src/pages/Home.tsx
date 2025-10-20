@@ -1,6 +1,6 @@
 import About from "@/components/home/about/About";
 import Campus from "@/components/home/campus/Campus";
-import CarouselHero from "@/components/home/carousel/CarouselHero";
+import CarouselHero from "@/components/home/hero/CarouselHero";
 import ExperinemtalGallery from "@/components/home/gallery/Gallery";
 import CarouselNews from "@/components/home/news/News";
 import ProgramHome from "@/components/home/program-home/ProgramHome";
