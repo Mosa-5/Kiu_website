@@ -188,8 +188,16 @@ const Gallery = () => {
             })}
           </CarouselContent>
           <div className={counter()}>{(current % 5) + 1}/5</div>
-          <CarouselPrevious className={prevButton()} aria-label="Previous video" title="Previous video"/>
-          <CarouselNext className={nextButton()} aria-label="Next video" title="Next video" />
+          <CarouselPrevious
+            className={prevButton()}
+            aria-label="Previous video"
+            title="Previous video"
+          />
+          <CarouselNext
+            className={nextButton()}
+            aria-label="Next video"
+            title="Next video"
+          />
         </Carousel>
       </div>
     </div>

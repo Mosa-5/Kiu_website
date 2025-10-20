@@ -25,7 +25,7 @@ const SectionSwitcher = () => {
 
   useEffect(() => {
     setItems(getNewsItems());
-  }, [t]); 
+  }, [t]);
 
   const categoryKeys = [
     "All",

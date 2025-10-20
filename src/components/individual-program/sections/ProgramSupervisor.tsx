@@ -11,12 +11,12 @@ const ProgramSupervisorSection: React.FC<ProgramSupervisorSectionProps> = ({
 }) => {
   const supervisorData = programData.programSupervisor;
 
-  const isMultiple = 'supervisors' in supervisorData;
+  const isMultiple = "supervisors" in supervisorData;
 
   return (
     <section id="program-supervisor" className="mb-12 scroll-mt-8">
       <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-        <h2 className="text-3xl font-medium text-mainDark">
+        <h2 className="text-2xl sm:text-3xl font-medium text-mainDark">
           {supervisorData.title}
         </h2>
         <span className="text-mainDark">{SupervisorIcon}</span>
@@ -26,11 +26,11 @@ const ProgramSupervisorSection: React.FC<ProgramSupervisorSectionProps> = ({
         <div className="space-y-12">
           {supervisorData.supervisors.map((supervisor, index) => (
             <div key={index}>
-              <h3 className="text-2xl font-medium text-slate-900 mb-4">
+              <h3 className="text-xl sm:text-2xl font-medium text-slate-900 mb-4">
                 {supervisor.name}
               </h3>
 
-              <div className="float-right ml-8 mb-6 w-[476px] h-[430px]">
+              <div className="float-right ml-8 mb-6 w-full sm:w-[476px] sm:h-[430px]">
                 <img
                   src={supervisor.image}
                   alt={supervisor.name}
@@ -38,10 +38,10 @@ const ProgramSupervisorSection: React.FC<ProgramSupervisorSectionProps> = ({
                 />
               </div>
 
-              <p className="text-lg mb-6">{supervisor.position}</p>
+              <p className="text-sm sm:text-lg mb-6">{supervisor.position}</p>
 
               {supervisor.paragraphs.map((paragraph, i) => (
-                <p key={i} className="mb-6 text-lg">
+                <p key={i} className="mb-6 text-sm sm:text-lg">
                   {paragraph}
                 </p>
               ))}

@@ -18,14 +18,24 @@ const NewsSection = () => {
       <div className={headerSection()}>
         <h1 className={title()}>{t("home.news")}</h1>
         <Link to="/news" aria-label="See all news Dekstop">
-          <Button className={seeAllButtonDesktop()} variant={"secondary"} aria-label="See more Desktop" title="See more Desktop">
+          <Button
+            className={seeAllButtonDesktop()}
+            variant={"secondary"}
+            aria-label="See more Desktop"
+            title="See more Desktop"
+          >
             {t("home.seeall")}
           </Button>
         </Link>
       </div>
       <NewsCarousel />
       <Link to="/news" aria-label="See all news Mobile">
-        <Button className={seeAllButtonMobile()} variant={"secondary"} aria-label="See more Mobile" title="Se more Mobile">
+        <Button
+          className={seeAllButtonMobile()}
+          variant={"secondary"}
+          aria-label="See more Mobile"
+          title="Se more Mobile"
+        >
           {t("home.seeall")}
         </Button>
       </Link>

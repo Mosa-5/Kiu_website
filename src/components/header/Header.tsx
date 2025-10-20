@@ -1,5 +1,5 @@
 import { Link, NavLink, useParams } from "react-router-dom";
-import { kiuLogo, kiuGeoLogo } from "@/assets"; 
+import { kiuLogo, kiuGeoLogo } from "@/assets";
 import LanguageSelect from "./LanguageSelect";
 import { useEffect, useState } from "react";
 import { LogIn, User } from "lucide-react";
@@ -13,6 +13,7 @@ import {
 import { useHeaderTranslations } from "../../hooks/hooksHeader/useHeaderTranslation";
 import { useAuth } from "../../hooks/hooksHeader/useAuth";
 import { AuthModal } from "./AuthModal";
+import { Button } from "../ui/button";
 
 import {
   Select,
@@ -58,11 +59,7 @@ const Header = () => {
       <div className={header({ scrolled })}>
         <div className={innerContainer()}>
           <Link to={`/${currentLang}`} aria-label="Home">
-            <img 
-              className={logo()} 
-              src={getLogo()} 
-              alt="Kiu logo" 
-            />
+            <img className={logo()} src={getLogo()} alt="Kiu logo" />
           </Link>
 
           <nav className={nav()}>
@@ -78,7 +75,7 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center">
             {isAuthenticated && currentUser ? (
               <Select
                 defaultValue=""
@@ -101,14 +98,14 @@ const Header = () => {
                 </SelectContent>
               </Select>
             ) : (
-              <button
+              <Button
                 onClick={() => setIsAuthModalOpen(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-main text-white rounded-md hover:bg-mainDark transition-colors text-sm font-medium"
+                className="flex items-center gap-2 px-4 py-4 h-9.5 shadow-none rounded-lg bg-main text-white hover:bg-mainDark transition-colors text-base font-medium"
                 aria-label={t("auth.login")}
               >
                 <LogIn size={18} />
                 <span className="hidden md:inline">{t("auth.login")}</span>
-              </button>
+              </Button>
             )}
 
             <LanguageSelect />
