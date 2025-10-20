@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const header = cva(
-  `flex items-center z-10 justify-center w-full fixed left-1/2 -translate-x-1/2 border-1 h-[80px] transition-all duration-200`,
+  `max-sm:hidden flex items-center z-10 justify-center w-full fixed left-1/2 -translate-x-1/2 border-1 h-[80px] transition-all duration-200`,
   {
     variants: {
       scrolled: {

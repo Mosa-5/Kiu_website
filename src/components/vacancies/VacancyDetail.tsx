@@ -16,10 +16,14 @@ const VacancyDetail = () => {
     toggleSubject,
   } = useVacancyForm();
 
-  const academicPositions = getTranslatedArray("detail.academicPosition.options");
+  const academicPositions = getTranslatedArray(
+    "detail.academicPosition.options"
+  );
   const assignmentTypes = getTranslatedArray("detail.assignmentType.options");
   const teachingOptions = getTranslatedArray("detail.teaching.options");
-  const languageOptions = getTranslatedArray("detail.instructionLanguage.options");
+  const languageOptions = getTranslatedArray(
+    "detail.instructionLanguage.options"
+  );
   const mathSubjects = getTranslatedArray("detail.fieldsOfInterest.subjects");
 
   return (
@@ -28,13 +32,13 @@ const VacancyDetail = () => {
         {/* Header */}
         <div className="mb-8">
           <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-            <h1 className="text-3xl font-medium text-mainDark">
+            <h1 className="text-xl sm:text-3xl font-medium text-mainDark">
               {t("detail.heading")}
             </h1>
             <span className="text-mainDark">{AboutIcon}</span>
           </div>
 
-          <p className="text-lg mb-2">
+          <p className="text-base sm:text-lg  mb-2">
             {t("detail.intro")}{" "}
             <a
               href={`mailto:${t("detail.email")}`}
@@ -44,11 +48,11 @@ const VacancyDetail = () => {
             </a>
           </p>
 
-          <p className="text-lg mb-3">
+          <p className="text-base sm:text-lg  mb-3">
             {t("detail.description")}
           </p>
 
-          <div className="flex items-center gap-2 text-lg text-link hover:text-linkDark cursor-pointer underline-offset-2 underline">
+          <div className="flex items-center gap-2 text-base sm:text-lg text-link hover:text-linkDark cursor-pointer underline-offset-2 underline">
             <svg
               width="28"
               height="28"
@@ -67,7 +71,7 @@ const VacancyDetail = () => {
 
         {/* Form Section */}
         <div>
-          <h2 className="text-xl font-semibold text-main mb-6 pb-2 border-b border-gray-200">
+          <h2 className="text-lg sm:text-xl font-semibold text-main mb-6 pb-2 border-b border-gray-200">
             {t("detail.formTitle")}
           </h2>
 
@@ -210,14 +214,14 @@ const VacancyDetail = () => {
 
           {/* Scope of Interest */}
           <div className="mb-8 mt-12">
-            <p className="text-xl font-semibold text-main">
+            <p className="text-lg sm:text-xl max-sm:text-center font-semibold text-main">
               {t("detail.scopeHeading")}
             </p>
           </div>
 
           {/* Academic Position */}
           <div className="mb-8">
-            <h3 className="text-lg font-semibold text-main mb-3">
+            <h3 className="text-lg max-sm:text-center font-semibold text-main mb-3">
               {t("detail.academicPosition.title")}
             </h3>
             <div className="flex flex-wrap gap-3">
@@ -228,7 +232,7 @@ const VacancyDetail = () => {
                   onClick={() =>
                     handleButtonSelect("academicPosition", position)
                   }
-                  className={`px-4 py-2 rounded-full border text-md font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-full border max-sm:w-full text-base font-medium transition-colors ${
                     formData.academicPosition === position
                       ? "bg-blue-100 border-main text-mainDark font-medium"
                       : "border-gray-300 hover:border-gray-400"
@@ -247,7 +251,7 @@ const VacancyDetail = () => {
 
           {/* Assignment Type */}
           <div className="mb-8">
-            <h3 className="text-lg font-semibold text-main mb-3">
+            <h3 className="text-lg font-semibold max-sm:text-center text-main mb-3">
               {t("detail.assignmentType.title")}
             </h3>
             <div className="flex flex-wrap gap-3">
@@ -256,10 +260,10 @@ const VacancyDetail = () => {
                   key={type}
                   type="button"
                   onClick={() => handleButtonSelect("assignmentType", type)}
-                  className={`px-4 py-2 rounded-full border text-md font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-full max-sm:w-full border text-md font-medium transition-colors ${
                     formData.assignmentType === type
                       ? "bg-blue-100 border-main text-mainDark"
-                      : "border-gray-300 hover:border-gray-400"
+                      : "border-gray-300  hover:border-gray-400"
                   }`}
                 >
                   {type}
@@ -275,7 +279,7 @@ const VacancyDetail = () => {
 
           {/* Teaching */}
           <div className="mb-8">
-            <h3 className="text-lg font-semibold text-main mb-3">
+            <h3 className="text-lg font-semibold max-sm:text-center text-main mb-3">
               {t("detail.teaching.title")}
             </h3>
             <div className="flex flex-wrap gap-3">
@@ -284,7 +288,7 @@ const VacancyDetail = () => {
                   key={teaching}
                   type="button"
                   onClick={() => handleButtonSelect("teaching", teaching)}
-                  className={`px-4 py-2 rounded-full border text-md font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-full max-sm:w-full border text-md font-medium transition-colors ${
                     formData.teaching === teaching
                       ? "bg-blue-100 border-main text-mainDark"
                       : "border-gray-300 hover:border-gray-400"
@@ -301,7 +305,7 @@ const VacancyDetail = () => {
 
           {/* Instruction Language */}
           <div className="mb-8">
-            <h3 className="text-lg font-semibold text-main mb-3">
+            <h3 className="text-lg max-sm:text-center font-semibold text-main mb-3">
               {t("detail.instructionLanguage.title")}
             </h3>
             <div className="flex flex-wrap gap-3">
@@ -312,7 +316,7 @@ const VacancyDetail = () => {
                   onClick={() =>
                     handleButtonSelect("instructionLanguage", language)
                   }
-                  className={`px-4 py-2 rounded-full border text-md font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-full max-sm:w-full border text-md font-medium transition-colors ${
                     formData.instructionLanguage === language
                       ? "bg-blue-100 border-main text-mainDark"
                       : "border-gray-300 hover:border-gray-400"
@@ -331,14 +335,15 @@ const VacancyDetail = () => {
 
           {/* Fields of Interest */}
           <div className="mb-8">
-            <p className="text-xl font-semibold text-main mb-4">
+            <p className="text-xl font-semibold max-sm:text-center text-main mb-4">
               {t("detail.fieldsOfInterest.heading")}
             </p>
 
             <div className="mb-4">
-              <h3 className="font-medium mb-3">
+              <h3 className="font-medium max-sm:text-center mb-3">
                 {t("detail.fieldsOfInterest.mathTitle")}
               </h3>
+              {/* Button Pills - Top 6 */}
               <div className="flex flex-wrap gap-3 mb-6">
                 {mathSubjects.map((subject) => (
                   <button
@@ -349,7 +354,7 @@ const VacancyDetail = () => {
                       !formData.fieldsOfInterest.includes(subject) &&
                       formData.fieldsOfInterest.length >= 3
                     }
-                    className={`px-4 py-2 rounded-full border transition-all font-medium ${
+                    className={`px-4 py-2 rounded-full max-sm:w-full border transition-all font-medium ${
                       formData.fieldsOfInterest.includes(subject)
                         ? "bg-blue-100 border-main text-mainDark"
                         : "border-gray-300 hover:border-gray-400"
@@ -393,7 +398,9 @@ const VacancyDetail = () => {
                 submitting ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
-              {submitting ? t("detail.submit.submitting") : t("detail.submit.button")}
+              {submitting
+                ? t("detail.submit.submitting")
+                : t("detail.submit.button")}
             </Button>
           </div>
         </div>

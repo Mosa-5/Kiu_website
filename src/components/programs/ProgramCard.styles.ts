@@ -1,8 +1,8 @@
 import { cva } from "class-variance-authority";
 
 export const card = cva([
-  "group relative max-w-[544px] h-[259px] w-full",
-  "border-2 border-main rounded-2xl overflow-hidden",
+  "group relative max-w-[544px] h-32 sm:h-[259px] w-full",
+  "sm:border-2 border-y-2 border-main sm:rounded-2xl overflow-hidden",
   "shadow-default bg-cover bg-center hover:cursor-pointer",
 ]);
 
@@ -19,5 +19,5 @@ export const baseContent = cva(
 );
 
 export const title = cva(
-  "text-white font-semibold text-2xl text-center backdrop-blur-[1px] flex rounded-full"
+  "text-white font-semibold text-xl sm:text-2xl text-center backdrop-blur-[1px] flex rounded-full"
 );

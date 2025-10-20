@@ -5,7 +5,9 @@ const News = () => {
   return (
     <div className="min-h-screen bg-background">
       <NewsHero />
-      <SectionSwitcher />
+      <div className="px-4 sm:px-[100px]">
+        <SectionSwitcher />
+      </div>
     </div>
   );
 };

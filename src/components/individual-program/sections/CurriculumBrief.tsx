@@ -12,18 +12,22 @@ const CurriculumBriefSection: React.FC<Props> = ({ programData }) => {
   return (
     <section id="curriculum-brief" className="mb-12 scroll-mt-8">
       <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-        <h2 className="text-3xl font-medium text-mainDark">{data.title}</h2>
+        <h2 className="text-2xl sm:text-3xl font-medium text-mainDark">
+          {data.title}
+        </h2>
         <span className="text-mainDark">{CuriculumIcon}</span>
       </div>
 
-      <p className="mb-6 text-2xl text-main font-medium">{data.intro}</p>
+      <p className="mb-6  text-xl sm:text-2xl text-main font-medium">
+        {data.intro}
+      </p>
 
       <div className="grid md:grid-cols-3 gap-8 mb-6">
         <div>
-          <h3 className="text-xl font-medium text-main mb-3">
+          <h3 className="text-lg sm:text-xl font-medium text-main mb-3">
             {data.concentrations.title}
           </h3>
-          <ul className="text-lg space-y-1">
+          <ul className="text-sm sm:text-lg space-y-1">
             {data.concentrations.items.map((item, i) => (
               <li key={i}>• {item}</li>
             ))}

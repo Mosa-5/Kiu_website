@@ -3,6 +3,7 @@ import Header from "@/components/header/Header";
 import { Outlet, useLocation, useParams, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import HeaderMobile from "@/components/header/HeaderMobile";
 
 const Layout = () => {
   const location = useLocation();
@@ -10,7 +11,7 @@ const Layout = () => {
   const { i18n } = useTranslation();
 
   // Validate language param
-  const validLanguages = ['en', 'ka'];
+  const validLanguages = ["en", "ka"];
   const isValidLang = lang && validLanguages.includes(lang);
 
   useEffect(() => {
@@ -32,7 +33,10 @@ const Layout = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <Outlet />
+      <HeaderMobile />
+      <div className="max-sm:mt-[67px]">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

@@ -3,9 +3,41 @@ import { conferenceData } from "./data/frontiersData";
 import { AboutIcon, SpeakerIcon } from "../../../assets/icons/icons";
 import { FrontiersConf } from "@/assets";
 import { useFrontiersTranslations } from "./hooks/useFrontiersTranslations";
+import {
+  container,
+  bannerImage,
+  sectionHeader,
+  sectionTitle,
+  sectionIcon,
+  sectionIconMain,
+  paragraph,
+  richTextLink,
+  richTextHighlight,
+  subsectionTitle,
+  subsectionTitleSmall,
+  subsectionTitleSmaller,
+  listDisc,
+  listDiscLarge,
+  listItem,
+  accommodationText,
+  registrationContent,
+  registrationHighlight,
+  registrationLink,
+  registrationLinksContainer,
+  registrationLinkItem,
+  registrationLinkItemHover,
+  registrationMainLink,
+  feesTitle,
+  feesList,
+  feesNote,
+  committeeTitle,
+  speakerLink,
+  speakersList,
+  speakersDescription,
+} from "./FrontiersDetail.styles";
 
 const FrontiersDetail: React.FC = () => {
-  const { t, getTranslatedArray, getTranslatedParts, getTranslatedLinks } = 
+  const { t, getTranslatedArray, getTranslatedParts, getTranslatedLinks } =
     useFrontiersTranslations();
 
   const aboutParts = getTranslatedParts("about.parts");
@@ -15,32 +47,26 @@ const FrontiersDetail: React.FC = () => {
   const feesItems = getTranslatedArray("fees.items");
 
   return (
-    <div className="max-w-[1680px] mx-auto py-10 font-sans">
-      <img src={FrontiersConf} className="brightness-75 py-10" />
-      
+    <div className={container()}>
+      <img src={FrontiersConf} className={bannerImage()} />
+
       {/* About */}
-      <div className="bg-headingBg inline-flex items-center gap-4 px-4 py-2 rounded mb-6">
-        <h1 className="text-3xl font-medium text-mainDark">
-          {t("about.title")}
-        </h1>
-        <span className="text-mainDark">{AboutIcon}</span>
+      <div className={sectionHeader()}>
+        <h1 className={sectionTitle()}>{t("about.title")}</h1>
+        <span className={sectionIcon()}>{AboutIcon}</span>
       </div>
-      <p className="mb-6 text-lg">
+      <p className={paragraph()}>
         {aboutParts.map((part, i) => {
           if (part.type === "link") {
             return (
-              <a
-                key={i}
-                href={part.url}
-                className="text-blue-400 hover:underline font-medium"
-              >
+              <a key={i} href={part.url} className={richTextLink()}>
                 {part.text}
               </a>
             );
           }
           if (part.type === "blue") {
             return (
-              <span key={i} className="text-main">
+              <span key={i} className={richTextHighlight()}>
                 {part.text}
               </span>
             );
@@ -50,37 +76,33 @@ const FrontiersDetail: React.FC = () => {
       </p>
 
       {/* Program */}
-      <h2 className="text-2xl font-medium text-main mb-3">
-        {t("program.title")}
-      </h2>
-      <ul className="list-disc pl-5 mb-6 text-lg">
+      <h2 className={subsectionTitle()}>{t("program.title")}</h2>
+      <ul className={listDisc()}>
         {programItems.map((item, i) => (
-          <li key={i}>{item}</li>
+          <li key={i} className={listItem()}>
+            {item}
+          </li>
         ))}
       </ul>
 
       {/* Accommodation */}
-      <h2 className="text-xl font-medium text-main mb-3">
-        {t("accommodation.title")}
-      </h2>
-      <p className="mb-6 text-lg">{t("accommodation.text")}</p>
+      <h2 className={subsectionTitleSmall()}>{t("accommodation.title")}</h2>
+      <p className={accommodationText()}>{t("accommodation.text")}</p>
 
       {/* Registration */}
-      <h2 className="text-xl font-medium text-main mb-3">
-        {t("registration.title")}
-      </h2>
-      <div className="mb-2 text-lg">
+      <h2 className={subsectionTitleSmaller()}>{t("registration.title")}</h2>
+      <div className={registrationContent()}>
         {registrationParts.map((part, i) => {
           if (part.type === "highlight") {
             return (
-              <span key={i} className="text-main">
+              <span key={i} className={registrationHighlight()}>
                 {part.text}
               </span>
             );
           }
           if (part.type === "link") {
             return (
-              <a key={i} href={part.url} className="text-main hover:underline">
+              <a key={i} href={part.url} className={registrationLink()}>
                 {part.text}
               </a>
             );
@@ -88,10 +110,10 @@ const FrontiersDetail: React.FC = () => {
           return <span key={i}>{part.text} </span>;
         })}
       </div>
-      <div className="mb-6 text-lg text-blue-400 hover:underline">
+      <div className={registrationLinksContainer()}>
         {registrationLinks.slice(0, 2).map((link, i) => (
-          <p key={i} className="mb-1">
-            <a href={link.url} className="hover:underline">
+          <p key={i} className={registrationLinkItem()}>
+            <a href={link.url} className={registrationLinkItemHover()}>
               {link.text}
             </a>
           </p>
@@ -99,48 +121,39 @@ const FrontiersDetail: React.FC = () => {
       </div>
 
       {/* Registration Link */}
-      <div className="mb-6">
-        <a
-          href={registrationLinks[2].url}
-          className="text-2xl text-main hover:underline"
-        >
+      <div>
+        <a href={registrationLinks[2].url} className={registrationMainLink()}>
           {registrationLinks[2].text}
         </a>
       </div>
 
       {/* Fees */}
-      <h3 className="text-base font-medium text-gray-800 mb-2">
-        {t("fees.title")}
-      </h3>
-      <ul className="list-disc pl-5 mb-2 text-lg">
+      <h3 className={feesTitle()}>{t("fees.title")}</h3>
+      <ul className={feesList()}>
         {feesItems.map((f, i) => (
           <li key={i}>{f}</li>
         ))}
       </ul>
-      <p className="text-lg mb-6">{t("fees.note")}</p>
+      <p className={feesNote()}>{t("fees.note")}</p>
 
       {/* Committee */}
-      <h3 className="text-base font-medium text-main mb-2">
-        {t("committee.title")}
-      </h3>
-      <ul className="list-disc pl-5 mb-6 text-lg">
+      <h3 className={committeeTitle()}>{t("committee.title")}</h3>
+      <ul className={listDiscLarge()}>
         {conferenceData.committee.members.map((m, i) => (
           <li key={i}>{m}</li>
         ))}
       </ul>
 
       {/* Speakers */}
-      <div className="bg-headingBg inline-flex items-center gap-4 px-4 py-2 rounded mb-6">
-        <h2 className="text-3xl font-medium text-mainDark">
-          {t("speakers.title")}
-        </h2>
-        <span className="text-main">{SpeakerIcon}</span>
+      <div className={sectionHeader()}>
+        <h2 className={sectionTitle()}>{t("speakers.title")}</h2>
+        <span className={sectionIconMain()}>{SpeakerIcon}</span>
       </div>
-      <p className="mb-3 text-lg">{t("speakers.description")}</p>
-      <ul className="list-disc pl-5 mb-6 text-lg space-y-1">
+      <p className={speakersDescription()}>{t("speakers.description")}</p>
+      <ul className={speakersList()}>
         {conferenceData.speakers.list.map((s, i) => (
           <li key={i}>
-            <a href={s.link} className="text-main hover:underline font-medium">
+            <a href={s.link} className={speakerLink()}>
               {s.name}
             </a>
             , {s.affiliation}
