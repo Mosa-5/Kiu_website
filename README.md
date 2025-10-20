@@ -64,7 +64,7 @@ Developed as a university project to represent **Kutaisi International Universit
 
 ## Live Demo
 
-You can view the deployed project here: https://kiu-website.vercel.app/
+You can view the deployed project here (vercel is down right now, this is an older version): https://kiu-website.vercel.app/
 
 ## Installation & Setup
 
