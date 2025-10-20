@@ -1,6 +1,20 @@
 import React from "react";
 import { PersonnelIcon } from "../../../assets/icons/icons";
 import type { ProgramData } from "../data/programs/types";
+import {
+  section,
+  headingBadge,
+  mainHeading,
+  iconWrapper,
+  subsectionWrapper,
+  subsectionTitle,
+  grid,
+  memberCard,
+  memberImage,
+  memberInfo,
+  memberName,
+  memberTitle,
+} from "./AcademicPersonnel.styles";
 
 interface Props {
   programData: ProgramData;
@@ -10,36 +24,27 @@ const AcademicPersonnelSection: React.FC<Props> = ({ programData }) => {
   const data = programData.academicPersonnel;
 
   return (
-    <section id="academic-personnel" className="mb-12 scroll-mt-8">
-      <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-        <h2 className="text-2xl sm:text-3xl font-medium text-mainDark">
-          {data.title}
-        </h2>
-        <span className="text-mainDark">{PersonnelIcon}</span>
+    <section id="academic-personnel" className={section()}>
+      <div className={headingBadge()}>
+        <h2 className={mainHeading()}>{data.title}</h2>
+        <span className={iconWrapper()}>{PersonnelIcon}</span>
       </div>
 
-      {data.sections.map((section, i) => (
-        <div key={i} className="mb-10">
-          <h3 className="text-xl sm:text-2xl font-medium text-main mb-6">
-            {section.subtitle}
-          </h3>
+      {data.sections.map((sec, i) => (
+        <div key={i} className={subsectionWrapper()}>
+          <h3 className={subsectionTitle()}>{sec.subtitle}</h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {section.members.map((member, j) => (
-              <div
-                key={j}
-                className="flex items-center hover:cursor-pointer border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-              >
+          <div className={grid()}>
+            {sec.members.map((member, j) => (
+              <div key={j} className={memberCard()}>
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-[105px] h-[105px] object-cover rounded-l-md"
+                  className={memberImage()}
                 />
-                <div className="ml-4">
-                  <h4 className="font-medium text-lg text-gray-900 leading-tight">
-                    {member.name}
-                  </h4>
-                  <p className="text-gray-700 text-sm mt-1">{member.title}</p>
+                <div className={memberInfo()}>
+                  <h4 className={memberName()}>{member.name}</h4>
+                  <p className={memberTitle()}>{member.title}</p>
                 </div>
               </div>
             ))}

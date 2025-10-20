@@ -10,10 +10,10 @@ import {
 } from "../sheet";
 import LanguageSelect from "@/components/header/LanguageSelect";
 import AuthDialog from "../auth-dialog";
-
 import { useAuth } from "@/hooks/hooksHeader/useAuth";
 import { useHeaderTranslations } from "@/hooks/hooksHeader/useHeaderTranslation";
 import UserProfileSelect from "../user-profile-trigger";
+import { sheetTitle, menuContainer, topBar, navLink } from "./index.styles";
 
 const MobileMenu = () => {
   const { lang } = useParams<{ lang: string }>();
@@ -50,13 +50,11 @@ const MobileMenu = () => {
       </SheetTrigger>
       <SheetContent side="left">
         <SheetHeader>
-          <SheetTitle className="text-center text-2xl border-b-2 pb-2">
-            Menu
-          </SheetTitle>
+          <SheetTitle className={sheetTitle()}>Menu</SheetTitle>
 
           <SheetDescription>
-            <div className="flex flex-col gap-2 items-center text-lg">
-              <div className="flex justify-between w-full border-b-2 gap-3 pb-1.5">
+            <div className={menuContainer()}>
+              <div className={topBar()}>
                 <LanguageSelect />
                 {isAuthenticated && currentUser ? (
                   <UserProfileSelect
@@ -64,6 +62,7 @@ const MobileMenu = () => {
                     onLogout={logout}
                     lmsText={t("auth.goToLMS")}
                     logoutText={t("auth.logout")}
+                    profileText={t("auth.profile")}
                   />
                 ) : (
                   <AuthDialog buttonText={t("auth.login")} />
@@ -71,10 +70,7 @@ const MobileMenu = () => {
               </div>
               {navLinks.map((link) => (
                 <SheetClose key={link.path} asChild>
-                  <Link
-                    className="bg-mainLight text-white rounded-sm w-full shadow text-center py-1.5"
-                    to={`/${lang}${link.path}`}
-                  >
+                  <Link className={navLink()} to={`/${lang}${link.path}`}>
                     {link.label}
                   </Link>
                 </SheetClose>

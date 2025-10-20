@@ -5,6 +5,14 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
+import {
+  selectTrigger,
+  iconWrapper,
+  userName,
+  selectContent,
+  selectItem,
+} from "./index.styles";
+import { cn } from "@/lib/utils";
 
 interface UserProfileSelectProps {
   userName?: string;
@@ -32,24 +40,16 @@ const UserProfileSelect = ({
 
   return (
     <Select defaultValue="" onValueChange={handleValueChange}>
-      <SelectTrigger
-        className={`max-sm:w-full max-sm:flex-1 h-[72px] flex items-center gap-2 justify-center focus-visible:ring-0 border-0 shadow-none text-lg font-medium text-main bg-mainLight [&>span]:text-white rounded-sm ${className}`}
-      >
-        <User className="size-5" color="white" />
-        <span className="text-white">{profileText}</span>
+      <SelectTrigger className={cn(selectTrigger(), className)}>
+        <User className={iconWrapper()} color="white" />
+        <span className={userName()}>{profileText}</span>
       </SelectTrigger>
 
-      <SelectContent className="w-full bg-mainLight">
-        <SelectItem
-          className="justify-center text-lg font-medium text-white [&>span[data-slot=select-item-indicator]]:hidden [&>span.absolute]:hidden focus:bg-transparent hover:border-l-white border-x-2 border-x-transparent focus:text-white rounded hover:!bg-main"
-          value="website"
-        >
+      <SelectContent className={selectContent()}>
+        <SelectItem className={selectItem()} value="website">
           {lmsText}
         </SelectItem>
-        <SelectItem
-          className="justify-center text-lg font-medium text-white [&>span[data-slot=select-item-indicator]]:hidden [&>span.absolute]:hidden focus:bg-transparent hover:border-l-white border-x-2 border-x-transparent focus:text-white rounded hover:!bg-main"
-          value="logout"
-        >
+        <SelectItem className={selectItem()} value="logout">
           {logoutText}
         </SelectItem>
       </SelectContent>

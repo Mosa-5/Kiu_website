@@ -2,6 +2,35 @@ import { AboutIcon } from "../../assets/icons/icons";
 import { Button } from "../ui/button";
 import { useVacancyForm } from "../../hooks/hooksVacancies/useVacancyForm";
 import { useVacancyTranslations } from "../../hooks/hooksVacancies/useVacancyTranslations";
+import {
+  container,
+  innerContainer,
+  headerSection,
+  headerBadge,
+  heading,
+  iconWrapper,
+  introParagraph,
+  emailLink,
+  descriptionParagraph,
+  detailsLink,
+  sectionTitle,
+  grid,
+  fieldWrapper,
+  label,
+  input,
+  errorText,
+  scopeSection,
+  scopeHeading,
+  subsectionTitle,
+  buttonGroup,
+  optionButton,
+  fieldsHeading,
+  mathTitle,
+  subjectButtonGroup,
+  submitContainer,
+  statusMessage,
+  submitButton,
+} from "./VacancyDetail.styles";
 
 const VacancyDetail = () => {
   const { t, getTranslatedArray } = useVacancyTranslations();
@@ -27,32 +56,25 @@ const VacancyDetail = () => {
   const mathSubjects = getTranslatedArray("detail.fieldsOfInterest.subjects");
 
   return (
-    <div className="min-h-screen px-4">
-      <div className="max-w-[1280px] mx-auto rounded-lg shadow-xl p-8 border-2">
+    <div className={container()}>
+      <div className={innerContainer()}>
         {/* Header */}
-        <div className="mb-8">
-          <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-            <h1 className="text-xl sm:text-3xl font-medium text-mainDark">
-              {t("detail.heading")}
-            </h1>
-            <span className="text-mainDark">{AboutIcon}</span>
+        <div className={headerSection()}>
+          <div className={headerBadge()}>
+            <h1 className={heading()}>{t("detail.heading")}</h1>
+            <span className={iconWrapper()}>{AboutIcon}</span>
           </div>
 
-          <p className="text-base sm:text-lg  mb-2">
+          <p className={introParagraph()}>
             {t("detail.intro")}{" "}
-            <a
-              href={`mailto:${t("detail.email")}`}
-              className="text-link hover:text-linkDark cursor-pointer underline-offset-2 underline"
-            >
+            <a href={`mailto:${t("detail.email")}`} className={emailLink()}>
               {t("detail.email")}
             </a>
           </p>
 
-          <p className="text-base sm:text-lg  mb-3">
-            {t("detail.description")}
-          </p>
+          <p className={descriptionParagraph()}>{t("detail.description")}</p>
 
-          <div className="flex items-center gap-2 text-base sm:text-lg text-link hover:text-linkDark cursor-pointer underline-offset-2 underline">
+          <div className={detailsLink()}>
             <svg
               width="28"
               height="28"
@@ -71,15 +93,13 @@ const VacancyDetail = () => {
 
         {/* Form Section */}
         <div>
-          <h2 className="text-lg sm:text-xl font-semibold text-main mb-6 pb-2 border-b border-gray-200">
-            {t("detail.formTitle")}
-          </h2>
+          <h2 className={sectionTitle()}>{t("detail.formTitle")}</h2>
 
           {/* Contact Information */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className={grid()}>
             {/* First Name */}
             <div>
-              <label className="block text-md font-medium mb-2">
+              <label className={label()}>
                 {t("detail.fields.firstName.label")}
               </label>
               <input
@@ -88,16 +108,16 @@ const VacancyDetail = () => {
                 placeholder={t("detail.fields.firstName.placeholder")}
                 value={formData.firstName}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
+                className={input()}
               />
               {errors.firstName && (
-                <p className="text-md text-red-500 mt-1">{errors.firstName}</p>
+                <p className={errorText()}>{errors.firstName}</p>
               )}
             </div>
 
             {/* Last Name */}
             <div>
-              <label className="block text-md font-medium mb-2">
+              <label className={label()}>
                 {t("detail.fields.lastName.label")}
               </label>
               <input
@@ -106,18 +126,18 @@ const VacancyDetail = () => {
                 placeholder={t("detail.fields.lastName.placeholder")}
                 value={formData.lastName}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
+                className={input()}
               />
               {errors.lastName && (
-                <p className="text-md text-red-500 mt-1">{errors.lastName}</p>
+                <p className={errorText()}>{errors.lastName}</p>
               )}
             </div>
           </div>
 
           {/* Field of Interest + Current Position */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className={grid()}>
             <div>
-              <label className="block text-md font-medium mb-2">
+              <label className={label()}>
                 {t("detail.fields.fieldOfInterest.label")}
               </label>
               <input
@@ -126,17 +146,15 @@ const VacancyDetail = () => {
                 placeholder={t("detail.fields.fieldOfInterest.placeholder")}
                 value={formData.fieldOfInterest}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
+                className={input()}
               />
               {errors.fieldOfInterest && (
-                <p className="text-md text-red-500 mt-1">
-                  {errors.fieldOfInterest}
-                </p>
+                <p className={errorText()}>{errors.fieldOfInterest}</p>
               )}
             </div>
 
             <div>
-              <label className="block text-md font-medium mb-2">
+              <label className={label()}>
                 {t("detail.fields.currentPosition.label")}
               </label>
               <input
@@ -145,19 +163,17 @@ const VacancyDetail = () => {
                 placeholder={t("detail.fields.currentPosition.placeholder")}
                 value={formData.currentPosition}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
+                className={input()}
               />
               {errors.currentPosition && (
-                <p className="text-md text-red-500 mt-1">
-                  {errors.currentPosition}
-                </p>
+                <p className={errorText()}>{errors.currentPosition}</p>
               )}
             </div>
           </div>
 
           {/* Address */}
-          <div className="mb-6">
-            <label className="block text-md font-medium mb-2">
+          <div className={fieldWrapper()}>
+            <label className={label()}>
               {t("detail.fields.address.label")}
             </label>
             <input
@@ -166,17 +182,15 @@ const VacancyDetail = () => {
               placeholder={t("detail.fields.address.placeholder")}
               value={formData.address}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
+              className={input()}
             />
-            {errors.address && (
-              <p className="text-md text-red-500 mt-1">{errors.address}</p>
-            )}
+            {errors.address && <p className={errorText()}>{errors.address}</p>}
           </div>
 
           {/* Email + Phone */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className={grid()}>
             <div>
-              <label className="block text-md font-medium mb-2">
+              <label className={label()}>
                 {t("detail.fields.email.label")}
               </label>
               <input
@@ -185,15 +199,13 @@ const VacancyDetail = () => {
                 placeholder={t("detail.fields.email.placeholder")}
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
+                className={input()}
               />
-              {errors.email && (
-                <p className="text-md text-red-500 mt-1">{errors.email}</p>
-              )}
+              {errors.email && <p className={errorText()}>{errors.email}</p>}
             </div>
 
             <div>
-              <label className="block text-md font-medium mb-2">
+              <label className={label()}>
                 {t("detail.fields.phoneNumber.label")}
               </label>
               <input
@@ -202,29 +214,25 @@ const VacancyDetail = () => {
                 placeholder={t("detail.fields.phoneNumber.placeholder")}
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
+                className={input()}
               />
               {errors.phoneNumber && (
-                <p className="text-md text-red-500 mt-1">
-                  {errors.phoneNumber}
-                </p>
+                <p className={errorText()}>{errors.phoneNumber}</p>
               )}
             </div>
           </div>
 
           {/* Scope of Interest */}
-          <div className="mb-8 mt-12">
-            <p className="text-lg sm:text-xl max-sm:text-center font-semibold text-main">
-              {t("detail.scopeHeading")}
-            </p>
+          <div className={scopeSection()}>
+            <p className={scopeHeading()}>{t("detail.scopeHeading")}</p>
           </div>
 
           {/* Academic Position */}
-          <div className="mb-8">
-            <h3 className="text-lg max-sm:text-center font-semibold text-main mb-3">
+          <div className={fieldWrapper()}>
+            <h3 className={subsectionTitle()}>
               {t("detail.academicPosition.title")}
             </h3>
-            <div className="flex flex-wrap gap-3">
+            <div className={buttonGroup()}>
               {academicPositions.map((position) => (
                 <button
                   key={position}
@@ -232,83 +240,71 @@ const VacancyDetail = () => {
                   onClick={() =>
                     handleButtonSelect("academicPosition", position)
                   }
-                  className={`px-4 py-2 rounded-full border max-sm:w-full text-base font-medium transition-colors ${
-                    formData.academicPosition === position
-                      ? "bg-blue-100 border-main text-mainDark font-medium"
-                      : "border-gray-300 hover:border-gray-400"
-                  }`}
+                  className={optionButton({
+                    selected: formData.academicPosition === position,
+                  })}
                 >
                   {position}
                 </button>
               ))}
             </div>
             {errors.academicPosition && (
-              <p className="text-md text-red-500 mt-2">
-                {errors.academicPosition}
-              </p>
+              <p className={errorText()}>{errors.academicPosition}</p>
             )}
           </div>
 
           {/* Assignment Type */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold max-sm:text-center text-main mb-3">
+          <div className={fieldWrapper()}>
+            <h3 className={subsectionTitle()}>
               {t("detail.assignmentType.title")}
             </h3>
-            <div className="flex flex-wrap gap-3">
+            <div className={buttonGroup()}>
               {assignmentTypes.map((type) => (
                 <button
                   key={type}
                   type="button"
                   onClick={() => handleButtonSelect("assignmentType", type)}
-                  className={`px-4 py-2 rounded-full max-sm:w-full border text-md font-medium transition-colors ${
-                    formData.assignmentType === type
-                      ? "bg-blue-100 border-main text-mainDark"
-                      : "border-gray-300  hover:border-gray-400"
-                  }`}
+                  className={optionButton({
+                    selected: formData.assignmentType === type,
+                  })}
                 >
                   {type}
                 </button>
               ))}
             </div>
             {errors.assignmentType && (
-              <p className="text-md text-red-500 mt-2">
-                {errors.assignmentType}
-              </p>
+              <p className={errorText()}>{errors.assignmentType}</p>
             )}
           </div>
 
           {/* Teaching */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold max-sm:text-center text-main mb-3">
-              {t("detail.teaching.title")}
-            </h3>
-            <div className="flex flex-wrap gap-3">
+          <div className={fieldWrapper()}>
+            <h3 className={subsectionTitle()}>{t("detail.teaching.title")}</h3>
+            <div className={buttonGroup()}>
               {teachingOptions.map((teaching) => (
                 <button
                   key={teaching}
                   type="button"
                   onClick={() => handleButtonSelect("teaching", teaching)}
-                  className={`px-4 py-2 rounded-full max-sm:w-full border text-md font-medium transition-colors ${
-                    formData.teaching === teaching
-                      ? "bg-blue-100 border-main text-mainDark"
-                      : "border-gray-300 hover:border-gray-400"
-                  }`}
+                  className={optionButton({
+                    selected: formData.teaching === teaching,
+                  })}
                 >
                   {teaching}
                 </button>
               ))}
             </div>
             {errors.teaching && (
-              <p className="text-md text-red-500 mt-2">{errors.teaching}</p>
+              <p className={errorText()}>{errors.teaching}</p>
             )}
           </div>
 
           {/* Instruction Language */}
-          <div className="mb-8">
-            <h3 className="text-lg max-sm:text-center font-semibold text-main mb-3">
+          <div className={fieldWrapper()}>
+            <h3 className={subsectionTitle()}>
               {t("detail.instructionLanguage.title")}
             </h3>
-            <div className="flex flex-wrap gap-3">
+            <div className={buttonGroup()}>
               {languageOptions.map((language) => (
                 <button
                   key={language}
@@ -316,35 +312,30 @@ const VacancyDetail = () => {
                   onClick={() =>
                     handleButtonSelect("instructionLanguage", language)
                   }
-                  className={`px-4 py-2 rounded-full max-sm:w-full border text-md font-medium transition-colors ${
-                    formData.instructionLanguage === language
-                      ? "bg-blue-100 border-main text-mainDark"
-                      : "border-gray-300 hover:border-gray-400"
-                  }`}
+                  className={optionButton({
+                    selected: formData.instructionLanguage === language,
+                  })}
                 >
                   {language}
                 </button>
               ))}
             </div>
             {errors.instructionLanguage && (
-              <p className="text-sm text-red-500 mt-2">
-                {errors.instructionLanguage}
-              </p>
+              <p className={errorText()}>{errors.instructionLanguage}</p>
             )}
           </div>
 
           {/* Fields of Interest */}
-          <div className="mb-8">
-            <p className="text-xl font-semibold max-sm:text-center text-main mb-4">
+          <div className={fieldWrapper()}>
+            <p className={fieldsHeading()}>
               {t("detail.fieldsOfInterest.heading")}
             </p>
 
-            <div className="mb-4">
-              <h3 className="font-medium max-sm:text-center mb-3">
+            <div>
+              <h3 className={mathTitle()}>
                 {t("detail.fieldsOfInterest.mathTitle")}
               </h3>
-              {/* Button Pills - Top 6 */}
-              <div className="flex flex-wrap gap-3 mb-6">
+              <div className={subjectButtonGroup()}>
                 {mathSubjects.map((subject) => (
                   <button
                     key={subject}
@@ -354,16 +345,12 @@ const VacancyDetail = () => {
                       !formData.fieldsOfInterest.includes(subject) &&
                       formData.fieldsOfInterest.length >= 3
                     }
-                    className={`px-4 py-2 rounded-full max-sm:w-full border transition-all font-medium ${
-                      formData.fieldsOfInterest.includes(subject)
-                        ? "bg-blue-100 border-main text-mainDark"
-                        : "border-gray-300 hover:border-gray-400"
-                    } ${
-                      !formData.fieldsOfInterest.includes(subject) &&
-                      formData.fieldsOfInterest.length >= 3
-                        ? "opacity-50 cursor-not-allowed"
-                        : ""
-                    }`}
+                    className={optionButton({
+                      selected: formData.fieldsOfInterest.includes(subject),
+                      disabled:
+                        !formData.fieldsOfInterest.includes(subject) &&
+                        formData.fieldsOfInterest.length >= 3,
+                    })}
                   >
                     {subject}
                   </button>
@@ -372,21 +359,19 @@ const VacancyDetail = () => {
             </div>
 
             {errors.fieldsOfInterest && (
-              <p className="text-sm text-red-500 mt-1">
-                {errors.fieldsOfInterest}
-              </p>
+              <p className={errorText()}>{errors.fieldsOfInterest}</p>
             )}
           </div>
 
           {/* Submit */}
-          <div className="flex flex-col items-center gap-3">
+          <div className={submitContainer()}>
             {submitStatus === "success" && (
-              <div className="w-full p-3 bg-green-50 border border-green-200 text-green-700 rounded text-sm">
+              <div className={statusMessage({ status: "success" })}>
                 {t("detail.submit.success")}
               </div>
             )}
             {submitStatus === "error" && (
-              <div className="w-full p-3 bg-red-50 border border-red-200 text-red-700 rounded text-sm">
+              <div className={statusMessage({ status: "error" })}>
                 {t("detail.submit.error")}
               </div>
             )}
@@ -394,9 +379,7 @@ const VacancyDetail = () => {
               type="button"
               onClick={handleSubmit}
               disabled={submitting}
-              className={`w-full max-w-60 py-6 font-medium ${
-                submitting ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={submitButton({ submitting })}
             >
               {submitting
                 ? t("detail.submit.submitting")

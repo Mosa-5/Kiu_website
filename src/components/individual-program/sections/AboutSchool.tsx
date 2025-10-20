@@ -1,6 +1,15 @@
 import React from "react";
 import { SchoolIcon } from "../../../assets/icons/icons";
 import type { ProgramData } from "../data/programs/types";
+import {
+  section,
+  headingBadge,
+  heading,
+  iconWrapper,
+  paragraph,
+  link,
+  blueText,
+} from "./AboutSchool.styles";
 
 interface Props {
   programData: ProgramData;
@@ -10,30 +19,24 @@ const AboutSchoolSection: React.FC<Props> = ({ programData }) => {
   const { aboutSchool } = programData;
 
   return (
-    <section id="about-school" className="mb-12">
-      <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-        <h1 className="text-2xl sm:text-3xl font-medium text-mainDark">
-          {aboutSchool.title}
-        </h1>
-        <span className="text-mainDark">{SchoolIcon}</span>
+    <section id="about-school" className={section()}>
+      <div className={headingBadge()}>
+        <h1 className={heading()}>{aboutSchool.title}</h1>
+        <span className={iconWrapper()}>{SchoolIcon}</span>
       </div>
 
-      {aboutSchool.paragraphs.map((paragraph, i) => (
-        <p key={i} className="mb-6 text-sm sm:text-lg">
-          {paragraph.parts.map((part, j) => {
+      {aboutSchool.paragraphs.map((para, i) => (
+        <p key={i} className={paragraph()}>
+          {para.parts.map((part, j) => {
             if (part.type === "link")
               return (
-                <a
-                  key={j}
-                  href={part.url}
-                  className="text-link hover:text-linkDark underline-offset-2 underline font-medium"
-                >
+                <a key={j} href={part.url} className={link()}>
                   {part.text}
                 </a>
               );
             if (part.type === "blue")
               return (
-                <span key={j} className="text-mainDark font-medium">
+                <span key={j} className={blueText()}>
                   {part.text}
                 </span>
               );

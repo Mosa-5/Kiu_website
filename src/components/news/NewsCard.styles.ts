@@ -1,8 +1,9 @@
 import { cva } from "class-variance-authority";
 
-export const cardContainer = cva(
-  "overflow-hidden relative group gap-0 hover:shadow-lg transition-all cursor-pointer max-w-[402px] max-h-[726px] border-2 hover:-translate-y-1 duration-200"
-);
+export const cardContainer = cva([
+  "overflow-hidden relative group gap-0 hover:shadow-lg transition-all cursor-pointer max-w-[402px]",
+  "max-h-[726px] border-2 hover:-translate-y-1 duration-200",
+]);
 
 export const imageWrapper = cva(
   "relative aspect-[402/314] overflow-hidden border-b-1 border-b-main"
