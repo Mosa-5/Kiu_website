@@ -1,6 +1,6 @@
 import HeroSection from "@/components/ui/hero-section";
 import { ProjectsHeroImage } from "@/assets";
-import { useProjectsTranslations } from "./hooks/useProjectsTranslations";
+import { useProjectsTranslations } from "../../hooks/useProjectsTranslations";
 
 const SingleProjectHero = () => {
   const { t } = useProjectsTranslations();

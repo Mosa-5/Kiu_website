@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AboutIcon } from "../../assets/icons/icons";
 import { SideSectionsSheet } from "../ui/sections-sidebar";
 import { aboutData } from "./data/AboutData";
-import { useAboutTranslations } from "./hooks/useAboutTranslations";
+import { useAboutTranslations } from "../../hooks/useAboutTranslations";
 import {
   container,
   section,
@@ -36,8 +36,10 @@ import {
   calendarButton,
   calendarButtonArrow,
 } from "./AboutDetail.styles";
+import { useParams } from "react-router-dom";
 
 const AboutDetail: React.FC = () => {
+  const { lang } = useParams<{ lang?: string }>();
   const {
     t,
     getTranslatedArray,
@@ -93,6 +95,7 @@ const AboutDetail: React.FC = () => {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         scrollToSection={scrollToSection}
+        language={lang || "en"}
       />
 
       {/* Main Content */}

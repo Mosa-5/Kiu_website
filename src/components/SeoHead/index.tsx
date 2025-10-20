@@ -82,21 +82,18 @@ const seoMap: Record<Lng, Record<string, { title: string; description: string; k
 };
 
 export default function SeoHead() {
-  const { lang } = useParams(); // get /:lng from route
+  const { lang } = useParams();
   const location = useLocation();
   const { i18n } = useTranslation();
 
-  // fallback if lng param invalid
   const currentLang = (lang === "en" || lang === "ka") ? lang : "en";
 
-  // optional: sync i18n with route param
   useEffect(() => {
     if (i18n.language !== currentLang) {
       i18n.changeLanguage(currentLang);
     }
   }, [currentLang, i18n]);
 
-  // extract page key (e.g., /en/about → "about")
   const segments = location.pathname.split("/").filter(Boolean);
   const pageKey = segments[1] || "home";
 

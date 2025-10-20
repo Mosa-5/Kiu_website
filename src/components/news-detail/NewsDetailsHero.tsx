@@ -1,4 +1,4 @@
-import newsHeroImage from "@/assets/image.png";
+import newsHeroImage from "@/assets/image.webp";
 import { getNewsItems } from "@/data/newsItems";
 import { useParams } from "react-router-dom";
 import {
@@ -15,7 +15,6 @@ const NewsDetailsHero = () => {
   const { id, lang } = useParams<{ id: string; lang: string }>();
   const currentLang = lang || "en";
 
-  // Get news items based on currentLang
   const newsItems = getNewsItems(currentLang);
   const item = newsItems.find((news) => news.id === id);
 

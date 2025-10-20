@@ -11,7 +11,7 @@ import {
   notFound,
   backButton,
 } from "./NewsDetail.styles";
-import { useNewsTranslations } from "./hooks/useNewsTranslations";
+import { useNewsTranslations } from "../../hooks/useNewsTranslations";
 import { Button } from "../ui/button";
 
 const NewsDetail = () => {

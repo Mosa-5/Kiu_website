@@ -164,17 +164,13 @@ const newsItemsKa: NewsItem[] = [
   },
 ];
 
-// Function to get news items based on current language
 const getNewsItems = (lang?: string): NewsItem[] => {
   const language = lang || i18n.language;
   return language === "ka" ? newsItemsKa : newsItemsEn;
 };
 
-// Export the getter function as default
 export default getNewsItems();
 
-// Also export the getter function for reactive use
 export { getNewsItems };
 
-// Export individual arrays if needed
 export { newsItemsEn, newsItemsKa };

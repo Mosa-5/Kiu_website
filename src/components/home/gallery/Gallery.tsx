@@ -35,7 +35,7 @@ import {
   videoIframe,
   counter,
 } from "./Gallery.styles";
-import { useHomeTranslations } from "../hooks/useHomeTranslation";
+import { useHomeTranslations } from "../../../hooks/useHomeTranslation";
 
 const Gallery = () => {
   const [api, setApi] = React.useState<CarouselApi>();
@@ -188,8 +188,16 @@ const Gallery = () => {
             })}
           </CarouselContent>
           <div className={counter()}>{(current % 5) + 1}/5</div>
-          <CarouselPrevious className={prevButton()} />
-          <CarouselNext className={nextButton()} />
+          <CarouselPrevious
+            className={prevButton()}
+            aria-label="Previous video"
+            title="Previous video"
+          />
+          <CarouselNext
+            className={nextButton()}
+            aria-label="Next video"
+            title="Next video"
+          />
         </Carousel>
       </div>
     </div>

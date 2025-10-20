@@ -102,7 +102,6 @@ const programs = [
     },
     image: lawCard,
   },
-  // Single-Cycle Programs
   {
     id: "medicine",
     category: "Single-Cycle", 
@@ -116,7 +115,6 @@ const programs = [
     },
     image: medCard,
   },
-  // Master's Programs
   {
     id: "intellectualProperty", 
     category: "Master",

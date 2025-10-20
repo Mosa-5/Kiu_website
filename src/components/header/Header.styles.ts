@@ -19,7 +19,7 @@ export const innerContainer = cva(
   `flex items-center justify-between px-4 w-full max-w-[1680px]`
 );
 
-export const logo = cva(`w-[178px] h-[55px]`);
+export const logo = cva(` h-[55px]`);
 
 export const nav = cva(
   `flex text-xl w-full max-w-[1105px] justify-between font-medium *:text-main`

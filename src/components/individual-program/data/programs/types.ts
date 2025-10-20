@@ -1,4 +1,3 @@
-// src/data/programs/types.ts
 export interface TextPart {
   text: string;
   type: "normal" | "link" | "blue";

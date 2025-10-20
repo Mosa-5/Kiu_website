@@ -12,7 +12,7 @@ import {
 import ProgramsGrid from "./ProgramsGrid";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useProgramTranslations } from "./hooks/useProgramTranslations";
+import { useProgramTranslations } from "../../hooks/useProgramTranslations";
 
 const ProgramTabs = () => {
   const { t } = useProgramTranslations();
@@ -32,7 +32,6 @@ const ProgramTabs = () => {
     setSearchParams({ tab: value });
   };
 
-  // Get translated category names
   const getTranslatedCategory = (category: string) => {
     return t(`categories.${category}`);
   };

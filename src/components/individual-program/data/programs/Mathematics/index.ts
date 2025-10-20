@@ -10,7 +10,6 @@ import { getTuitionAndCosts } from "./TuitionAndCosts";
 import { getNewsletterArchive } from "./NewsletterArchive";
 
 export const getMathematicsProgram = (lang: string): ProgramData => {
-  // Get the data - these return the single supervisor format
   const ramazData = getProgramSupervisorRamaz(lang) as {
     title: string;
     name: string;

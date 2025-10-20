@@ -1,7 +1,7 @@
 import { AboutIcon } from "../../assets/icons/icons";
 import { Button } from "../ui/button";
-import { useVacancyForm } from "./hooks/useVacancyForm";
-import { useVacancyTranslations } from "./hooks/useVacancyTranslations";
+import { useVacancyForm } from "../../hooks/hooksVacancies/useVacancyForm";
+import { useVacancyTranslations } from "../../hooks/hooksVacancies/useVacancyTranslations";
 
 const VacancyDetail = () => {
   const { t, getTranslatedArray } = useVacancyTranslations();

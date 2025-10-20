@@ -9,5 +9,10 @@
     "news": "News",
     "campus": "Campus",
     "vacancies": "Vacancies"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "goToLMS": "Go to LMS"
   }
 }

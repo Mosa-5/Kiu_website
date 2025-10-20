@@ -62,8 +62,16 @@ const NewsCarousel: React.FC<{
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className={carouselButton()} />
-      <CarouselNext className={carouselButton()} />
+      <CarouselPrevious
+        className={carouselButton()}
+        aria-label="Previous video"
+        title="Previous video"
+      />
+      <CarouselNext
+        className={carouselButton()}
+        aria-label="Next video"
+        title="Next video"
+      />
     </Carousel>
   );
 };

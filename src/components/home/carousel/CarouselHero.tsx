@@ -7,7 +7,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
-import heroimg from "@/assets/masters_degree-slider.png";
+import heroimg from "@/assets/masters_degree-slider.webp";
 import {
   container,
   carousel,
@@ -103,6 +103,8 @@ const CarouselHero = () => {
             key={index}
             // onClick={() => api?.scrollTo(index)}
             className={carouselDot({ active: current === index + 1 })}
+            aria-label="Carousel switch" 
+            title="Carousel switch"
           />
         ))}
       </div>

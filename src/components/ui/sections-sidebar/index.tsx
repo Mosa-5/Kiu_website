@@ -12,14 +12,23 @@ interface SideSectionsSheetProps {
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
   scrollToSection: (id: string) => void;
+  language?: string; 
 }
+
+const translations: Record<string, { sections: string }> = {
+  en: { sections: "Sections" },
+  ka: { sections: "სექციები" },
+};
 
 export const SideSectionsSheet: React.FC<SideSectionsSheetProps> = ({
   sections,
   isOpen,
   setIsOpen,
   scrollToSection,
+  language = "en", 
 }) => {
+  const t = translations[language] || translations.en;
+
   return (
     <div className="sticky top-3/7 z-50 h-0 w-0">
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -56,13 +65,8 @@ export const SideSectionsSheet: React.FC<SideSectionsSheetProps> = ({
               className="transform -rotate-90 whitespace-nowrap text-lg sm:text-xl font-medium tracking-wider"
               style={{ transformOrigin: "center" }}
             >
-              Sections
+              {t.sections}
             </span>
-            {/* <ChevronRight
-              className={`h-5 w-5 transition-transform duration-300 ${
-                isOpen ? "rotate-180" : ""
-              }`}
-            /> */}
           </Button>
         </SheetTrigger>
       </Sheet>

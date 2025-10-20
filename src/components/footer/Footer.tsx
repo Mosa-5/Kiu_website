@@ -82,6 +82,7 @@ const Footer = () => {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="Footer link"
                     >
                       {link.label}
                     </a>
@@ -102,7 +103,7 @@ const Footer = () => {
                 ))}
                 <li>
                   <img src={emailIcon} alt="email icon" />
-                  <a className={emailLink()} href="mailto:info@kiu.edu.ge">
+                  <a className={emailLink()} href="mailto:info@kiu.edu.ge" aria-label="email">
                     info@kiu.edu.ge
                   </a>
                 </li>
@@ -139,6 +140,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className={emailLink()}
+              aria-label="Hosted on"
             >
               Vercel
             </a>

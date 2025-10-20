@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { container, innerWrapper, heading } from "./SimilarNews.styles";
-import { useNewsTranslations } from "./hooks/useNewsTranslations";
+import { useNewsTranslations } from "../../hooks/useNewsTranslations";
 import NewsCarousel from "../home/news/NewsCarousel";
 import { useNewsItems } from "@/hooks/useNewsItems";
 

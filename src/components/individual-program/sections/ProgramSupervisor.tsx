@@ -11,7 +11,6 @@ const ProgramSupervisorSection: React.FC<ProgramSupervisorSectionProps> = ({
 }) => {
   const supervisorData = programData.programSupervisor;
 
-  // Check if it's multiple supervisors
   const isMultiple = "supervisors" in supervisorData;
 
   return (
@@ -24,7 +23,6 @@ const ProgramSupervisorSection: React.FC<ProgramSupervisorSectionProps> = ({
       </div>
 
       {isMultiple ? (
-        // Multiple supervisors
         <div className="space-y-12">
           {supervisorData.supervisors.map((supervisor, index) => (
             <div key={index}>
@@ -53,7 +51,6 @@ const ProgramSupervisorSection: React.FC<ProgramSupervisorSectionProps> = ({
           ))}
         </div>
       ) : (
-        // Single supervisor (exact original CSS)
         <>
           <h3 className="text-2xl font-medium text-slate-900 mb-4">
             {supervisorData.name}
