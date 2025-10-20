@@ -10,6 +10,6 @@ export const content = cva(`
 `);
 
 export const item = cva(`
-  border-x-2 border-transparent rounded-none hover:border-l-main max-sm:data-[state=checked]:bg-main rounded-sm focus:text-inherit text-lg flex justify-center
+  border-x-2 border-transparent hover:border-l-main max-sm:data-[state=checked]:bg-main rounded-sm focus:text-inherit text-lg flex justify-center
   [&>span[data-slot=select-item-indicator]]:hidden [&>span.absolute]:hidden
 `);

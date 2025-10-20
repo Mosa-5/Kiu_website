@@ -1,5 +1,13 @@
 import { ProjectsImage1, ProjectsImage2 } from "@/assets";
 import { Link } from "react-router-dom";
+import {
+  container,
+  projectCard,
+  projectImage,
+  projectOverlay,
+  projectContent,
+  projectTitle,
+} from "./ProjectsGrid.styles";
 
 const ProjectsGrid = () => {
   const projects = [
@@ -18,23 +26,17 @@ const ProjectsGrid = () => {
   ];
 
   return (
-    <div className="flex max-sm:flex-col sm:gap-6 sm:px-[120px]">
+    <div className={container()}>
       {projects.map((project) => (
-        <Link
-          key={project.id}
-          to={project.path}
-          className="relative max-sm:rounded-none max-sm:border-0 max-sm:border-y-2 hover:-translate-y-1 duration-200  sm:aspect-[550/260] h-40 sm:h-65 rounded-2xl overflow-hidden group cursor-pointer shadow-[2px_4px_4px_rgba(0,0,0,0.25)] border-2 border-[#3C70AF]"
-        >
+        <Link key={project.id} to={project.path} className={projectCard()}>
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className={projectImage()}
           />
-          <div className="absolute inset-0 bg-gradient-to-br to-blue-900/60" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h3 className="text-white text-xl sm:text-2xl font-semibold text-center backdrop-blur-[1px] bg-main px-5 py-1 flex rounded-lg">
-              {project.title}
-            </h3>
+          <div className={projectOverlay()} />
+          <div className={projectContent()}>
+            <h3 className={projectTitle()}>{project.title}</h3>
           </div>
         </Link>
       ))}
