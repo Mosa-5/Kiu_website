@@ -12,13 +12,17 @@ const ProgramSupervisorSection: React.FC<Props> = ({ programData }) => {
   return (
     <section id="program-supervisor" className="mb-12 scroll-mt-8">
       <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-        <h2 className="text-3xl font-medium text-mainDark">{data.title}</h2>
+        <h2 className="text-2xl sm:text-3xl font-medium text-mainDark">
+          {data.title}
+        </h2>
         <span className="text-mainDark">{SupervisorIcon}</span>
       </div>
 
-      <h3 className="text-2xl font-medium text-slate-900 mb-4">{data.name}</h3>
+      <h3 className="text-xl sm:text-2xl font-medium text-slate-900 mb-4">
+        {data.name}
+      </h3>
 
-      <div className="float-right ml-8 mb-6 w-[476px]">
+      <div className="float-right ml-8 mb-6 w-full sm:w-[476px]">
         <img
           src={data.image}
           alt={data.name}
@@ -26,10 +30,10 @@ const ProgramSupervisorSection: React.FC<Props> = ({ programData }) => {
         />
       </div>
 
-      <p className="text-lg mb-6">{data.position}</p>
+      <p className="text-sm sm:text-lg mb-6">{data.position}</p>
 
       {data.paragraphs.map((paragraph, i) => (
-        <p key={i} className="mb-6 text-lg">
+        <p key={i} className="mb-6 text-sm sm:text-lg">
           {paragraph}
         </p>
       ))}

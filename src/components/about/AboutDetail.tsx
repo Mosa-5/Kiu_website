@@ -43,18 +43,18 @@ const AboutDetail: React.FC = () => {
       />
 
       {/* Main Content */}
-      <div className="max-w-[1680px] mx-auto font-sans">
+      <div className="max-w-[1680px] max-sm:px-4 mx-auto font-sans">
         {/* Intro Section */}
         <section id="intro" className="mb-12">
           <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-            <h1 className="text-3xl font-medium text-mainDark">
+            <h1 className="text-2xl sm:text-3xl font-medium text-mainDark">
               {aboutData.intro.title}
             </h1>
             <span className="text-mainDark">{AboutIcon}</span>
           </div>
 
           {aboutData.intro.paragraphs.map((paragraph, i) => (
-            <p key={i} className="mb-6 text-lg">
+            <p key={i} className="mb-6 text-sm sm:text-lg">
               {paragraph}
             </p>
           ))}
@@ -81,7 +81,7 @@ const AboutDetail: React.FC = () => {
         {/* Honorary President's Welcome Note Section */}
         <section id="president" className="mb-12 scroll-mt-8">
           <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-            <h2 className="text-3xl font-medium text-mainDark">
+            <h2 className="text-2xl sm:text-3xl font-medium text-mainDark">
               {aboutData.president.title}
             </h2>
             <span className="text-mainDark">{AboutIcon}</span>
@@ -95,7 +95,7 @@ const AboutDetail: React.FC = () => {
             {aboutData.president.greeting}
           </p>
 
-          <div className="float-right ml-8 mb-6 w-[400px] h-[430px]">
+          <div className="float-right ml-8 sm:mb-6 w-full max-w-[400px] h-[430px]">
             <img
               src={aboutData.president.image}
               alt="Prof. Dr. Wolfgang A. Herrmann"
@@ -104,7 +104,7 @@ const AboutDetail: React.FC = () => {
           </div>
 
           {aboutData.president.paragraphs.map((paragraph, i) => (
-            <p key={i} className="mb-6 text-lg ">
+            <p key={i} className="mb-6 text-sm sm:text-lg ">
               {paragraph}
             </p>
           ))}
@@ -125,7 +125,7 @@ const AboutDetail: React.FC = () => {
         {/* International Advisory Council Section */}
         <section id="advisory" className="mb-12 scroll-mt-8">
           <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-            <h2 className="text-3xl font-medium text-mainDark">
+            <h2 className="text-2xl sm:text-3xl font-medium text-mainDark">
               {aboutData.advisoryCouncil.title}
             </h2>
             <span className="text-mainDark">{AboutIcon}</span>
@@ -138,7 +138,7 @@ const AboutDetail: React.FC = () => {
                   {member.name}
                 </h3>
                 {member.lines.map((line, j) => (
-                  <p key={j} className="text-lg ">
+                  <p key={j} className="text-sm sm:text-lg ">
                     {line}
                   </p>
                 ))}
@@ -150,14 +150,14 @@ const AboutDetail: React.FC = () => {
         {/* Team Section */}
         <section id="team" className="mb-12 scroll-mt-8">
           <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-            <h2 className="text-3xl font-medium text-mainDark">
+            <h2 className="text-2xl sm:text-3xl font-medium text-mainDark">
               {aboutData.team.title}
             </h2>
             <span className="text-mainDark">{AboutIcon}</span>
           </div>
 
           {aboutData.team.paragraphs.map((paragraph, i) => (
-            <p key={i} className="mb-6 text-lg ">
+            <p key={i} className="mb-6 text-sm sm:text-lg ">
               {paragraph.parts.map((part, j) => {
                 if (part.type === "link") {
                   return (
@@ -189,19 +189,19 @@ const AboutDetail: React.FC = () => {
         {/* Academic Programs Section */}
         <section id="programs" className="mb-12 scroll-mt-8">
           <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-            <h2 className="text-3xl font-medium text-mainDark">
+            <h2 className="text-2xl sm:text-3xl font-medium text-mainDark">
               {aboutData.academicPrograms.title}
             </h2>
             <span className="text-mainDark">{AboutIcon}</span>
           </div>
 
           {aboutData.academicPrograms.introText.map((text, i) => (
-            <p key={i} className="mb-6 text-lg ">
+            <p key={i} className="mb-6 text-sm sm:text-lg ">
               {text}
             </p>
           ))}
 
-          <ul className="list-none mb-6 text-lg space-y-2">
+          <ul className="list-none mb-6 text-sm sm:text-lg space-y-2">
             {aboutData.academicPrograms.undergraduatePrograms.map(
               (program, i) => (
                 <li key={i} className="text-link hover:text-linkDark">
@@ -217,11 +217,11 @@ const AboutDetail: React.FC = () => {
             )}
           </ul>
 
-          <p className="mb-3 text-lg ">
+          <p className="mb-3 text-sm sm:text-lg">
             {aboutData.academicPrograms.masterText}
           </p>
 
-          <ul className="list-none mb-6 text-lg space-y-2">
+          <ul className="list-none mb-6 text-sm sm:text-lg space-y-2">
             {aboutData.academicPrograms.masterPrograms.map((program, i) => (
               <li key={i} className="text-link hover:text-linkDark">
                 •{" "}
@@ -235,7 +235,7 @@ const AboutDetail: React.FC = () => {
             ))}
           </ul>
 
-          <p className="mb-3 text-lg ">
+          <p className="mb-3 text-sm sm:text-lg ">
             {aboutData.academicPrograms.futureText}
           </p>
 
@@ -244,7 +244,7 @@ const AboutDetail: React.FC = () => {
               (discipline, i) => (
                 <div
                   key={i}
-                  className="px-4 py-3 bg-main rounded-md text-center font-medium border-2 text-lg border-main pointer-events-none text-white shadow-md"
+                  className="px-4 py-3 bg-main rounded-md flex justify-center items-center text-center font-medium border-2 text-sm sm:text-lg border-main pointer-events-none text-white shadow-md"
                 >
                   {discipline}
                 </div>
@@ -252,14 +252,14 @@ const AboutDetail: React.FC = () => {
             )}
           </div>
 
-          <p className="mb-6 text-lg ">
+          <p className="mb-6 text-sm sm:text-lg">
             {aboutData.academicPrograms.closingText}
           </p>
         </section>
 
         {/* Academic Calendar Section */}
         <section id="calendar" className="mb-12 scroll-mt-8">
-          <div className="mb-6">
+          <div className="mb-6 max-sm:flex max-sm:justify-center">
             <a
               href={aboutData.academicPrograms.calendarLink.url}
               download

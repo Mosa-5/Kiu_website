@@ -19,7 +19,7 @@ export const dotContainer = cva(
 );
 
 export const carouselDot = cva(
-  "h-2 w-2 border-1 sm:h-3 sm:w-3 rounded-full sm:border-2 cursor-pointer duration-200",
+  "h-3 w-3 rounded-full border-2 cursor-pointer duration-200",
   {
     variants: {
       active: {

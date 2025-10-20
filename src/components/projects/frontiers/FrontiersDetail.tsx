@@ -5,16 +5,16 @@ import { FrontiersConf } from "@/assets";
 
 const FrontiersDetail: React.FC = () => {
   return (
-    <div className="max-w-[1680px] mx-auto py-10 font-sans">
-      <img src={FrontiersConf} className="brightness-75 py-10" />
+    <div className="max-w-[1680px] max-sm:px-4 mx-auto sm:py-10 font-sans">
+      <img src={FrontiersConf} className="brightness-75 max-sm:hidden py-10" />
       {/* About */}
       <div className="bg-headingBg inline-flex items-center gap-4 px-4 py-2 rounded mb-6">
-        <h1 className="text-3xl font-medium text-mainDark">
+        <h1 className="text-2xl sm:text-3xl font-medium text-mainDark">
           {conferenceData.about.title}
         </h1>
         <span className="text-mainDark">{AboutIcon}</span>
       </div>
-      <p className="mb-6 text-lg">
+      <p className="mb-6 text-sm sm:text-lg">
         {conferenceData.about.parts.map((part, i) => {
           if (part.type === "link") {
             return (
@@ -39,26 +39,28 @@ const FrontiersDetail: React.FC = () => {
       </p>
 
       {/* Program */}
-      <h2 className="text-2xl font-medium text-main mb-3">
+      <h2 className="text-xl sm:text-2xl font-medium text-main mb-3">
         {conferenceData.program.title}
       </h2>
-      <ul className="list-disc pl-5 mb-6 text-lg">
+      <ul className="list-disc pl-5 mb-6 text-sm sm:text-lg">
         {conferenceData.program.items.map((item, i) => (
           <li key={i}>{item}</li>
         ))}
       </ul>
 
       {/* Accommodation */}
-      <h2 className="text-xl font-medium text-main mb-3">
+      <h2 className="text-lg font-medium text-main mb-3">
         {conferenceData.accommodation.title}
       </h2>
-      <p className="mb-6 text-lg">{conferenceData.accommodation.text}</p>
+      <p className="mb-6 text-sm sm:text-lg">
+        {conferenceData.accommodation.text}
+      </p>
 
       {/* Registration */}
-      <h2 className="text-xl font-medium text-main mb-3">
+      <h2 className="text-sm sm:text-xl font-medium text-main mb-3">
         {conferenceData.registration.title}
       </h2>
-      <div className="mb-2 text-lg">
+      <div className="mb-2 text-sm text:text-lg">
         {conferenceData.registration.parts.map((part, i) => {
           if (part.type === "highlight") {
             return (
@@ -77,7 +79,7 @@ const FrontiersDetail: React.FC = () => {
           return <span key={i}>{part.text} </span>;
         })}
       </div>
-      <div className="mb-6 text-lg text-blue-400 hover:underline">
+      <div className="mb-6 text-sm sm:text-lg text-blue-400 hover:underline">
         {conferenceData.registration.links.slice(0, 2).map((link, i) => (
           <p key={i} className="mb-1">
             <a href={link.url} className="hover:underline">
@@ -91,7 +93,7 @@ const FrontiersDetail: React.FC = () => {
       <div className="mb-6">
         <a
           href={conferenceData.registration.links[2].url}
-          className="text-2xl text-main hover:underline"
+          className="text-xl sm:text-2xl text-main hover:underline"
         >
           {conferenceData.registration.links[2].text}
         </a>
@@ -101,12 +103,12 @@ const FrontiersDetail: React.FC = () => {
       <h3 className="text-base font-medium text-gray-800 mb-2">
         {conferenceData.fees.title}
       </h3>
-      <ul className="list-disc pl-5 mb-2 text-lg">
+      <ul className="list-disc pl-5 mb-2 text-sm sm:text-lg">
         {conferenceData.fees.items.map((f, i) => (
           <li key={i}>{f}</li>
         ))}
       </ul>
-      <p className="text-lg mb-6">{conferenceData.fees.note}</p>
+      <p className="text-sm sm:text-lg mb-6">{conferenceData.fees.note}</p>
 
       {/* Committee */}
       <h3 className="text-base font-medium text-main mb-2">
@@ -120,13 +122,15 @@ const FrontiersDetail: React.FC = () => {
 
       {/* Speakers */}
       <div className="bg-headingBg inline-flex items-center gap-4 px-4 py-2 rounded mb-6">
-        <h2 className="text-3xl font-medium text-mainDark">
+        <h2 className="text-2xl sm:text-3xl font-medium text-mainDark">
           {conferenceData.speakers.title}
         </h2>
         <span className="text-main">{SpeakerIcon}</span>
       </div>
-      <p className="mb-3 text-lg">{conferenceData.speakers.description}</p>
-      <ul className="list-disc pl-5 mb-6 text-lg space-y-1">
+      <p className="mb-3 text-md sm:text-lg">
+        {conferenceData.speakers.description}
+      </p>
+      <ul className="list-disc pl-5 mb-6 text-sm sm:text-lg space-y-1">
         {conferenceData.speakers.list.map((s, i) => (
           <li key={i}>
             <a href={s.link} className="text-main hover:underline font-medium">
