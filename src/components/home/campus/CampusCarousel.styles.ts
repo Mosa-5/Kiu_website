@@ -7,11 +7,11 @@ export const carousel = cva("w-full h-full");
 export const carouselContent = cva("w-full h-full ml-0");
 
 export const carouselItem = cva(
-  "w-full h-full flex justify-center pl-0 hover:cursor-pointer"
+  "w-full h-full flex justify-center px-1 sm:pl-0 hover:cursor-pointer"
 );
 
 export const carouselImage = cva(
-  "w-full h-[458px] object-cover rounded-[8px] border-2 border-main max-w-[950px]"
+  "w-full h-[286px] sm:h-[458px] object-cover rounded-[8px] border-2 border-main max-w-[950px]"
 );
 
 export const dotContainer = cva(

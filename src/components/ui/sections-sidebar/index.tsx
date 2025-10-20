@@ -26,7 +26,7 @@ export const SideSectionsSheet: React.FC<SideSectionsSheetProps> = ({
         <SheetContent
           side="left"
           hideCloseButton
-          className="w-[300px] h-fit top-1/2 -translate-y-1/2 rounded-r-2xl border-l-0 border-3 overflow-hidden border-main shadow-2xl"
+          className="w-[230px] sm:w-[300px] h-fit top-1/2 -translate-y-1/2 rounded-r-2xl border-l-0 border-3 overflow-hidden border-main shadow-2xl"
           style={{ left: 0 }}
         >
           <nav className="flex flex-col">
@@ -34,7 +34,7 @@ export const SideSectionsSheet: React.FC<SideSectionsSheetProps> = ({
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className="w-full text-left hover:cursor-pointer text-main hover:text-blue-900 hover:bg-blue-50 text-lg rounded-md transition-colors px-3 py-4 font-medium"
+                className="w-full text-left hover:cursor-pointer text-main hover:text-blue-900 hover:bg-blue-50 text-base sm:text-lg rounded-md transition-colors px-3 py-4 font-medium"
               >
                 {section.label}
               </button>
@@ -46,14 +46,14 @@ export const SideSectionsSheet: React.FC<SideSectionsSheetProps> = ({
           <Button
             variant="default"
             className={`
-                bg-main rounded-l-none rounded-r-lg h-36 w-12 
+                bg-main rounded-l-none rounded-r-lg h-36 w-10 sm:w-12 
                 flex flex-col items-center justify-center gap-9 shadow-lg transition-all
                 ${isOpen ? "opacity-0 duration-0" : "duration-1000"} 
                 relative z-50
             `}
           >
             <span
-              className="transform -rotate-90 whitespace-nowrap text-xl font-medium tracking-wider"
+              className="transform -rotate-90 whitespace-nowrap text-lg sm:text-xl font-medium tracking-wider"
               style={{ transformOrigin: "center" }}
             >
               Sections

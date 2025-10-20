@@ -1,11 +1,13 @@
 export const RenderParagraphs = ({
   paragraphs,
 }: {
-  paragraphs: Array<{ parts: Array<{ text: string; type: string; url?: string }> }>;
+  paragraphs: Array<{
+    parts: Array<{ text: string; type: string; url?: string }>;
+  }>;
 }) => (
   <>
     {paragraphs.map((paragraph, i) => (
-      <p key={i} className="mb-6 text-lg">
+      <p key={i} className="mb-6 text-sm sm:text-lg">
         {paragraph.parts.map((part, j) =>
           part.type === "link" ? (
             <a
@@ -35,7 +37,9 @@ export const ProgramGrid = ({
 
   return (
     <div className="mb-8">
-      {title && <p className="mb-4 text-lg font-medium">{title}</p>}
+      {title && (
+        <p className="mb-4 max-sm:text-center text-lg font-medium">{title}</p>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {programs.map((program, i) => (
           <div
