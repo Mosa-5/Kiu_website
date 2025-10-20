@@ -1,6 +1,14 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  container,
+  sheetContent,
+  nav,
+  navButton,
+  triggerButton,
+  buttonText,
+} from "./index.styles";
 
 interface Section {
   id: string;
@@ -12,7 +20,7 @@ interface SideSectionsSheetProps {
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
   scrollToSection: (id: string) => void;
-  language?: string; 
+  language?: string;
 }
 
 const translations: Record<string, { sections: string }> = {
@@ -25,25 +33,25 @@ export const SideSectionsSheet: React.FC<SideSectionsSheetProps> = ({
   isOpen,
   setIsOpen,
   scrollToSection,
-  language = "en", 
+  language = "en",
 }) => {
   const t = translations[language] || translations.en;
 
   return (
-    <div className="sticky top-3/7 z-50 h-0 w-0">
+    <div className={container()}>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetContent
           side="left"
           hideCloseButton
-          className="w-[230px] sm:w-[300px] h-fit top-1/2 -translate-y-1/2 rounded-r-2xl border-l-0 border-3 overflow-hidden border-main shadow-2xl"
+          className={sheetContent()}
           style={{ left: 0 }}
         >
-          <nav className="flex flex-col">
+          <nav className={nav()}>
             {sections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className="w-full text-left hover:cursor-pointer text-main hover:text-blue-900 hover:bg-blue-50 text-base sm:text-lg rounded-md transition-colors px-3 py-4 font-medium"
+                className={navButton()}
               >
                 {section.label}
               </button>
@@ -52,17 +60,9 @@ export const SideSectionsSheet: React.FC<SideSectionsSheetProps> = ({
         </SheetContent>
 
         <SheetTrigger asChild>
-          <Button
-            variant="default"
-            className={`
-                bg-main rounded-l-none rounded-r-lg h-36 w-10 sm:w-12 
-                flex flex-col items-center justify-center gap-9 shadow-lg transition-all
-                ${isOpen ? "opacity-0 duration-0" : "duration-1000"} 
-                relative z-50
-            `}
-          >
+          <Button variant="default" className={triggerButton({ isOpen })}>
             <span
-              className="transform -rotate-90 whitespace-nowrap text-lg sm:text-xl font-medium tracking-wider"
+              className={buttonText()}
               style={{ transformOrigin: "center" }}
             >
               {t.sections}

@@ -1,6 +1,19 @@
 import React from "react";
 import { CuriculumIcon } from "../../../assets/icons/icons";
 import type { ProgramData } from "../data/programs/types";
+import {
+  section,
+  headingBadge,
+  mainHeading,
+  iconWrapper,
+  introParagraph,
+  grid,
+  subsectionTitle,
+  subsectionTitleSmall,
+  list,
+  listLarge,
+  studyPlanLink,
+} from "./CurriculumBrief.styles";
 
 interface Props {
   programData: ProgramData;
@@ -10,24 +23,18 @@ const CurriculumBriefSection: React.FC<Props> = ({ programData }) => {
   const data = programData.curriculumBrief;
 
   return (
-    <section id="curriculum-brief" className="mb-12 scroll-mt-8">
-      <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-        <h2 className="text-2xl sm:text-3xl font-medium text-mainDark">
-          {data.title}
-        </h2>
-        <span className="text-mainDark">{CuriculumIcon}</span>
+    <section id="curriculum-brief" className={section()}>
+      <div className={headingBadge()}>
+        <h2 className={mainHeading()}>{data.title}</h2>
+        <span className={iconWrapper()}>{CuriculumIcon}</span>
       </div>
 
-      <p className="mb-6  text-xl sm:text-2xl text-main font-medium">
-        {data.intro}
-      </p>
+      <p className={introParagraph()}>{data.intro}</p>
 
-      <div className="grid md:grid-cols-3 gap-8 mb-6">
+      <div className={grid()}>
         <div>
-          <h3 className="text-lg sm:text-xl font-medium text-main mb-3">
-            {data.concentrations.title}
-          </h3>
-          <ul className="text-sm sm:text-lg space-y-1">
+          <h3 className={subsectionTitle()}>{data.concentrations.title}</h3>
+          <ul className={list()}>
             {data.concentrations.items.map((item, i) => (
               <li key={i}>• {item}</li>
             ))}
@@ -35,10 +42,10 @@ const CurriculumBriefSection: React.FC<Props> = ({ programData }) => {
         </div>
 
         <div>
-          <h3 className="text-lg font-medium text-main mb-3">
+          <h3 className={subsectionTitleSmall()}>
             {data.degreeRequirements.title}
           </h3>
-          <ul className="text-lg space-y-1">
+          <ul className={listLarge()}>
             {data.degreeRequirements.items.map((item, i) => (
               <li key={i}>• {item}</li>
             ))}
@@ -46,10 +53,10 @@ const CurriculumBriefSection: React.FC<Props> = ({ programData }) => {
         </div>
 
         <div>
-          <h3 className="text-lg font-medium text-main mb-3">
+          <h3 className={subsectionTitleSmall()}>
             {data.specialization.title}
           </h3>
-          <ul className="text-lg space-y-1">
+          <ul className={listLarge()}>
             {data.specialization.items.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
@@ -57,10 +64,7 @@ const CurriculumBriefSection: React.FC<Props> = ({ programData }) => {
         </div>
       </div>
 
-      <a
-        href={data.studyPlanLink.url}
-        className="text-main hover:underline font-medium text-lg"
-      >
+      <a href={data.studyPlanLink.url} className={studyPlanLink()}>
         {data.studyPlanLink.text}
       </a>
     </section>

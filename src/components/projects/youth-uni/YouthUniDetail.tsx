@@ -6,6 +6,7 @@ import {
   image,
   paragraph,
   clearFloat,
+  title,
 } from "./YouthUniDetail.styles";
 import { useYouthUniTranslations } from "./hooks/useYouthUniTranslations";
 
@@ -25,9 +26,7 @@ const YouthUniDetail = () => {
             />
           </div>
           <div>
-            <h1 className="font-semibold text-2xl pb-6 text-mainDark">
-              {t("detail.title")}
-            </h1>
+            <h1 className={title()}>{t("detail.title")}</h1>
             {paragraphs.map((text, index) => (
               <p key={index} className={paragraph()}>
                 {text}

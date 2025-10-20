@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { card, image, cardContent, date, title } from "./NewsCardMobile.styles";
 
 interface NewsCardProps {
   id: string;
@@ -9,25 +10,22 @@ interface NewsCardProps {
   imageUrl: string;
 }
 
-const NewsCardMobile = ({ id, date, title, imageUrl }: NewsCardProps) => {
+const NewsCardMobile = ({
+  id,
+  date: newsDate,
+  title: newsTitle,
+  imageUrl,
+}: NewsCardProps) => {
   return (
     <Link to={`/news/${id}`}>
-      <Card
-        className="overflow-hidden relative group 
-  gap-0 hover:shadow-lg transition-all cursor-pointer 
-  w-full h-30 shadow-none border-x-0 rounded-none border-t-0 hover:bg-mainLight duration-200 flex flex-row py-4 border-b border-b-[#D6D6D6]"
-      >
+      <Card className={card()}>
         <div className="" />
 
-        <img
-          src={imageUrl}
-          alt={title}
-          className="w-40 h-full object-cover rounded-md"
-        />
+        <img src={imageUrl} alt={newsTitle} className={image()} />
 
-        <CardContent className="flex flex-col justify-center w-full">
-          <p className="text-xs">{date}</p>
-          <h3 className="text-sm font-medium line-clamp-3">{title}</h3>
+        <CardContent className={cardContent()}>
+          <p className={date()}>{newsDate}</p>
+          <h3 className={title()}>{newsTitle}</h3>
           <div className="" />
         </CardContent>
       </Card>

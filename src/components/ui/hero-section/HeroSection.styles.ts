@@ -7,7 +7,7 @@ export const heroContainer = cva(
 export const heroImage = cva("w-full h-full object-cover brightness-75");
 
 export const contentWrapper = cva(
-  "absolute bottom-2 sm:bottom-8 left-2 sm:left-[120px] text-white"
+  "absolute bottom-2 sm:bottom-8 left-2 sm:left-[120px] space-y-1 text-white"
 );
 
 export const title = cva("text-2xl sm:text-4xl font-semibold pl-2.5");

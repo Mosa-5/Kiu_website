@@ -9,6 +9,19 @@ import {
 import { Button } from "@/components/ui/button";
 import { LogIn } from "lucide-react";
 import { useAuth } from "@/hooks/hooksHeader/useAuth";
+import {
+  triggerButton,
+  dialogContent,
+  dialogTitle,
+  form,
+  label,
+  input,
+  errorMessage,
+  successMessage,
+  submitButton,
+  toggleContainer,
+  toggleButton,
+} from "./index.styles";
 
 interface AuthDialogProps {
   buttonText?: string;
@@ -77,86 +90,69 @@ const AuthDialog = ({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="flex max-sm:w-5/11 items-center gap-2 px-4 py-4 h-9.5 shadow-none rounded-sm sm:rounded-md bg-mainLight text-white hover:bg-main transition-colors text-base font-medium">
+        <Button className={triggerButton()}>
           <LogIn size={18} />
           <span className="md:inline">{buttonText}</span>
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-md border-3 border-main">
+      <DialogContent className={dialogContent()}>
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-main text-center">
+          <DialogTitle className={dialogTitle()}>
             {mode === "login" ? "Login" : "Sign Up"}
           </DialogTitle>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className={form()}>
           {mode === "signup" && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Full Name
-              </label>
+              <label className={label()}>Full Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-main"
+                className={input()}
                 required
               />
             </div>
           )}
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Email
-            </label>
+            <label className={label()}>Email</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-main"
+              className={input()}
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Password
-            </label>
+            <label className={label()}>Password</label>
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-main"
+              className={input()}
               required
               minLength={6}
             />
           </div>
 
-          {error && (
-            <div className="text-red-600 text-sm bg-red-50 p-2 rounded">
-              {error}
-            </div>
-          )}
+          {error && <div className={errorMessage()}>{error}</div>}
 
-          {success && (
-            <div className="text-green-600 text-sm bg-green-50 p-2 rounded">
-              {success}
-            </div>
-          )}
+          {success && <div className={successMessage()}>{success}</div>}
 
-          <Button
-            type="submit"
-            className="w-full text-white py-5 rounded-md transition-colors font-medium cursor-pointer"
-          >
+          <Button type="submit" className={submitButton()}>
             {mode === "login" ? "Login" : "Sign Up"}
           </Button>
         </form>
 
-        <div className="mt-4 text-center text-sm">
+        <div className={toggleContainer()}>
           {mode === "login" ? (
             <p>
               Don't have an account?{" "}
@@ -166,7 +162,7 @@ const AuthDialog = ({
                   setError("");
                   setSuccess("");
                 }}
-                className="text-main hover:underline font-medium cursor-pointer"
+                className={toggleButton()}
               >
                 Sign Up
               </button>
@@ -180,7 +176,7 @@ const AuthDialog = ({
                   setError("");
                   setSuccess("");
                 }}
-                className="text-main hover:underline font-medium cursor-pointer"
+                className={toggleButton()}
               >
                 Login
               </button>
