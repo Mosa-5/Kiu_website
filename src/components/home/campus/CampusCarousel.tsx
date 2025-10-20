@@ -63,6 +63,7 @@ const CampusCarousel = () => {
             key={index}
             onClick={() => api?.scrollTo(index)}
             className={dot({ active: current === index + 1 })}
+            aria-label="Next campus image"
           />
         ))}
       </div>

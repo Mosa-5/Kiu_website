@@ -16,19 +16,17 @@ import {
   tabsContent,
 } from "./SectionSwitcher.styles";
 import { getNewsItems } from "@/data/newsItems";
-import { useNewsTranslations } from "@/components/news-detail/hooks/useNewsTranslations";
+import { useNewsTranslations } from "@/hooks/useNewsTranslations";
 
 const SectionSwitcher = () => {
   const { t } = useNewsTranslations();
 
   const [items, setItems] = useState(getNewsItems());
 
-  // Update items when language changes
   useEffect(() => {
     setItems(getNewsItems());
-  }, [t]); // react to t change (language)
+  }, [t]); 
 
-  // English keys for filtering
   const categoryKeys = [
     "All",
     "Campus",
@@ -38,7 +36,6 @@ const SectionSwitcher = () => {
     "Doctoral",
   ];
 
-  // Get translated labels using useNewsTranslations
   const categoryLabels = categoryKeys.map((key) => t(`categories.${key}`));
 
   return (

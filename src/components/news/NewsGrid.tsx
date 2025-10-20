@@ -12,13 +12,13 @@ import {
 } from "@/components/ui/pagination";
 import { kiuCardImg } from "@/assets";
 import { grid, paginationWrapper, paginationButton } from "./NewsGrid.styles";
-import type { NewsItem } from "@/data/newsItems"; // ✅ import the type
+import type { NewsItem } from "@/data/newsItems"; 
 
 interface NewsGridProps {
   items: NewsItem[];
 }
 
-const NewsGrid = ({ items }: NewsGridProps) => { // ✅ accept items as a prop
+const NewsGrid = ({ items }: NewsGridProps) => { 
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -62,9 +62,8 @@ const NewsGrid = ({ items }: NewsGridProps) => { // ✅ accept items as a prop
             <PaginationItem>
               <PaginationPrevious
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                className={paginationButton({
-                  disabled: currentPage === 1,
-                })}
+                aria-label="Go to previous page"
+                className={paginationButton({ disabled: currentPage === 1 })}
               />
             </PaginationItem>
 
@@ -83,12 +82,9 @@ const NewsGrid = ({ items }: NewsGridProps) => { // ✅ accept items as a prop
 
             <PaginationItem>
               <PaginationNext
-                onClick={() =>
-                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                }
-                className={paginationButton({
-                  disabled: currentPage === totalPages,
-                })}
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                aria-label="Go to next page"
+                className={paginationButton({ disabled: currentPage === totalPages })}
               />
             </PaginationItem>
           </PaginationContent>

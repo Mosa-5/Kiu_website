@@ -15,7 +15,7 @@ import {
   readMoreButton,
   mainMobile,
 } from "./About.styles";
-import { useHomeTranslations } from "../hooks/useHomeTranslation";
+import { useHomeTranslations } from "../../../hooks/useHomeTranslation";
 
 const About = () => {
   const nav = useNavigate();
@@ -42,7 +42,7 @@ const About = () => {
 
         <div className={textContent()}>
           <p>
-            <Link to="/campus" className={campusLink()}>
+            <Link to="/campus" className={campusLink()} aria-label="Campus" title="Campus">
               {t("campus.title")}
             </Link>{" "}
             {paragraphs[0]}
@@ -54,6 +54,8 @@ const About = () => {
           variant="default"
           className={readMoreButton()}
           onClick={navigate}
+          aria-label="Read more"
+          title="Read more"
         >
           {t("about.button")}
         </Button>

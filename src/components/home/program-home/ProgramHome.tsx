@@ -8,7 +8,7 @@ import {
   gridVariants,
   programImageVariants,
 } from "./ProgramHome.styles";
-import { useHomeTranslations } from "../hooks/useHomeTranslation";
+import { useHomeTranslations } from "../../../hooks/useHomeTranslation";
 
 
 const ProgramHome = () => {
@@ -25,7 +25,6 @@ const ProgramHome = () => {
   ];
 
   const handleProgramClick = (category: string) => {
-    // Navigate to programs page with tab parameter
     navigate(`/${currentLang}/programs?tab=${encodeURIComponent(category)}`);
   };
 

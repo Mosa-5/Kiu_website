@@ -12,7 +12,7 @@ import {
   smallSvg,
 } from "./Campus.styles";
 import { useNavigate } from "react-router-dom";
-import { useHomeTranslations } from "../hooks/useHomeTranslation";
+import { useHomeTranslations } from "../../../hooks/useHomeTranslation";
 
 const Campus = () => {
   const nav = useNavigate();
@@ -54,7 +54,7 @@ const Campus = () => {
               <p key={i}>{text}</p>
             ))}
           </div>
-          <Button onClick={navigate} className={readMoreButton()}>
+          <Button onClick={navigate} className={readMoreButton()} aria-label="Read more" title="Read more">
             {t("campus.button")}
           </Button>
         </div>

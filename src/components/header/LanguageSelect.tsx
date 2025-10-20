@@ -19,7 +19,6 @@ const LanguageSelect = () => {
   const [selectedValue, setSelectedValue] = useState<string>(lang || "en");
 
   useEffect(() => {
-    // Sync with URL param
     if (lang) {
       setSelectedValue(lang);
     }
@@ -28,13 +27,10 @@ const LanguageSelect = () => {
   const handleLanguageChange = (newLang: string) => {
     setSelectedValue(newLang);
     
-    // Change i18n language
     i18n.changeLanguage(newLang);
     
-    // Update URL by replacing current language with new one
     const pathParts = location.pathname.split('/').filter(Boolean);
     
-    // Replace the first part (language) with new language
     if (pathParts.length > 0) {
       pathParts[0] = newLang;
       navigate(`/${pathParts.join('/')}`, { replace: true });
@@ -48,17 +44,17 @@ const LanguageSelect = () => {
       value={selectedValue}
       onValueChange={handleLanguageChange}
     >
-      <SelectTrigger className={trigger()}>
+      <SelectTrigger className={trigger()} aria-label="language switcher">
         <img src={globeIcon} alt="globe icon" />
         <SelectValue>{selectedValue === "ka" ? "GEO" : "ENG"}</SelectValue>
       </SelectTrigger>
 
       <SelectContent className={content()}>
-        <SelectItem className={item()} value="ka">
+        <SelectItem className={item()} value="ka" aria-label="Ka select">
           <img src={flagGeo} alt="georgia flag" />
           GEO
         </SelectItem>
-        <SelectItem className={item()} value="en">
+        <SelectItem className={item()} value="en" aria-label="En select">
           <img src={flagUS} alt="usa flag" />
           ENG
         </SelectItem>

@@ -54,7 +54,7 @@ const resources = {
 };
 
 i18n
-  .use(LanguageDetector)        // 👈 add this line
+  .use(LanguageDetector)       
   .use(initReactI18next)
   .init({
     resources,
@@ -64,8 +64,8 @@ i18n
       escapeValue: false,
     },
     detection: {
-      order: ['localStorage', 'cookie', 'navigator'], // 👈 check order
-      caches: ['localStorage'],                       // 👈 save choice
+      order: ['localStorage', 'cookie', 'navigator'], 
+      caches: ['localStorage'],                       
     },
   });
 

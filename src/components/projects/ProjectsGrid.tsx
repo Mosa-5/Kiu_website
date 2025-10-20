@@ -1,6 +1,6 @@
 import { ProjectsImage1, ProjectsImage2 } from "@/assets";
 import { Link, useParams } from "react-router-dom";
-import { useProjectsTranslations } from "./hooks/useProjectsTranslations";
+import { useProjectsTranslations } from "../../hooks/useProjectsTranslations";
 import {
   container,
   projectCard,

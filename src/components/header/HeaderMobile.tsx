@@ -7,7 +7,7 @@ const HeaderMobile = () => {
   return (
     <div className={container()}>
       <div className={content()}>
-        <Link to="/">
+        <Link to="/" aria-label="Home" title="Home">
           <img className={logo()} src={kiuLogo} alt="Kiu logo" />
         </Link>
         <MobileMenu />

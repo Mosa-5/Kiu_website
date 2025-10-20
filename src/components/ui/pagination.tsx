@@ -87,8 +87,6 @@ function PaginationPrevious({
         className="fill-mainLight group-hover:fill-white duration-200 rotate-180 size-7"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
           d="M13.5427 16.948L6.00008 24.4907L4.11475 22.6054L10.7147 16.0054L4.11475 9.40535L6.00008 7.52002L13.5427 15.0627C13.7927 15.3127 13.9331 15.6518 13.9331 16.0054C13.9331 16.3589 13.7927 16.698 13.5427 16.948Z"
           // fill="#4879B4"
         />
@@ -120,8 +118,6 @@ function PaginationNext({
         className="fill-mainLight group-hover:fill-white duration-200 size-7"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
           d="M13.5427 16.948L6.00008 24.4907L4.11475 22.6054L10.7147 16.0054L4.11475 9.40535L6.00008 7.52002L13.5427 15.0627C13.7927 15.3127 13.9331 15.6518 13.9331 16.0054C13.9331 16.3589 13.7927 16.698 13.5427 16.948Z"
           // fill="#4879B4"
         />

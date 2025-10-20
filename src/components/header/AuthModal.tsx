@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
-import { useAuth } from './hooks/useAuth';
+import { useAuth } from '../../hooks/hooksHeader/useAuth';
 
 interface AuthModalProps {
   isOpen: boolean;

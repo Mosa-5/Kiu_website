@@ -1,6 +1,6 @@
 import HeroSection from "@/components/ui/hero-section";
 import { FrontiersHero } from "@/assets";
-import { useAboutTranslations } from "./hooks/useAboutTranslations";
+import { useAboutTranslations } from "../../hooks/useAboutTranslations";
 
 const AboutHero = () => {
   const { t } = useAboutTranslations();
