@@ -9,12 +9,13 @@ import {
   tabsTrigger,
   container,
 } from "./ProgramsTabs.styles";
-
 import ProgramsGrid from "./ProgramsGrid";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useProgramTranslations } from "./hooks/useProgramTranslations";
 
 const ProgramTabs = () => {
+  const { t } = useProgramTranslations();
   const categories = ["Bachelor", "Single-Cycle", "Master", "Doctoral"];
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState("Bachelor");
@@ -31,6 +32,11 @@ const ProgramTabs = () => {
     setSearchParams({ tab: value });
   };
 
+  // Get translated category names
+  const getTranslatedCategory = (category: string) => {
+    return t(`categories.${category}`);
+  };
+
   return (
     <div className={container()}>
       <Tabs
@@ -42,7 +48,7 @@ const ProgramTabs = () => {
           <TabsList className={tabsList()}>
             {categories.map((cat) => (
               <TabsTrigger key={cat} value={cat} className={tabsTrigger()}>
-                {cat}
+                {getTranslatedCategory(cat)}
                 <span className={activeIndicator()} />
               </TabsTrigger>
             ))}
@@ -50,10 +56,7 @@ const ProgramTabs = () => {
         </div>
 
         {categories.map((cat) => {
-          const filtered =
-            cat === "All"
-              ? programItems
-              : programItems.filter((item) => item.category === cat);
+          const filtered = programItems.filter((item) => item.category === cat);
 
           return (
             <TabsContent key={cat} value={cat} className={tabsContent()}>

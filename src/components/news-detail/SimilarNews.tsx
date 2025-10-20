@@ -1,8 +1,9 @@
 import React from "react";
-import newsItems from "@/data/newsItems";
 import { useParams } from "react-router-dom";
 import { container, innerWrapper, heading } from "./SimilarNews.styles";
+import { useNewsTranslations } from "./hooks/useNewsTranslations";
 import NewsCarousel from "../home/news/NewsCarousel";
+import { useNewsItems } from "@/hooks/useNewsItems";
 
 export type NewsItem = {
   id: string;
@@ -16,14 +17,15 @@ const getRandomNews = (data: NewsItem[], count: number): NewsItem[] => {
 
 const SimilarNews: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-
+  const { t } = useNewsTranslations();
+  const newsItems = useNewsItems();
   const filteredNews = newsItems.filter((item) => item.id !== id);
   const randomNews = getRandomNews(filteredNews, 10);
 
   return (
     <div className={container()}>
       <div className={innerWrapper()}>
-        <h2 className={heading()}>Similar News</h2>
+        <h2 className={heading()}>{t("similarNews")}</h2>
         <NewsCarousel data={randomNews} />
       </div>
     </div>

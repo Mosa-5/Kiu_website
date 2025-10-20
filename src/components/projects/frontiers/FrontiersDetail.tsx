@@ -2,6 +2,7 @@ import React from "react";
 import { conferenceData } from "./data/frontiersData";
 import { AboutIcon, SpeakerIcon } from "../../../assets/icons/icons";
 import { FrontiersConf } from "@/assets";
+import { useFrontiersTranslations } from "./hooks/useFrontiersTranslations";
 import {
   container,
   bannerImage,
@@ -36,17 +37,26 @@ import {
 } from "./FrontiersDetail.styles";
 
 const FrontiersDetail: React.FC = () => {
+  const { t, getTranslatedArray, getTranslatedParts, getTranslatedLinks } =
+    useFrontiersTranslations();
+
+  const aboutParts = getTranslatedParts("about.parts");
+  const programItems = getTranslatedArray("program.items");
+  const registrationParts = getTranslatedParts("registration.parts");
+  const registrationLinks = getTranslatedLinks("registration.links");
+  const feesItems = getTranslatedArray("fees.items");
+
   return (
     <div className={container()}>
       <img src={FrontiersConf} className={bannerImage()} />
 
       {/* About */}
       <div className={sectionHeader()}>
-        <h1 className={sectionTitle()}>{conferenceData.about.title}</h1>
+        <h1 className={sectionTitle()}>{t("about.title")}</h1>
         <span className={sectionIcon()}>{AboutIcon}</span>
       </div>
       <p className={paragraph()}>
-        {conferenceData.about.parts.map((part, i) => {
+        {aboutParts.map((part, i) => {
           if (part.type === "link") {
             return (
               <a key={i} href={part.url} className={richTextLink()}>
@@ -66,9 +76,9 @@ const FrontiersDetail: React.FC = () => {
       </p>
 
       {/* Program */}
-      <h2 className={subsectionTitle()}>{conferenceData.program.title}</h2>
+      <h2 className={subsectionTitle()}>{t("program.title")}</h2>
       <ul className={listDisc()}>
-        {conferenceData.program.items.map((item, i) => (
+        {programItems.map((item, i) => (
           <li key={i} className={listItem()}>
             {item}
           </li>
@@ -76,17 +86,13 @@ const FrontiersDetail: React.FC = () => {
       </ul>
 
       {/* Accommodation */}
-      <h2 className={subsectionTitleSmall()}>
-        {conferenceData.accommodation.title}
-      </h2>
-      <p className={accommodationText()}>{conferenceData.accommodation.text}</p>
+      <h2 className={subsectionTitleSmall()}>{t("accommodation.title")}</h2>
+      <p className={accommodationText()}>{t("accommodation.text")}</p>
 
       {/* Registration */}
-      <h2 className={subsectionTitleSmaller()}>
-        {conferenceData.registration.title}
-      </h2>
+      <h2 className={subsectionTitleSmaller()}>{t("registration.title")}</h2>
       <div className={registrationContent()}>
-        {conferenceData.registration.parts.map((part, i) => {
+        {registrationParts.map((part, i) => {
           if (part.type === "highlight") {
             return (
               <span key={i} className={registrationHighlight()}>
@@ -105,7 +111,7 @@ const FrontiersDetail: React.FC = () => {
         })}
       </div>
       <div className={registrationLinksContainer()}>
-        {conferenceData.registration.links.slice(0, 2).map((link, i) => (
+        {registrationLinks.slice(0, 2).map((link, i) => (
           <p key={i} className={registrationLinkItem()}>
             <a href={link.url} className={registrationLinkItemHover()}>
               {link.text}
@@ -116,25 +122,22 @@ const FrontiersDetail: React.FC = () => {
 
       {/* Registration Link */}
       <div>
-        <a
-          href={conferenceData.registration.links[2].url}
-          className={registrationMainLink()}
-        >
-          {conferenceData.registration.links[2].text}
+        <a href={registrationLinks[2].url} className={registrationMainLink()}>
+          {registrationLinks[2].text}
         </a>
       </div>
 
       {/* Fees */}
-      <h3 className={feesTitle()}>{conferenceData.fees.title}</h3>
+      <h3 className={feesTitle()}>{t("fees.title")}</h3>
       <ul className={feesList()}>
-        {conferenceData.fees.items.map((f, i) => (
+        {feesItems.map((f, i) => (
           <li key={i}>{f}</li>
         ))}
       </ul>
-      <p className={feesNote()}>{conferenceData.fees.note}</p>
+      <p className={feesNote()}>{t("fees.note")}</p>
 
       {/* Committee */}
-      <h3 className={committeeTitle()}>{conferenceData.committee.title}</h3>
+      <h3 className={committeeTitle()}>{t("committee.title")}</h3>
       <ul className={listDiscLarge()}>
         {conferenceData.committee.members.map((m, i) => (
           <li key={i}>{m}</li>
@@ -143,12 +146,10 @@ const FrontiersDetail: React.FC = () => {
 
       {/* Speakers */}
       <div className={sectionHeader()}>
-        <h2 className={sectionTitle()}>{conferenceData.speakers.title}</h2>
+        <h2 className={sectionTitle()}>{t("speakers.title")}</h2>
         <span className={sectionIconMain()}>{SpeakerIcon}</span>
       </div>
-      <p className={speakersDescription()}>
-        {conferenceData.speakers.description}
-      </p>
+      <p className={speakersDescription()}>{t("speakers.description")}</p>
       <ul className={speakersList()}>
         {conferenceData.speakers.list.map((s, i) => (
           <li key={i}>

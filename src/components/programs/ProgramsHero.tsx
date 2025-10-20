@@ -1,13 +1,16 @@
 import HeroSection from "@/components/ui/hero-section";
 import { ProgramsHeroImage } from "@/assets";
+import { useTranslation } from "react-i18next";
 
 const ProgramHero = () => {
+  const { t } = useTranslation("programs");
+
   return (
     <HeroSection
-      titleText="Programs"
+      titleText={t("hero.title")}
       imageSrc={ProgramsHeroImage}
       buttonLink="/"
-      buttonLabel="Home Page"
+      buttonLabel={t("hero.buttonLabel")}
     />
   );
 };

@@ -15,13 +15,15 @@ import {
   readMoreButton,
   mainMobile,
 } from "./About.styles";
+import { useHomeTranslations } from "../hooks/useHomeTranslation";
 
 const About = () => {
   const nav = useNavigate();
+  const { t, getTranslatedArray } = useHomeTranslations();
 
-  const navigate = () => {
-    return nav("about-us");
-  };
+  const paragraphs = getTranslatedArray("about.paragraphs");
+
+  const navigate = () => nav("about-us");
 
   return (
     <div className={container()}>
@@ -33,37 +35,27 @@ const About = () => {
         </div>
         <img className={mainMobile()} src={aboutMobile} alt="" />
       </div>
+
       <div>
-        <h2 className={mainTitle()}>Place where Knowledge creates future!</h2>
-        <h3 className={subtitle()}>Hic Scientia futūrum creat!</h3>
+        <h2 className={mainTitle()}>{t("about.mainTitle")}</h2>
+        <h3 className={subtitle()}>{t("about.subtitle")}</h3>
+
         <div className={textContent()}>
           <p>
             <Link to="/campus" className={campusLink()}>
-              Kutaisi International University Campus
+              {t("campus.title")}
             </Link>{" "}
-            is located in the city of Kutaisi. Kutaisi International University
-            (KIU) has opened its doors to the first cohort of students in 2020.
-            The goal of the university is to gradually become an international
-            hub of education, science and technology in the region. As a result,
-            Georgia will take the lead on international educational and
-            scientific arena.
+            {paragraphs[0]}
           </p>
-
-          <p>
-            KIU is currently offering undergraduate degree English language
-            programs. KIU plans to add vocational, graduate, and post-graduate
-            degree programs in the future. The aim of the university is to
-            prepare highly qualified workforce and human capital that will
-            promote economic growth and development of Georgia and the entire
-            region.
-          </p>
+          <p>{paragraphs[1]}</p>
         </div>
+
         <Button
-          variant={"default"}
+          variant="default"
           className={readMoreButton()}
           onClick={navigate}
         >
-          Read More
+          {t("about.button")}
         </Button>
       </div>
     </div>

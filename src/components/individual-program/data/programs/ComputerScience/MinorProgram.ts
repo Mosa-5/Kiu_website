@@ -1,6 +1,6 @@
 import type { ProgramData } from "../types";
 
-export const minorProgram: ProgramData["minorProgram"] = {
+const minorProgramEn: ProgramData["minorProgram"] = {
   title: "Minor Program",
   subtitle: [
     {
@@ -9,4 +9,19 @@ export const minorProgram: ProgramData["minorProgram"] = {
     },
   ],
   text: "Students from bachelor program of Mathematics or Management can choose minor program in Computer Science (42 ECTS credits).",
+};
+
+const minorProgramKa: ProgramData["minorProgram"] = {
+  title: "მოკლე პროგრამა",
+  subtitle: [
+    {
+      text: "მოკლე პროგრამა - კომპიუტერული მეცნიერება",
+      url: "/minor/smcs-newsletter-september-2024.pdf",
+    },
+  ],
+  text: "მათემატიკის ან მენეჯმენტის ბაკალავრის პროგრამის სტუდენტებს შეუძლიათ აირჩიონ მოკლე პროგრამა კომპიუტერულ მეცნიერებაში (42 ECTS კრედიტი).",
+};
+
+export const getMinorProgram = (lang: string): ProgramData["minorProgram"] => {
+  return lang === "ka" ? minorProgramKa : minorProgramEn;
 };

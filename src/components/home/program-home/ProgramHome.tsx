@@ -1,5 +1,5 @@
 import { bechalor, masters, doctoral, singleCycle } from "@/assets";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   containerVariants,
   wrapperVariants,
@@ -8,9 +8,14 @@ import {
   gridVariants,
   programImageVariants,
 } from "./ProgramHome.styles";
+import { useHomeTranslations } from "../hooks/useHomeTranslation";
+
 
 const ProgramHome = () => {
   const navigate = useNavigate();
+  const { t } = useHomeTranslations();
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
 
   const programs = [
     { img: bechalor, label: "Bachelor's", category: "Bachelor" },
@@ -21,14 +26,14 @@ const ProgramHome = () => {
 
   const handleProgramClick = (category: string) => {
     // Navigate to programs page with tab parameter
-    navigate(`/programs?tab=${encodeURIComponent(category)}`);
+    navigate(`/${currentLang}/programs?tab=${encodeURIComponent(category)}`);
   };
 
   return (
     <div className={containerVariants()}>
       <div className={wrapperVariants()}>
         <div className={headerSectionVariants()}>
-          <h2 className={titleVariants()}>Programs</h2>
+          <h2 className={titleVariants()}>{t("home.programs")}</h2>
         </div>
 
         <div className={gridVariants()}>

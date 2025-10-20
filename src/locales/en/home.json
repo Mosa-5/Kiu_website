@@ -1,0 +1,26 @@
+{
+  "campus": {
+    "title": "Our Campus",
+    "subtitle": "A vibrant social life is part of the Experience",
+    "paragraphs": [
+      "The Kutaisi International University (KIU) campus is located in the green and environmentally clean area of Kutaisi, Georgia's third-largest city. Spread across 160 hectares of beautiful land surrounded by forest and a river, the campus offers a peaceful and inspiring setting for study and innovation. It is easily accessible, only 25 km from Kutaisi International Airport and about three hours from Tbilisi.",
+      "KIU is Georgia's only university providing fully furnished on-campus housing for both students and academic staff. The campus features state-of-the-art laboratories, co-working spaces, libraries, cafeterias, and digital learning systems — all designed to create a modern, technology-driven educational environment that supports growth, creativity, and collaboration."
+    ],
+    "button": "Read More"
+  },
+  "home" : {
+    "videogallery" : "Video Gallery",
+    "programs": "Programs",
+    "news" : "News",
+    "seeall" : "See all"
+  },
+   "about": {
+      "mainTitle": "Place where Knowledge creates future!",
+      "subtitle": "Hic Scientia futūrum creat!",
+      "paragraphs": [
+        "Kutaisi International University Campus is located in the city of Kutaisi. Kutaisi International University (KIU) has opened its doors to the first cohort of students in 2020. The goal of the university is to gradually become an international hub of education, science and technology in the region. As a result, Georgia will take the lead on international educational and scientific arena.",
+        "KIU is currently offering undergraduate degree English language programs. KIU plans to add vocational, graduate, and post-graduate degree programs in the future. The aim of the university is to prepare highly qualified workforce and human capital that will promote economic growth and development of Georgia and the entire region."
+      ],
+      "button": "Read More"
+    }
+}

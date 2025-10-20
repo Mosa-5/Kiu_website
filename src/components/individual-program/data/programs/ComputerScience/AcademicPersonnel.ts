@@ -9,7 +9,7 @@ import {
   WalterTichy,
 } from "@/assets";
 
-export const academicPersonnel: ProgramData["academicPersonnel"] = {
+const academicPersonnelEn: ProgramData["academicPersonnel"] = {
   title: "Academic Personnel",
   sections: [
     {
@@ -40,4 +40,41 @@ export const academicPersonnel: ProgramData["academicPersonnel"] = {
       ],
     },
   ],
+};
+
+const academicPersonnelKa: ProgramData["academicPersonnel"] = {
+  title: "აკადემიური პერსონალი",
+  sections: [
+    {
+      subtitle: "აკადემიური პერსონალი",
+      members: [
+        { name: "ბესიკ დუნდუა", title: "ასოცირებული პროფესორი, კომპიუტერული მეცნიერება", image: BesikDundua },
+        { name: "ია მოსაშვილი", title: "ასოცირებული პროფესორი, კომპიუტერული მეცნიერება", image: IaMosasvhili },
+        { name: "ნინო დემეტრაშვილი", title: "ასოცირებული პროფესორი, კომპიუტერული მეცნიერება", image: NinoDemetrashvili },
+      ],
+    },
+    {
+      subtitle: "საერთაშორისო აკადემიური პერსონალი",
+      members: [
+        { name: "ევა მარია ქნირში", title: "დამხმარე პროფესორი, კომპიუტერული მეცნიერება", image: EvaKnirsch },
+        { name: "ვალტერ ტიჩი", title: "პროფესორი, კომპიუტერული მეცნიერება", image: WalterTichy },
+      ],
+    },
+    {
+      subtitle: "მათემატიკა/კომპიუტერული მეცნიერება",
+      members: [
+        { name: "გიორგი ნადარეიშვილი", title: "დამხმარე პროფესორი", image: GiorgiNadareishvili },
+      ],
+    },
+    {
+      subtitle: "სტაჟირებადი პერსონალი",
+      members: [
+        { name: "კონსტანტინოს კოკკინოსი", title: "მოიწვიე პროფესორი, კომპიუტერული მეცნიერება", image: Konstantinos },
+      ],
+    },
+  ],
+};
+
+export const getAcademicPersonnel = (lang: string): ProgramData["academicPersonnel"] => {
+  return lang === "ka" ? academicPersonnelKa : academicPersonnelEn;
 };

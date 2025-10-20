@@ -1,5 +1,5 @@
 import newsHeroImage from "@/assets/image.png";
-import newsItems from "@/data/newsItems";
+import { getNewsItems } from "@/data/newsItems";
 import { useParams } from "react-router-dom";
 import {
   container,
@@ -12,7 +12,11 @@ import {
 } from "./NewsDetailsHero.styles";
 
 const NewsDetailsHero = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id, lang } = useParams<{ id: string; lang: string }>();
+  const currentLang = lang || "en";
+
+  // Get news items based on currentLang
+  const newsItems = getNewsItems(currentLang);
   const item = newsItems.find((news) => news.id === id);
 
   if (!item) {

@@ -19,15 +19,21 @@ import {
   imageWrapper,
   newsTitle,
 } from "./NewsCarousel.styles";
-import newsItems from "@/data/newsItems";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { kiuCardImg } from "@/assets";
 import type { NewsItem } from "@/components/news-detail/SimilarNews";
+import { useNewsItems } from "@/hooks/useNewsItems";
 
 const NewsCarousel: React.FC<{
   data?: NewsItem[];
-}> = ({ data = newsItems }) => {
+}> = ({ data }) => {
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
+  const newsItems = useNewsItems();
+
+  const NewsData = data || newsItems;
+
   return (
     <Carousel
       className={carousel()}
@@ -37,9 +43,9 @@ const NewsCarousel: React.FC<{
       }}
     >
       <CarouselContent className={carouselContent()}>
-        {data.slice(0, 5).map((item) => (
+        {NewsData.slice(0, 5).map((item) => (
           <CarouselItem key={item.id} className={carouselItem()}>
-            <Link to={`/news/${item.id}`}>
+            <Link to={`/${currentLang}/news/${item.id}`}>
               <Card className={card()}>
                 <CardContent className={cardContent()}>
                   <div className={hoverBar()} />

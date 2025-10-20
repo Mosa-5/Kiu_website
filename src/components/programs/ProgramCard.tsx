@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   card,
   overlay,
@@ -9,8 +9,14 @@ import {
 
 interface ProgramCardProps {
   id: number | string;
-  name: string;
-  description: string;
+  name: {
+    en: string;
+    ka: string;
+  };
+  description: {
+    en: string;
+    ka: string;
+  };
   image: string;
 }
 
@@ -20,15 +26,22 @@ const ProgramCard = ({
   description: cardDescription,
   image,
 }: ProgramCardProps) => {
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
+
   return (
-    <Link to={`/programs/${id}`}>
+    <Link to={`/${currentLang}/programs/${id}`}>
       <div className={card()} style={{ backgroundImage: `url(${image})` }}>
         <div className={overlay()}>
-          <p className={description()}>{cardDescription}</p>
+          <p className={description()}>
+            {currentLang === "ka" ? cardDescription.ka : cardDescription.en}
+          </p>
         </div>
 
         <div className={baseContent()}>
-          <h3 className={title()}>{name}</h3>
+          <h3 className={title()}>
+            {currentLang === "ka" ? name.ka : name.en}
+          </h3>
         </div>
       </div>
     </Link>

@@ -1,139 +1,95 @@
 import React from "react";
+import { useAdmissionTranslations } from "./admissionHelper/translations";
+import { RenderParagraphs, ProgramGrid } from "./admissionHelper/components";
 import { AboutIcon } from "../../assets/icons/icons";
-import { AdmissionData } from "./data/AdmissionData";
 import {
   container,
-  section,
-  introHeader,
-  introTitle,
-  icon,
-  sectionTitle,
-  sectionSubtitle,
-  paragraph,
-  paragraphSmall,
-  richTextLink,
-  programsIntro,
-  programGrid,
-  programGridContainer,
-  programBadge,
-  programLabel,
+  headerSection,
+  headerBox,
+  headerTitle,
+  headerIcon,
+  headerSubtitle,
+  introSection,
+  programsSection,
+  closingSection,
+  campusSection,
+  campusTitle,
+  applySection,
+  applyTitle,
+  applyIntroText,
   applyList,
   applyListItem,
   applyLink,
-  timelineParagraph,
+  timelineSection,
+  timelineTitle,
+  programsIntroText,
 } from "./AdmissionDetail.styles";
 
 const AdmissionDetail: React.FC = () => {
+  const { t, getTranslatedArray, getTranslatedParagraphs, getTranslatedLinks } =
+    useAdmissionTranslations();
+
   return (
     <div className={container()}>
-      {/* Intro Section */}
-      <section id="intro" className={section()}>
-        <div className={introHeader()}>
-          <h1 className={introTitle()}>{AdmissionData.intro.title}</h1>
-          <span className={icon()}>{AboutIcon}</span>
+      {/* Header */}
+      <section className={headerSection()}>
+        <div className={headerBox()}>
+          <h1 className={headerTitle()}>{t("intro.title")}</h1>
+          <span className={headerIcon()}>{AboutIcon}</span>
         </div>
-
-        <h2 className={sectionSubtitle()}>{AdmissionData.intro.subtitle}</h2>
-
-        {AdmissionData.intro.paragraphs.map((para, i) => (
-          <p key={i} className={paragraph()}>
-            {para.parts.map((part, j) => {
-              if (part.type === "link") {
-                return (
-                  <a key={j} href={part.url} className={richTextLink()}>
-                    {part.text}
-                  </a>
-                );
-              }
-              return <span key={j}>{part.text}</span>;
-            })}
-          </p>
-        ))}
-
-        <p className={programsIntro()}>{AdmissionData.intro.programsIntro}</p>
-
-        {/* Undergraduate Programs */}
-        <div className={programGridContainer()}>
-          <div className={programGrid()}>
-            {AdmissionData.intro.undergraduatePrograms.map((program, i) => (
-              <div key={i} className={programBadge()}>
-                {program}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Master Programs */}
-        <p className={programLabel()}>{AdmissionData.intro.masterText}</p>
-
-        <div className={programGridContainer()}>
-          <div className={programGrid()}>
-            {AdmissionData.intro.masterPrograms.map((program, i) => (
-              <div key={i} className={programBadge()}>
-                {program}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Doctoral Programs */}
-        <p className={programLabel()}>{AdmissionData.intro.doctoralText}</p>
-
-        <div className={programGridContainer()}>
-          <div className={programGrid()}>
-            {AdmissionData.intro.doctoralPrograms.map((program, i) => (
-              <div key={i} className={programBadge()}>
-                {program}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Closing paragraphs */}
-        {AdmissionData.intro.closingParagraphs.map((para, i) => (
-          <p key={i} className={paragraph()}>
-            {para.parts.map((part, j) => {
-              if (part.type === "link") {
-                return (
-                  <a key={j} href={part.url} className={richTextLink()}>
-                    {part.text}
-                  </a>
-                );
-              }
-              return <span key={j}>{part.text}</span>;
-            })}
-          </p>
-        ))}
+        <h2 className={headerSubtitle()}>{t("intro.subtitle")}</h2>
       </section>
 
-      {/* Campus Section */}
-      <section id="campus" className={section()}>
-        <h2 className={sectionTitle()}>{AdmissionData.campus.title}</h2>
-
-        {AdmissionData.campus.paragraphs.map((para, i) => (
-          <p key={i} className={paragraph()}>
-            {para.parts.map((part, j) => {
-              if (part.type === "link") {
-                return (
-                  <a key={j} href={part.url} className={richTextLink()}>
-                    {part.text}
-                  </a>
-                );
-              }
-              return <span key={j}>{part.text}</span>;
-            })}
-          </p>
-        ))}
+      {/* Intro */}
+      <section className={introSection()}>
+        <RenderParagraphs
+          paragraphs={getTranslatedParagraphs("intro.paragraphs")}
+        />
+        <p className={programsIntroText()}>{t("intro.programsIntro")}</p>
       </section>
 
-      {/* How to Apply Section */}
-      <section id="apply" className={section()}>
-        <h2 className={sectionTitle()}>{AdmissionData.apply.title}</h2>
+      {/* Programs */}
+      <section className={programsSection()}>
+        <ProgramGrid
+          programs={getTranslatedArray("intro.undergraduatePrograms")}
+        />
+      </section>
 
-        <p className={paragraphSmall()}>{AdmissionData.apply.introText}</p>
+      <section className={programsSection()}>
+        <ProgramGrid
+          programs={getTranslatedArray("intro.masterPrograms")}
+          title={t("intro.masterText")}
+        />
+      </section>
 
+      <section className={programsSection()}>
+        <ProgramGrid
+          programs={getTranslatedArray("intro.doctoralPrograms")}
+          title={t("intro.doctoralText")}
+        />
+      </section>
+
+      {/* Closing */}
+      <section className={closingSection()}>
+        <RenderParagraphs
+          paragraphs={getTranslatedParagraphs("intro.closingParagraphs")}
+        />
+      </section>
+
+      {/* Campus */}
+      <section id="campus" className={campusSection()}>
+        <h2 className={campusTitle()}>{t("campus.title")}</h2>
+        <RenderParagraphs
+          paragraphs={getTranslatedParagraphs("campus.paragraphs")}
+        />
+      </section>
+
+      {/* Apply */}
+      <section id="apply" className={applySection()}>
+        <h2 className={applyTitle()}>{t("apply.title")}</h2>
+        <p className={applyIntroText()}>{t("apply.introText")}</p>
         <ul className={applyList()}>
-          {AdmissionData.apply.links.map((link, i) => (
+          {getTranslatedLinks("apply.links").map((link, i) => (
             <li key={i} className={applyListItem()}>
               <a href={link.url} className={applyLink()}>
                 {link.text}
@@ -143,24 +99,12 @@ const AdmissionDetail: React.FC = () => {
         </ul>
       </section>
 
-      {/* Admissions Timeline Section */}
-      <section id="timeline" className={section()}>
-        <h2 className={sectionTitle()}>{AdmissionData.timeline.title}</h2>
-
-        {AdmissionData.timeline.paragraphs.map((para, i) => (
-          <p key={i} className={timelineParagraph()}>
-            {para.parts.map((part, j) => {
-              if (part.type === "link") {
-                return (
-                  <a key={j} href={part.url} className={richTextLink()}>
-                    {part.text}
-                  </a>
-                );
-              }
-              return <span key={j}>{part.text}</span>;
-            })}
-          </p>
-        ))}
+      {/* Timeline */}
+      <section id="timeline" className={timelineSection()}>
+        <h2 className={timelineTitle()}>{t("timeline.title")}</h2>
+        <RenderParagraphs
+          paragraphs={getTranslatedParagraphs("timeline.paragraphs")}
+        />
       </section>
     </div>
   );

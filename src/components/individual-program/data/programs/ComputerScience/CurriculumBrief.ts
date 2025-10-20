@@ -1,6 +1,6 @@
 import type { ProgramData } from "../types";
 
-export const curriculumBrief: ProgramData["curriculumBrief"] = {
+const curriculumBriefEn: ProgramData["curriculumBrief"] = {
   title: "Curriculum Brief",
   intro: "Major in Computer Science",
   concentrations: {
@@ -30,11 +30,54 @@ export const curriculumBrief: ProgramData["curriculumBrief"] = {
     items: [
       "1. Two Concentrations",
       "2. Seminar, Elective Courses",
-      "3. Intership, Bachelor thesis",
+      "3. Internship, Bachelor thesis",
     ],
   },
   studyPlanLink: {
     text: "Detailed study plan of the degree program",
     url: "#",
   },
+};
+
+const curriculumBriefKa: ProgramData["curriculumBrief"] = {
+  title: "კურიკულუმის მიმოხილვა",
+  intro: "კომპიუტერული მეცნიერებების სპეციალობა",
+  concentrations: {
+    title: "კონცენტრაციები:",
+    items: [
+      "ენა დაფუძნებული ტექნოლოგიები",
+      "სისტემების არქიტექტურა",
+      "ციფრული სისტემები",
+      "მონაცემთა ბაზები",
+      "ლოგიკა და ავტომატიზებული დასაბუთება",
+      "პროგრამული უზრუნველყოფის ინჟინერია",
+      "განაწილებითი ქსელები, კომპიუტერული ქსელები",
+      "ხელოვნური ინტელექტი",
+    ],
+  },
+  degreeRequirements: {
+    title: "BSc დიპლომის მოთხოვნები:",
+    items: [
+      "240 ECTS კრედიტი",
+      "სტაჟირება",
+      "მოკლე პროგრამა მათემატიკაში ან მენეჯმენტში",
+      "კაპსტოუნ პროექტი",
+    ],
+  },
+  specialization: {
+    title: "სპეციალიზაცია არჩევითი კურსების მეშვეობით",
+    items: [
+      "1. ორი კონცენტრაცია",
+      "2. სემინარი, არჩევითი კურსები",
+      "3. სტაჟირება, ბაკალავრის თეზისი",
+    ],
+  },
+  studyPlanLink: {
+    text: "დიპლომის პროგრამის დეტალური სასწავლო გეგმა",
+    url: "#",
+  },
+};
+
+export const getCurriculumBrief = (lang: string): ProgramData["curriculumBrief"] => {
+  return lang === "ka" ? curriculumBriefKa : curriculumBriefEn;
 };

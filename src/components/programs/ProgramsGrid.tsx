@@ -1,15 +1,18 @@
 import ProgramCard from "./ProgramCard";
+import { useTranslation } from "react-i18next";
 import { emptyState, emptyStateText, grid } from "./ProgramsGrid.styles";
 
-interface NewsGridProps {
+interface ProgramsGridProps {
   items: typeof import("@/data/programItems").default;
 }
 
-const ProgramsGrid = ({ items }: NewsGridProps) => {
+const ProgramsGrid = ({ items }: ProgramsGridProps) => {
+  const { t } = useTranslation("programs");
+
   if (items.length === 0) {
     return (
       <div className={emptyState()}>
-        <p className={emptyStateText()}>No programs available</p>
+        <p className={emptyStateText()}>{t("noPrograms")}</p>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AboutIcon } from "../../assets/icons/icons";
 import { SideSectionsSheet } from "../ui/sections-sidebar";
 import { aboutData } from "./data/AboutData";
+import { useAboutTranslations } from "./hooks/useAboutTranslations";
 import {
   container,
   section,
@@ -37,6 +38,14 @@ import {
 } from "./AboutDetail.styles";
 
 const AboutDetail: React.FC = () => {
+  const {
+    t,
+    getTranslatedArray,
+    getTranslatedParagraphs,
+    getTranslatedMembers,
+    getTranslatedPrograms,
+  } = useAboutTranslations();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
@@ -56,14 +65,25 @@ const AboutDetail: React.FC = () => {
     setIsOpen(false);
   };
 
-  const sections = [
-    { id: "intro", label: "Intro" },
-    { id: "president", label: "Honorary President's Welcome Note" },
-    { id: "advisory", label: "International Advisory Council" },
-    { id: "team", label: "Team" },
-    { id: "programs", label: "Academic Programs" },
-    { id: "calendar", label: "Academic Calendar" },
-  ];
+  const sections = getTranslatedArray("sections").map((section: any) => ({
+    id: section.id,
+    label: section.label,
+  }));
+
+  const introParagraphs = getTranslatedArray("intro.paragraphs");
+  const presidentParagraphs = getTranslatedArray("president.paragraphs");
+  const advisoryMembers = getTranslatedMembers("advisoryCouncil.members");
+  const teamParagraphs = getTranslatedParagraphs("team.paragraphs");
+  const introText = getTranslatedArray("academicPrograms.introText");
+  const undergraduatePrograms = getTranslatedPrograms(
+    "academicPrograms.undergraduatePrograms"
+  );
+  const masterPrograms = getTranslatedPrograms(
+    "academicPrograms.masterPrograms"
+  );
+  const futureDisciplines = getTranslatedArray(
+    "academicPrograms.futureDisciplines"
+  );
 
   return (
     <>
@@ -80,27 +100,25 @@ const AboutDetail: React.FC = () => {
         {/* Intro Section */}
         <section id="intro" className={section({ isFirst: true })}>
           <div className={sectionHeader()}>
-            <h1 className={sectionTitle()}>{aboutData.intro.title}</h1>
+            <h1 className={sectionTitle()}>{t("intro.title")}</h1>
             <span className={icon()}>{AboutIcon}</span>
           </div>
 
-          {aboutData.intro.paragraphs.map((para, i) => (
+          {introParagraphs.map((para, i) => (
             <p key={i} className={paragraph()}>
               {para}
             </p>
           ))}
 
           <div className={signatureContainer()}>
-            <p className={signatureName()}>{aboutData.intro.signature.name}</p>
-            <p className={signatureTitle()}>
-              {aboutData.intro.signature.title}
-            </p>
-            <p className={signatureDate()}>{aboutData.intro.signature.date}</p>
+            <p className={signatureName()}>{t("intro.signature.name")}</p>
+            <p className={signatureTitle()}>{t("intro.signature.title")}</p>
+            <p className={signatureDate()}>{t("intro.signature.date")}</p>
             <a
               href={aboutData.intro.signature.link.url}
               className={signatureLink()}
             >
-              {aboutData.intro.signature.link.text}
+              {t("intro.signature.linkText")}
             </a>
           </div>
         </section>
@@ -108,16 +126,16 @@ const AboutDetail: React.FC = () => {
         {/* Honorary President's Welcome Note Section */}
         <section id="president" className={section()}>
           <div className={sectionHeader()}>
-            <h2 className={sectionTitle()}>{aboutData.president.title}</h2>
+            <h2 className={sectionTitle()}>{t("president.title")}</h2>
             <span className={icon()}>{AboutIcon}</span>
           </div>
 
           <h3 className={sectionTitle({ size: "medium" })}>
-            {aboutData.president.subtitle}
+            {t("president.subtitle")}
           </h3>
 
           <p className={paragraph({ size: "large" })}>
-            {aboutData.president.greeting}
+            {t("president.greeting")}
           </p>
 
           <div className={presidentImage()}>
@@ -128,21 +146,19 @@ const AboutDetail: React.FC = () => {
             />
           </div>
 
-          {aboutData.president.paragraphs.map((para, i) => (
+          {presidentParagraphs.map((para, i) => (
             <p key={i} className={paragraph()}>
               {para}
             </p>
           ))}
 
           <div className={`${clearFloat()} ${signatureContainer()}`}>
-            <p className={signatureName()}>
-              {aboutData.president.signature.name}
-            </p>
+            <p className={signatureName()}>{t("president.signatureName")}</p>
             <a
               href={aboutData.president.signature.link.url}
               className={signatureLink()}
             >
-              {aboutData.president.signature.link.text}
+              {t("president.signatureLinkText")}
             </a>
           </div>
         </section>
@@ -150,14 +166,12 @@ const AboutDetail: React.FC = () => {
         {/* International Advisory Council Section */}
         <section id="advisory" className={section()}>
           <div className={sectionHeader()}>
-            <h2 className={sectionTitle()}>
-              {aboutData.advisoryCouncil.title}
-            </h2>
+            <h2 className={sectionTitle()}>{t("advisoryCouncil.title")}</h2>
             <span className={icon()}>{AboutIcon}</span>
           </div>
 
           <div className={advisoryMemberContainer()}>
-            {aboutData.advisoryCouncil.members.map((member, i) => (
+            {advisoryMembers.map((member, i) => (
               <div key={i} className={advisoryMember()}>
                 <h3 className={advisoryMemberName()}>{member.name}</h3>
                 {member.lines.map((line, j) => (
@@ -173,11 +187,11 @@ const AboutDetail: React.FC = () => {
         {/* Team Section */}
         <section id="team" className={section()}>
           <div className={sectionHeader()}>
-            <h2 className={sectionTitle()}>{aboutData.team.title}</h2>
+            <h2 className={sectionTitle()}>{t("team.title")}</h2>
             <span className={icon()}>{AboutIcon}</span>
           </div>
 
-          {aboutData.team.paragraphs.map((para, i) => (
+          {teamParagraphs.map((para, i) => (
             <p key={i} className={paragraph()}>
               {para.parts.map((part, j) => {
                 if (part.type === "link") {
@@ -196,20 +210,18 @@ const AboutDetail: React.FC = () => {
         {/* Academic Programs Section */}
         <section id="programs" className={section()}>
           <div className={sectionHeader()}>
-            <h2 className={sectionTitle()}>
-              {aboutData.academicPrograms.title}
-            </h2>
+            <h2 className={sectionTitle()}>{t("academicPrograms.title")}</h2>
             <span className={icon()}>{AboutIcon}</span>
           </div>
 
-          {aboutData.academicPrograms.introText.map((text, i) => (
+          {introText.map((text, i) => (
             <p key={i} className={programIntroText()}>
               {text}
             </p>
           ))}
 
           <ul className={programList()}>
-            {aboutData.academicPrograms.undergraduatePrograms.map((prog, i) => (
+            {undergraduatePrograms.map((prog, i) => (
               <li key={i} className={programListItem()}>
                 •{" "}
                 <a href={prog.url} className={programLink()}>
@@ -220,11 +232,11 @@ const AboutDetail: React.FC = () => {
           </ul>
 
           <p className={programMasterText()}>
-            {aboutData.academicPrograms.masterText}
+            {t("academicPrograms.masterText")}
           </p>
 
           <ul className={programList()}>
-            {aboutData.academicPrograms.masterPrograms.map((prog, i) => (
+            {masterPrograms.map((prog, i) => (
               <li key={i} className={programListItem()}>
                 •{" "}
                 <a href={prog.url} className={programLink()}>
@@ -235,22 +247,18 @@ const AboutDetail: React.FC = () => {
           </ul>
 
           <p className={programFutureText()}>
-            {aboutData.academicPrograms.futureText}
+            {t("academicPrograms.futureText")}
           </p>
 
           <div className={futureDisciplinesGrid()}>
-            {aboutData.academicPrograms.futureDisciplines.map(
-              (discipline, i) => (
-                <div key={i} className={disciplineBadge()}>
-                  {discipline}
-                </div>
-              )
-            )}
+            {futureDisciplines.map((discipline, i) => (
+              <div key={i} className={disciplineBadge()}>
+                {discipline}
+              </div>
+            ))}
           </div>
 
-          <p className={closingText()}>
-            {aboutData.academicPrograms.closingText}
-          </p>
+          <p className={closingText()}>{t("academicPrograms.closingText")}</p>
         </section>
 
         {/* Academic Calendar Section */}
@@ -261,7 +269,7 @@ const AboutDetail: React.FC = () => {
               download
               className={calendarButton()}
             >
-              {aboutData.academicPrograms.calendarLink.text}
+              {t("academicPrograms.calendarLinkText")}
               <span className={calendarButtonArrow()}>↓</span>
             </a>
           </div>

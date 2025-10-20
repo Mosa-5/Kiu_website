@@ -1,8 +1,10 @@
 import { AboutIcon } from "../../assets/icons/icons";
 import { Button } from "../ui/button";
 import { useVacancyForm } from "./hooks/useVacancyForm";
+import { useVacancyTranslations } from "./hooks/useVacancyTranslations";
 
 const VacancyDetail = () => {
+  const { t, getTranslatedArray } = useVacancyTranslations();
   const {
     formData,
     handleChange,
@@ -14,6 +16,16 @@ const VacancyDetail = () => {
     toggleSubject,
   } = useVacancyForm();
 
+  const academicPositions = getTranslatedArray(
+    "detail.academicPosition.options"
+  );
+  const assignmentTypes = getTranslatedArray("detail.assignmentType.options");
+  const teachingOptions = getTranslatedArray("detail.teaching.options");
+  const languageOptions = getTranslatedArray(
+    "detail.instructionLanguage.options"
+  );
+  const mathSubjects = getTranslatedArray("detail.fieldsOfInterest.subjects");
+
   return (
     <div className="min-h-screen px-4">
       <div className="max-w-[1280px] mx-auto rounded-lg shadow-xl p-8 border-2">
@@ -21,27 +33,23 @@ const VacancyDetail = () => {
         <div className="mb-8">
           <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
             <h1 className="text-xl sm:text-3xl font-medium text-mainDark">
-              Expression Of Interest
+              {t("detail.heading")}
             </h1>
             <span className="text-mainDark">{AboutIcon}</span>
           </div>
 
           <p className="text-base sm:text-lg  mb-2">
-            If you are interested to work with us you can see our vacancies or
-            contact us at{" "}
+            {t("detail.intro")}{" "}
             <a
-              href="mailto:admin@kiu.edu.ge"
+              href={`mailto:${t("detail.email")}`}
               className="text-link hover:text-linkDark cursor-pointer underline-offset-2 underline"
             >
-              admin@kiu.edu.ge
+              {t("detail.email")}
             </a>
           </p>
 
           <p className="text-base sm:text-lg  mb-3">
-            We are seeking expressions of interest (EOI) from the future
-            academic personnel and teaching assistants to be involved in the
-            teaching and research activities at Kutaisi International University
-            (KIU).
+            {t("detail.description")}
           </p>
 
           <div className="flex items-center gap-2 text-base sm:text-lg text-link hover:text-linkDark cursor-pointer underline-offset-2 underline">
@@ -57,27 +65,27 @@ const VacancyDetail = () => {
                 fill="#3C70AF"
               />
             </svg>
-            <span>See Detailed Information</span>
+            <span>{t("detail.seeDetails")}</span>
           </div>
         </div>
 
         {/* Form Section */}
         <div>
           <h2 className="text-lg sm:text-xl font-semibold text-main mb-6 pb-2 border-b border-gray-200">
-            Expression Of Interest (EOI) Form
+            {t("detail.formTitle")}
           </h2>
 
           {/* Contact Information */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             {/* First Name */}
             <div>
-              <label className="block text-md font-medium  mb-2">
-                First name
+              <label className="block text-md font-medium mb-2">
+                {t("detail.fields.firstName.label")}
               </label>
               <input
                 type="text"
                 name="firstName"
-                placeholder="First name"
+                placeholder={t("detail.fields.firstName.placeholder")}
                 value={formData.firstName}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
@@ -89,13 +97,13 @@ const VacancyDetail = () => {
 
             {/* Last Name */}
             <div>
-              <label className="block text-md font-medium  mb-2">
-                Last name
+              <label className="block text-md font-medium mb-2">
+                {t("detail.fields.lastName.label")}
               </label>
               <input
                 type="text"
                 name="lastName"
-                placeholder="Last name"
+                placeholder={t("detail.fields.lastName.placeholder")}
                 value={formData.lastName}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
@@ -109,13 +117,13 @@ const VacancyDetail = () => {
           {/* Field of Interest + Current Position */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-md font-medium  mb-2">
-                Field of Interest
+              <label className="block text-md font-medium mb-2">
+                {t("detail.fields.fieldOfInterest.label")}
               </label>
               <input
                 type="text"
                 name="fieldOfInterest"
-                placeholder="Your field of interest"
+                placeholder={t("detail.fields.fieldOfInterest.placeholder")}
                 value={formData.fieldOfInterest}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
@@ -128,13 +136,13 @@ const VacancyDetail = () => {
             </div>
 
             <div>
-              <label className="block text-md font-medium  mb-2">
-                Current Position
+              <label className="block text-md font-medium mb-2">
+                {t("detail.fields.currentPosition.label")}
               </label>
               <input
                 type="text"
                 name="currentPosition"
-                placeholder="Current position"
+                placeholder={t("detail.fields.currentPosition.placeholder")}
                 value={formData.currentPosition}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
@@ -149,11 +157,13 @@ const VacancyDetail = () => {
 
           {/* Address */}
           <div className="mb-6">
-            <label className="block text-md font-medium  mb-2">Address</label>
+            <label className="block text-md font-medium mb-2">
+              {t("detail.fields.address.label")}
+            </label>
             <input
               type="text"
               name="address"
-              placeholder="Your address"
+              placeholder={t("detail.fields.address.placeholder")}
               value={formData.address}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
@@ -166,11 +176,13 @@ const VacancyDetail = () => {
           {/* Email + Phone */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-md font-medium  mb-2">E-mail</label>
+              <label className="block text-md font-medium mb-2">
+                {t("detail.fields.email.label")}
+              </label>
               <input
                 type="email"
                 name="email"
-                placeholder="example@mail.com"
+                placeholder={t("detail.fields.email.placeholder")}
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
@@ -181,13 +193,13 @@ const VacancyDetail = () => {
             </div>
 
             <div>
-              <label className="block text-md font-medium  mb-2">
-                Phone Number
+              <label className="block text-md font-medium mb-2">
+                {t("detail.fields.phoneNumber.label")}
               </label>
               <input
                 type="tel"
                 name="phoneNumber"
-                placeholder="+995 5XX XXX XXX"
+                placeholder={t("detail.fields.phoneNumber.placeholder")}
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-main"
@@ -203,23 +215,17 @@ const VacancyDetail = () => {
           {/* Scope of Interest */}
           <div className="mb-8 mt-12">
             <p className="text-lg sm:text-xl max-sm:text-center font-semibold text-main">
-              Please, specify the scope of your interest
+              {t("detail.scopeHeading")}
             </p>
           </div>
 
           {/* Academic Position */}
           <div className="mb-8">
             <h3 className="text-lg max-sm:text-center font-semibold text-main mb-3">
-              Academic Position
+              {t("detail.academicPosition.title")}
             </h3>
             <div className="flex flex-wrap gap-3">
-              {[
-                "Professor",
-                "Associate Professor",
-                "Assistant Professor",
-                "Visiting Professor",
-                "Teaching Assistant",
-              ].map((position) => (
+              {academicPositions.map((position) => (
                 <button
                   key={position}
                   type="button"
@@ -229,7 +235,7 @@ const VacancyDetail = () => {
                   className={`px-4 py-2 rounded-full border max-sm:w-full text-base font-medium transition-colors ${
                     formData.academicPosition === position
                       ? "bg-blue-100 border-main text-mainDark font-medium"
-                      : "border-gray-300  hover:border-gray-400"
+                      : "border-gray-300 hover:border-gray-400"
                   }`}
                 >
                   {position}
@@ -246,25 +252,23 @@ const VacancyDetail = () => {
           {/* Assignment Type */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold max-sm:text-center text-main mb-3">
-              Assignment Type
+              {t("detail.assignmentType.title")}
             </h3>
             <div className="flex flex-wrap gap-3">
-              {["Full Time", "Part Time", "Visiting / Adjunct Position"].map(
-                (type) => (
-                  <button
-                    key={type}
-                    type="button"
-                    onClick={() => handleButtonSelect("assignmentType", type)}
-                    className={`px-4 py-2 rounded-full max-sm:w-full border text-md font-medium transition-colors ${
-                      formData.assignmentType === type
-                        ? "bg-blue-100 border-main text-mainDark"
-                        : "border-gray-300  hover:border-gray-400"
-                    }`}
-                  >
-                    {type}
-                  </button>
-                )
-              )}
+              {assignmentTypes.map((type) => (
+                <button
+                  key={type}
+                  type="button"
+                  onClick={() => handleButtonSelect("assignmentType", type)}
+                  className={`px-4 py-2 rounded-full max-sm:w-full border text-md font-medium transition-colors ${
+                    formData.assignmentType === type
+                      ? "bg-blue-100 border-main text-mainDark"
+                      : "border-gray-300  hover:border-gray-400"
+                  }`}
+                >
+                  {type}
+                </button>
+              ))}
             </div>
             {errors.assignmentType && (
               <p className="text-md text-red-500 mt-2">
@@ -276,14 +280,10 @@ const VacancyDetail = () => {
           {/* Teaching */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold max-sm:text-center text-main mb-3">
-              Teaching
+              {t("detail.teaching.title")}
             </h3>
             <div className="flex flex-wrap gap-3">
-              {[
-                "On Campus",
-                "Off campus (online teaching)",
-                "Combined (online off campus/on campus)",
-              ].map((teaching) => (
+              {teachingOptions.map((teaching) => (
                 <button
                   key={teaching}
                   type="button"
@@ -291,7 +291,7 @@ const VacancyDetail = () => {
                   className={`px-4 py-2 rounded-full max-sm:w-full border text-md font-medium transition-colors ${
                     formData.teaching === teaching
                       ? "bg-blue-100 border-main text-mainDark"
-                      : "border-gray-300  hover:border-gray-400"
+                      : "border-gray-300 hover:border-gray-400"
                   }`}
                 >
                   {teaching}
@@ -306,10 +306,10 @@ const VacancyDetail = () => {
           {/* Instruction Language */}
           <div className="mb-8">
             <h3 className="text-lg max-sm:text-center font-semibold text-main mb-3">
-              Instruction Language
+              {t("detail.instructionLanguage.title")}
             </h3>
             <div className="flex flex-wrap gap-3">
-              {["English", "Georgian"].map((language) => (
+              {languageOptions.map((language) => (
                 <button
                   key={language}
                   type="button"
@@ -319,7 +319,7 @@ const VacancyDetail = () => {
                   className={`px-4 py-2 rounded-full max-sm:w-full border text-md font-medium transition-colors ${
                     formData.instructionLanguage === language
                       ? "bg-blue-100 border-main text-mainDark"
-                      : "border-gray-300  hover:border-gray-400"
+                      : "border-gray-300 hover:border-gray-400"
                   }`}
                 >
                   {language}
@@ -336,35 +336,16 @@ const VacancyDetail = () => {
           {/* Fields of Interest */}
           <div className="mb-8">
             <p className="text-xl font-semibold max-sm:text-center text-main mb-4">
-              Please, choose fields of interest and subjects you would like to
-              be involved at the KIU:
+              {t("detail.fieldsOfInterest.heading")}
             </p>
 
             <div className="mb-4">
               <h3 className="font-medium max-sm:text-center mb-3">
-                Mathematics (choose 3)
+                {t("detail.fieldsOfInterest.mathTitle")}
               </h3>
               {/* Button Pills - Top 6 */}
               <div className="flex flex-wrap gap-3 mb-6">
-                {[
-                  "Calculus",
-                  "Vector Calculus",
-                  "Linear Algebra",
-                  "Probability",
-                  "Statistics",
-                  "Numerical Linear Algebra",
-                  "Numerical Analysis",
-                  "Discrete Structures",
-                  "Ordinary Differential Equations (ODEs)",
-                  "Numerical Methods for ODEs",
-                  "Functional Analysis and PDEs",
-                  "Numerical Methods for PDEs",
-                  "Introduction to Optimization",
-                  "Operations Research",
-                  "Convex Optimization",
-                  "Nonlinear Optimization",
-                  "Mathematical Modelling",
-                ].map((subject) => (
+                {mathSubjects.map((subject) => (
                   <button
                     key={subject}
                     type="button"
@@ -376,7 +357,7 @@ const VacancyDetail = () => {
                     className={`px-4 py-2 rounded-full max-sm:w-full border transition-all font-medium ${
                       formData.fieldsOfInterest.includes(subject)
                         ? "bg-blue-100 border-main text-mainDark"
-                        : "border-gray-300  hover:border-gray-400"
+                        : "border-gray-300 hover:border-gray-400"
                     } ${
                       !formData.fieldsOfInterest.includes(subject) &&
                       formData.fieldsOfInterest.length >= 3
@@ -384,7 +365,6 @@ const VacancyDetail = () => {
                         : ""
                     }`}
                   >
-                    {/* {formData.fieldsOfInterest.includes(subject) && "☑"} */}
                     {subject}
                   </button>
                 ))}
@@ -402,12 +382,12 @@ const VacancyDetail = () => {
           <div className="flex flex-col items-center gap-3">
             {submitStatus === "success" && (
               <div className="w-full p-3 bg-green-50 border border-green-200 text-green-700 rounded text-sm">
-                ✓ Your expression of interest has been submitted successfully!
+                {t("detail.submit.success")}
               </div>
             )}
             {submitStatus === "error" && (
               <div className="w-full p-3 bg-red-50 border border-red-200 text-red-700 rounded text-sm">
-                ✗ Failed to submit. Please try again later.
+                {t("detail.submit.error")}
               </div>
             )}
             <Button
@@ -418,7 +398,9 @@ const VacancyDetail = () => {
                 submitting ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
-              {submitting ? "Submitting..." : "Submit"}
+              {submitting
+                ? t("detail.submit.submitting")
+                : t("detail.submit.button")}
             </Button>
           </div>
         </div>

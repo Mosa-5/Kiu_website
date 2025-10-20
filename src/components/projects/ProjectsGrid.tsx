@@ -1,5 +1,6 @@
 import { ProjectsImage1, ProjectsImage2 } from "@/assets";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useProjectsTranslations } from "./hooks/useProjectsTranslations";
 import {
   container,
   projectCard,
@@ -10,27 +11,23 @@ import {
 } from "./ProjectsGrid.styles";
 
 const ProjectsGrid = () => {
-  const projects = [
-    {
-      id: 1,
-      title: "Advancing the Frontiers",
-      image: ProjectsImage1,
-      path: "/projects/frontiers",
-    },
-    {
-      id: 2,
-      title: "Youth University",
-      image: ProjectsImage2,
-      path: "/projects/youthuni",
-    },
-  ];
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
+  const { getProjects } = useProjectsTranslations();
+  const projectsData = getProjects();
+
+  const projectImages = [ProjectsImage1, ProjectsImage2];
 
   return (
     <div className={container()}>
-      {projects.map((project) => (
-        <Link key={project.id} to={project.path} className={projectCard()}>
+      {projectsData.map((project, index) => (
+        <Link
+          key={project.id}
+          to={`/${currentLang}${project.path}`}
+          className={projectCard()}
+        >
           <img
-            src={project.image}
+            src={projectImages[index]}
             alt={project.title}
             className={projectImage()}
           />

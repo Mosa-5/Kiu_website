@@ -1,0 +1,13 @@
+{
+  "hero": {
+    "title": "Programs",
+    "buttonLabel": "Home Page"
+  },
+  "categories": {
+    "Bachelor": "Bachelor's",
+    "Single-Cycle": "Single-Cycle", 
+    "Master": "Master's",
+    "Doctoral": "Doctoral"
+  },
+  "noPrograms": "No programs available"
+}
