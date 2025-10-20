@@ -66,6 +66,14 @@ export interface ProgramData {
     position: string;
     paragraphs: string[];
     image: string;
+  } | {
+    title: string;
+    supervisors: Array<{
+      name: string;
+      position: string;
+      paragraphs: string[];
+      image: string;
+    }>;
   };
   academicPersonnel: {
     title: string;
