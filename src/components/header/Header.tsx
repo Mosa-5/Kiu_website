@@ -13,6 +13,7 @@ import {
 import { useHeaderTranslations } from "./hooks/useHeaderTranslation";
 import { useAuth } from "./hooks/useAuth";
 import { AuthModal } from "./AuthModal";
+import { Button } from "../ui/button";
 
 const Header = () => {
   const { lang } = useParams<{ lang: string }>();
@@ -52,17 +53,17 @@ const Header = () => {
           </Link>
           <nav className={nav()}>
             {navLinks.map((link) => (
-              <NavLink 
-                className={navLinkBase()} 
-                key={link.label} 
+              <NavLink
+                className={navLinkBase()}
+                key={link.label}
                 to={`/${currentLang}${link.path}`}
               >
                 {link.label}
               </NavLink>
             ))}
           </nav>
-          
-          <div className="flex items-center gap-3">
+
+          <div className="flex items-center">
             {isAuthenticated && currentUser ? (
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-2 text-sm text-mainDark">
@@ -78,23 +79,23 @@ const Header = () => {
                 </button>
               </div>
             ) : (
-              <button
+              <Button
                 onClick={() => setIsAuthModalOpen(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-main text-white rounded-md hover:bg-mainDark transition-colors text-sm font-medium"
+                className="flex items-center gap-2 px-4 py-4 h-9.5 shadow-none rounded-lg bg-main text-white hover:bg-mainDark transition-colors text-base font-medium"
               >
                 <LogIn size={18} />
                 <span className="hidden md:inline">Login</span>
-              </button>
+              </Button>
             )}
-            
+
             <LanguageSelect />
           </div>
         </div>
       </div>
 
-      <AuthModal 
-        isOpen={isAuthModalOpen} 
-        onClose={() => setIsAuthModalOpen(false)} 
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
       />
     </>
   );
