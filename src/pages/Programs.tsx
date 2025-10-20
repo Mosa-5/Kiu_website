@@ -3,7 +3,7 @@ import ProgramTabs from "@/components/programs/ProgramsTabs";
 
 const Programs = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-background">
       <ProgramHero />
       <ProgramTabs />
     </div>

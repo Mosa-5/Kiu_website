@@ -1,29 +1,21 @@
 import { cva } from "class-variance-authority";
 
 export const container = cva(
-  "relative w-full h-[907px] overflow-hidden flex flex-col items-center"
+  "relative w-full h-[240px] sm:h-[707px] flex flex-col mb-[96px] sm:mb-[162px] items-center"
 );
 
-export const heroImage = cva(
-  "w-full h-full object-cover mb-[200px] brightness-75"
-);
+export const heroImage = cva("w-full h-full object-cover brightness-75");
 
 export const contentBox = cva(
-  "absolute bg-gray-200 top-[635px] w-[1680px] rounded-2xl flex justify-center"
+  "absolute bg-slate-200 border border-[#D0D0D0] top-[199px] sm:top-[635px] w-[344px] sm:w-[1680px] rounded-xl flex justify-center"
 );
 
 export const contentInner = cva(
-  "w-[1527px] py-5.5 flex flex-col justify-between"
+  "max-sm:px-4 w-full max-w-[1527px] py-4 sm:py-5.5 flex flex-col justify-between"
 );
 
-export const title = cva("text-4xl font-semibold text-main");
+export const title = cva("text-sm sm:text-4xl font-semibold text-main");
 
-export const date = cva("text-main font-medium text-xl mt-2");
-
-export const backButton = cva([
-  "absolute bg-transparent bottom-6 left-[120px] text-main hover:bg-transparent text-2xl font-medium hover:cursor-pointer",
-  "after:block after:absolute after:bottom-0 after:right-0 after:h-0.5 after:w-0 after:bg-main",
-  "after:transition-all after:duration-200 hover:after:w-4/6 shadow-none",
-]);
+export const date = cva("text-main font-medium text-xs sm:text-xl mt-2");
 
 export const notFound = cva("text-center text-xl mt-10");

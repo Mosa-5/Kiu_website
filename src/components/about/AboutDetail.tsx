@@ -3,6 +3,39 @@ import { AboutIcon } from "../../assets/icons/icons";
 import { SideSectionsSheet } from "../ui/sections-sidebar";
 import { aboutData } from "./data/AboutData";
 import { useAboutTranslations } from "./hooks/useAboutTranslations";
+import {
+  container,
+  section,
+  sectionHeader,
+  sectionTitle,
+  icon,
+  paragraph,
+  signatureContainer,
+  signatureName,
+  signatureTitle,
+  signatureDate,
+  signatureLink,
+  presidentImage,
+  presidentImageTag,
+  clearFloat,
+  advisoryMemberContainer,
+  advisoryMember,
+  advisoryMemberName,
+  advisoryMemberText,
+  richTextLink,
+  programList,
+  programListItem,
+  programLink,
+  programIntroText,
+  programMasterText,
+  programFutureText,
+  futureDisciplinesGrid,
+  disciplineBadge,
+  closingText,
+  calendarContainer,
+  calendarButton,
+  calendarButtonArrow,
+} from "./AboutDetail.styles";
 
 const AboutDetail: React.FC = () => {
   const {
@@ -63,35 +96,27 @@ const AboutDetail: React.FC = () => {
       />
 
       {/* Main Content */}
-      <div className="max-w-[1680px] mx-auto font-sans">
+      <div className={container()}>
         {/* Intro Section */}
-        <section id="intro" className="mb-12">
-          <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-            <h1 className="text-3xl font-medium text-mainDark">
-              {t("intro.title")}
-            </h1>
-            <span className="text-mainDark">{AboutIcon}</span>
+        <section id="intro" className={section({ isFirst: true })}>
+          <div className={sectionHeader()}>
+            <h1 className={sectionTitle()}>{t("intro.title")}</h1>
+            <span className={icon()}>{AboutIcon}</span>
           </div>
 
-          {introParagraphs.map((paragraph, i) => (
-            <p key={i} className="mb-6 text-lg">
-              {paragraph}
+          {introParagraphs.map((para, i) => (
+            <p key={i} className={paragraph()}>
+              {para}
             </p>
           ))}
 
-          <div className="mt-10 pl-6 border-l-2 border-slate-200">
-            <p className="text-base font-semibold text-slate-900 mb-1">
-              {t("intro.signature.name")}
-            </p>
-            <p className="text-sm text-slate-600 mb-0.5">
-              {t("intro.signature.title")}
-            </p>
-            <p className="text-sm text-slate-500 mb-3">
-              {t("intro.signature.date")}
-            </p>
+          <div className={signatureContainer()}>
+            <p className={signatureName()}>{t("intro.signature.name")}</p>
+            <p className={signatureTitle()}>{t("intro.signature.title")}</p>
+            <p className={signatureDate()}>{t("intro.signature.date")}</p>
             <a
               href={aboutData.intro.signature.link.url}
-              className="text-sm text-link underline underline-offset-2 hover:text-linkDark transition-colors font-medium"
+              className={signatureLink()}
             >
               {t("intro.signature.linkText")}
             </a>
@@ -99,43 +124,39 @@ const AboutDetail: React.FC = () => {
         </section>
 
         {/* Honorary President's Welcome Note Section */}
-        <section id="president" className="mb-12 scroll-mt-8">
-          <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-            <h2 className="text-3xl font-medium text-mainDark">
-              {t("president.title")}
-            </h2>
-            <span className="text-mainDark">{AboutIcon}</span>
+        <section id="president" className={section()}>
+          <div className={sectionHeader()}>
+            <h2 className={sectionTitle()}>{t("president.title")}</h2>
+            <span className={icon()}>{AboutIcon}</span>
           </div>
 
-          <h3 className="text-xl font-medium text-main mb-4">
+          <h3 className={sectionTitle({ size: "medium" })}>
             {t("president.subtitle")}
           </h3>
 
-          <p className="text-lg font-medium mb-6">
+          <p className={paragraph({ size: "large" })}>
             {t("president.greeting")}
           </p>
 
-          <div className="float-right ml-8 mb-6 w-[400px] h-[430px]">
+          <div className={presidentImage()}>
             <img
               src={aboutData.president.image}
               alt="Prof. Dr. Wolfgang A. Herrmann"
-              className="w-full rounded-lg shadow-lg"
+              className={presidentImageTag()}
             />
           </div>
 
-          {presidentParagraphs.map((paragraph, i) => (
-            <p key={i} className="mb-6 text-lg ">
-              {paragraph}
+          {presidentParagraphs.map((para, i) => (
+            <p key={i} className={paragraph()}>
+              {para}
             </p>
           ))}
 
-          <div className="clear-both mt-10 pl-6 border-l-2 border-slate-200">
-            <p className="text-base font-semibold text-slate-900 mb-3">
-              {t("president.signatureName")}
-            </p>
+          <div className={`${clearFloat()} ${signatureContainer()}`}>
+            <p className={signatureName()}>{t("president.signatureName")}</p>
             <a
               href={aboutData.president.signature.link.url}
-              className="text-sm text-link underline underline-offset-2 hover:text-linkDark transition-colors font-medium"
+              className={signatureLink()}
             >
               {t("president.signatureLinkText")}
             </a>
@@ -143,22 +164,18 @@ const AboutDetail: React.FC = () => {
         </section>
 
         {/* International Advisory Council Section */}
-        <section id="advisory" className="mb-12 scroll-mt-8">
-          <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-            <h2 className="text-3xl font-medium text-mainDark">
-              {t("advisoryCouncil.title")}
-            </h2>
-            <span className="text-mainDark">{AboutIcon}</span>
+        <section id="advisory" className={section()}>
+          <div className={sectionHeader()}>
+            <h2 className={sectionTitle()}>{t("advisoryCouncil.title")}</h2>
+            <span className={icon()}>{AboutIcon}</span>
           </div>
 
-          <div className="space-y-6">
+          <div className={advisoryMemberContainer()}>
             {advisoryMembers.map((member, i) => (
-              <div key={i}>
-                <h3 className="text-lg font-semibold text-main mb-1">
-                  {member.name}
-                </h3>
+              <div key={i} className={advisoryMember()}>
+                <h3 className={advisoryMemberName()}>{member.name}</h3>
                 {member.lines.map((line, j) => (
-                  <p key={j} className="text-lg ">
+                  <p key={j} className={advisoryMemberText()}>
                     {line}
                   </p>
                 ))}
@@ -168,24 +185,18 @@ const AboutDetail: React.FC = () => {
         </section>
 
         {/* Team Section */}
-        <section id="team" className="mb-12 scroll-mt-8">
-          <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-            <h2 className="text-3xl font-medium text-mainDark">
-              {t("team.title")}
-            </h2>
-            <span className="text-mainDark">{AboutIcon}</span>
+        <section id="team" className={section()}>
+          <div className={sectionHeader()}>
+            <h2 className={sectionTitle()}>{t("team.title")}</h2>
+            <span className={icon()}>{AboutIcon}</span>
           </div>
 
-          {teamParagraphs.map((paragraph, i) => (
-            <p key={i} className="mb-6 text-lg ">
-              {paragraph.parts.map((part, j) => {
+          {teamParagraphs.map((para, i) => (
+            <p key={i} className={paragraph()}>
+              {para.parts.map((part, j) => {
                 if (part.type === "link") {
                   return (
-                    <a
-                      key={j}
-                      href={part.url}
-                      className="text-link underline underline-offset-2 hover:text-linkDark font-medium"
-                    >
+                    <a key={j} href={part.url} className={richTextLink()}>
                       {part.text}
                     </a>
                   );
@@ -197,82 +208,69 @@ const AboutDetail: React.FC = () => {
         </section>
 
         {/* Academic Programs Section */}
-        <section id="programs" className="mb-12 scroll-mt-8">
-          <div className="bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6">
-            <h2 className="text-3xl font-medium text-mainDark">
-              {t("academicPrograms.title")}
-            </h2>
-            <span className="text-mainDark">{AboutIcon}</span>
+        <section id="programs" className={section()}>
+          <div className={sectionHeader()}>
+            <h2 className={sectionTitle()}>{t("academicPrograms.title")}</h2>
+            <span className={icon()}>{AboutIcon}</span>
           </div>
 
           {introText.map((text, i) => (
-            <p key={i} className="mb-6 text-lg ">
+            <p key={i} className={programIntroText()}>
               {text}
             </p>
           ))}
 
-          <ul className="list-none mb-6 text-lg space-y-2">
-            {undergraduatePrograms.map((program, i) => (
-              <li key={i} className="text-link hover:text-linkDark">
+          <ul className={programList()}>
+            {undergraduatePrograms.map((prog, i) => (
+              <li key={i} className={programListItem()}>
                 •{" "}
-                <a
-                  href={program.url}
-                  className="underline underline-offset-2 font-medium"
-                >
-                  {program.text}
+                <a href={prog.url} className={programLink()}>
+                  {prog.text}
                 </a>
               </li>
             ))}
           </ul>
 
-          <p className="mb-3 text-lg ">
+          <p className={programMasterText()}>
             {t("academicPrograms.masterText")}
           </p>
 
-          <ul className="list-none mb-6 text-lg space-y-2">
-            {masterPrograms.map((program, i) => (
-              <li key={i} className="text-link hover:text-linkDark">
+          <ul className={programList()}>
+            {masterPrograms.map((prog, i) => (
+              <li key={i} className={programListItem()}>
                 •{" "}
-                <a
-                  href={program.url}
-                  className="underline underline-offset-2 font-medium"
-                >
-                  {program.text}
+                <a href={prog.url} className={programLink()}>
+                  {prog.text}
                 </a>
               </li>
             ))}
           </ul>
 
-          <p className="mb-3 text-lg ">
+          <p className={programFutureText()}>
             {t("academicPrograms.futureText")}
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+          <div className={futureDisciplinesGrid()}>
             {futureDisciplines.map((discipline, i) => (
-              <div
-                key={i}
-                className="px-4 py-3 bg-main rounded-md text-center font-medium border-2 text-lg border-main pointer-events-none text-white shadow-md"
-              >
+              <div key={i} className={disciplineBadge()}>
                 {discipline}
               </div>
             ))}
           </div>
 
-          <p className="mb-6 text-lg ">
-            {t("academicPrograms.closingText")}
-          </p>
+          <p className={closingText()}>{t("academicPrograms.closingText")}</p>
         </section>
 
         {/* Academic Calendar Section */}
-        <section id="calendar" className="mb-12 scroll-mt-8">
-          <div className="mb-6">
+        <section id="calendar" className={section()}>
+          <div className={calendarContainer()}>
             <a
               href={aboutData.academicPrograms.calendarLink.url}
               download
-              className="inline-flex items-center gap-2 px-6 py-3 bg-mainLight hover:bg-main text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 text-lg"
+              className={calendarButton()}
             >
               {t("academicPrograms.calendarLinkText")}
-              <span className="text-xl">↓</span>
+              <span className={calendarButtonArrow()}>↓</span>
             </a>
           </div>
         </section>

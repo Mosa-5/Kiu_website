@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
-import { aboutB, aboutU, aboutR } from "@/assets";
+import { aboutB, aboutU, aboutR, aboutMobile } from "@/assets";
 import {
   container,
   imageSection,
@@ -13,6 +13,7 @@ import {
   textContent,
   campusLink,
   readMoreButton,
+  mainMobile,
 } from "./About.styles";
 import { useHomeTranslations } from "../hooks/useHomeTranslation";
 
@@ -32,6 +33,7 @@ const About = () => {
           <img className={topImage()} src={aboutU} alt="" />
           <img className={bottomImage()} src={aboutB} alt="" />
         </div>
+        <img className={mainMobile()} src={aboutMobile} alt="" />
       </div>
 
       <div>
