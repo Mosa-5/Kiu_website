@@ -9,6 +9,7 @@ import {
   textSection,
   textContent,
   readMoreButton,
+  smallSvg,
 } from "./Campus.styles";
 import { useNavigate } from "react-router-dom";
 import { useHomeTranslations } from "../hooks/useHomeTranslation";
@@ -27,6 +28,7 @@ const Campus = () => {
         <h1 className={title()}>{t("campus.title")}</h1>
         <span className={subtitle()}>
           <svg
+            className={smallSvg()}
             width="16"
             height="3"
             viewBox="0 0 16 3"

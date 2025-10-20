@@ -53,7 +53,7 @@ function PaginationLink({
       data-slot="pagination-link"
       data-active={isActive}
       className={cn(
-        "flex items-center justify-center w-11 h-11 text-xl rounded-md border-2 font-medium transition-colors ",
+        "flex items-center justify-center w-10.5 h-10.5 sm:w-11 sm:h-11 text-xl rounded-md border-2 font-medium transition-colors ",
         isActive
           ? "border-main bg-main text-white"
           : "border-main bg-white text-main hover:bg-main hover:text-white hover:cursor-pointer",
@@ -72,7 +72,10 @@ function PaginationPrevious({
     <PaginationLink
       aria-label="Go to previous page"
       size="default"
-      className={cn("gap-1 px-2.5 sm:pl-2.5 group w-11 h-11", className)}
+      className={cn(
+        "gap-1 px-2.5 sm:pl-2.5 group w-10.5 h-10.5 sm:w-11 sm:h-11",
+        className
+      )}
       {...props}
     >
       <svg
@@ -102,7 +105,10 @@ function PaginationNext({
     <PaginationLink
       aria-label="Go to next page"
       size="default"
-      className={cn("gap-1 px-2.5 sm:pr-2.5 group w-11 h-11", className)}
+      className={cn(
+        "gap-1 px-2.5 sm:pr-2.5 group w-10.5 h-10.5 sm:w-11 sm:h-11",
+        className
+      )}
       {...props}
     >
       <svg

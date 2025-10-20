@@ -1,35 +1,11 @@
 import React from "react";
-import newsItems from "@/data/newsItems";
-import { kiuCardImg } from "@/assets";
-import { useParams, Link } from "react-router-dom";
-import {
-  container,
-  innerWrapper,
-  heading,
-  carousel,
-  carouselContent,
-  carouselItem,
-  card,
-  cardContent,
-  hoverBar,
-  imageWrapper,
-  image,
-  contentSection,
-  date,
-  carouselButton,
-  title,
-} from "./SimilarNews.styles";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "../ui/carousel";
-import { Card, CardContent } from "../ui/card";
+import { useParams } from "react-router-dom";
+import { container, innerWrapper, heading } from "./SimilarNews.styles";
 import { useNewsTranslations } from "./hooks/useNewsTranslations";
+import NewsCarousel from "../home/news/NewsCarousel";
+import { useNewsItems } from "@/hooks/useNewsItems";
 
-type NewsItem = {
+export type NewsItem = {
   id: string;
   date: string;
   title: string;
@@ -42,9 +18,7 @@ const getRandomNews = (data: NewsItem[], count: number): NewsItem[] => {
 const SimilarNews: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { t } = useNewsTranslations();
-  const { lang } = useParams<{ lang: string }>();
-  const currentLang = lang || "en";
-
+  const newsItems = useNewsItems();
   const filteredNews = newsItems.filter((item) => item.id !== id);
   const randomNews = getRandomNews(filteredNews, 10);
 
@@ -52,40 +26,7 @@ const SimilarNews: React.FC = () => {
     <div className={container()}>
       <div className={innerWrapper()}>
         <h2 className={heading()}>{t("similarNews")}</h2>
-        <Carousel
-          className={carousel()}
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-        >
-          <CarouselContent className={carouselContent()}>
-            {randomNews.map((item) => (
-              <CarouselItem key={item.id} className={carouselItem()}>
-                <Link to={`/${currentLang}/news/${item.id}`}>
-                  <Card className={card()}>
-                    <CardContent className={cardContent()}>
-                      <div className={hoverBar()} />
-                      <div className={imageWrapper()}>
-                        <img
-                          src={kiuCardImg}
-                          alt="newsImg"
-                          className={image()}
-                        />
-                      </div>
-                      <div className={contentSection()}>
-                        <p className={date()}>{item.date}</p>
-                        <h3 className={title()}>{item.title}</h3>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className={carouselButton()} />
-          <CarouselNext className={carouselButton()} />
-        </Carousel>
+        <NewsCarousel data={randomNews} />
       </div>
     </div>
   );

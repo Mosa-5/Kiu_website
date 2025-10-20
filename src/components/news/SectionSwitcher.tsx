@@ -10,7 +10,6 @@ import {
   tabsListWrapper,
   tabsList,
   tabsTrigger,
-  activeIndicator,
   searchWrapper,
   searchIcon,
   searchInput,
@@ -30,7 +29,14 @@ const SectionSwitcher = () => {
   }, [t]); // react to t change (language)
 
   // English keys for filtering
-  const categoryKeys = ["All", "Campus", "Bachelor's", "Single-Cycle", "Master's", "Doctoral"];
+  const categoryKeys = [
+    "All",
+    "Campus",
+    "Bachelor's",
+    "Single-Cycle",
+    "Master's",
+    "Doctoral",
+  ];
 
   // Get translated labels using useNewsTranslations
   const categoryLabels = categoryKeys.map((key) => t(`categories.${key}`));
@@ -41,10 +47,9 @@ const SectionSwitcher = () => {
         <div className={headerWrapper()}>
           <div className={tabsListWrapper()}>
             <TabsList className={tabsList()}>
-              {categoryKeys.map((key, index) => (
-                <TabsTrigger key={key} value={key} className={tabsTrigger()}>
+              {categoryKeys.map((cat, index) => (
+                <TabsTrigger key={cat} value={cat} className={tabsTrigger()}>
                   {categoryLabels[index]}
-                  <span className={activeIndicator()} />
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -52,13 +57,18 @@ const SectionSwitcher = () => {
 
           <div className={searchWrapper()}>
             <Search className={searchIcon()} />
-            <Input placeholder={t("searchPlaceholder")} className={searchInput()} />
+            <Input
+              placeholder={t("searchPlaceholder")}
+              className={searchInput()}
+            />
           </div>
         </div>
 
         {categoryKeys.map((key) => {
           const filtered =
-            key === "All" ? items : items.filter((item) => item.category === key);
+            key === "All"
+              ? items
+              : items.filter((item) => item.category === key);
 
           return (
             <TabsContent key={key} value={key} className={tabsContent()}>

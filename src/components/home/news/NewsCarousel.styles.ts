@@ -1,23 +1,5 @@
 import { cva } from "class-variance-authority";
 
-export const innerWrapper = cva(
-  "mx-auto flex flex-col items-center justify-center max-w-[1680px]"
-);
-
-export const headerSection = cva(
-  "flex justify-center sm:justify-between items-center w-full mb-6 sm:mb-12"
-);
-
-export const title = cva("text-main text-2xl sm:text-4xl font-semibold");
-
-export const seeAllButtonDesktop = cva(
-  "max-sm:hidden w-[160px] h-[48px] text-lg font-semibold text-mainLight bg-white border-mainLight border-2 shadow-[2px_3px_4px_0px_#00000040] hover:cursor-pointer"
-);
-
-export const seeAllButtonMobile = cva(
-  "sm:hidden mb-2 mt-4 w-[160px] h-[48px] text-lg font-semibold text-mainLight bg-white border-mainLight border-2 shadow-[2px_3px_4px_0px_#00000040] hover:cursor-pointer"
-);
-
 export const carousel = cva("w-full mx-auto max-w-[300px] sm:max-w-[1680px]");
 
 export const carouselContent = cva("py-3");

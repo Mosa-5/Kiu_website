@@ -6,8 +6,10 @@ const SingleNews = () => {
   return (
     <div className="min-h-screen">
       <NewsDetailsHero />
-      <NewsDetail />
-      <SimilarNews />
+      <div className="px-4">
+        <NewsDetail />
+        <SimilarNews />
+      </div>
     </div>
   );
 };

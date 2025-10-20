@@ -21,6 +21,7 @@ import {
   footerBottomInner,
   copyrightText,
   socialLinks,
+  footerLogo,
 } from "./Footer.styles";
 import { useFooterTranslations } from "./hooks/useFooterTranslations";
 
@@ -30,7 +31,6 @@ const USEFUL_LINKS = [
   { href: "https://www.naec.ge/", label: "NAEC" },
   { href: "https://www.naec.ge/", label: "NCEQE" },
 ];
-
 
 const SOCIAL_LINKS = [
   {
@@ -53,19 +53,23 @@ const SOCIAL_LINKS = [
 const Footer = () => {
   const { t } = useFooterTranslations();
   const CONTACT_INFO = [
-  {
-    icon: mapIcon,
-    alt: "map icon",
-    text: t("contactInfo.address"),
-  },
-  { icon: phoneIcon, alt: "phone icon", text: "(+995) 577 477197" },
-];
+    {
+      icon: mapIcon,
+      alt: "map icon",
+      text: t("contactInfo.address"),
+    },
+    { icon: phoneIcon, alt: "phone icon", text: "(+995) 577 477197" },
+  ];
 
   return (
     <footer className={footerContainer()}>
       <div className={footerContent()}>
         <div className={footerInner()}>
-          <img src={kiuWhiteLogo} alt="Kutaisi International University logo" />
+          <img
+            className={footerLogo()}
+            src={kiuWhiteLogo}
+            alt="Kutaisi International University logo"
+          />
 
           <div className={linksContainer()}>
             {/* useful links section */}
@@ -102,9 +106,7 @@ const Footer = () => {
                     info@kiu.edu.ge
                   </a>
                 </li>
-                <li>
-                  {t("contactInfo.intlEmail")}
-                </li>
+                <li>{t("contactInfo.intlEmail")}</li>
               </ul>
             </div>
           </div>
@@ -114,9 +116,7 @@ const Footer = () => {
       {/* footer bottom section */}
       <div className={footerBottom()}>
         <div className={footerBottomInner()}>
-          <span className={copyrightText()}>
-            {t("copyright")}
-          </span>
+          <span className={copyrightText()}>{t("copyright")}</span>
 
           <nav className={socialLinks()} aria-label="Social media links">
             {SOCIAL_LINKS.map((social) => (
@@ -133,14 +133,14 @@ const Footer = () => {
           </nav>
 
           <span className={copyrightText()}>
-            Hosted By{" "}
+            Hosted on{" "}
             <a
-              href="https://proservice.ge/"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className={emailLink()}
             >
-              Proservice
+              Vercel
             </a>
           </span>
         </div>

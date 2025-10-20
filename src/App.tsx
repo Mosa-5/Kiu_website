@@ -17,7 +17,7 @@ function App() {
     <Routes>
       {/* Redirect root to default language */}
       <Route path="/" element={<Navigate to="/en" replace />} />
-      
+
       {/* Language-prefixed routes */}
       <Route path="/:lang" element={<Layout />}>
         <Route path="news" element={<News />} />
