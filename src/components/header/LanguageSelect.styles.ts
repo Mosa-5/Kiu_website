@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const trigger = cva(`
-  w-5/11 sm:w-[118px] h-[72px] flex items-center gap-2 justify-center focus-visible:ring-0 border-0 shadow-none text-lg font-medium
+  w-full max-sm:flex-1 sm:w-[118px] h-[72px] flex items-center gap-2 justify-center focus-visible:ring-0 border-0 shadow-none text-lg font-medium
   text-main [&>svg:last-child]:hidden max-sm:bg-mainLight max-sm:text-white max-sm:rounded-sm
 `);
 
@@ -10,6 +10,6 @@ export const content = cva(`
 `);
 
 export const item = cva(`
-  border-x-2 border-transparent hover:border-l-main max-sm:data-[state=checked]:bg-main rounded-sm focus:text-inherit text-lg flex justify-center
-  [&>span[data-slot=select-item-indicator]]:hidden [&>span.absolute]:hidden
+  border-x-2 border-transparent hover:border-l-main max-sm:hover:border-l-white max-sm:hover:bg-main rounded focus:text-inherit text-lg flex justify-center
+  [&>span[data-slot=select-item-indicator]]:hidden [&>span.absolute]:hidden max-sm:focus:bg-main
 `);

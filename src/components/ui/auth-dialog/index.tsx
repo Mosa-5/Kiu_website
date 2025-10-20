@@ -1,55 +1,64 @@
-import { useState } from 'react';
-import { X } from 'lucide-react';
-import { useAuth } from '../../hooks/hooksHeader/useAuth';
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { LogIn } from "lucide-react";
+import { useAuth } from "@/hooks/hooksHeader/useAuth";
 
-interface AuthModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  initialMode?: 'login' | 'signup';
+interface AuthDialogProps {
+  buttonText?: string;
+  initialMode?: "login" | "signup";
 }
 
-export const AuthModal = ({ isOpen, onClose, initialMode = 'login' }: AuthModalProps) => {
-  const [mode, setMode] = useState<'login' | 'signup'>(initialMode);
+const AuthDialog = ({
+  buttonText = "Login",
+  initialMode = "login",
+}: AuthDialogProps) => {
+  const [mode, setMode] = useState<"login" | "signup">(initialMode);
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    name: '',
+    email: "",
+    password: "",
+    name: "",
   });
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-  
-  const { login, signup } = useAuth();
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [open, setOpen] = useState(false);
 
-  if (!isOpen) return null;
+  const { login, signup } = useAuth();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-    setSuccess('');
+    setError("");
+    setSuccess("");
 
-    if (mode === 'login') {
+    if (mode === "login") {
       const result = login(formData.email, formData.password);
       if (result.success) {
         setSuccess(result.message);
         setTimeout(() => {
-          onClose();
-          setFormData({ email: '', password: '', name: '' });
+          setOpen(false);
+          setFormData({ email: "", password: "", name: "" });
         }, 1000);
       } else {
         setError(result.message);
       }
     } else {
       if (!formData.name) {
-        setError('Name is required');
+        setError("Name is required");
         return;
       }
       const result = signup(formData.email, formData.password, formData.name);
       if (result.success) {
         setSuccess(result.message);
         setTimeout(() => {
-          setMode('login');
-          setFormData({ ...formData, password: '' });
-          setSuccess('');
+          setMode("login");
+          setFormData({ ...formData, password: "" });
+          setSuccess("");
         }, 1500);
       } else {
         setError(result.message);
@@ -58,29 +67,31 @@ export const AuthModal = ({ isOpen, onClose, initialMode = 'login' }: AuthModalP
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
-    setError('');
+    setError("");
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 relative">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
-        >
-          <X size={24} />
-        </button>
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button className="flex max-sm:w-5/11 items-center gap-2 px-4 py-4 h-9.5 shadow-none rounded-sm sm:rounded-md bg-mainLight text-white hover:bg-main transition-colors text-base font-medium">
+          <LogIn size={18} />
+          <span className="md:inline">{buttonText}</span>
+        </Button>
+      </DialogTrigger>
 
-        <h2 className="text-2xl font-bold text-mainDark mb-6">
-          {mode === 'login' ? 'Login' : 'Sign Up'}
-        </h2>
+      <DialogContent className="sm:max-w-md border-3 border-main">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-bold text-main text-center">
+            {mode === "login" ? "Login" : "Sign Up"}
+          </DialogTitle>
+        </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {mode === 'signup' && (
+          {mode === "signup" && (
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Full Name
@@ -137,46 +148,48 @@ export const AuthModal = ({ isOpen, onClose, initialMode = 'login' }: AuthModalP
             </div>
           )}
 
-          <button
+          <Button
             type="submit"
-            className="w-full bg-main text-white py-2 rounded-md hover:bg-mainDark transition-colors font-medium"
+            className="w-full text-white py-5 rounded-md transition-colors font-medium cursor-pointer"
           >
-            {mode === 'login' ? 'Login' : 'Sign Up'}
-          </button>
+            {mode === "login" ? "Login" : "Sign Up"}
+          </Button>
         </form>
 
         <div className="mt-4 text-center text-sm">
-          {mode === 'login' ? (
+          {mode === "login" ? (
             <p>
-              Don't have an account?{' '}
+              Don't have an account?{" "}
               <button
                 onClick={() => {
-                  setMode('signup');
-                  setError('');
-                  setSuccess('');
+                  setMode("signup");
+                  setError("");
+                  setSuccess("");
                 }}
-                className="text-main hover:underline font-medium"
+                className="text-main hover:underline font-medium cursor-pointer"
               >
                 Sign Up
               </button>
             </p>
           ) : (
             <p>
-              Already have an account?{' '}
+              Already have an account?{" "}
               <button
                 onClick={() => {
-                  setMode('login');
-                  setError('');
-                  setSuccess('');
+                  setMode("login");
+                  setError("");
+                  setSuccess("");
                 }}
-                className="text-main hover:underline font-medium"
+                className="text-main hover:underline font-medium cursor-pointer"
               >
                 Login
               </button>
             </p>
           )}
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 };
+
+export default AuthDialog;

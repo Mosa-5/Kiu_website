@@ -1,16 +1,32 @@
+import { lazy, Suspense } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./layout";
-import News from "./pages/News";
-import SingleNews from "./pages/SIngleNews";
-import Home from "./pages/Home";
-import SingleProgram from "./pages/SingleProgram";
-import Projects from "./pages/Projects";
-import YouthUni from "./pages/YouthUni";
-import Frontiers from "./pages/Frontiers";
-import About from "./pages/About";
-import Programs from "./pages/Programs";
-import Vacancies from "./pages/Vacancies";
-import Admission from "./pages/Admission";
+
+const News = lazy(() => import("./pages/News"));
+const SingleNews = lazy(() => import("./pages/SIngleNews"));
+const Home = lazy(() => import("./pages/Home"));
+const SingleProgram = lazy(() => import("./pages/SingleProgram"));
+const Projects = lazy(() => import("./pages/Projects"));
+const YouthUni = lazy(() => import("./pages/YouthUni"));
+const Frontiers = lazy(() => import("./pages/Frontiers"));
+const About = lazy(() => import("./pages/About"));
+const Programs = lazy(() => import("./pages/Programs"));
+const Vacancies = lazy(() => import("./pages/Vacancies"));
+const Admission = lazy(() => import("./pages/Admission"));
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "60vh",
+    }}
+  >
+    <div>Loading...</div>
+  </div>
+);
 
 function App() {
   return (
@@ -20,17 +36,94 @@ function App() {
 
       {/* Language-prefixed routes */}
       <Route path="/:lang" element={<Layout />}>
-        <Route path="news" element={<News />} />
-        <Route path="news/:id" element={<SingleNews />} />
-        <Route path="programs/:id" element={<SingleProgram />} />
-        <Route path="projects" element={<Projects />} />
-        <Route path="projects/youthuni" element={<YouthUni />} />
-        <Route path="projects/frontiers" element={<Frontiers />} />
-        <Route path="about-us" element={<About />} />
-        <Route path="programs" element={<Programs />} />
-        <Route path="vacancies" element={<Vacancies />} />
-        <Route path="admission" element={<Admission />} />
-        <Route index element={<Home />} />
+        <Route
+          path="news"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <News />
+            </Suspense>
+          }
+        />
+        <Route
+          path="news/:id"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <SingleNews />
+            </Suspense>
+          }
+        />
+        <Route
+          path="programs/:id"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <SingleProgram />
+            </Suspense>
+          }
+        />
+        <Route
+          path="projects"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <Projects />
+            </Suspense>
+          }
+        />
+        <Route
+          path="projects/youthuni"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <YouthUni />
+            </Suspense>
+          }
+        />
+        <Route
+          path="projects/frontiers"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <Frontiers />
+            </Suspense>
+          }
+        />
+        <Route
+          path="about-us"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <About />
+            </Suspense>
+          }
+        />
+        <Route
+          path="programs"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <Programs />
+            </Suspense>
+          }
+        />
+        <Route
+          path="vacancies"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <Vacancies />
+            </Suspense>
+          }
+        />
+        <Route
+          path="admission"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <Admission />
+            </Suspense>
+          }
+        />
+        <Route
+          index
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <Home />
+            </Suspense>
+          }
+        />
       </Route>
     </Routes>
   );

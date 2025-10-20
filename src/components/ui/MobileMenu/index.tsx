@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   Sheet,
   SheetClose,
@@ -9,19 +9,27 @@ import {
   SheetTrigger,
 } from "../sheet";
 import LanguageSelect from "@/components/header/LanguageSelect";
-import { Button } from "../button";
+import AuthDialog from "../auth-dialog";
+
+import { useAuth } from "@/hooks/hooksHeader/useAuth";
+import { useHeaderTranslations } from "@/hooks/hooksHeader/useHeaderTranslation";
+import UserProfileSelect from "../user-profile-trigger";
 
 const MobileMenu = () => {
+  const { lang } = useParams<{ lang: string }>();
+  const { t } = useHeaderTranslations();
+  const { isAuthenticated, currentUser, logout } = useAuth();
+
   const navLinks = [
-    { label: "About KIU", path: "/about-us" },
-    { label: "Programs", path: "/programs" },
-    { label: "Research", path: "/" },
-    { label: "Projects", path: "/projects" },
-    { label: "Admission", path: "/admission" },
-    { label: "Students", path: "/" },
-    { label: "News", path: "/news" },
-    { label: "Campus", path: "/" },
-    { label: "Vacancies", path: "/vacancies" },
+    { label: t("nav.about"), path: "/about-us" },
+    { label: t("nav.programs"), path: "/programs" },
+    { label: t("nav.research"), path: "/" },
+    { label: t("nav.projects"), path: "/projects" },
+    { label: t("nav.admission"), path: "/admission" },
+    { label: t("nav.students"), path: "/" },
+    { label: t("nav.news"), path: "/news" },
+    { label: t("nav.campus"), path: "/" },
+    { label: t("nav.vacancies"), path: "/vacancies" },
   ];
 
   return (
@@ -48,15 +56,24 @@ const MobileMenu = () => {
 
           <SheetDescription>
             <div className="flex flex-col gap-2 items-center text-lg">
-              <div className="flex justify-between w-full border-b-2 pb-1.5">
+              <div className="flex justify-between w-full border-b-2 gap-3 pb-1.5">
                 <LanguageSelect />
-                <Button className="w-5/11 rounded-sm shadow">Log In</Button>
+                {isAuthenticated && currentUser ? (
+                  <UserProfileSelect
+                    userName="Profile"
+                    onLogout={logout}
+                    lmsText={t("auth.goToLMS")}
+                    logoutText={t("auth.logout")}
+                  />
+                ) : (
+                  <AuthDialog buttonText={t("auth.login")} />
+                )}
               </div>
               {navLinks.map((link) => (
                 <SheetClose key={link.path} asChild>
                   <Link
                     className="bg-mainLight text-white rounded-sm w-full shadow text-center py-1.5"
-                    to={link.path}
+                    to={`/${lang}${link.path}`}
                   >
                     {link.label}
                   </Link>

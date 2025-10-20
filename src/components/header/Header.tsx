@@ -2,7 +2,6 @@ import { Link, NavLink, useParams } from "react-router-dom";
 import { kiuLogo, kiuGeoLogo } from "@/assets";
 import LanguageSelect from "./LanguageSelect";
 import { useEffect, useState } from "react";
-import { LogIn, User } from "lucide-react";
 import {
   header,
   innerContainer,
@@ -12,22 +11,13 @@ import {
 } from "./Header.styles";
 import { useHeaderTranslations } from "../../hooks/hooksHeader/useHeaderTranslation";
 import { useAuth } from "../../hooks/hooksHeader/useAuth";
-import { AuthModal } from "./AuthModal";
-import { Button } from "../ui/button";
-
-import {
-  Select,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-  SelectValue,
-} from "../ui/select";
+import AuthDialog from "../ui/auth-dialog";
+import UserProfileSelect from "../ui/user-profile-trigger";
 
 const Header = () => {
   const { lang } = useParams<{ lang: string }>();
   const currentLang = lang || "en";
   const [scrolled, setScrolled] = useState(false);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { t } = useHeaderTranslations();
   const { isAuthenticated, currentUser, logout } = useAuth();
 
@@ -77,46 +67,21 @@ const Header = () => {
 
           <div className="flex items-center">
             {isAuthenticated && currentUser ? (
-              <Select
-                defaultValue=""
-                onValueChange={(value) => {
-                  if (value === "website") {
-                    window.open("https://lms.kiu.edu.ge", "_blank");
-                  } else if (value === "logout") {
-                    logout();
-                  }
-                }}
-              >
-                <SelectTrigger className="flex items-center gap-2 px-4 py-2 bg-main text-white rounded-md hover:bg-mainDark transition-colors text-sm font-medium [&>span]:text-white">
-                  <User size={18} color="white" />
-                  <SelectValue placeholder={currentUser.name} />
-                </SelectTrigger>
-
-                <SelectContent className="w-48">
-                  <SelectItem value="website">{t("auth.goToLMS")}</SelectItem>
-                  <SelectItem value="logout">{t("auth.logout")}</SelectItem>
-                </SelectContent>
-              </Select>
+              <UserProfileSelect
+                userName={currentUser.name}
+                onLogout={logout}
+                lmsText={t("auth.goToLMS")}
+                logoutText={t("auth.logout")}
+                profileText={t("auth.profile")}
+              />
             ) : (
-              <Button
-                onClick={() => setIsAuthModalOpen(true)}
-                className="flex items-center gap-2 px-4 py-4 h-9.5 shadow-none rounded-lg bg-main text-white hover:bg-mainDark transition-colors text-base font-medium"
-                aria-label={t("auth.login")}
-              >
-                <LogIn size={18} />
-                <span className="hidden md:inline">{t("auth.login")}</span>
-              </Button>
+              <AuthDialog buttonText={t("auth.login")} />
             )}
 
             <LanguageSelect />
           </div>
         </div>
       </div>
-
-      <AuthModal
-        isOpen={isAuthModalOpen}
-        onClose={() => setIsAuthModalOpen(false)}
-      />
     </>
   );
 };
