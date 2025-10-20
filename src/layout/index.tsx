@@ -3,6 +3,7 @@ import Header from "@/components/header/Header";
 import { Outlet, useLocation, useParams, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import SeoHead from "@/components/SeoHead";
 import HeaderMobile from "@/components/header/HeaderMobile";
 
 const Layout = () => {
@@ -32,6 +33,7 @@ const Layout = () => {
 
   return (
     <div className="min-h-screen">
+      <SeoHead />
       <Header />
       <HeaderMobile />
       <div className="max-sm:mt-[67px]">
