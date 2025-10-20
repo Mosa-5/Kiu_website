@@ -31,7 +31,8 @@ const SingleProgramDetail: React.FC = () => {
     const element = document.getElementById(sectionId);
     if (!element) return;
     const offset = 80;
-    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const elementPosition =
+      element.getBoundingClientRect().top + window.scrollY;
     const scrollPosition = elementPosition - offset;
 
     window.scrollTo({ top: scrollPosition, behavior: "smooth" });
@@ -58,7 +59,7 @@ const SingleProgramDetail: React.FC = () => {
         scrollToSection={scrollToSection}
       />
 
-      <div className="max-w-[1680px] mx-auto font-sans">
+      <div className="max-w-[1680px] max-sm:px-4 mx-auto font-sans">
         <AboutSchoolSection programData={programData} />
         <AboutProgramSection programData={programData} />
         <CurriculumBriefSection programData={programData} />
