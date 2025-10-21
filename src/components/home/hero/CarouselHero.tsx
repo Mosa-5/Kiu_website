@@ -7,7 +7,19 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
-import heroimg from "@/assets/masters_degree-slider.webp";
+import {
+  heroimg1,
+  heroimg2,
+  heroimg3,
+  heroimg4,
+  heroimg5,
+  heroimg1Ka,
+  heroimg2Ka,
+  heroimg3Ka,
+  heroimg4Ka,
+  heroimg5Ka,
+} from "@/assets";
+
 import {
   container,
   carousel,
@@ -17,27 +29,44 @@ import {
   dotContainer,
   carouselDot,
 } from "./CarouselHero.styles";
+import { useParams } from "react-router-dom";
+
+const heroImagesEn = [heroimg1, heroimg2, heroimg3, heroimg4, heroimg5];
+const heroImagesKa = [
+  heroimg1Ka,
+  heroimg2Ka,
+  heroimg3Ka,
+  heroimg4Ka,
+  heroimg5Ka,
+];
 
 const CarouselHero = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
+  const heroImages = currentLang === "ka" ? heroImagesKa : heroImagesEn;
 
   useEffect(() => {
     if (!api) return;
 
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
-    api.on("select", () => setCurrent(api.selectedScrollSnap() + 1));
 
     let interval: ReturnType<typeof setInterval> | null = null;
     let pauseTimeout: ReturnType<typeof setTimeout> | null = null;
+    let isAutoScrolling = false;
 
     const startAuto = () => {
       if (!interval) {
         interval = setInterval(() => {
+          isAutoScrolling = true;
           api.scrollNext();
-        }, 3000);
+          setTimeout(() => {
+            isAutoScrolling = false;
+          }, 100);
+        }, 4000);
       }
     };
 
@@ -57,6 +86,16 @@ const CarouselHero = () => {
       }, 5000); // pause 5s after manual click
     };
 
+    // Handle select event and check if it was manual
+    const handleSelect = () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+      if (!isAutoScrolling) {
+        restartAfterDelay();
+      }
+    };
+
+    api.on("select", handleSelect);
+
     // Start initially
     startAuto();
 
@@ -70,9 +109,6 @@ const CarouselHero = () => {
     };
     document.addEventListener("visibilitychange", handleVisibility);
 
-    // Pause briefly after manual interaction
-    api.on("scroll", () => restartAfterDelay());
-
     return () => {
       stopAuto();
       if (pauseTimeout) clearTimeout(pauseTimeout);
@@ -84,13 +120,17 @@ const CarouselHero = () => {
     <div className={container()}>
       <Carousel
         setApi={setApi}
-        opts={{ loop: true, duration: 50 }}
+        opts={{ loop: true, duration: 25 }}
         className={carousel()}
       >
         <CarouselContent className={carouselContent()}>
-          {Array.from({ length: 5 }).map((_, index) => (
+          {heroImages.map((img, index) => (
             <CarouselItem className={carouselItem()} key={index}>
-                <img className={carouselImage()} src={heroimg} alt="hero img" />
+              <img
+                className={carouselImage()}
+                src={img}
+                alt={`hero img ${index + 1}`}
+              />
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -103,7 +143,7 @@ const CarouselHero = () => {
             key={index}
             // onClick={() => api?.scrollTo(index)}
             className={carouselDot({ active: current === index + 1 })}
-            aria-label="Carousel switch" 
+            aria-label="Carousel switch"
             title="Carousel switch"
           />
         ))}

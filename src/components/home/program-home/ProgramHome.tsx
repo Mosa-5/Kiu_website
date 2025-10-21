@@ -1,4 +1,13 @@
-import { bechalor, masters, doctoral, singleCycle } from "@/assets";
+import {
+  bechalor,
+  masters,
+  doctoral,
+  singleCycle,
+  bechalorKa,
+  mastersKa,
+  doctoralKa,
+  singleCycleKa,
+} from "@/assets";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   containerVariants,
@@ -10,7 +19,6 @@ import {
 } from "./ProgramHome.styles";
 import { useHomeTranslations } from "../../../hooks/useHomeTranslation";
 
-
 const ProgramHome = () => {
   const navigate = useNavigate();
   const { t } = useHomeTranslations();
@@ -18,10 +26,25 @@ const ProgramHome = () => {
   const currentLang = lang || "en";
 
   const programs = [
-    { img: bechalor, label: "Bachelor's", category: "Bachelor" },
-    { img: singleCycle, label: "Single-Cycle", category: "Single-Cycle" },
-    { img: masters, label: "Master's", category: "Master" },
-    { img: doctoral, label: "Doctoral", category: "Doctoral" },
+    {
+      img: bechalor,
+      imgka: bechalorKa,
+      label: "Bachelor's",
+      category: "Bachelor",
+    },
+    {
+      img: singleCycle,
+      imgka: singleCycleKa,
+      label: "Single-Cycle",
+      category: "Single-Cycle",
+    },
+    { img: masters, imgka: mastersKa, label: "Master's", category: "Master" },
+    {
+      img: doctoral,
+      imgka: doctoralKa,
+      label: "Doctoral",
+      category: "Doctoral",
+    },
   ];
 
   const handleProgramClick = (category: string) => {
@@ -40,7 +63,7 @@ const ProgramHome = () => {
             <img
               key={program.category}
               onClick={() => handleProgramClick(program.category)}
-              src={program.img}
+              src={currentLang === "ka" ? program.imgka : program.img}
               alt={program.label}
               className={programImageVariants()}
             />

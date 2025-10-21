@@ -42,8 +42,13 @@ const About = () => {
 
         <div className={textContent()}>
           <p>
-            <Link to="/campus" className={campusLink()} aria-label="Campus" title="Campus">
-              {t("campus.title")}
+            <Link
+              to="/campus"
+              className={campusLink()}
+              aria-label="Campus"
+              title="Campus"
+            >
+              {t("about.link")}
             </Link>{" "}
             {paragraphs[0]}
           </p>

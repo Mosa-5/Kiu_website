@@ -5,7 +5,6 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
-import { newsHeroImage } from "@/assets";
 import {
   container,
   carousel,
@@ -16,6 +15,10 @@ import {
   dot,
 } from "./CampusCarousel.styles";
 
+import { campus1, campus2, campus3, campus4 } from "@/assets";
+
+const campusimages = [campus2, campus1, campus3, campus4];
+
 const CampusCarousel = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -25,7 +28,7 @@ const CampusCarousel = () => {
     if (!api) {
       return;
     }
-    setCount(api.scrollSnapList().length);
+    setCount(campusimages.length);
     setCurrent(api.selectedScrollSnap() + 1);
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap() + 1);
@@ -46,12 +49,12 @@ const CampusCarousel = () => {
         className={carousel()}
       >
         <CarouselContent className={carouselContent()}>
-          {Array.from({ length: 5 }).map((_, index) => (
+          {campusimages.map((img, index) => (
             <CarouselItem className={carouselItem()} key={index}>
               <img
                 className={carouselImage()}
-                src={newsHeroImage}
-                alt="hero img"
+                src={img}
+                alt={`campus img ${index + 1}`}
               />
             </CarouselItem>
           ))}
