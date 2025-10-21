@@ -1,11 +1,11 @@
 import HeroSection from "@/components/ui/hero-section";
-import { FrontiersHero } from "@/assets";
+import { AdmisssionHero } from "@/assets";
 
 const AdmissionHero = () => {
   return (
     <HeroSection
       titleText="Admission"
-      imageSrc={FrontiersHero}
+      imageSrc={AdmisssionHero}
       buttonLink="/"
       buttonLabel="Home"
     />

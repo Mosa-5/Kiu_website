@@ -16,7 +16,6 @@ export { default as flagGeo } from "./georgia-flag.svg";
 export { default as flagUS } from "./usa-flag.svg";
 
 // Images
-export { default as heroImg } from "./masters_degree-slider.webp";
 export { default as kiuCardImg } from "./KIU.webp";
 export { default as newsHeroImage } from "./image.webp";
 export { default as ProgramHeroImage } from "./programpage.webp";
@@ -53,12 +52,39 @@ export { default as JakobWagner } from "./jakob_wagner.webp";
 export { default as BorisVexler } from "./thumbnail_boris_vexler_foto_1.webp";
 export { default as RamazBochorishvili } from "./ramaz_botchorishvili_photo.webp";
 export { default as MathHero } from "./programImages/mathCard.jpg";
+export { default as AdmisssionHero } from "./admission-hero.png";
+
+//home carousel images
+//english
+export { default as heroimg1 } from "@/assets/hero-1.webp";
+export { default as heroimg2 } from "@/assets/hero-2.webp";
+export { default as heroimg3 } from "@/assets/hero-3.webp";
+export { default as heroimg4 } from "@/assets/hero-4.webp";
+export { default as heroimg5 } from "@/assets/hero-5.webp";
+//georgian
+export { default as heroimg1Ka } from "@/assets/hero-1_ka.webp";
+export { default as heroimg2Ka } from "@/assets/hero-2_ka.webp";
+export { default as heroimg3Ka } from "@/assets/hero-3_ka.webp";
+export { default as heroimg4Ka } from "@/assets/hero-4_ka.webp";
+export { default as heroimg5Ka } from "@/assets/hero-5_ka.webp";
+
+//home campus images
+export { default as campus1 } from "@/assets/campus-1.webp";
+export { default as campus2 } from "@/assets/campus-2.webp";
+export { default as campus3 } from "@/assets/campus-3.webp";
+export { default as campus4 } from "@/assets/campus-4.webp";
 
 //program images
+//english
 export { default as bechalor } from "./bechalors.webp";
 export { default as doctoral } from "./doctoral.webp";
 export { default as masters } from "./masters.webp";
 export { default as singleCycle } from "./single-cycle.webp";
+//georgian
+export { default as bechalorKa } from "./bechalors_ka.webp";
+export { default as doctoralKa } from "./doctoral_ka.webp";
+export { default as mastersKa } from "./masters_ka.webp";
+export { default as singleCycleKa } from "./single-cycle_ka.webp";
 
 // export { default as programImg } from "./program_img.webp";
 // Carousel arrows

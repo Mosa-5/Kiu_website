@@ -4,7 +4,7 @@ export const heroContainer = cva(
   "relative w-full h-[240px] sm:h-[707px] overflow-hidden mb-6 sm:mb-20 border-b-2 border-main"
 );
 
-export const heroImage = cva("w-full h-full object-cover brightness-75");
+export const heroImage = cva("w-full h-full object-cover brightness-65");
 
 export const contentWrapper = cva(
   "absolute bottom-2 sm:bottom-8 left-2 sm:left-[120px] space-y-1 text-white"
