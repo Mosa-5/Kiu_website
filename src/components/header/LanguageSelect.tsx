@@ -25,19 +25,26 @@ const LanguageSelect = () => {
   }, [lang]);
 
   const handleLanguageChange = (newLang: string) => {
-    setSelectedValue(newLang);
-    
-    i18n.changeLanguage(newLang);
-    
-    const pathParts = location.pathname.split('/').filter(Boolean);
-    
-    if (pathParts.length > 0) {
-      pathParts[0] = newLang;
-      navigate(`/${pathParts.join('/')}`, { replace: true });
-    } else {
-      navigate(`/${newLang}`, { replace: true });
-    }
-  };
+  const currentScroll = window.scrollY; // save current scroll
+
+  setSelectedValue(newLang);
+  i18n.changeLanguage(newLang);
+
+  const pathParts = location.pathname.split("/").filter(Boolean);
+
+  if (pathParts.length > 0) {
+    pathParts[0] = newLang;
+    navigate(`/${pathParts.join("/")}`, { replace: true });
+  } else {
+    navigate(`/${newLang}`, { replace: true });
+  }
+
+  // restore scroll after short delay
+  setTimeout(() => {
+    window.scrollTo(0, currentScroll);
+  }, 100);
+};
+
 
   return (
     <Select

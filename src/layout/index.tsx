@@ -1,32 +1,39 @@
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import { Outlet, useLocation, useParams, Navigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import SeoHead from "@/components/SeoHead";
 import HeaderMobile from "@/components/header/HeaderMobile";
+import Chatbot from "@/components/chatbot/Chatbot";
 
 const Layout = () => {
   const location = useLocation();
   const { lang } = useParams<{ lang: string }>();
   const { i18n } = useTranslation();
+  
+  // Track previous path without language
+  const prevPathRef = useRef<string>("");
 
-  // Validate language param
   const validLanguages = ["en", "ka"];
   const isValidLang = lang && validLanguages.includes(lang);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const currentPathWithoutLang = location.pathname.replace(/^\/(en|ka)/, "");
+    
+    // Only scroll to top if the actual route changed (not just language)
+    if (prevPathRef.current !== currentPathWithoutLang) {
+      window.scrollTo(0, 0);
+      prevPathRef.current = currentPathWithoutLang;
+    }
   }, [location.pathname]);
 
   useEffect(() => {
-    // Change i18n language when URL param changes
     if (isValidLang && i18n.language !== lang) {
       i18n.changeLanguage(lang);
     }
   }, [lang, i18n, isValidLang]);
 
-  // Redirect to default language if invalid
   if (!isValidLang) {
     return <Navigate to="/en" replace />;
   }
@@ -40,6 +47,7 @@ const Layout = () => {
         <Outlet />
       </div>
       <Footer />
+      <Chatbot />
     </div>
   );
 };
