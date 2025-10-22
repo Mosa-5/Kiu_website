@@ -6,7 +6,7 @@ import {
   seeAllButtonDesktop,
   seeAllButtonMobile,
 } from "./News.styles";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useHomeTranslations } from "../../../hooks/useHomeTranslation";
 import NewsCarousel from "./NewsCarousel";
 
