@@ -1,6 +1,8 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./layout";
+import NotFound from "./pages/NotFound";
+import { Loader2 } from "lucide-react";
 
 const News = lazy(() => import("./pages/News"));
 const SingleNews = lazy(() => import("./pages/SIngleNews"));
@@ -16,15 +18,8 @@ const Admission = lazy(() => import("./pages/Admission"));
 
 // Loading fallback component
 const LoadingFallback = () => (
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      minHeight: "60vh",
-    }}
-  >
-    <div>Loading...</div>
+  <div className="flex justify-center items-center min-h-[70vh] sm:min-h-screen">
+    <Loader2 className="w-13 h-13 sm:w-20 sm:h-20 animate-spin text-main" />
   </div>
 );
 
@@ -125,6 +120,15 @@ function App() {
           }
         />
       </Route>
+      {/* Catch-all route for any other unmatched paths */}
+      <Route
+        path="*"
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <NotFound />
+          </Suspense>
+        }
+      />
     </Routes>
   );
 }

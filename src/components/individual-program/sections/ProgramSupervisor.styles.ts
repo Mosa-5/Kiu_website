@@ -33,9 +33,13 @@ export const singleSupervisorName = cva(
   "text-2xl font-medium text-slate-900 mb-4"
 );
 
-export const singleImageWrapper = cva("float-right ml-8 mb-6 w-[476px]");
+export const singleImageWrapper = cva(
+  "float-right ml-8 mb-6 w-full sm:w-[476px] sm:h-[430px]"
+);
 
-export const singleImage = cva("w-full rounded-lg shadow-lg");
+export const singleImage = cva(
+  "w-full rounded-lg shadow-lg h-full object-cover"
+);
 
 export const singlePosition = cva("text-lg mb-6");
 

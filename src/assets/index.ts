@@ -86,6 +86,13 @@ export { default as doctoralKa } from "./doctoral_ka.webp";
 export { default as mastersKa } from "./masters_ka.webp";
 export { default as singleCycleKa } from "./single-cycle_ka.webp";
 
+export { default as news1 } from "./news-1.webp";
+export { default as news2 } from "./news-2.webp";
+export { default as news3 } from "./news-3.webp";
+export { default as news4 } from "./news-4.webp";
+export { default as news5 } from "./news-5.webp";
+export { default as news6 } from "./news-6.webp";
+
 // export { default as programImg } from "./program_img.webp";
 // Carousel arrows
 export { default as arrowLeft } from "./arrow-left.svg";

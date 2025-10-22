@@ -14,8 +14,8 @@ export const contentInner = cva(
   "max-sm:px-4 w-full max-w-[1527px] py-4 sm:py-5.5 flex flex-col justify-between"
 );
 
-export const title = cva("text-sm sm:text-4xl font-semibold text-main");
+export const title = cva("text-base sm:text-4xl font-semibold text-main");
 
-export const date = cva("text-main font-medium text-xs sm:text-xl mt-2");
+export const date = cva("text-main font-medium text-sm sm:text-xl mt-2");
 
 export const notFound = cva("text-center text-xl mt-10");

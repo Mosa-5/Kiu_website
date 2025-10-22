@@ -21,7 +21,6 @@ import {
 } from "./NewsCarousel.styles";
 import { Link, useParams } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { kiuCardImg } from "@/assets";
 import type { NewsItem } from "@/components/news-detail/SimilarNews";
 import { useNewsItems } from "@/hooks/useNewsItems";
 
@@ -50,7 +49,7 @@ const NewsCarousel: React.FC<{
                 <CardContent className={cardContent()}>
                   <div className={hoverBar()} />
                   <div className={imageWrapper()}>
-                    <img src={kiuCardImg} alt="newsImg" className={image()} />
+                    <img src={item.image} alt="newsImg" className={image()} />
                   </div>
                   <div className={contentSection()}>
                     <p className={date()}>{item.date}</p>
