@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import { kiuCardImg } from "@/assets";
 import newsItems from "@/data/newsItems";
 import {
   container,
@@ -53,7 +52,7 @@ const NewsDetail = () => {
         <div className={contentWrapper()}>
           <div className={imageWrapper()}>
             <img
-              src={kiuCardImg}
+              src={item.image}
               alt="Event ceremony with participants"
               className={image()}
             />

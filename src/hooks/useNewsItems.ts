@@ -7,10 +7,11 @@ interface NewsItem {
   title: string;
   description: string;
   category?: string;
+  image?: string;
 }
 
 export const useNewsItems = (): NewsItem[] => {
   const { i18n } = useTranslation();
-  
+
   return i18n.language === "ka" ? newsItemsKa : newsItemsEn;
 };

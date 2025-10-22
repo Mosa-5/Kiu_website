@@ -9,6 +9,7 @@ export type NewsItem = {
   id: string;
   date: string;
   title: string;
+  image?: string;
 };
 
 const getRandomNews = (data: NewsItem[], count: number): NewsItem[] => {

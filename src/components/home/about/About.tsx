@@ -43,7 +43,7 @@ const About = () => {
         <div className={textContent()}>
           <p>
             <Link
-              to="/campus"
+              to="campus"
               className={campusLink()}
               aria-label="Campus"
               title="Campus"

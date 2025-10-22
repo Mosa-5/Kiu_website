@@ -29,7 +29,7 @@ const NewsSection = () => {
         </Link>
       </div>
       <NewsCarousel />
-      <Link to="/news" aria-label="See all news Mobile">
+      <Link to="news" aria-label="See all news Mobile">
         <Button
           className={seeAllButtonMobile()}
           variant={"secondary"}

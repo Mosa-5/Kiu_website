@@ -17,7 +17,7 @@ interface NewsCardProps {
   date: string;
   title: string;
   description: string;
-  imageUrl: string;
+  image: string;
 }
 
 const NewsCard = ({
@@ -25,7 +25,7 @@ const NewsCard = ({
   date,
   title,
   description,
-  imageUrl,
+  image: imageMain,
 }: NewsCardProps) => {
   const { lang } = useParams<{ lang: string }>();
   const currentLang = lang || "en";
@@ -34,7 +34,7 @@ const NewsCard = ({
       <Card className={cardContainer()}>
         <div className={cardHoverEffect()} />
         <div className={imageWrapper()}>
-          <img src={imageUrl} alt={title} className={image()} />
+          <img src={imageMain} alt={title} className={image()} />
         </div>
         <CardContent className={cardContentWrapper()}>
           <p className={cardDate()}>{date}</p>
