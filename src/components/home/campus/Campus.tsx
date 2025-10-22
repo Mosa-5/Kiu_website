@@ -54,7 +54,12 @@ const Campus = () => {
               <p key={i}>{text}</p>
             ))}
           </div>
-          <Button onClick={navigate} className={readMoreButton()} aria-label="Read more" title="Read more">
+          <Button
+            onClick={navigate}
+            className={readMoreButton()}
+            aria-label="Read more"
+            title="Read more"
+          >
             {t("campus.button")}
           </Button>
         </div>

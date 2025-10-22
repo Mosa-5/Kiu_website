@@ -127,17 +127,28 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', 'Noto Sans Georgian', sans-serif;
   }
-  li{
+  
+  /* Adjust Georgian font size */
+  html[lang="ka"] {
+    font-size: 94%;
+    line-height: normal !important;
+  }
+    
+  html[lang="ka"] p {
+    line-height: normal !important;
+  }
+  
+  li {
     font-weight: 400;
   }
   body {
     @apply bg-background text-foreground;
     width: 100%;
   }
-  html{
-     overflow-x: hidden;
+  html {
+    overflow-x: hidden;
   }
 }
 

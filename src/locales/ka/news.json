@@ -1,4 +1,8 @@
 {
+  "hero": {
+    "title": "მიღება",
+    "buttonLabel": "მთავარი გვერდი"
+  },
   "notFound": "სიახლე ვერ მოიძებნა",
   "backButton": "სიახლეები",
   "similarNews": "მსგავსი სიახლეები",

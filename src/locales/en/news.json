@@ -1,4 +1,8 @@
 {
+  "hero": {
+    "title": "News",
+    "buttonLabel": "Home Page"
+  },
   "notFound": "News not found",
   "backButton": "News",
   "similarNews": "Similar News",

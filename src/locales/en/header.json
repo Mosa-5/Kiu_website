@@ -13,7 +13,17 @@
   "auth": {
     "login": "Login",
     "logout": "Logout",
-    "goToLMS": "Go to LMS",
+    "goToLMS": "LMS",
     "profile": "Profile"
+  },
+  "LogDialog": {
+    "login" : "Login",
+    "signUp": "Sign Up",
+    "fullName": "Full Name",
+    "email" : "Email",
+    "passowrd": "Password",
+    "LogInQuestion": "Don't have an account?",
+    "signUpQuestion": "Already have an account?"
   }
+  
 }

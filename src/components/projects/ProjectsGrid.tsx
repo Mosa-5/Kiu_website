@@ -25,6 +25,7 @@ const ProjectsGrid = () => {
           key={project.id}
           to={`/${currentLang}${project.path}`}
           className={projectCard()}
+          aria-label={`View ${project.title} project`}
         >
           <img
             src={projectImages[index]}

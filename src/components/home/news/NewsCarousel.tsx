@@ -44,7 +44,10 @@ const NewsCarousel: React.FC<{
       <CarouselContent className={carouselContent()}>
         {NewsData.slice(0, 5).map((item) => (
           <CarouselItem key={item.id} className={carouselItem()}>
-            <Link to={`/${currentLang}/news/${item.id}`}>
+            <Link
+              to={`/${currentLang}/news/${item.id}`}
+              aria-label={`Read more about ${item.title}`}
+            >
               <Card className={card()}>
                 <CardContent className={cardContent()}>
                   <div className={hoverBar()} />
