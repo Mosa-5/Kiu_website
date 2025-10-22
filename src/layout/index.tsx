@@ -24,6 +24,11 @@ const Layout = () => {
     if (isValidLang && i18n.language !== lang) {
       i18n.changeLanguage(lang);
     }
+
+    // Set lang attribute on html element
+    if (lang) {
+      document.documentElement.lang = lang;
+    }
   }, [lang, i18n, isValidLang]);
 
   // Redirect to default language if invalid

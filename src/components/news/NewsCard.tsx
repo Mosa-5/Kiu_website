@@ -30,7 +30,10 @@ const NewsCard = ({
   const { lang } = useParams<{ lang: string }>();
   const currentLang = lang || "en";
   return (
-    <Link to={`/${currentLang}/news/${id}`}>
+    <Link
+      to={`/${currentLang}/news/${id}`}
+      aria-label={`Read more about ${title}`}
+    >
       <Card className={cardContainer()}>
         <div className={cardHoverEffect()} />
         <div className={imageWrapper()}>

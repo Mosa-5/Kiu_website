@@ -60,7 +60,11 @@ export const SideSectionsSheet: React.FC<SideSectionsSheetProps> = ({
         </SheetContent>
 
         <SheetTrigger asChild>
-          <Button variant="default" className={triggerButton({ isOpen })}>
+          <Button
+            variant="default"
+            className={triggerButton({ isOpen })}
+            aria-label="Open sections navigation"
+          >
             <span
               className={buttonText()}
               style={{ transformOrigin: "center" }}

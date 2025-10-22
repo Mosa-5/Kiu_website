@@ -6,39 +6,39 @@ import {
   seeAllButtonDesktop,
   seeAllButtonMobile,
 } from "./News.styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useHomeTranslations } from "../../../hooks/useHomeTranslation";
 import NewsCarousel from "./NewsCarousel";
 
 const NewsSection = () => {
+  const nav = useNavigate();
   const { t } = useHomeTranslations();
+  const navigate = () => nav("news");
 
   return (
     <div className={innerWrapper()}>
       <div className={headerSection()}>
         <h1 className={title()}>{t("home.news")}</h1>
-        <Link to="/news" aria-label="See all news Dekstop">
-          <Button
-            className={seeAllButtonDesktop()}
-            variant={"secondary"}
-            aria-label="See more Desktop"
-            title="See more Desktop"
-          >
-            {t("home.seeall")}
-          </Button>
-        </Link>
-      </div>
-      <NewsCarousel />
-      <Link to="news" aria-label="See all news Mobile">
         <Button
-          className={seeAllButtonMobile()}
+          className={seeAllButtonDesktop()}
           variant={"secondary"}
-          aria-label="See more Mobile"
-          title="Se more Mobile"
+          aria-label="See more Desktop"
+          title="See more Desktop"
+          onClick={navigate}
         >
           {t("home.seeall")}
         </Button>
-      </Link>
+      </div>
+      <NewsCarousel />
+      <Button
+        className={seeAllButtonMobile()}
+        variant={"secondary"}
+        aria-label="See more Mobile"
+        title="Se more Mobile"
+        onClick={navigate}
+      >
+        {t("home.seeall")}
+      </Button>
     </div>
   );
 };

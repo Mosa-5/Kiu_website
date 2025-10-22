@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const container = cva(
-  "relative w-full h-[240px] sm:h-[707px] flex flex-col mb-[96px] sm:mb-[162px] items-center"
+  "relative w-full h-[240px] sm:h-[707px] flex flex-col mb-[120px] sm:mb-[162px] items-center" //mb-[96px]
 );
 
 export const heroImage = cva("w-full h-full object-cover brightness-75");
