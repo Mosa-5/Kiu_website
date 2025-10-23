@@ -18,6 +18,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.status(200).json({ reply });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Failed to generate content" });
+    res.status(500).json({ reply: "ვწუხვარ, რაღაც შეცდომა მოხდა. / Sorry, something went wrong." });
   }
 }

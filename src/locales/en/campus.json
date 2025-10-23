@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "breadcrumbs": {
+      "home": "Home",
+      "campus": "Campus"
+    },
+    "title": "Campus"
+  },
+  "description": {
+    "mainText": "The Kutaisi International University Campus is located in the environmentally clean area of the city of Kutaisi, Georgia (Georgia's third largest city). The campus is spread out on a beautiful 160 hectares of land, surrounded by a forest with a river running through it. The Campus itself is modern, spacious and easy to reach. It is situated 25 km from Kutaisi International Airport and is only 3 hours' drive from the capital city of Georgia - Tbilisi. The Kutaisi International airport connects passengers with many European and world destinations. Kutaisi has a bus station and two main bus and train routes.KIU is currently the only higher education institution that provides comfortable and fully furnished housing for students and academic personnel on its campus. The University offers modern and state-of-the-art laboratories, student facilities, cafeterias, libraries, co-working spaces, an interactive learning management system, all of which will create forward thinking technology oriented educational ecosystem.",
+    "features": {
+      "location": {
+        "title": "Location",
+        "description": "160 hectares in Kutaisi, surrounded by forest and river"
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "description": "25km from airport, 3 hours from Tbilisi"
+      },
+      "facilities": {
+        "title": "Facilities",
+        "description": "Modern labs, libraries, cafeterias, and co-working spaces"
+      },
+      "technology": {
+        "title": "Technology",
+        "description": "Interactive learning management system and modern tech"
+      }
+    }
+  },
+  "dormitory": {
+    "title": "Dormitory Information",
+    "description": "Learn about our comprehensive dormitory regulations and student housing policies. We provide comfortable and fully furnished housing for students and academic personnel.",
+    "buttonText": "View Dormitory Regulations"
+  },
+  "videoTour": {
+    "title": "Campus Video Tour",
+    "subtitle": "Explore our beautiful campus facilities and modern infrastructure"
+  }
+}

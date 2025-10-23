@@ -23,6 +23,8 @@ import HeaderEn from './locales/en/header.json';
 import HeaderKa from './locales/ka/header.json';
 import ProgramsEn from './locales/en/programs.json';
 import ProgramsKa from './locales/ka/programs.json';
+import CampusEn from './locales/en/campus.json';
+import CampusKa from './locales/ka/campus.json';
 
 const resources = {
   en: {
@@ -37,6 +39,7 @@ const resources = {
     footer: FooterEn,
     header: HeaderEn,
     programs: ProgramsEn,
+    campus: CampusEn,
   },
   ka: {
     admission: AdmissionKa,
@@ -50,6 +53,7 @@ const resources = {
     footer: FooterKa,
     header: HeaderKa,
     programs: ProgramsKa,
+    campus: CampusKa,
   },
 };
 

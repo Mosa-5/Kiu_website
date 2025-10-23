@@ -4,6 +4,7 @@ import Layout from "./layout";
 import NotFound from "./pages/NotFound";
 import { Loader2 } from "lucide-react";
 
+const CampusPage = lazy(() => import("./pages/Campus"));
 const News = lazy(() => import("./pages/News"));
 const SingleNews = lazy(() => import("./pages/SIngleNews"));
 const Home = lazy(() => import("./pages/Home"));
@@ -108,6 +109,14 @@ function App() {
           element={
             <Suspense fallback={<LoadingFallback />}>
               <Admission />
+            </Suspense>
+          }
+        />
+        <Route
+          path="campus"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <CampusPage />
             </Suspense>
           }
         />

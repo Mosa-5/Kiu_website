@@ -53,6 +53,7 @@ export { default as BorisVexler } from "./thumbnail_boris_vexler_foto_1.webp";
 export { default as RamazBochorishvili } from "./ramaz_botchorishvili_photo.webp";
 export { default as MathHero } from "./programImages/mathCard.jpg";
 export { default as AdmisssionHero } from "./admission-hero.png";
+export { default as CampusHeroImage } from "./CampusHero.webp";
 
 //home carousel images
 //english
