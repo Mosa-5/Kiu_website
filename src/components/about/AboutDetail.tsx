@@ -117,10 +117,7 @@ const AboutDetail: React.FC = () => {
             <p className={signatureName()}>{t("intro.signature.name")}</p>
             <p className={signatureTitle()}>{t("intro.signature.title")}</p>
             <p className={signatureDate()}>{t("intro.signature.date")}</p>
-            <a
-              href="#"
-              className={signatureLink()}
-            >
+            <a href="#" className={signatureLink()}>
               {t("intro.signature.linkText")}
             </a>
           </div>
@@ -157,10 +154,7 @@ const AboutDetail: React.FC = () => {
 
           <div className={`${clearFloat()} ${signatureContainer()}`}>
             <p className={signatureName()}>{t("president.signatureName")}</p>
-            <a
-              href="#"
-              className={signatureLink()}
-            >
+            <a href="#" className={signatureLink()}>
               {t("president.signatureLinkText")}
             </a>
           </div>

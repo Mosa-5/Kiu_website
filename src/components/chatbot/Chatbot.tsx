@@ -1,6 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { MessageSquare, X, Send } from "lucide-react";
 import { Button } from "../ui/button";
+import {
+  floatingButton,
+  chatWindow,
+  chatHeader,
+  closeIcon,
+  messagesContainer,
+  messageBox,
+  loadingText,
+  inputContainer,
+  input,
+  sendButton,
+} from "./Chatbot.styles";
 
 interface Message {
   sender: "user" | "bot";
@@ -46,6 +58,14 @@ export default function ChatbotGemini() {
       initialMessageSent.current = true;
     }
   }, [isOpen]);
+
+  // Open chat automatically on initial load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 1000); // Open after 1 second
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSend = async () => {
     const userText = chatState.input.trim();
@@ -137,54 +157,34 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
       {/* Floating Button */}
       <Button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-5 right-5 w-15 h-15 bg-mainLight text-white p-4 rounded-full hover:bg-main transition-all duration-300 border-2 border-main ${
-          isOpen ? "scale-0 opacity-0" : "scale-100 opacity-100"
-        }`}
+        className={floatingButton({ isOpen })}
       >
         <MessageSquare size={24} />
       </Button>
 
       {/* Chat Window */}
-      <div
-        className={`fixed bottom-5 max-sm:right-1/2 max-sm:translate-x-1/2 right-5 sm:w-100 w-87 h-120 bg-white shadow-xl border-main rounded-xl overflow-hidden border-2 flex flex-col transition-all duration-300 origin-bottom-right ${
-          isOpen
-            ? "scale-100 opacity-100 translate-y-0"
-            : "scale-95 opacity-0 translate-y-4 pointer-events-none"
-        }`}
-      >
-        <div className="bg-main text-white p-3 flex justify-between items-center font-semibold tracking-wide">
+      <div className={chatWindow({ isOpen })}>
+        <div className={chatHeader()}>
           {title}
-          <X
-            className="cursor-pointer hover:opacity-80 transition-opacity"
-            onClick={() => setIsOpen(false)}
-          />
+          <X className={closeIcon()} onClick={() => setIsOpen(false)} />
         </div>
 
-        <div className="flex-1 p-3 overflow-y-auto chat-messages-scroll flex flex-col gap-2">
+        <div className={messagesContainer()}>
           {chatState.messages.map((msg, i) => (
-            <div
-              key={i}
-              className={`p-2 rounded-lg max-w-[80%] animate-slideIn ${
-                msg.sender === "user"
-                  ? "bg-blue-100 self-end"
-                  : "bg-gray-100 self-start"
-              }`}
-            >
+            <div key={i} className={messageBox({ sender: msg.sender })}>
               {msg.text}
             </div>
           ))}
 
           {chatState.loading && (
-            <div className="text-gray-500 text-base animate-pulse">
-              Thinking...
-            </div>
+            <div className={loadingText()}>Thinking...</div>
           )}
           <div ref={messagesEndRef} />
         </div>
 
-        <div className="p-2 border-t flex gap-2">
+        <div className={inputContainer()}>
           <input
-            className="flex-1 border rounded-md px-2 py-2 sm:py-2 shadow-sm text-base w-40 sm:w-auto focus:outline-none focus:ring-2 focus:ring-main transition-all"
+            className={input()}
             value={chatState.input}
             onChange={(e) =>
               setChatState((prev) => ({ ...prev, input: e.target.value }))
@@ -193,7 +193,7 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
           />
           <Button
-            className="w-12 h-full shadow-sm transition-colors disabled:opacity-50"
+            className={sendButton()}
             onClick={handleSend}
             disabled={chatState.loading}
           >

@@ -21,6 +21,9 @@ export const preloadCriticalImages = () => {
     images.VacanciesHero,
     images.ProjectsHeroImage,
     images.MathHero,
+    images.CampusHeroImage,
+    images.StudentsHeroImage,
+    images.ResearchHeroImage,
   ];
 
   return Promise.all(
