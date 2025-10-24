@@ -15,15 +15,18 @@ import {
 
 interface Props {
   programData: ProgramData;
+  mainColorClass: string;  
+  headingBgClass: string; 
 }
 
-const TuitionCostsSection: React.FC<Props> = ({ programData }) => {
+const TuitionCostsSection: React.FC<Props> = ({ programData,mainColorClass,
+  headingBgClass,}) => {
   const data = programData.tuitionAndCosts;
 
   return (
     <section id="tuition-costs" className={section()}>
-      <div className={headingContainer()}>
-        <h2 className={title()}>{data.title}</h2>
+      <div className={`${headingContainer()} ${headingBgClass}`}>
+        <h2 className={`${title()} ${mainColorClass}`}>{data.title}</h2>
         <span className={icon()}>{CostsIcon}</span>
       </div>
 

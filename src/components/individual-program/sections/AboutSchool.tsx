@@ -13,17 +13,24 @@ import {
 
 interface Props {
   programData: ProgramData;
+  mainColorClass: string;  
+  headingBgClass: string; 
 }
-
-const AboutSchoolSection: React.FC<Props> = ({ programData }) => {
+const AboutSchoolSection: React.FC<Props> = ({
+  programData,
+  mainColorClass,
+  headingBgClass,
+}) => {
   const { aboutSchool } = programData;
 
   return (
     <section id="about-school" className={section()}>
-      <div className={headingBadge()}>
-        <h1 className={heading()}>{aboutSchool.title}</h1>
+      {/* heading badge uses its own bg color */}
+      <div className={`${headingBadge()} ${headingBgClass}`}>
+        <h1 className={`${heading()} ${mainColorClass}`}>{aboutSchool.title}</h1>
         <span className={iconWrapper()}>{SchoolIcon}</span>
       </div>
+
 
       {aboutSchool.paragraphs.map((para, i) => (
         <p key={i} className={paragraph()}>

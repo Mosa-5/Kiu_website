@@ -21,6 +21,17 @@ const SingleProgramDetail: React.FC = () => {
   const programsData = getProgramsData(i18n.language);
   const programData = programsData[id || ""];
 
+  const programThemes: Record<string, { main: string; bg: string }> = {
+    computerScience: { main: "text-mainDark", bg: "bg-headingBg" },
+    mathematics:    { main: "text-mainDarkMaths", bg: "bg-headingBgMaths" },
+  };
+
+  const { main, bg } = programThemes[id || "computerScience"] || {
+    main: "text-mainDark",
+    bg: "bg-headingBg",
+  };
+
+
   if (!programData) {
     return (
       <div className="max-w-[1680px] mx-auto font-sans p-8">
@@ -80,14 +91,18 @@ const SingleProgramDetail: React.FC = () => {
       />
 
       <div className="max-w-[1680px] max-sm:px-4 mx-auto font-sans">
-        <AboutSchoolSection programData={programData} />
-        <AboutProgramSection programData={programData} />
-        <CurriculumBriefSection programData={programData} />
-        <MinorProgramSection programData={programData} />
-        <ProgramSupervisorSection programData={programData} />
-        <AcademicPersonnelSection programData={programData} />
-        <TuitionCostsSection programData={programData} />
-        <NewsletterArchiveSection programData={programData} />
+        <AboutSchoolSection
+          programData={programData}
+          mainColorClass={main}
+          headingBgClass={bg}
+        />
+        <AboutProgramSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+        <CurriculumBriefSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+        <MinorProgramSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+        <ProgramSupervisorSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+        <AcademicPersonnelSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+        <TuitionCostsSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+        <NewsletterArchiveSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
       </div>
     </>
   );

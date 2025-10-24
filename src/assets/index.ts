@@ -53,6 +53,17 @@ export { default as BorisVexler } from "./thumbnail_boris_vexler_foto_1.webp";
 export { default as RamazBochorishvili } from "./ramaz_botchorishvili_photo.webp";
 export { default as MathHero } from "./programImages/mathCard.jpg";
 export { default as AdmisssionHero } from "./admission-hero.png";
+export { default as CampusHeroImage } from "./CampusHero.webp";
+export { default as StudentsHeroImage } from "./Students.webp";
+export { default as AcademicCalendar } from "./academic-calendar.webp";
+export { default as ResearchHeroImage } from "./research.webp";
+export { default as ResearchImage1 } from "./research1.png";
+export { default as ResearchImage2 } from "./research2.png";
+export { default as SaarlandUniversity } from "./SaarlandUniversity.png";
+export { default as UniversiteParisSaclay } from "./UniversiteParisSaclay.jpg";
+export { default as StudentProjectsCollage } from "./StudentProjectsCollage.jpg";
+
+
 
 //home carousel images
 //english

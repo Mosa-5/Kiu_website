@@ -3,8 +3,11 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./layout";
 import NotFound from "./pages/NotFound";
 import { Loader2 } from "lucide-react";
+import Students from "./pages/Students";
+import Research from "./pages/Research";
 import { preloadCriticalImages } from "./utils/imagePreloader";
 
+const CampusPage = lazy(() => import("./pages/Campus"));
 const News = lazy(() => import("./pages/News"));
 const SingleNews = lazy(() => import("./pages/SIngleNews"));
 const Home = lazy(() => import("./pages/Home"));
@@ -112,6 +115,30 @@ function App() {
           element={
             <Suspense fallback={<LoadingFallback />}>
               <Admission />
+            </Suspense>
+          }
+        />
+        <Route
+          path="campus"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <CampusPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="students"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <Students />
+            </Suspense>
+          }
+        />
+        <Route
+          path="research"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <Research />
             </Suspense>
           }
         />

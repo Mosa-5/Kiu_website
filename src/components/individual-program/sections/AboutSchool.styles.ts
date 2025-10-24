@@ -3,10 +3,10 @@ import { cva } from "class-variance-authority";
 export const section = cva("mb-12");
 
 export const headingBadge = cva(
-  "bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6"
+  "inline-flex items-center gap-3 px-4 py-2 rounded mb-6"
 );
 
-export const heading = cva("text-2xl sm:text-3xl font-medium text-mainDark");
+export const heading = cva("text-2xl sm:text-3xl font-medium");
 
 export const iconWrapper = cva("text-mainDark");
 

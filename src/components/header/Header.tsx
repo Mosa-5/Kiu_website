@@ -35,12 +35,12 @@ const Header = () => {
   const navLinks = [
     { label: t("nav.about"), path: "/about-us" },
     { label: t("nav.programs"), path: "/programs" },
-    { label: t("nav.research"), path: "/" },
+    { label: t("nav.research"), path: "/research" },
     { label: t("nav.projects"), path: "/projects" },
     { label: t("nav.admission"), path: "/admission" },
-    { label: t("nav.students"), path: "/" },
+    { label: t("nav.students"), path: "/students" },
     { label: t("nav.news"), path: "/news" },
-    { label: t("nav.campus"), path: "/" },
+    { label: t("nav.campus"), path: "/campus" },
     { label: t("nav.vacancies"), path: "/vacancies" },
   ];
 

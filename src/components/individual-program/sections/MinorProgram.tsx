@@ -13,15 +13,18 @@ import {
 
 interface Props {
   programData: ProgramData;
+  mainColorClass: string;  
+  headingBgClass: string; 
 }
 
-const MinorProgramSection: React.FC<Props> = ({ programData }) => {
+const MinorProgramSection: React.FC<Props> = ({ programData,mainColorClass,
+  headingBgClass, }) => {
   const data = programData.minorProgram;
 
   return (
     <section id="minor-program" className={section()}>
-      <div className={headingContainer()}>
-        <h2 className={title()}>{data.title}</h2>
+      <div className={`${headingContainer()} ${headingBgClass}`}>
+        <h2 className={`${title()} ${mainColorClass}`}>{data.title}</h2>
         <span className={icon()}>{MinorIcon}</span>
       </div>
 
