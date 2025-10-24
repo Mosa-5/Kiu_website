@@ -1,0 +1,376 @@
+{
+  "calendar": {
+    "title": "Academic Calendar",
+    "description": "Please refer to this calendar for important academic dates and deadlines for the semester."
+  },
+  "mobility": {
+    "title": "Academic Mobility",
+    "external": {
+      "title": "External Mobility",
+      "p1": "Admission to Kutaisi International University through external mobility is available twice a year, during the fall and spring semesters.",
+      "p2": "The deadlines for external mobility applications are set by the Education Management Information System (EMIS).",
+      "p3": "To enroll, students must register online through",
+      "p3_link": "students.emis.ge",
+      "p4": "For detailed information, please visit",
+      "p4_link": "www.emis.ge"
+    },
+    "internal": {
+      "title": "Internal Mobility",
+      "p1": "KIU is announcing internal mobility for the 2024-25 Academic Year Spring Semester. Registration opens on February 3rd at 09:00.",
+      "p2": "Please see the online registration form for 2023-24 Academic Year Spring Semester internal mobility",
+      "p2_link": "here",
+      "p3": "Registration: February 3–7 | Interviews: February 10–13"
+    },
+    "programs": {
+      "math": {
+        "name": "Bachelor's program: Mathematics",
+        "phone": "Telephone: 511 134 197"
+      },
+      "cs": {
+        "name": "Bachelor's program: Computer Science",
+        "phone": "Telephone: 511 133 197"
+      },
+      "management": {
+        "name": "Bachelor's program: Management",
+        "phone": "Telephone: 599 909 909"
+      }
+    },
+    "contact": {
+      "text": "For additional questions please contact:",
+      "email": "sss@kiu.edu.ge",
+      "phone": "Telephone: 511 133 197"
+    }
+  },
+  "campus": {
+    "title": "Campus",
+    "paragraph1": "The Kutaisi International University Campus is located in the environmentally clean area of the city of Kutaisi, Georgia (Georgia's third largest city). The campus is spread out on a beautiful 160 hectares of land, surrounded by a forest with a river running through it. The campus is well connected and easy to reach. It is situated 25 km from Kutaisi International Airport and is only 3 hours' drive from Tbilisi.",
+    "paragraph2": "KIU offers modern and state-of-the-art laboratories, student facilities, cafeterias, libraries, co-working spaces, and an interactive learning management system — all creating a forward-thinking, technology-oriented educational ecosystem.",
+    "dormitoryRegulations": "Dormitory Regulations of LEPL – Kutaisi International University",
+    "videoIntro": "Please see",
+    "videoLink": "KIU Campus video tour"
+  },
+  "erasmus": {
+    "title": "Erasmus",
+    "calls": {
+      "upv": {
+        "title": "Call Universitat Politècnica de València",
+        "subTitle": "CALL FOR THE SELECTION OF FULL-TIME/ASSOCIATE PROFESSORS FOR A WEEK EXCHANGE IN THE UNIVERSITAT POLITÈCNICA DE VALÈNCIA (SPAIN)",
+        "program": "Erasmus+ KA171",
+        "description": "The Kutaisi International University and the Polytechnic University of Valencia (Spain) agreed to cooperate on the exchange of students and staff in the context of the Erasmus+ KA171 program.",
+        "toWhom": "Full-time/associate professors of The Kutaisi International University",
+        "whereTo": "Universitat Politècnica de València (UPV)",
+        "whatFor": "The selected lecturers will exchange academic experiences and explore future collaboration in common research fields.",
+        "period": "One week (five working days and two travel days) according to the working plan agreed with the UPV hosting Professor.",
+        "eligible": "Professors of the School of Computer Science",
+        "info": "The text of this call for applicants is published at the following links:",
+        "kiuWebsite": "KIU Website:",
+        "projectsWebsite": "Project's Website:",
+        "applicationDeadline": "APPLICATIONS SHOULD BE SUBMITTED: BEFORE 10.06.2025",
+        "email": "erasmusplus@kiu.edu.ge",
+        "applicationContentTitle": "THE APPLICATION SHOULD HAVE THE FOLLOWING CONTENT:",
+        "applicationContent": [
+          "CV in English",
+          "Motivation letter where the applicant expresses why he/she wishes to participate in this exchange",
+          "Lectures: Draft of the working plan pre-agreed with a UPV professor that should contain the overall objectives of mobility, teaching activity with a minimum of 8 teaching hours, and expected outcomes on the professional development and on the development of institutional collaboration."
+        ],
+        "criteriaTitle": "SELECTION CRITERIA",
+        "criteria": [
+          "The selection committee will consider the following criteria:",
+          "English language level: B1+ up to 3 points",
+          "Motivation letter: Up to 2 points",
+          "Applicant's curriculum vitae: up to 3 points",
+          "Proposed work plan: up to 4 points. This section will take into account the added value of mobility (for both institutions and for the participant) and the expected impact and result"
+        ]
+      },
+      "wur": {
+        "title": "Call Universität Würzburg",
+        "description": "The Kutaisi International University and the University of Würzburg (Germany) agreed on the exchange of students and staff in the context of the Erasmus+ KA171 program.",
+        "to": "3rd-year Mathematics students and Computer Science students minoring in Mathematics.",
+        "whereTo": "The University of Würzburg",
+        "period": "2025 spring semester (13.04.2025 - 17.07.2025)",
+        "studyCycle": "First",
+        "what": "The selected students will study between 24-30 ECTS in the University of Würzburg (Germany)",
+        "info": "The text of this call for applicants is published at the following links:",
+        "kiuWebsite": "KIU Website:",
+        "projectsWebsite": "Project's website:",
+        "availableSubjects": "Available subjects in English can be found on the following link, in order to compare the contents of the subjects with your syllabus:",
+        "eligibleStudents": "3rd-year Mathematics students and Computer Science students minoring in Mathematics.",
+        "applicationLink": "Applications should be submitted on the following link:",
+        "applicationDeadline": "Application deadline: September 5",
+        "contactInfo": "For enquiries, please contact the KIU Office of International Relations:",
+        "applicationContentTitle": "The application should contain following information about the applicant:",
+        "applicationContent": [
+          "Academic record",
+          "CV in English in the format of EUROPASS CV",
+          "English language level: B2",
+          "German language: B1(optional)",
+          "Motivation letter, where the applicant expressed the reasons why she/he wishes to participate in this exchange",
+          "Copy of the passport or ID card issued by the university",
+          "Other documents and information as deemed necessary by the applicant."
+        ],
+        "priorityTitle": "STUDENTS WITH ADMISSION PRIORITY",
+        "priorityDescription": "By the priorities of the Erasmus+ ICM Program, students in any of the following circumstances are particularly encouraged to apply:",
+        "priorityList": [
+          "Students with a scholarship from the Ministry of Education, Science and Youth of Georgia",
+          "A single family member, according to the recognition of the country of origin.",
+          "A member of a single parent family.",
+          "Student who has a disability that is more significant than 33% officially recognized in the country of origin or residence.",
+          "Student who is a refugee or a status of Internally displaced person (IDPs) in the country of residence.",
+          "Student who has social exclusion or social emergency.",
+          "Student who is an orphan.",
+          "Student working full time.",
+          "Students with children; students with chronical illnesses, first-academic students.",
+          "A copy of the corresponding certificate or legal document must be provided certifying the above-mentioned circumstance."
+        ],
+        "criteriaTitle": "SELECTION CRITERIA",
+        "criteriaDescription": "A Selection Committee will consider the following criteria in the selection of all candidates:",
+        "criteria": [
+          "GPA (up to 4 points );",
+          "English/ French/ Knowledge and B2/motivation (score: up to 1 point)",
+          "The level of German Language through the presentation of the certificate or equivalent accreditation (evaluation score: 1 point).",
+          "Motivation letter (evaluation score: up to 2 points);",
+          "Academic CV (up to 1 point);",
+          "Other activities and achievements with proof/documents provided (evaluation score: up to 3 points)."
+        ],
+        "finalSelection": "Final selection of students will be carried out by the applicant's host partner university."
+      },
+      "paris": {
+        "title": "CALL Université Paris-Saclay",
+        "subtitle": "CALL FOR SELECTION OF STUDENTS TO STUDY FOR TWO MONTHS TRAINEESHIP PROGRAMME AT THE UNIVERSITÉ PARIS-SACLAY WITHIN THE FRAMEWORK OF ERASMUS+ KA171",
+        "description": "The Kutaisi International University and the Université Paris-Saclay (France) agreed to cooperate on the internship of students in the context of the Erasmus+ KA171 program.",
+        "toWhom": "3rd-Year Students and PhD students in Physics and Computer Science",
+        "whereTo": "Université Paris-Saclay",
+        "whatFor": "The stay in the University is internship in France (56 days) 2025-Summer Georgia time",
+        "period": "01 July 2025 - 01 September 2025",
+        "whatForSelected": "Erasmus+ CV transcripts at Paris-Saclay University will correspond to 12 ECTS",
+        "observation": "For PhD students - Software information, Big Data, PHGA, PhD development. in the BIG Students in C ED for physics applications. For PhD students - Physics and Mathematics at ED 564, Science de l'Ingénieur.",
+        "info": "Information: The text of this call for applicants is published at the following links:",
+        "kiuWebsite": "KIU Website:",
+        "projectsWebsite": "Project's website:",
+        "eligibleStudents": "ELIGIBLE STUDENTS: Undergraduate and PhD Students.",
+        "applicationDeadline": "APPLICATIONS SHOULD BE SUBMITTED: From to June 7 2024 at 19:00 o'clock Georgia time via following form",
+        "contactInfo": "For inquiries, please contact the KIU Office of International Relations:",
+        "applicationContentTitle": "The application should contain following information about the applicant:",
+        "applicationContent": [
+          "Academic record",
+          "CV in English (via format of EUROPASS CV)",
+          "English certificate: B2 or higher",
+          "Copy of the passport or valid ID",
+          "Motivation letter, where the applicant expresses the reasons why she/he wishes to participate in this exchange",
+          "Other documents and information as deemed necessary by the applicant."
+        ],
+        "priorityTitle": "STUDENTS WITH ADMISSION PRIORITY",
+        "priorityDescription": "By the priorities of the Erasmus+ ICM Program, students in any of the following circumstances are particularly encouraged to apply:",
+        "priorityList": [
+          "Students with a scholarship from the Ministry of Education, Science and Youth of Georgia.",
+          "A single family member, according to the recognition of the country of origin.",
+          "A member of a single-parent family.",
+          "Student who has a disability that is more significant than 33% officially recognized in the country of origin or residence.",
+          "Student who is a refugee or a status of Internally displaced person (IDPs) in the country of residence.",
+          "Student who has social exclusion or social emergency.",
+          "Student who is an orphan.",
+          "Student working full time.",
+          "Students with children; students with chronical illnesses, first-academic students.",
+          "A copy of the corresponding certificate or legal document must be provided certifying the above-mentioned circumstance."
+        ],
+        "criteriaTitle": "SELECTION CRITERIA",
+        "criteriaDescription": "A Selection Committee will consider the following criteria in the selection of all candidates:",
+        "criteria": [
+          "GPA (up to 3 points)",
+          "English or French Certificate (B2 – 4 points, C1 – 4.5 points, C2 – 5 points);",
+          "Motivation letter (evaluation score: up to 1 points);",
+          "Applicants CV (up to 5 points).",
+          "Other activities and achievements with proof/documents provided (Up to 3 points)"
+        ],
+        "finalSelection": "Final selection of students will be carried out by the partner University."
+      },
+      "saarland": {
+        "title": "CALL Saarland University",
+        "subtitle": "CALL FOR SELECTION OF STUDENTS TO STUDY FOR ONE SEMESTER AT THE SAARLAND UNIVERSITY (GERMANY) WITHIN THE FRAMEWORK OF ERASMUS+ KA171",
+        "description": "The Kutaisi International University and the Saarland University (Germany) agreed on the exchange of students and staff in the context of the Erasmus+ KA171 program.",
+        "toWhom": "2nd, 3rd, and 4th Year BSc Students in Computer Science",
+        "whereTo": "Saarland University (Germany)",
+        "period": "April 2025 to July 2025",
+        "what": "The selected students will study between 24 and 30 ECTS at the Saarland University School of Computer Science",
+        "info": "The text of this call for applicants is published in the following links:",
+        "kiuWebsite": "KIU Website:",
+        "projectsWebsite": "Project's website:",
+        "eligibleStudents": "ELIGIBLE STUDENTS:",
+        "applicationDeadline": "APPLICATIONS SHOULD BE SUBMITTED: Prior to December 5, 2024 at 09:00 o'clock Georgia time via following form",
+        "contactInfo": "For inquiries, please contact the KIU Office of International Relations:",
+        "applicationContentTitle": "The application should contain following information about the applicant:",
+        "applicationContent": [
+          "Academic record",
+          "CV in English (via format of EUROPASS CV)",
+          "English certificate: B2 or higher",
+          "Motivation letter, where the applicant expresses the reasons why she/he wishes to participate in this exchange",
+          "Other documents and information as deemed necessary by the applicant."
+        ],
+        "priorityTitle": "STUDENTS WITH ADMISSION PRIORITY",
+        "priorityDescription": "By the priorities of the Erasmus+ ICM Program, students in any of the following circumstances are particularly encouraged to apply:",
+        "priorityList": [
+          "Students with a scholarship from the Ministry of Education, Science and Youth of Georgia.",
+          "A single family member, according to the recognition of the country of origin.",
+          "A member of a single parent family.",
+          "Student who has a disability that is significant than 33% officially recognized in the country of origin or residence.",
+          "Student who is a refugee or has a status of Internally displaced person (IDPs) in the country of residence.",
+          "Student who has social exclusion or social emergency.",
+          "Student who is an orphan.",
+          "Student working full time.",
+          "A copy of the corresponding certificate or legal document must be provided certifying the above-mentioned circumstance."
+        ],
+        "criteriaTitle": "SELECTION CRITERIA",
+        "criteriaDescription": "A Selection Committee will consider the following criteria in the selection of all candidates:",
+        "criteria": [
+          "GPA (up to 3 points when evaluating the application):",
+          "Motivation letter (evaluation score: up to 1 points);",
+          "Motivation letter: translation score: up to 5 points);",
+          "Applicants CV, presentation score: up to 5 points);",
+          "Other activities and achievements with proof/documents provided (evaluation score: up to 3 points);",
+          "The level of German Language through the presentation of the certificate or equivalent accreditation (evaluation score: 3 points). (OPTIONAL)"
+        ],
+        "finalSelection": "Final selection of students will be carried out by the partner University."
+      }
+    },
+    "common": {
+      "applicationForm": "form",
+      "europassCV": "EUROPASS CV",
+      "website": "Website",
+      "email": "Email",
+      "telephone": "Telephone"
+    }
+  },
+  "grantProgram": {
+    "title": "Student Grant Program",
+    "currentCompetition": "Current Grant Competition",
+    "description": "Kutaisi International University is now accepting applications for the 2024-2025 Student Project Funding Program. The program aims to finance student projects that promote the development of student life and the educational environment.",
+    "submissionInfo": "The project can be submitted by an active student, a group of students, a student club, or any student association.",
+    "deadline": "The deadline for submissions is",
+    "fundingCategories": "The program provides funding for the following categories of projects:",
+    "categories": {
+      "studentLife": {
+        "title": "Student Life Support Projects",
+        "description": "Organizing cultural, creative and sports events, competitions, hackathons, festivals, student clubs and other activities on the territory of Georgia."
+      },
+      "educational": {
+        "title": "Student Educational Projects",
+        "description": "Organizing student research projects, quizzes, conferences and preparing for the Olympiads within Georgia, development/implementation of professional development courses, etc."
+      },
+      "startup": {
+        "title": "Startup Projects by Students",
+        "description": "A team of KIU students with innovative startup ideas that enhance student life diversity and promote a culture of collaboration can submit a proposal."
+      }
+    },
+    "criteria": {
+      "title": "Criteria",
+      "items": [
+        "Any student of the University, regardless of citizenship, shall be able to participate in the activities carried out within the project;",
+        "The working language of the project should be either Georgian or English and Georgian, except for foreign language clubs;",
+        "The activity/event should serve to diversify student life at the University and create an inclusive environment, raising and developing students' academic and professional skills;",
+        "The student shall be eligible to participate in the submission of only two projects at the time, and the project coordinator may be present in only one project."
+      ]
+    },
+    "submissionRequirements": {
+      "title": "What is required to submit a project?",
+      "items": [
+        "Project application (see KIU Student Project Funding Application Form ST_FORM_004), which will provide information about the project initiative group, project objective, project description and justification, project implementation plan and schedule, expected results, budget for the project;",
+        "CVs for the project coordinator and members of the core team;",
+        "The project can be submitted in both English and Georgian;",
+        "The project application can be submitted to the following e-mail address:"
+      ]
+    },
+    "financialSupport": {
+      "title": "Project financial support",
+      "description": "The project budget shall not exceed GEL 12,500, including income tax (20%). Projects that will have a co-financing component are encouraged.",
+      "contact": "For questions and/or consultations, please reach out to the Student Projects Financing Program team at the following email address:"
+    },
+    "financedProjects": {
+      "title": "Financed Projects",
+      "projects": [
+        {
+          "name": "Competitive Programming Club",
+          "objective": "To popularize competitive programming among students and motivate prospective students to choose KIU, achieving recognition in the rankings of famous Olympiads and contests.",
+          "team": "Toma Pirtskhelani (Coordinator), Nika Pkhakadze, Lasha Kvatsashidze."
+        },
+        {
+          "name": "Animation Club",
+          "objective": "Projects 3D visualization and studying prototypes.",
+          "team": "Valeri Gurgenashvili (Coordinator)."
+        },
+        {
+          "name": "Musical Room",
+          "objective": "Creating an enjoyable environment for students and university staff.",
+          "team": "Giorgi Tsintsadze (Coordinator)."
+        },
+        {
+          "name": "KIU Basketball Team",
+          "objective": "Formation of a competitive basketball team.",
+          "team": "Giorgi Chabukiani (Coordinator)."
+        },
+        {
+          "name": "KIU Math Club",
+          "objective": "Representing KIU in international and local championships.",
+          "team": "Sandro Varsadze (Coordinator), Tato Sadgvaradze."
+        },
+        {
+          "name": "KIU Football Team",
+          "objective": "Promoting a health-conscious lifestyle.",
+          "team": "Tariel Tseretsvadze (Coordinator)."
+        },
+        {
+          "name": "IQ197",
+          "objective": "Enhancing education and fostering logical thinking among students while providing opportunities for healthy competition and teamwork activities.",
+          "team": "Ana Molodini (Coordinator)."
+        },
+        {
+          "name": "Clevermind League",
+          "objective": "Organizing intellectual competitions.",
+          "team": "Natia Solomonidze (Coordinator)."
+        },
+        {
+          "name": "Volleyball Club",
+          "objective": "Promoting a health-conscious lifestyle.",
+          "team": "Nodar Qochashvili (Coordinator)."
+        },
+        {
+          "name": "Georgian Rover Challenge KIU Club",
+          "objective": "Robotics and STEM learning processes for students.",
+          "team": "Mikheil Tenieshvili (Coordinator)."
+        }
+      ]
+    },
+    "collageTitle": "STUDENT PROJECTS FINANCED BY KIU",
+    "emails": {
+      "sgp": "sgp@kiu.edu.ge"
+    }
+  },
+  "legalDirectory": {
+    "title": "Legal Directory",
+    "documents": [
+      "General Academic Regulations →",
+      "Rule For Administering Examinations →", 
+      "Dormitory Regulations of LEPL – Kutaisi International University →"
+    ]
+  },
+  "library": {
+    "title": "Library",
+    "description1": "Kutaisi International University (KIU) features a modern and well-equipped library that provides a comprehensive collection of books and study materials essential for academic programs, as well as a diverse range of artistic and scientific literature.",
+    "description2": "The library offers a wide range of electronic resources, including e-books, research papers, and study syllabi. Students have access to academic databases such as ScienceDirect, Scopus, Funding Institutional (Elsevier), Cambridge University Press, Sage Journals, MSP, The Royal Society, and more.",
+    "description3": "The KIU library features a reading room, coworking spaces, computers, technology resources, and a printing room.",
+    "description4": "Located in the academic building (K Block), the library is open Monday to Friday, from 09:00 to 18:00.",
+    "contactInfo": "For more information, contact:",
+    "email": "library@kiu.edu.ge"
+  },
+  "hero": {
+    "title": "Students",
+    "home": "Home"
+  },
+  "intro": {
+    "title": "KIU Students Grants Fund Promoting Student Life Activities and Educational Projects",
+    "description": "Kutaisi International University is implementing students' projects financing program to promote student life activities and various educational projects.",
+    "eligibility": "The projects can be submitted only by KIU students with active status (i.e. current students). Projects can be submitted by one student or a group of students, students' club, union, or association.",
+    "categories": "Program funds projects in various categories. For details, please email us at:",
+    "email": "sgp@kiu.edu.ge"
+  }
+}
+

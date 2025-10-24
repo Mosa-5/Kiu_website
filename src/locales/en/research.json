@@ -1,0 +1,113 @@
+{
+  "hero": {
+    "home": "Home",
+    "title": "Research"
+  },
+  "detail": {
+    "introParagraphs" : [
+      [
+        { "type": "text", "value": "KIU is aiming to become an international research and education hub in the region. The research strategy of KIU includes development of the state-of-the-art facilities and modern research infrastructure. Research facilities and labs will be organized to support development of the Masters, Doctoral, and Post-doctoral level research by attracting scientists and leading experts in the respective fields." }
+      ],
+      [
+        { "type": "text", "value": "KIU's strategic development plan Hadron Therapy Center. This research center will offer its facilities for the scientific research in particle physics, radiation physics and biophysics, as well as support operations of the Proton Therapy Center, coupled with the faculty of Medicine at KIU." }
+      ],
+      [
+        { "type": "text", "value": "KIU supports international scientific collaborations of academic, administrative, and research staff. For more information about partnerships, please visit KIU website " },
+        { "type": "link", "value": "www.kiu.edu.ge", "href": "https://www.kiu.edu.ge" },
+        { "type": "text", "value": " or contact us at " },
+        { "type": "link", "value": "info@kiu.edu.ge", "href": "mailto:info@kiu.edu.ge" }
+      ]
+    ],
+    "htc": {
+      "title": "Hadron Therapy Center (HTC)",
+      "description": "The Kutaisi International University will house a Hadron Therapy Center. The center will be equipped with the cyclotron particle accelerators for conducting scientific research and medical treatment. HTC will provide facilities and labs for research and education along the following directions:",
+      "directions": [
+        "Medical and Experimental Physics;",
+        "Medical and Radiation Biophysics;",
+        "Radiochemistry;"
+      ],
+      "locationLabel": "Location of the HTC facilities are:",
+      "kutaisi": "Kutaisi",
+      "facilitiesDescription": "The facilities at the Kutaisi International University Campus will be provided by IBA (Ion Beam Applications SA) cyclotrons. Center will be established to support both scientific research, as well as treatment of cancer patients."
+    },
+    "proton": {
+      "title": "Proton Therapy Clinic",
+      "paragraphs": [
+        "A Proton Therapy Clinic will be established at the Kutaisi International University Campus and will offer its patients a combined diagnostic and treatment facilities. Cancer research and treatment will be based on the state of the art proton therapy based methods.",
+        "Proton Therapy is considered the most advanced form of radiation therapy that uses high-energy proton beam to irradiate tumors. The range of the applications of this cutting-edge solution is expanding.",
+        "The center will join world's largest and most advanced networks of the proton therapy centers."
+      ]
+    },
+    "publications": {
+      "title": "Publications",
+      "description": "Kutaisi International University holds annual conferences at the end of every academic year, where professors and scientists of the university can present their research. Conference is organized into parallel sessions, depending on the research topics. KIU Annual conference includes sections of:",
+      "years": [
+        {
+          "title": "KIU Annual conference 2021",
+          "sections": [
+            {
+              "label": "Management",
+              "link": "https://kiu.edu.ge/2021-newsletter",
+              "linkText": "2021 Newsletter"
+            },
+            {
+              "label": "Mathematics and Computer Science",
+              "link": "https://kiu.edu.ge/2021-newsletter",
+              "linkText": "2021 Newsletter"
+            },
+            {
+              "label": "Physics",
+              "link": "#",
+              "linkText": "Physics"
+            }
+          ]
+        },
+        {
+          "title": "KIU Annual conference 2022",
+          "sections": [
+            {
+              "label": "Management",
+              "link": "https://kiu.edu.ge/2022-newsletter",
+              "linkText": "2022 Newsletter"
+            },
+            {
+              "label": "Mathematics and Computer Science",
+              "link": "https://kiu.edu.ge/2022-newsletter",
+              "linkText": "2022 Newsletter"
+            }
+          ]
+        },
+        {
+          "title": "KIU Annual conference 2023",
+          "sections": [
+            {
+              "label": "Management",
+              "link": "https://kiu.edu.ge/2023-newsletter",
+              "linkText": "2023 Newsletter"
+            },
+            {
+              "label": "Mathematics and Computer Science",
+              "link": "#",
+              "linkText": "Mathematics and Computer Science"
+            }
+          ]
+        },
+        {
+          "title": "KIU Annual conference 2024",
+          "sections": [
+            {
+              "label": "Management",
+              "link": "https://kiu.edu.ge/2024-newsletter",
+              "linkText": "2024 Newsletter"
+            },
+            {
+              "label": "Mathematics and Computer Science",
+              "link": "#",
+              "linkText": "Mathematics and Computer Science"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

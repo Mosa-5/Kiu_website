@@ -3,6 +3,8 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./layout";
 import NotFound from "./pages/NotFound";
 import { Loader2 } from "lucide-react";
+import Students from "./pages/Students";
+import Research from "./pages/Research";
 
 const CampusPage = lazy(() => import("./pages/Campus"));
 const News = lazy(() => import("./pages/News"));
@@ -117,6 +119,22 @@ function App() {
           element={
             <Suspense fallback={<LoadingFallback />}>
               <CampusPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="students"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <Students />
+            </Suspense>
+          }
+        />
+        <Route
+          path="research"
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <Research />
             </Suspense>
           }
         />

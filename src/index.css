@@ -14,6 +14,8 @@
   --color-link: #3C82C2;
   --color-linkDark: #23527c;
   --color-headingBg: #E3F0FF;
+  --color-mainDarkMaths: #4B0082;
+  --color-headingBgMaths: #E6E0FF;
   /* custom shadow */
   --shadow-default: [2px_4px_4px_0px_#00000040];
   /* custom styles above this */

@@ -12,15 +12,18 @@ import {
 
 interface Props {
   programData: ProgramData;
+  mainColorClass: string;  
+  headingBgClass: string; 
 }
 
-const NewsletterArchiveSection: React.FC<Props> = ({ programData }) => {
+const NewsletterArchiveSection: React.FC<Props> = ({ programData,mainColorClass,
+  headingBgClass, }) => {
   const data = programData.newsletterArchive;
 
   return (
     <section id="newsletter-archive" className={section()}>
-      <div className={headingContainer()}>
-        <h1 className={title()}>{data.title}</h1>
+      <div className={`${headingContainer()} ${headingBgClass}`}>
+        <h2 className={`${title()} ${mainColorClass}`}>{data.title}</h2>
         <span className={icon()}>{ArchieveIcon}</span>
       </div>
 

@@ -20,20 +20,23 @@ import {
   singleParagraph,
 } from "./ProgramSupervisor.styles";
 
-interface ProgramSupervisorSectionProps {
+interface Props {
   programData: ProgramData;
+  mainColorClass: string;  
+  headingBgClass: string; 
 }
 
-const ProgramSupervisorSection: React.FC<ProgramSupervisorSectionProps> = ({
-  programData,
+const ProgramSupervisorSection: React.FC<Props> = ({
+  programData,mainColorClass,
+  headingBgClass,
 }) => {
   const supervisorData = programData.programSupervisor;
   const isMultiple = "supervisors" in supervisorData;
 
   return (
     <section id="program-supervisor" className={section()}>
-      <div className={headingContainer()}>
-        <h2 className={title()}>{supervisorData.title}</h2>
+      <div className={`${headingContainer()} ${headingBgClass}`}>
+        <h2 className={`${title()} ${mainColorClass}`}>{supervisorData.title}</h2>
         <span className={icon()}>{SupervisorIcon}</span>
       </div>
 
