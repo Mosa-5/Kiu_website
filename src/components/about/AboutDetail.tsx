@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { AboutIcon } from "../../assets/icons/icons";
 import { SideSectionsSheet } from "../ui/sections-sidebar";
-import { aboutData } from "./data/AboutData";
 import { useAboutTranslations } from "../../hooks/useAboutTranslations";
 import {
   container,
@@ -37,6 +36,7 @@ import {
   calendarButtonArrow,
 } from "./AboutDetail.styles";
 import { useParams } from "react-router-dom";
+import { Wolfgang } from "@/assets";
 
 const AboutDetail: React.FC = () => {
   const { lang } = useParams<{ lang?: string }>();
@@ -118,7 +118,7 @@ const AboutDetail: React.FC = () => {
             <p className={signatureTitle()}>{t("intro.signature.title")}</p>
             <p className={signatureDate()}>{t("intro.signature.date")}</p>
             <a
-              href={aboutData.intro.signature.link.url}
+              href="#"
               className={signatureLink()}
             >
               {t("intro.signature.linkText")}
@@ -143,7 +143,7 @@ const AboutDetail: React.FC = () => {
 
           <div className={presidentImage()}>
             <img
-              src={aboutData.president.image}
+              src={Wolfgang}
               alt="Prof. Dr. Wolfgang A. Herrmann"
               className={presidentImageTag()}
             />
@@ -158,7 +158,7 @@ const AboutDetail: React.FC = () => {
           <div className={`${clearFloat()} ${signatureContainer()}`}>
             <p className={signatureName()}>{t("president.signatureName")}</p>
             <a
-              href={aboutData.president.signature.link.url}
+              href="#"
               className={signatureLink()}
             >
               {t("president.signatureLinkText")}
@@ -268,7 +268,7 @@ const AboutDetail: React.FC = () => {
         <section id="calendar" className={section()}>
           <div className={calendarContainer()}>
             <a
-              href={aboutData.academicPrograms.calendarLink.url}
+              href="/path/to/academic-calendar.pdf"
               download
               className={calendarButton()}
             >

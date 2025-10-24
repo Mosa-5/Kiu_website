@@ -57,10 +57,29 @@
     "note": "Fees can be paid onsite during participant registration at KIU."
   },
   "committee": {
-    "title": "Scientific Committee"
+    "title": "Scientific Committee",
+    "members": [
+      "Anzor Beridze", "Ramaz Botchorishvili", "Giorgi Cheilidze",
+      "Besik Dundua", "Lasha Ephremidze", "Alexander Meskhi",
+      "Giorgi Nadareishvili", "Markus Neuhauser", "Giorgi Oniani",
+      "Florian Rupp", "Boris Vexler"
+    ]
   },
   "speakers": {
     "title": "Speakers",
-    "description": "We are pleased to present the plenary speakers of the Advancing the Frontiers — International Conference on Algebra, Analysis, and Applications"
+    "description": "We are pleased to present the plenary speakers of the Advancing the Frontiers — International Conference on Algebra, Analysis, and Applications",
+    "list": [
+      { "name": "Irakli Patchkoria", "link": "#", "affiliation": "University of Aberdeen, Aberdeen, Scotland, UK" },
+      { "name": "Vladimir Goldshtein", "link": "#", "affiliation": "Ben-Gurion University, Israel" },
+      { "name": "Delfim F. M. Torres", "link": "#", "affiliation": "University of Aveiro, Portugal" },
+      { "name": "Peter Kloeden", "link": "#", "affiliation": "Auburn University, United States" },
+      { "name": "Bernhard Heim", "link": "#", "affiliation": "Mathematical Institute, University of Cologne, Germany" },
+      { "name": "Barrera Vargas Gerardo", "link": "#", "affiliation": "Instituto Superior Técnico, Lisbon, Portugal" },
+      { "name": "Pankaj Jain", "link": "#", "affiliation": "South Asian University, New Delhi, India" },
+      { "name": "Sigurður Freyr Hafstein", "link": "#", "affiliation": "University of Iceland, Reykjavik, Iceland" },
+      { "name": "Peter Imkeller", "link": "#", "affiliation": "Humboldt University, Berlin, Germany" },
+      { "name": "Thomas Hagen", "link": "#", "affiliation": "University of Memphis, USA, (online)" },
+      { "name": "Alexei Miasnikov", "link": "#", "affiliation": "Stevens Institute of Technology, USA" }
+    ]
   }
 }

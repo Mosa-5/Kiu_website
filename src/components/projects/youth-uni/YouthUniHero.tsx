@@ -1,6 +1,6 @@
 import HeroSection from "@/components/ui/hero-section";
 import { YouthUni } from "@/assets";
-import { useYouthUniTranslations } from "./hooks/useYouthUniTranslations";
+import { useYouthUniTranslations } from "../../../hooks/useYouthUniTranslations";
 
 const YouthUniHero = () => {
   const { t } = useYouthUniTranslations();

@@ -8,7 +8,7 @@ import {
   clearFloat,
   title,
 } from "./YouthUniDetail.styles";
-import { useYouthUniTranslations } from "./hooks/useYouthUniTranslations";
+import { useYouthUniTranslations } from "../../../hooks/useYouthUniTranslations";
 
 const YouthUniDetail = () => {
   const { t, getTranslatedArray } = useYouthUniTranslations();

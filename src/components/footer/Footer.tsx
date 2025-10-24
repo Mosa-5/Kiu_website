@@ -23,7 +23,7 @@ import {
   socialLinks,
   footerLogo,
 } from "./Footer.styles";
-import { useFooterTranslations } from "./hooks/useFooterTranslations";
+import { useFooterTranslations } from "../../hooks/useFooterTranslations";
 
 const USEFUL_LINKS = [
   { href: "https://mes.gov.ge/", label: "MESCS" },
