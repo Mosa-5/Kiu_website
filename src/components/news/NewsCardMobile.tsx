@@ -20,7 +20,10 @@ const NewsCardMobile = ({
   const currentLang = lang || "en";
 
   return (
-    <Link to={`/${currentLang}/news/${id}`}>
+    <Link
+      to={`/${currentLang}/news/${id}`}
+      aria-label={`Read more about ${title}`}
+    >
       <Card className={card()}>
         <div className="" />
 

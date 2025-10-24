@@ -25,7 +25,7 @@ export const contentSection = cva("px-[14px] sm:px-6 py-4 sm:py-8 h-full");
 export const date = cva("text-sm sm:text-base text-black font-medium");
 
 export const newsTitle = cva(
-  "mt-4 text-base sm:text-lg font-medium text-newsTitle"
+  "mt-4 text-base sm:text-lg font-medium text-newsTitle leading-[140%]"
 );
 
 export const carouselButton = cva("border-2");

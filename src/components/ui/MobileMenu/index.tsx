@@ -70,7 +70,11 @@ const MobileMenu = () => {
               </div>
               {navLinks.map((link) => (
                 <SheetClose key={link.path} asChild>
-                  <Link className={navLink()} to={`/${lang}${link.path}`}>
+                  <Link
+                    className={navLink()}
+                    to={`/${lang}${link.path}`}
+                    aria-label="Navigation button"
+                  >
                     {link.label}
                   </Link>
                 </SheetClose>

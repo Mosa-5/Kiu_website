@@ -129,17 +129,52 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', 'Noto Sans Georgian', sans-serif;
   }
-  li{
+  
+  /* Adjust Georgian font size */
+  html[lang="ka"] {
+    font-size: 94%;
+    line-height: normal !important;
+  }
+    
+  html[lang="ka"] p {
+    line-height: normal !important;
+  }
+  
+  li {
     font-weight: 400;
   }
   body {
     @apply bg-background text-foreground;
     width: 100%;
   }
-  html{
-     overflow-x: hidden;
+  html {
+    overflow-x: hidden;
+  }
+
+   /* Custom scrollbar styles for chatbot */
+  .chat-messages-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .chat-messages-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  .chat-messages-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-mainLight);
+    border-radius: 10px;
+  }
+  
+  .chat-messages-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--color-main);
+  }
+  
+  .chat-messages-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-mainLight) #f1f1f1;
   }
 }
 

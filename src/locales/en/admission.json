@@ -1,4 +1,8 @@
 {
+  "hero": {
+    "title": "Admission",
+    "buttonLabel": "Home Page"
+  },
   "intro": {
     "title": "Intro",
     "subtitle": "KIU Announces International Students Enrollment",

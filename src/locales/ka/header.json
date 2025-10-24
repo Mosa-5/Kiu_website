@@ -13,7 +13,16 @@
   "auth": {
     "login": "შესვლა",
     "logout": "გამოსვლა",
-    "goToLMS": "LMS-ზე გადასვლა",
+    "goToLMS": "LMS",
     "profile": "პროფილი"
+  },
+  "LogDialog": {
+    "login" : "შესვლა",
+    "signUp": "რეგისტრაცია",
+    "fullName": "სრული სახელი",
+    "email" : "მეილი",
+    "password": "პაროლი",
+    "logInQuestion": "არ გაქვს ანგარიში?",
+    "signUpQuestion": "უკვე გაქვს ანგარიში?"
   }
 }
