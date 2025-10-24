@@ -3,10 +3,39 @@ import { ExternalLink, MapPin, Bus, Building2, Wifi, FileText } from "lucide-rea
 import { useCampusTranslations } from "@/hooks/useCampusTranslations";
 import { campusContent } from "@/content/campus";
 import * as styles from "./CampusDetail.styles";
+import * as React from "react";
 
 export const CampusDetail = () => {
   const { t } = useCampusTranslations();
   const { buttonUrl, videoUrl, videoTitle: videoTitleAttr } = campusContent;
+  const [showVideo, setShowVideo] = React.useState(false);
+
+  // Extract video ID from URL
+  const getVideoId = (url: string) => {
+    const patterns = [
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?/]+)/,
+      /youtube\.com\/embed\/([^?/]+)/,
+    ];
+    
+    for (const pattern of patterns) {
+      const match = url.match(pattern);
+      if (match && match[1]) {
+        return match[1];
+      }
+    }
+    return null;
+  };
+
+  // Convert regular YouTube URL to nocookie embed URL
+  const getPrivacyEnhancedUrl = (url: string) => {
+    const videoId = getVideoId(url);
+    if (videoId) {
+      return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`;
+    }
+    return url.replace('youtube.com', 'youtube-nocookie.com');
+  };
+
+  const videoId = getVideoId(videoUrl);
 
   const features = [
     { icon: MapPin, key: "location" },
@@ -89,13 +118,51 @@ export const CampusDetail = () => {
               </p>
 
               <div className={styles.iframeWrapper()}>
-                <iframe
-                  width="560"
-                  height="315"
-                  src={videoUrl}
-                  title={videoTitleAttr}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                ></iframe>
+                {!showVideo && videoId ? (
+                  <div 
+                    onClick={() => setShowVideo(true)}
+                    className="relative cursor-pointer group"
+                    style={{
+                      aspectRatio: '16/9',
+                      width: '100%',
+                      background: '#000',
+                    }}
+                  >
+                    <img
+                      src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                      alt={videoTitleAttr}
+                      referrerPolicy="no-referrer"
+                      crossOrigin="anonymous"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
+                      <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg
+                          className="w-8 h-8 text-white ml-1"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <p className="text-white text-sm font-medium drop-shadow-lg">
+                        {t("videoTour.clickToPlay") || "Click to play video"}
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <iframe
+                    width="560"
+                    height="315"
+                    src={getPrivacyEnhancedUrl(videoUrl)}
+                    title={videoTitleAttr}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                  ></iframe>
+                )}
               </div>
             </div>
           </div>
