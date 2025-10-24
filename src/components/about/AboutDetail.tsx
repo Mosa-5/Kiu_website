@@ -67,6 +67,7 @@ const AboutDetail: React.FC = () => {
     setIsOpen(false);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const sections = getTranslatedArray("sections").map((section: any) => ({
     id: section.id,
     label: section.label,
