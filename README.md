@@ -63,38 +63,44 @@ Developed as a university project to represent **Kutaisi International Universit
 ---
 
 ## Live Demo
-
 You can view the deployed project here (vercel is down right now, this is an older version): https://kiu-website.vercel.app/
 
 ## Installation & Setup
 
 ### Clone the repository
-
 ```bash
 git clone https://github.com/your-username/kiu_website.git
 cd kiu_website
 ```
 
 ### Install dependencies
-
 ```bash
 npm install
 ```
 
-### Run development server
+### Environment Variables
 
+To enable the chatbot and email functionality, you'll need to obtain environment variables. **Contact Sandro Saralidze for a one-time secret link** to get the required `.env` file.
+
+### Chatbot Configuration
+
+To run the chatbot locally (on vercel it runs normally without these steps):
+
+1. **Uncomment the `server.js` file** - Remove the comment blocks in this file
+2. **Update `chatbot.ts`** - Follow the inline comments in the file indicating which lines to uncomment/comment
+3. Ensure you have the environment variables configured (see above)
+
+### Run development server
 ```bash
 npm run dev
 ```
 
 ### Build for production
-
 ```bash
 npm run build
 ```
 
 ### Preview the build
-
 ```bash
 npm run preview
 ```
