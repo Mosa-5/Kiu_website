@@ -11,7 +11,7 @@ export const carouselContent = cva("w-full h-full -ml-0");
 export const carouselItem = cva("w-full h-full pl-0");
 
 export const carouselImage = cva(
-  "h-[308px] sm:h-[707px] w-full brightness-65 object-cover"
+  "h-[308px] sm:h-[707px] w-full brightness-70 object-cover"
 );
 
 export const dotContainer = cva(

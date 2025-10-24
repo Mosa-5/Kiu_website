@@ -30,7 +30,10 @@ const ProgramCard = ({
   const currentLang = lang || "en";
 
   return (
-    <Link to={`/${currentLang}/programs/${id}`}>
+    <Link
+      to={`/${currentLang}/programs/${id}`}
+      aria-label={`View program details`}
+    >
       <div className={card()} style={{ backgroundImage: `url(${image})` }}>
         <div className={overlay()}>
           <p className={description()}>

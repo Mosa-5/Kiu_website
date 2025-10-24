@@ -1,10 +1,11 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./layout";
 import NotFound from "./pages/NotFound";
 import { Loader2 } from "lucide-react";
 import Students from "./pages/Students";
 import Research from "./pages/Research";
+import { preloadCriticalImages } from "./utils/imagePreloader";
 
 const CampusPage = lazy(() => import("./pages/Campus"));
 const News = lazy(() => import("./pages/News"));
@@ -19,7 +20,6 @@ const Programs = lazy(() => import("./pages/Programs"));
 const Vacancies = lazy(() => import("./pages/Vacancies"));
 const Admission = lazy(() => import("./pages/Admission"));
 
-// Loading fallback component
 const LoadingFallback = () => (
   <div className="flex justify-center items-center min-h-[70vh] sm:min-h-screen">
     <Loader2 className="w-13 h-13 sm:w-20 sm:h-20 animate-spin text-main" />
@@ -27,6 +27,10 @@ const LoadingFallback = () => (
 );
 
 function App() {
+  useEffect(() => {
+    preloadCriticalImages();
+  }, []);
+
   return (
     <Routes>
       {/* Redirect root to default language */}

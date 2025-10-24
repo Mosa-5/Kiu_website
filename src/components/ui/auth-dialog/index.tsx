@@ -22,6 +22,7 @@ import {
   toggleContainer,
   toggleButton,
 } from "./index.styles";
+import { useHeaderTranslations } from "@/hooks/hooksHeader/useHeaderTranslation";
 
 interface AuthDialogProps {
   buttonText?: string;
@@ -43,6 +44,7 @@ const AuthDialog = ({
   const [open, setOpen] = useState(false);
 
   const { login, signup } = useAuth();
+  const { t } = useHeaderTranslations();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,7 +92,10 @@ const AuthDialog = ({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className={triggerButton()}>
+        <Button
+          className={triggerButton()}
+          aria-label="Open login or signup dialog"
+        >
           <LogIn size={18} />
           <span className="md:inline">{buttonText}</span>
         </Button>
@@ -99,14 +104,14 @@ const AuthDialog = ({
       <DialogContent className={dialogContent()}>
         <DialogHeader>
           <DialogTitle className={dialogTitle()}>
-            {mode === "login" ? "Login" : "Sign Up"}
+            {mode === "login" ? t("LogDialog.login") : t("LogDialog.signUp")}
           </DialogTitle>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className={form()}>
           {mode === "signup" && (
             <div>
-              <label className={label()}>Full Name</label>
+              <label className={label()}>{t("LogDialog.fullName")}</label>
               <input
                 type="text"
                 name="name"
@@ -119,7 +124,7 @@ const AuthDialog = ({
           )}
 
           <div>
-            <label className={label()}>Email</label>
+            <label className={label()}>{t("LogDialog.email")}</label>
             <input
               type="email"
               name="email"
@@ -131,7 +136,7 @@ const AuthDialog = ({
           </div>
 
           <div>
-            <label className={label()}>Password</label>
+            <label className={label()}>{t("LogDialog.password")}</label>
             <input
               type="password"
               name="password"
@@ -147,15 +152,21 @@ const AuthDialog = ({
 
           {success && <div className={successMessage()}>{success}</div>}
 
-          <Button type="submit" className={submitButton()}>
-            {mode === "login" ? "Login" : "Sign Up"}
+          <Button
+            type="submit"
+            className={submitButton()}
+            aria-label={
+              mode === "login" ? "Submit login form" : "Submit signup form"
+            }
+          >
+            {mode === "login" ? t("LogDialog.login") : t("LogDialog.signUp")}
           </Button>
         </form>
 
         <div className={toggleContainer()}>
           {mode === "login" ? (
             <p>
-              Don't have an account?{" "}
+              {t("LogDialog.logInQuestion")}{" "}
               <button
                 onClick={() => {
                   setMode("signup");
@@ -163,13 +174,14 @@ const AuthDialog = ({
                   setSuccess("");
                 }}
                 className={toggleButton()}
+                aria-label="Switch to sign-up form"
               >
-                Sign Up
+                {t("LogDialog.signUp")}
               </button>
             </p>
           ) : (
             <p>
-              Already have an account?{" "}
+              {t("LogDialog.signUpQuestion")}{" "}
               <button
                 onClick={() => {
                   setMode("login");
@@ -177,8 +189,9 @@ const AuthDialog = ({
                   setSuccess("");
                 }}
                 className={toggleButton()}
+                aria-label="Switch to login form"
               >
-                Login
+                {t("LogDialog.login")}
               </button>
             </p>
           )}

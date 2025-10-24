@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "ჩვენ შესახებ",
-    "buttonLabel": "მთავარი"
+    "buttonLabel": "მთავარი გვერდი"
   },
   "sections": [
     { "id": "intro", "label": "შესავალი" },

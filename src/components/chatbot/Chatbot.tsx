@@ -18,14 +18,13 @@ export default function ChatbotGemini() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const initialMessageSent = useRef(false);
 
-   // 🔹 detect language from the URL path
+  // 🔹 detect language from the URL path
   const lang = window.location.pathname.split("/")[1]; // "en" or "ka"
 
   // 🔹 decide text based on language
   const title = lang === "ka" ? "კიუ ასისტენტი" : "KIU Assistant";
   const placeholder =
     lang === "ka" ? "ჩაწერეთ თქვენი შეტყობინება..." : "Type your message...";
-    
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -63,18 +62,18 @@ export default function ChatbotGemini() {
       const context = `
 You are KIU Assistant — a friendly and helpful chatbot for Kutaisi International University (KIU), located in Kutaisi, Georgia.
 
-🧭 YOUR PERSONALITY & PURPOSE:
+ YOUR PERSONALITY & PURPOSE:
 - You are polite, warm, and professional.
 - You represent KIU, a modern, international research university in Kutaisi, Georgia.
 - You help with admissions, programs, campus life, and general information.
 
-🌐 LANGUAGE RULE:
+ LANGUAGE RULE:
 - Automatically detect whether the user is writing in Georgian or English.
 - If the user writes in Georgian, reply **entirely in Georgian** with natural, polite wording.
 - If the user writes in English, reply in English.
 - If unclear, default to English.
 
-📚 UNIVERSITY INFORMATION:
+ UNIVERSITY INFORMATION:
 - KIU (Kutaisi International University) offers top-quality education and research.
 - Partnered with the Technical University of Munich (TUM).
 - Main programs: Computer Science, Mathematics, Management, Psychology, Medicine, Design, Mathematics and AI.
@@ -87,17 +86,24 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
 - Admissions and program info are on the official website.
 - If unsure, guide users to info@kiu.edu.ge.
 
-🎯 GUIDELINES:
+ GUIDELINES:
 - Be concise but friendly.
 - Always give clear answers.
 - If a user asks something unrelated to KIU, politely guide them back to university-related info.
 `;
 
-
       const prompt = `${context}\nUser: ${userText}\nAssistant:`;
 
-      // Local testing
-      const response = await fetch("http://localhost:3001/api/chat", {
+      //use this one for local testing
+
+      // const response = await fetch("http://localhost:3001/api/chat", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({ prompt }),
+      // });
+
+      //use this one for vercel or deployment
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),
