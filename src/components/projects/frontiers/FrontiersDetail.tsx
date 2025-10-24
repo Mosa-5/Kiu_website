@@ -52,7 +52,6 @@ const FrontiersDetail: React.FC = () => {
   const committeeMembers = getTranslatedArray("committee.members");
   const speakersListData: Speaker[] = getTranslatedArray("speakers.list");
 
-
   return (
     <div className={container()}>
       <img src={FrontiersConf} className={bannerImage()} />
@@ -87,7 +86,7 @@ const FrontiersDetail: React.FC = () => {
       <ul className={listDisc()}>
         {programItems.map((item, i) => (
           <li key={i} className={listItem()}>
-            {programItems[i]}
+            {item}
           </li>
         ))}
       </ul>
