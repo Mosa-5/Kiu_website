@@ -18,12 +18,15 @@ Developed as a university project to represent **Kutaisi International Universit
 
 - **Home** — overview of KIU with featured sections.
 - **About KIU** — detailed information about the university.
+- **Research** — information about researches done at KIU.
 - **Programs** — list of all study programs.
   - **Individual Program Pages** for _Computer Science_ and _Mathematics_, featuring a sidebar for quick navigation to specific sections.
 - **Projects** — showcases of university and student projects.
   - **Project Inner Pages** for detailed project views.
 - **Admission** — admission requirements and process.
+- **Students** — page dedicated to students and erasmus project.
 - **News** — announcements and updates, with **individual news pages** for full article content.
+- **Campus** — overview of university campus.
 - **Vacancies** — job listings with an **active form** that sends emails to both the sender and the university email address.
 
 ### Functionality
@@ -32,6 +35,7 @@ Developed as a university project to represent **Kutaisi International Universit
 - **Login workflow** — stores user data in `localStorage` (temporary frontend-only implementation).
   - Once signed in, a **dropdown** appears with options to **log out** or **navigate to KIU LMS**.
 - **Sidebar pop-out navigation** on program pages for better user experience.
+- **ChatBot** that answers all questions regarding the university such as campus prices, supervisors and etc.
 
 ---
 
