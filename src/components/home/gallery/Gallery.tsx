@@ -45,7 +45,7 @@ const Gallery = () => {
   const [playingVideo, setPlayingVideo] = React.useState<number | null>(null);
   const [loadedThumbnails, setLoadedThumbnails] = React.useState<Set<number>>(new Set());
 
-  // Gallery items - mix of images and YouTube videos
+  // Gallery items - YouTube videos
   const galleryItems = [
     {
       type: "youtube",

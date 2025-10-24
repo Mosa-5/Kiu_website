@@ -14,10 +14,10 @@ export const imageWrapper = cva(
 
 export const image = cva("w-full sm:h-[458px] rounded-lg shadow-lg");
 
-export const title = cva("font-semibold text-2xl pb-6 text-mainDark");
+export const title = cva("font-semibold text-2xl pb-6 text-main");
 
 export const paragraph = cva(
-  "mb-[14px] line-height-[28px] text-lg text-gray-800 leading-[28px]"
+  "mb-[14px] line-height-[28px] text-lg text-black leading-[28px]"
 );
 
 export const clearFloat = cva("clear-both");

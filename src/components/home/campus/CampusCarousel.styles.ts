@@ -7,7 +7,7 @@ export const carousel = cva("w-full h-full");
 export const carouselContent = cva("w-full h-full ml-0");
 
 export const carouselItem = cva(
-  "w-full h-full flex justify-center px-1 sm:pl-0 hover:cursor-pointer"
+  "w-full h-full flex justify-center px-1 sm:pl-0"
 );
 
 export const carouselImage = cva(

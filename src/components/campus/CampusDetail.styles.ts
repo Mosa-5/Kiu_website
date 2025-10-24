@@ -1,79 +1,87 @@
 import { cva } from "class-variance-authority";
 
-export const sectionDescription = cva(
-  "py-10 md:py-16 bg-gradient-to-b from-background"
-);
+export const sectionDescription = cva("bg-gradient-to-b from-background");
 
-export const sectionVideo = cva(
-  "py-16 md:py-20 bg-background"
-);
+export const sectionVideo = cva("py-16 md:py-20 bg-background");
 
-export const container = cva(
-  "container mx-auto px-4 md:px-6 lg:px-8"
-);
+export const container = cva("mx-auto px-4 md:px-6 lg:px-8 flex justify-start");
 
-export const contentWrapper = cva(
-  "max-w-6xl mx-auto"
-);
+export const contentWrapper = cva("max-w-6xl mx-auto");
+
+export const animateFadeIn = cva("animate-fade-in");
 
 export const paragraph = cva(
-  "text-lg leading-relaxed text-foreground mb-12"
+  "text-base sm:text-lg leading-relaxed text-foreground mb-12"
 );
 
-export const grid = cva(
-  "grid grid-cols-1 md:grid-cols-2 gap-6 mt-12"
-);
+export const grid = cva("grid grid-cols-1 md:grid-cols-2 gap-6 mt-12");
 
 export const featureCard = cva(
-  "flex items-start space-x-4 p-6 rounded-lg border-3 border-headingBg"
+  "flex items-start space-x-4 p-6 rounded-lg border-2 border-headingBg"
 );
 
 export const featureIconWrapper = cva(
   "flex-shrink-0 w-12 h-12 rounded-full bg-headingBg flex items-center justify-center"
 );
 
-export const featureTitle = cva(
-  "font-semibold text-foreground mb-1"
-);
+export const featureIcon = cva("w-6 h-6 text-primary");
 
-export const featureDescription = cva(
-  "text-sm text-muted-foreground"
-);
+export const featureTitle = cva("font-semibold text-foreground mb-1");
+
+export const featureDescription = cva("text-sm text-muted-foreground flex");
 
 export const videoSectionWrapper = cva(
-  "flex flex-col lg:flex-row items-center justify-center gap-12 max-w-6xl mx-auto"
+  "flex flex-col lg:flex-row items-center justify-center gap-12 w-full max-w-6xl mx-auto"
 );
 
-export const dormitoryWrapper = cva("flex-1");
-
-export const dormitoryHeader = cva(
-  "flex items-center space-x-3 mb-4"
+export const dormitoryWrapper = cva(
+  "flex flex-col max-w-lg lg:h-full sm:gap-2"
 );
+
+export const dormitoryHeader = cva("flex items-center space-x-3 mb-4");
 
 export const dormitoryIconWrapper = cva(
   "w-12 h-12 rounded-full bg-headingBg flex items-center justify-center"
 );
 
+export const dormitoryIcon = cva("w-6 h-6 text-primary");
+
 export const dormitoryTitle = cva(
   "text-2xl md:text-3xl font-bold text-foreground"
 );
 
-export const dormitoryDescription = cva(
-  "text-muted-foreground mb-6 leading-relaxed"
-);
+export const dormitoryDescription = cva("mb-6 leading-relaxed");
 
-export const videoWrapper = cva(
-  "flex-1 text-center flex flex-col items-center justify-center"
-);
+export const buttonClass = cva("group w-fit max-sm:w-full h-12");
 
-export const videoTitle = cva(
-  "text-3xl md:text-4xl font-bold text-foreground mb-3"
-);
-
-export const videoSubtitle = cva(
-  "text-lg text-muted-foreground mb-6"
-);
+export const buttonIcon = cva("ml-2 h-4 w-4");
 
 export const iframeWrapper = cva(
-  "relative aspect-video w-full max-w-xl rounded-xl overflow-hidden border"
+  "relative aspect-video w-full flex justify-center items-center max-w-xl rounded-xl overflow-hidden shadow-md"
 );
+
+export const iframeInner = cva("w-full h-full");
+
+export const playOverlay = cva(
+  "absolute inset-0 flex flex-col items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all"
+);
+
+export const playButton = cva(
+  "w-20 h-20 opacity-90 group-hover:opacity-100 group-hover:scale-105 duration-200 transition-all"
+);
+
+export const playButtonPolygon = cva("fill-none stroke-white");
+
+export const playButtonCircle = cva("fill-none stroke-white");
+
+export const loadingContainer = cva(
+  "absolute inset-0 flex items-center justify-center bg-black/40 z-0"
+);
+
+export const loadingSpinner = cva(
+  "w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"
+);
+
+export const thumbnailImage = cva("absolute inset-0");
+
+export const videoIframe = cva("w-full h-full relative z-1");

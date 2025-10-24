@@ -1,14 +1,14 @@
-import mathAndApplCard from "@/assets/programImages/math&applCard.jpg";
-import csCard from "@/assets/programImages/csCard.jpg";
-import mathCard from "@/assets/programImages/mathCard.jpg";
-import mnscCard from "@/assets/programImages/mnscCard.jpg";
-import designCard from "@/assets/programImages/designCard.jpg";
-import psychCard from "@/assets/programImages/psychCard.jpg";
-import lawCard from "@/assets/programImages/lawCard.jpg";
-import medCard from "@/assets/programImages/medCard.jpg";
-import intCard from "@/assets/programImages/intCard.jpg";
-import embadCard from "@/assets/programImages/embadCard.jpg";
-import financeCard from "@/assets/programImages/financeCard.jpg";
+import mathAndApplCard from "@/assets/programImages/math&applCard.webp";
+import csCard from "@/assets/programImages/csCard.webp";
+import mathCard from "@/assets/programImages/mathCard.webp";
+import mnscCard from "@/assets/programImages/mnscCard.webp";
+import designCard from "@/assets/programImages/designCard.webp";
+import psychCard from "@/assets/programImages/psychCard.webp";
+import lawCard from "@/assets/programImages/lawCard.webp";
+import medCard from "@/assets/programImages/medCard.webp";
+import intCard from "@/assets/programImages/intCard.webp";
+import embadCard from "@/assets/programImages/embadCard.webp";
+import financeCard from "@/assets/programImages/financeCard.webp";
 
 const programs = [
   {
