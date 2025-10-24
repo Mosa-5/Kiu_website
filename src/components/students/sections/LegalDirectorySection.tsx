@@ -6,10 +6,11 @@ import {
   sectionTitle,
   icon,
   programList,
-  programListItem,
-  programLink,
+  legalDirectorySpecial,
+  legalDirectorySpecialLink,
 } from "../StudentsDetail.styles";
 import { useStudentsTranslations } from "@/hooks/useStudentsTranslations";
+import { ChevronRight } from "lucide-react";
 
 const LegalDirectorySection: React.FC = () => {
   const { t, getTranslatedArray } = useStudentsTranslations();
@@ -27,9 +28,9 @@ const LegalDirectorySection: React.FC = () => {
 
       <ul className={programList()}>
         {getDocumentsArray().map((document, index) => (
-          <li key={index} className={programListItem()}>
-            <a href="#" className={programLink()}>
-              {document}
+          <li key={index} className={legalDirectorySpecialLink()}>
+            <a href="#" className={legalDirectorySpecial()}>
+              {document} <ChevronRight />
             </a>
           </li>
         ))}

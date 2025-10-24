@@ -25,7 +25,10 @@ const AcademicMobilitySection: React.FC = () => {
       </div>
 
       {/* External Mobility */}
-      <h3 className={sectionTitle({ size: "large" })} style={{marginBottom: "15px"}}>
+      <h3
+        className={sectionTitle({ size: "medium" })}
+        style={{ marginBottom: "15px" }}
+      >
         {t("mobility.external.title")}
       </h3>
       <p className={paragraph()}>{t("mobility.external.p1")}</p>
@@ -54,7 +57,10 @@ const AcademicMobilitySection: React.FC = () => {
       </p>
 
       {/* Internal Mobility */}
-      <h3 className={sectionTitle({ size: "large"})} style={{marginBottom: "15px"}}>
+      <h3
+        className={sectionTitle({ size: "medium" })}
+        style={{ marginBottom: "15px" }}
+      >
         {t("mobility.internal.title")}
       </h3>
       <p className={paragraph()}>{t("mobility.internal.p1")}</p>

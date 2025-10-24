@@ -11,9 +11,20 @@ export const section = cva(["mb-12 scroll-mt-8"], {
   },
 });
 
-export const sectionHeader = cva([
-  "bg-headingBg inline-flex items-center gap-3 px-4 py-2 rounded mb-6",
-]);
+export const sectionHeader = cva(
+  ["bg-headingBg items-center gap-3 px-4 py-2 rounded mb-6"],
+  {
+    variants: {
+      centered: {
+        true: ["flex w-fit mx-auto"],
+        false: ["inline-flex"],
+      },
+    },
+    defaultVariants: {
+      centered: false,
+    },
+  }
+);
 
 export const sectionTitle = cva(["font-medium text-mainDark"], {
   variants: {
@@ -77,11 +88,18 @@ export const richTextLink = cva([
   "text-link underline underline-offset-2 hover:text-linkDark font-medium",
 ]);
 
-export const programList = cva(["list-none mb-6 text-sm sm:text-lg space-y-2"]);
+export const programList = cva(["list-none mb-6 text-sm sm:text-lg space-y-4"]);
 
-export const programListItem = cva(["text-link hover:text-linkDark"]);
+export const programListItem = cva(["w-fit"]);
 
-export const programLink = cva(["underline underline-offset-2 font-medium"]);
+export const programLink = cva([
+  "underline underline-offset-2 font-medium text-link hover:text-linkDark",
+]);
+
+export const legalDirectorySpecialLink = cva("w-fit");
+export const legalDirectorySpecial = cva(
+  "px-4 py-2.5 font-medium border-link flex items-center gap-2 text-link hover:text-linkDark hover:border-linkDark border-2 rounded-md shadow-sm"
+);
 
 export const programIntroText = cva(["mb-6 text-sm sm:text-lg"]);
 
@@ -109,11 +127,14 @@ export const calendarButton = cva([
 
 export const calendarButtonArrow = cva(["text-xl"]);
 
-export const sectioncalendar = cva(["mb-12 scroll-mt-8 flex items-center justify-center flex-col"], {
-  variants: {
-    isFirst: {
-      true: ["scroll-mt-0"],
-      false: [],
+export const sectioncalendar = cva(
+  ["mb-12 scroll-mt-8 flex items-center justify-center flex-col"],
+  {
+    variants: {
+      isFirst: {
+        true: ["scroll-mt-0"],
+        false: [],
+      },
     },
-  },
-});
+  }
+);

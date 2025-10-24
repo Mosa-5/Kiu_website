@@ -12,21 +12,34 @@ import {
   htcImageWrapper,
   newsletterlink,
   link,
+  introWrapper,
+  htcSectionWrapper,
+  protonSection,
+  publicationsSection,
+  yearWrapper,
+  overflowHidden,
 } from "./ResearchDetail.styles";
-import { useResearchTranslations,type ConferenceYear } from "@/hooks/useResearchTranslations";
+import {
+  useResearchTranslations,
+  type ConferenceYear,
+} from "@/hooks/useResearchTranslations";
 
 const ResearchDetail = () => {
-  const { t, getTranslatedArray, getIntroParagraphs } = useResearchTranslations();
+  const { t, getTranslatedArray, getIntroParagraphs } =
+    useResearchTranslations();
   const introParagraphs = getIntroParagraphs();
   const htcDirections = getTranslatedArray<string>("detail.htc.directions");
-  const protonParagraphs = getTranslatedArray<string>("detail.proton.paragraphs");
-  const conferenceYears = getTranslatedArray<ConferenceYear>("detail.publications.years");
-  
+  const protonParagraphs = getTranslatedArray<string>(
+    "detail.proton.paragraphs"
+  );
+  const conferenceYears = getTranslatedArray<ConferenceYear>(
+    "detail.publications.years"
+  );
 
   return (
     <div className={container()}>
       <div className={contentWrapper()}>
-        <div className={contentWrapper()}>
+        <div className={introWrapper()}>
           <div className={imageWrapper()}>
             <img
               src={ResearchImage1}
@@ -60,7 +73,7 @@ const ResearchDetail = () => {
         <div className={clearFloat()}></div>
 
         {/* Hadron Therapy Center Section */}
-        <div className="mt-12">
+        <div className={htcSectionWrapper()}>
           <div className={htcImageWrapper()}>
             <img
               src={ResearchImage2}
@@ -70,27 +83,31 @@ const ResearchDetail = () => {
           </div>
           <div>
             <h2 className={sectionTitle()}>{t("detail.htc.title")}</h2>
-          <p className={paragraph()}>{t("detail.htc.description")}</p>
-          
-          <div className="overflow-hidden">
-            <ul className={bulletList()}>
-            {htcDirections.map((direction, index) => (
-              <li key={index} className={listItem()}>
-                {direction}
-              </li>
-            ))}
-          </ul>
-          </div>
+            <p className={paragraph()}>{t("detail.htc.description")}</p>
 
-          <p className={paragraph()}>{t("detail.htc.locationLabel")}</p>
-          <p className={paragraph()}><strong>{t("detail.htc.kutaisi")}</strong></p>
-          <p className={paragraph()}>{t("detail.htc.facilitiesDescription")}</p>
+            <div className={overflowHidden()}>
+              <ul className={bulletList()}>
+                {htcDirections.map((direction, index) => (
+                  <li key={index} className={listItem()}>
+                    {direction}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <p className={paragraph()}>{t("detail.htc.locationLabel")}</p>
+            <p className={paragraph()}>
+              <strong>{t("detail.htc.kutaisi")}</strong>
+            </p>
+            <p className={paragraph()}>
+              {t("detail.htc.facilitiesDescription")}
+            </p>
           </div>
           <div className={clearFloat()}></div>
         </div>
 
         {/* Proton Therapy Clinic Section */}
-        <div className="mt-12">
+        <div className={protonSection()}>
           <h2 className={sectionTitle()}>{t("detail.proton.title")}</h2>
           {protonParagraphs.map((text, index) => (
             <p key={index} className={paragraph()}>
@@ -101,12 +118,12 @@ const ResearchDetail = () => {
         </div>
 
         {/* Publications Section */}
-        <div className="mt-12">
+        <div className={publicationsSection()}>
           <h2 className={sectionTitle()}>{t("detail.publications.title")}</h2>
           <p className={paragraph()}>{t("detail.publications.description")}</p>
-          
+
           {conferenceYears.map((year, index) => (
-            <div key={index} className="mt-6">
+            <div key={index} className={yearWrapper()}>
               <p className={paragraph()}>
                 <strong>{year.title}</strong>
               </p>
