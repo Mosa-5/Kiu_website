@@ -21,8 +21,8 @@
     "signUp": "Sign Up",
     "fullName": "Full Name",
     "email" : "Email",
-    "passowrd": "Password",
-    "LogInQuestion": "Don't have an account?",
+    "password": "Password",
+    "logInQuestion": "Don't have an account?",
     "signUpQuestion": "Already have an account?"
   }
   

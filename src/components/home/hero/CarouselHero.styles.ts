@@ -15,14 +15,17 @@ export const carouselImage = cva(
 );
 
 export const dotContainer = cva(
-  "flex justify-center items-center gap-2 z-2 absolute left-1/2 -translate-x-1/2 bottom-1/30"
+  "flex justify-center items-center gap-2 absolute left-1/2 -translate-x-1/2 bottom-1/30"
 );
 
-export const carouselDot = cva("h-3 w-3 rounded-full border-2 duration-200", {
-  variants: {
-    active: {
-      true: "bg-main border-main",
-      // false: "hover:bg-white",
+export const carouselDot = cva(
+  "h-3 w-3 rounded-full border-2 duration-200 hover:cursor-pointer",
+  {
+    variants: {
+      active: {
+        true: "bg-main border-main",
+        false: "hover:bg-white",
+      },
     },
-  },
-});
+  }
+);

@@ -44,7 +44,7 @@ const Gallery = () => {
 
   const [playingVideo, setPlayingVideo] = React.useState<number | null>(null);
 
-  // Gallery items - mix of images and YouTube videos
+  // Gallery items - YouTube videos
   const galleryItems = [
     {
       type: "youtube",

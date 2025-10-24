@@ -141,7 +141,7 @@ const CarouselHero = () => {
         {Array.from({ length: count }).map((_, index) => (
           <button
             key={index}
-            // onClick={() => api?.scrollTo(index)}
+            onClick={() => api?.scrollTo(index)}
             className={carouselDot({ active: current === index + 1 })}
             aria-label="Carousel switch"
             title="Carousel switch"
