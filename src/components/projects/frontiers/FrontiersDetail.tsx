@@ -1,8 +1,7 @@
 import React from "react";
-import { conferenceData } from "./data/frontiersData";
 import { AboutIcon, SpeakerIcon } from "../../../assets/icons/icons";
 import { FrontiersConf } from "@/assets";
-import { useFrontiersTranslations } from "./hooks/useFrontiersTranslations";
+import { useFrontiersTranslations } from "@/hooks/useFrontiersTranslations";
 import {
   container,
   bannerImage,
@@ -35,16 +34,24 @@ import {
   speakersList,
   speakersDescription,
 } from "./FrontiersDetail.styles";
+type Speaker = {
+  name: string;
+  link: string;
+  affiliation: string;
+};
 
 const FrontiersDetail: React.FC = () => {
   const { t, getTranslatedArray, getTranslatedParts, getTranslatedLinks } =
     useFrontiersTranslations();
 
   const aboutParts = getTranslatedParts("about.parts");
-  const programItems = getTranslatedArray("program.items");
+  const programItems = getTranslatedArray<string>("program.items");
   const registrationParts = getTranslatedParts("registration.parts");
   const registrationLinks = getTranslatedLinks("registration.links");
   const feesItems = getTranslatedArray("fees.items");
+  const committeeMembers = getTranslatedArray("committee.members");
+  const speakersListData: Speaker[] = getTranslatedArray("speakers.list");
+
 
   return (
     <div className={container()}>
@@ -80,7 +87,7 @@ const FrontiersDetail: React.FC = () => {
       <ul className={listDisc()}>
         {programItems.map((item, i) => (
           <li key={i} className={listItem()}>
-            {item}
+            {programItems[i]}
           </li>
         ))}
       </ul>
@@ -139,7 +146,7 @@ const FrontiersDetail: React.FC = () => {
       {/* Committee */}
       <h3 className={committeeTitle()}>{t("committee.title")}</h3>
       <ul className={listDiscLarge()}>
-        {conferenceData.committee.members.map((m, i) => (
+        {committeeMembers.map((m, i) => (
           <li key={i}>{m}</li>
         ))}
       </ul>
@@ -151,7 +158,7 @@ const FrontiersDetail: React.FC = () => {
       </div>
       <p className={speakersDescription()}>{t("speakers.description")}</p>
       <ul className={speakersList()}>
-        {conferenceData.speakers.list.map((s, i) => (
+        {speakersListData.map((s, i) => (
           <li key={i}>
             <a href={s.link} className={speakerLink()}>
               {s.name}

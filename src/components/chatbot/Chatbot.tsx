@@ -109,13 +109,6 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
         body: JSON.stringify({ prompt }),
       });
 
-      // Deployment (Vercel)
-      // const response = await fetch("/api/chat", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({ prompt }),
-      // });
-
       const data = await response.json();
 
       setChatState((prev) => ({
