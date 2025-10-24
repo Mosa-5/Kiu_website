@@ -158,6 +158,7 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
       <Button
         onClick={() => setIsOpen(true)}
         className={floatingButton({ isOpen })}
+        aria-label="Open chatbot assistant"
       >
         <MessageSquare size={24} />
       </Button>
@@ -196,6 +197,7 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
             className={sendButton()}
             onClick={handleSend}
             disabled={chatState.loading}
+            aria-label="Send chat message"
           >
             <Send size={21} className="m-auto" />
           </Button>
