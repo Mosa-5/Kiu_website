@@ -43,6 +43,7 @@ const Gallery = () => {
   const { t } = useHomeTranslations();
 
   const [playingVideo, setPlayingVideo] = React.useState<number | null>(null);
+  const [loadedThumbnails, setLoadedThumbnails] = React.useState<Set<number>>(new Set());
 
   // Gallery items - YouTube videos
   const galleryItems = [
@@ -56,13 +57,11 @@ const Gallery = () => {
       videoId: "MWywbw1BEFQ",
       title: "KIU - ადგილი, სადაც ცოდნა ქმნის მომავალს",
     },
-
     {
       type: "youtube",
       videoId: "1Mv96goZMwM",
       title: "მათემატიკოსთა საერთაშორისო კონფერენცია KIU-ში",
     },
-
     {
       type: "youtube",
       videoId: "Qq2TK2pN8FU",
@@ -82,18 +81,37 @@ const Gallery = () => {
     setCurrent(api.selectedScrollSnap());
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
-      setPlayingVideo(null); // Stop video when sliding
+      setPlayingVideo(null);
     });
   }, [api]);
 
+  // Preload thumbnails only when they come into view
+  React.useEffect(() => {
+    const currentIndex = current;
+    const indicesToLoad = [
+      currentIndex,
+      (currentIndex - 1 + galleryItems.length) % galleryItems.length,
+      (currentIndex + 1) % galleryItems.length,
+    ];
+
+    indicesToLoad.forEach((index) => {
+      if (!loadedThumbnails.has(index)) {
+        setLoadedThumbnails((prev) => new Set(prev).add(index));
+      }
+    });
+  }, [current, galleryItems.length, loadedThumbnails]);
+
   const handleVideoClick = (index: number) => {
     if (index === current) {
-      // If clicking the active video, play it
       setPlayingVideo(index);
     } else {
-      // If clicking a non-active video, scroll to it first
       api?.scrollTo(index);
     }
+  };
+
+  // Generate thumbnail URL with no-referrer policy
+  const getThumbnailUrl = (videoId: string) => {
+    return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
   };
 
   return (
@@ -106,6 +124,7 @@ const Gallery = () => {
           <CarouselContent className={carouselContent()}>
             {galleryItems.map((item, index) => {
               const isActive = index === current;
+              const shouldLoadThumbnail = loadedThumbnails.has(index);
 
               return (
                 <CarouselItem key={index} className={carouselItem()}>
@@ -118,17 +137,26 @@ const Gallery = () => {
                     <CardContent className={cardContent()}>
                       <div className={videoContainer()}>
                         {playingVideo !== index ? (
-                          // Thumbnail view
                           <div
                             className={thumbnailWrapper()}
                             onClick={() => handleVideoClick(index)}
                           >
-                            <img
-                              className={image()}
-                              src={`https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`}
-                              alt={item.title}
-                            />
-                            {/* Play button overlay */}
+                            {shouldLoadThumbnail ? (
+                              <img
+                                className={image()}
+                                src={getThumbnailUrl(item.videoId)}
+                                alt={item.title}
+                                referrerPolicy="no-referrer"
+                                crossOrigin="anonymous"
+                                loading="lazy"
+                              />
+                            ) : (
+                              <div
+                                className={cn(image(), "bg-gray-900 flex items-center justify-center")}
+                              >
+                                <div className="text-white text-sm">Loading...</div>
+                              </div>
+                            )}
                             <div className={playOverlay()}>
                               <svg
                                 className={playButton()}
@@ -159,24 +187,24 @@ const Gallery = () => {
                             </div>
                           </div>
                         ) : (
-                          // Video player
                           <>
                             <img
                               className={cn(image(), thumbnailImage())}
-                              src={`https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`}
+                              src={getThumbnailUrl(item.videoId)}
                               alt={item.title}
+                              referrerPolicy="no-referrer"
+                              crossOrigin="anonymous"
                             />
-                            {/* Loading spinner */}
                             <div className={loadingContainer()}>
                               <div className={loadingSpinner()} />
                             </div>
-                            {/* Video player */}
                             <iframe
                               className={cn(image(), videoIframe())}
-                              src={`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1`}
+                              src={`https://www.youtube-nocookie.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1`}
                               title={item.title}
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                               allowFullScreen
+                              referrerPolicy="no-referrer"
                             />
                           </>
                         )}

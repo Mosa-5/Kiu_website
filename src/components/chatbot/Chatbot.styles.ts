@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 
 export const floatingButton = cva(
   [
-    "fixed bottom-5 right-5 w-15 h-15 bg-mainLight text-white p-4 rounded-full",
+    "fixed bottom-5 right-5 w-15 h-15 bg-mainLight text-white p-4 rounded-full z-2",
     "hover:bg-main transition-all duration-300 border-2 border-main",
   ],
   {
@@ -17,7 +17,7 @@ export const floatingButton = cva(
 
 export const chatWindow = cva(
   [
-    "fixed bottom-5 max-sm:right-1/2 max-sm:translate-x-1/2 right-5",
+    "fixed bottom-5 max-sm:right-1/2 max-sm:translate-x-1/2 right-5 z-2",
     "sm:w-100 w-87 h-120 bg-white shadow-xl border-main rounded-xl overflow-hidden",
     "border-2 flex flex-col transition-all duration-300 origin-bottom-right",
   ],

@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    container_name: kiu-frontend
+    depends_on:
+      - backend
+    restart: always
+
+  backend:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: ["node", "server.js"]
+    ports:
+      - "5000:3001"
+    container_name: kiu-backend
+    environment:
+      - NODE_ENV=production
+      - GEMINI_KEY=${GEMINI_KEY}
+    restart: always

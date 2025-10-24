@@ -61,3 +61,27 @@ export const iframeWrapper = cva(
 );
 
 export const iframeInner = cva("w-full h-full");
+
+export const playOverlay = cva(
+  "absolute inset-0 flex flex-col items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all"
+);
+
+export const playButton = cva(
+  "w-20 h-20 opacity-90 group-hover:opacity-100 group-hover:scale-105 duration-200 transition-all"
+);
+
+export const playButtonPolygon = cva("fill-none stroke-white");
+
+export const playButtonCircle = cva("fill-none stroke-white");
+
+export const loadingContainer = cva(
+  "absolute inset-0 flex items-center justify-center bg-black/40 z-0"
+);
+
+export const loadingSpinner = cva(
+  "w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"
+);
+
+export const thumbnailImage = cva("absolute inset-0");
+
+export const videoIframe = cva("w-full h-full relative z-1");

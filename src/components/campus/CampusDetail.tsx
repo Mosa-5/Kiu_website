@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useCampusTranslations } from "@/hooks/useCampusTranslations";
 import { campusContent } from "@/content/campus";
+import * as React from "react";
 import {
   sectionDescription,
   container,
@@ -27,17 +28,52 @@ import {
   dormitoryTitle,
   dormitoryDescription,
   iframeWrapper,
-  iframeInner,
   featureIcon,
   animateFadeIn,
   buttonClass,
   buttonIcon,
   dormitoryIcon,
+  playButton,
+  playButtonPolygon,
+  playButtonCircle,
+  playOverlay,
+  thumbnailImage,
+  loadingContainer,
+  loadingSpinner,
+  videoIframe,
 } from "./CampusDetail.styles";
 
 export const CampusDetail = () => {
   const { t } = useCampusTranslations();
   const { buttonUrl, videoUrl, videoTitle: videoTitleAttr } = campusContent;
+  const [showVideo, setShowVideo] = React.useState(false);
+
+  // Extract video ID from URL
+  const getVideoId = (url: string) => {
+    const patterns = [
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?/]+)/,
+      /youtube\.com\/embed\/([^?/]+)/,
+    ];
+
+    for (const pattern of patterns) {
+      const match = url.match(pattern);
+      if (match && match[1]) {
+        return match[1];
+      }
+    }
+    return null;
+  };
+
+  // Convert regular YouTube URL to nocookie embed URL
+  const getPrivacyEnhancedUrl = (url: string) => {
+    const videoId = getVideoId(url);
+    if (videoId) {
+      return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`;
+    }
+    return url.replace("youtube.com", "youtube-nocookie.com");
+  };
+
+  const videoId = getVideoId(videoUrl);
 
   const features = [
     { icon: MapPin, key: "location" },
@@ -105,14 +141,82 @@ export const CampusDetail = () => {
 
             {/* Video Tour Section */}
             <div className={iframeWrapper()}>
-              <iframe
-                width="560"
-                height="315"
-                src={videoUrl}
-                title={videoTitleAttr}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                className={iframeInner()}
-              ></iframe>
+              {!showVideo && videoId ? (
+                <div
+                  onClick={() => setShowVideo(true)}
+                  style={{
+                    position: "relative",
+                    cursor: "pointer",
+                    aspectRatio: "16/9",
+                    width: "100%",
+                    background: "#000",
+                  }}
+                >
+                  <img
+                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                    alt={videoTitleAttr}
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <div className={playOverlay()}>
+                    <svg
+                      className={playButton()}
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 213.7 213.7"
+                    >
+                      <polygon
+                        className={playButtonPolygon()}
+                        strokeWidth="7"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        points="73.5,62.5 148.5,105.8 73.5,149.1"
+                      />
+                      <circle
+                        className={playButtonCircle()}
+                        strokeWidth="7"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        cx="106.8"
+                        cy="106.8"
+                        r="103.3"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <img
+                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                    alt={videoTitleAttr}
+                    referrerPolicy="no-referrer"
+                    className={thumbnailImage()}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <div className={loadingContainer()}>
+                    <div className={loadingSpinner()} />
+                  </div>
+                  <iframe
+                    width="560"
+                    height="315"
+                    src={getPrivacyEnhancedUrl(videoUrl)}
+                    title={videoTitleAttr}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className={videoIframe()}
+                  ></iframe>
+                </>
+              )}
             </div>
           </div>
         </div>
