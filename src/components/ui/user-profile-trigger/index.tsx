@@ -1,18 +1,19 @@
-import { User } from "lucide-react";
-import {
-  Select,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-} from "@/components/ui/select";
+import { ChevronDownIcon, User } from "lucide-react";
 import {
   selectTrigger,
   iconWrapper,
   userName,
   selectContent,
   selectItem,
+  chevronDown,
 } from "./index.styles";
 import { cn } from "@/lib/utils";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../dropdown-menu";
 
 interface UserProfileSelectProps {
   userName?: string;
@@ -30,30 +31,31 @@ const UserProfileSelect = ({
   profileText,
   className = "",
 }: UserProfileSelectProps) => {
-  const handleValueChange = (value: string) => {
-    if (value === "website") {
-      window.open("https://lms.kiu.edu.ge", "_blank");
-    } else if (value === "logout") {
-      onLogout();
-    }
+  const openLMS = () => {
+    window.open("https://lms.kiu.edu.ge", "_blank");
   };
 
   return (
-    <Select defaultValue="" onValueChange={handleValueChange}>
-      <SelectTrigger className={cn(selectTrigger(), className)}>
+    <DropdownMenu>
+      <DropdownMenuTrigger className={cn(selectTrigger(), className)}>
         <User className={iconWrapper()} color="white" />
         <span className={userName()}>{profileText}</span>
-      </SelectTrigger>
+        <ChevronDownIcon className={chevronDown()} />
+      </DropdownMenuTrigger>
 
-      <SelectContent className={selectContent()}>
-        <SelectItem className={selectItem()} value="website">
+      <DropdownMenuContent
+        align="center"
+        style={{ width: "var(--radix-dropdown-menu-trigger-width)" }}
+        className={selectContent()}
+      >
+        <DropdownMenuItem onClick={openLMS} className={selectItem()}>
           {lmsText}
-        </SelectItem>
-        <SelectItem className={selectItem()} value="logout">
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={onLogout} className={selectItem()}>
           {logoutText}
-        </SelectItem>
-      </SelectContent>
-    </Select>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 
