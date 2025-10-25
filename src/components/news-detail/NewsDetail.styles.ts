@@ -10,9 +10,7 @@ export const imageWrapper = cva(
   "w-full md:float-right md:ml-4 md:mb-4 md:w-1/2 lg:w-[686px] h-fit"
 );
 
-export const image = cva(
-  "w-full h-auto rounded-lg shadow-lg border-2 border-main"
-);
+export const image = cva("w-full h-auto rounded-lg shadow-lg");
 
 export const paragraph = cva(
   "mb-4 text-sm sm:text-xl font-medium text-gray-800 leading-[26px] sm:leading-[31px]"
