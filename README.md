@@ -29,7 +29,8 @@ Developed as a university project to represent **Kutaisi International Universit
 - **News** — announcements and updates, with **individual news pages** for full article content.
 - **Campus** — overview of university campus.
 - **Vacancies** — job listings with an **active form** that sends emails to both the sender and the university email address.
-
+- **404 Page** — custom not found page for better user experience.
+  
 ### Functionality
 
 - **Complete multilingual support** with `i18next` and locale files.
