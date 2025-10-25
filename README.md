@@ -9,7 +9,7 @@ Developed as a university project to represent **Kutaisi International Universit
 
 ### General
 
-- **Responsive design** — optimized for both 1920px and 372px displays.
+- **Responsive design** — optimized for 1920px and 375px (works well from 372–412px).
 - **SEO optimized** for better search engine visibility.
 - **Lazy loading** for improved performance.
 - **Optimized images** in `.webp` format.
