@@ -13,6 +13,7 @@ import {
   input,
   sendButton,
 } from "./Chatbot.styles";
+import { useHeaderTranslations } from "@/hooks/hooksHeader/useHeaderTranslation";
 
 interface Message {
   sender: "user" | "bot";
@@ -27,16 +28,10 @@ export default function ChatbotGemini() {
     loading: false,
   });
 
+  const { t } = useHeaderTranslations();
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const initialMessageSent = useRef(false);
-
-  // 🔹 detect language from the URL path
-  const lang = window.location.pathname.split("/")[1]; // "en" or "ka"
-
-  // 🔹 decide text based on language
-  const title = lang === "ka" ? "კიუ ასისტენტი" : "KIU Assistant";
-  const placeholder =
-    lang === "ka" ? "ჩაწერეთ თქვენი შეტყობინება..." : "Type your message...";
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -51,13 +46,13 @@ export default function ChatbotGemini() {
           ...prev.messages,
           {
             sender: "bot",
-            text: "Hello! I'm KIU Assistant, a friendly chatbot here to help you with any questions about Kutaisi International University. How can I assist you today?",
+            text: t("chatbot.welcomeMessage"),
           },
         ],
       }));
       initialMessageSent.current = true;
     }
-  }, [isOpen]);
+  }, [isOpen, t]);
 
   // Open chat automatically on initial load
   useEffect(() => {
@@ -166,7 +161,7 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
       {/* Chat Window */}
       <div className={chatWindow({ isOpen })}>
         <div className={chatHeader()}>
-          {title}
+          {t("chatbot.title")}
           <X className={closeIcon()} onClick={() => setIsOpen(false)} />
         </div>
 
@@ -178,7 +173,7 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
           ))}
 
           {chatState.loading && (
-            <div className={loadingText()}>Thinking...</div>
+            <div className={loadingText()}>{t("chatbot.thinking")}</div>
           )}
           <div ref={messagesEndRef} />
         </div>
@@ -190,7 +185,7 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
             onChange={(e) =>
               setChatState((prev) => ({ ...prev, input: e.target.value }))
             }
-            placeholder={placeholder}
+            placeholder={t("chatbot.placeholder")}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
           />
           <Button

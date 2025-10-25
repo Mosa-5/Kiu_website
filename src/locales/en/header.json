@@ -24,6 +24,12 @@
     "password": "Password",
     "logInQuestion": "Don't have an account?",
     "signUpQuestion": "Already have an account?"
+  },
+   "chatbot": {
+    "welcomeMessage": "Hello! I'm KIU Assistant, a friendly chatbot here to help you with any questions about Kutaisi International University. How can I assist you today?",
+    "title": "KIU Assistant",
+    "placeholder": "Type your message...",
+    "thinking": "Thinking..."
   }
   
 }
