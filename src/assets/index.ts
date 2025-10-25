@@ -52,6 +52,17 @@ export { default as JakobWagner } from "./jakob_wagner.webp";
 export { default as BorisVexler } from "./thumbnail_boris_vexler_foto_1.webp";
 export { default as RamazBochorishvili } from "./ramaz_botchorishvili_photo.webp";
 export { default as MathHero } from "./programImages/mathCard.webp";
+export { default as MathAndApplHero } from "./programImages/math&applCard.webp";
+export { default as CsHero } from "./programImages/csCard.webp";
+export { default as DesignHero } from "./programImages/designCard.webp";
+export { default as EmbadHero } from "./programImages/embadCard.webp";
+export { default as FinanceHero } from "./programImages/financeCard.webp";
+export { default as IntHero } from "./programImages/intCard.webp";
+export { default as LawHero } from "./programImages/lawCard.webp";
+export { default as MedHero } from "./programImages/medCard.webp";
+export { default as MnscHero } from "./programImages/mnscCard.webp";
+export { default as PsychHero } from "./programImages/psychCard.webp";
+
 export { default as AdmisssionHero } from "./admission-hero.webp";
 export { default as CampusHeroImage } from "./CampusHero.webp";
 export { default as StudentsHeroImage } from "./Students.webp";
