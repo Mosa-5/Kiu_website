@@ -1,12 +1,12 @@
 import { CampusDetail } from "@/components/campus/CampusDetail";
 import CampusHero from "@/components/campus/CampusHero";
+import PageWrapper from "@/components/ui/page-wrapper/PageWrapper";
 
 const CampusPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <CampusHero />
+    <PageWrapper hero={<CampusHero />} className="bg-background">
       <CampusDetail />
-    </div>
+    </PageWrapper>
   );
 };
 

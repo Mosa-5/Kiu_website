@@ -1,13 +1,12 @@
 import YouthUniDetail from "@/components/projects/youth-uni/YouthUniDetail";
 import YouthUniHero from "@/components/projects/youth-uni/YouthUniHero";
-
+import PageWrapper from "../components/ui/page-wrapper/PageWrapper";
 
 const YouthUni = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <YouthUniHero />
+    <PageWrapper hero={<YouthUniHero />} className="bg-background">
       <YouthUniDetail />
-    </div>
+    </PageWrapper>
   );
 };
 

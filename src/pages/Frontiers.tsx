@@ -1,14 +1,12 @@
 import FrontiersDetail from "@/components/projects/frontiers/FrontiersDetail";
 import AdvancingFrontiersHero from "@/components/projects/frontiers/FrontiersHero";
-
-
+import PageWrapper from "../components/ui/page-wrapper/PageWrapper";
 
 const Frontiers = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <AdvancingFrontiersHero />
+    <PageWrapper hero={<AdvancingFrontiersHero />} className="bg-background">
       <FrontiersDetail />
-    </div>
+    </PageWrapper>
   );
 };
 

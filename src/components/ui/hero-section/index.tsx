@@ -7,6 +7,7 @@ import {
   title,
   homeButton,
 } from "./HeroSection.styles";
+import "./HeroSection.css"; // Add this import
 
 interface HeroSectionProps {
   titleText: string;
@@ -31,34 +32,40 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <div className={heroContainer()}>
-      <img src={imageSrc} alt={titleText} className={heroImage()} />
+      <img
+        src={imageSrc}
+        alt={titleText}
+        className={`${heroImage()} hero-image-animate`}
+      />
 
       <div className={contentWrapper()}>
-        <h1 className={title()}>{titleText}</h1>
-        <Button
-          className={homeButton()}
-          onClick={navigate}
-          area-label={`Back to ${buttonLabel}`}
-        >
-          {buttonIcon ?? (
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M16 5L9 12L16 19"
-                stroke="#E7E7E6"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          )}
-          {buttonLabel}
-        </Button>
+        <h1 className={`${title()} hero-title-animate`}>{titleText}</h1>
+        <div className="hero-button-animate">
+          <Button
+            className={homeButton()}
+            onClick={navigate}
+            aria-label={`Back to ${buttonLabel}`}
+          >
+            {buttonIcon ?? (
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16 5L9 12L16 19"
+                  stroke="#E7E7E6"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            )}
+            {buttonLabel}
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -175,3 +175,33 @@
   }
 }
 
+
+@keyframes pageContentFade {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pageContentSlide {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-content-main {
+  animation: pageContentSlide 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s both;
+}
+
+.page-content-section {
+  animation: pageContentSlide 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}

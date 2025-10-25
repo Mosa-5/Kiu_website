@@ -1,12 +1,12 @@
 import ResearchDetail from "@/components/research/ResearchDetail";
 import ResearchHero from "@/components/research/ResearchHero";
+import PageWrapper from "../components/ui/page-wrapper/PageWrapper";
 
 const Research = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <ResearchHero />
-      <ResearchDetail/>
-    </div>
+    <PageWrapper hero={<ResearchHero />} className="bg-background">
+      <ResearchDetail />
+    </PageWrapper>
   );
 };
 

@@ -7,10 +7,14 @@ import ProgramHome from "@/components/home/program-home/ProgramHome";
 
 const Home = () => {
   return (
-    <div className="space-y-20 sm:space-y-[120px]">
-      <CarouselHero />
+    <>
+      <div className="page-content-hero">
+        <CarouselHero />
+      </div>
       <div className="*:px-4 space-y-20 sm:space-y-[120px]">
-        <About />
+        <div className="page-content-main">
+          <About />
+        </div>
         <div className="w-full py-2.5 sm:py-[40px] bg-[#D9D9D940]">
           <CarouselNews />
         </div>
@@ -18,7 +22,7 @@ const Home = () => {
         <ExperinemtalGallery />
         <Campus />
       </div>
-    </div>
+    </>
   );
 };
 

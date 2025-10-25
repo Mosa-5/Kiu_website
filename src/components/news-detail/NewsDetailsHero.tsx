@@ -24,8 +24,12 @@ const NewsDetailsHero = () => {
 
   return (
     <div className={container()}>
-      <img src={newsHeroImage} alt="News Hero" className={heroImage()} />
-      <div className={contentBox()}>
+      <img
+        src={newsHeroImage}
+        alt="News Hero"
+        className={`${heroImage()} hero-image-animate`}
+      />
+      <div className={`${contentBox()} hero-content-animate`}>
         <div className={contentInner()}>
           <h1 className={title()}>{item.title}</h1>
           <p className={date()}>{item.date}</p>
