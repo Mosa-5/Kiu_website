@@ -1,14 +1,12 @@
 import StudentsDetail from "@/components/students/StudentsDetail";
 import StudentsHero from "@/components/students/StudentsHero";
-
-
+import PageWrapper from "./PageWrapper";
 
 const Students = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <StudentsHero />
+    <PageWrapper hero={<StudentsHero />} className="bg-background">
       <StudentsDetail />
-    </div>
+    </PageWrapper>
   );
 };
 

@@ -11,18 +11,21 @@ const Layout = () => {
   const location = useLocation();
   const { lang } = useParams<{ lang: string }>();
   const { i18n } = useTranslation();
-  
+
   // Track previous path without language
-  const prevPathRef = useRef<string>("");
+  const prevPathRef = useRef<string | null>(null);
 
   const validLanguages = ["en", "ka"];
   const isValidLang = lang && validLanguages.includes(lang);
 
   useEffect(() => {
     const currentPathWithoutLang = location.pathname.replace(/^\/(en|ka)/, "");
-    
-    // Only scroll to top if the actual route changed (not just language)
-    if (prevPathRef.current !== currentPathWithoutLang) {
+
+    // Scroll to top on first load or when route changes
+    if (
+      prevPathRef.current === null ||
+      prevPathRef.current !== currentPathWithoutLang
+    ) {
       window.scrollTo(0, 0);
       prevPathRef.current = currentPathWithoutLang;
     }

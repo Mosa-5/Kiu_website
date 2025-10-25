@@ -1,13 +1,12 @@
 import SingleProgramDetail from "@/components/individual-program/SingleProgramDetail";
 import SingleProgramHero from "@/components/individual-program/SingleProgramHero";
-
+import PageWrapper from "./PageWrapper";
 
 const SingleProgram = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <SingleProgramHero />
+    <PageWrapper hero={<SingleProgramHero />} className="bg-background">
       <SingleProgramDetail />
-    </div>
+    </PageWrapper>
   );
 };
 

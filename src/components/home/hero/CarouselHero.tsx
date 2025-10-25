@@ -30,6 +30,7 @@ import {
   carouselDot,
 } from "./CarouselHero.styles";
 import { useParams } from "react-router-dom";
+import "./CarouselHero.css";
 
 const heroImagesEn = [heroimg1, heroimg2, heroimg3, heroimg4, heroimg5];
 const heroImagesKa = [
@@ -81,12 +82,10 @@ const CarouselHero = () => {
       stopAuto();
       if (pauseTimeout) clearTimeout(pauseTimeout);
       pauseTimeout = setTimeout(() => {
-        // Only restart if page is visible
         if (!document.hidden) startAuto();
-      }, 5000); // pause 5s after manual click
+      }, 5000);
     };
 
-    // Handle select event and check if it was manual
     const handleSelect = () => {
       setCurrent(api.selectedScrollSnap() + 1);
       if (!isAutoScrolling) {
@@ -95,16 +94,13 @@ const CarouselHero = () => {
     };
 
     api.on("select", handleSelect);
-
-    // Start initially
     startAuto();
 
-    // Stop completely when tab hidden; restart cleanly when visible
     const handleVisibility = () => {
       if (document.hidden) {
-        stopAuto(); // cancel timer, no catch-up
+        stopAuto();
       } else {
-        startAuto(); // start fresh
+        startAuto();
       }
     };
     document.addEventListener("visibilitychange", handleVisibility);
@@ -121,7 +117,7 @@ const CarouselHero = () => {
       <Carousel
         setApi={setApi}
         opts={{ loop: true, duration: 25 }}
-        className={carousel()}
+        className={`${carousel()} carousel-hero-animate`}
       >
         <CarouselContent className={carouselContent()}>
           {heroImages.map((img, index) => (
@@ -137,7 +133,7 @@ const CarouselHero = () => {
         <CarouselPreviousForHero />
         <CarouselNextForHero />
       </Carousel>
-      <div className={dotContainer()}>
+      <div className={`${dotContainer()} carousel-dots-animate`}>
         {Array.from({ length: count }).map((_, index) => (
           <button
             key={index}

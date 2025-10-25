@@ -1,16 +1,16 @@
 import NewsDetail from "@/components/news-detail/NewsDetail";
 import NewsDetailsHero from "@/components/news-detail/NewsDetailsHero";
 import SimilarNews from "@/components/news-detail/SimilarNews";
+import PageWrapper from "./PageWrapper";
 
 const SingleNews = () => {
   return (
-    <div className="min-h-screen">
-      <NewsDetailsHero />
-      <div className="px-4">
+    <PageWrapper hero={<NewsDetailsHero />}>
+      <div className="px-4 space-y-8">
         <NewsDetail />
         <SimilarNews />
       </div>
-    </div>
+    </PageWrapper>
   );
 };
 

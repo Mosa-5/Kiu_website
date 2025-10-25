@@ -1,15 +1,12 @@
 import AboutDetail from "@/components/about/AboutDetail";
 import AboutHero from "@/components/about/AboutHero";
-
-
-
+import PageWrapper from "./PageWrapper";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <AboutHero />
+    <PageWrapper hero={<AboutHero />} className="bg-background">
       <AboutDetail />
-    </div>
+    </PageWrapper>
   );
 };
 
