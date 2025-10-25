@@ -43,7 +43,9 @@ const Gallery = () => {
   const { t } = useHomeTranslations();
 
   const [playingVideo, setPlayingVideo] = React.useState<number | null>(null);
-  const [loadedThumbnails, setLoadedThumbnails] = React.useState<Set<number>>(new Set());
+  const [loadedThumbnails, setLoadedThumbnails] = React.useState<Set<number>>(
+    new Set()
+  );
 
   // Gallery items - YouTube videos
   const galleryItems = [
@@ -152,9 +154,14 @@ const Gallery = () => {
                               />
                             ) : (
                               <div
-                                className={cn(image(), "bg-gray-900 flex items-center justify-center")}
+                                className={cn(
+                                  image(),
+                                  "bg-gray-900 flex items-center justify-center"
+                                )}
                               >
-                                <div className="text-white text-sm">Loading...</div>
+                                <div className="text-white text-sm">
+                                  Loading...
+                                </div>
                               </div>
                             )}
                             <div className={playOverlay()}>
@@ -202,9 +209,9 @@ const Gallery = () => {
                               className={cn(image(), videoIframe())}
                               src={`https://www.youtube-nocookie.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1`}
                               title={item.title}
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              referrerPolicy="strict-origin-when-cross-origin"
                               allowFullScreen
-                              referrerPolicy="no-referrer"
                             />
                           </>
                         )}
