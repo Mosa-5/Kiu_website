@@ -13,6 +13,7 @@ Developed as a university project to represent **Kutaisi International Universit
 - **SEO optimized** for better search engine visibility.
 - **Lazy loading** for improved performance.
 - **Optimized images** in `.webp` format.
+- **High performance metrics** — Lighthouse scores of 90-95+ across Performance, Accessibility, Best Practices, and SEO.
 
 ### Pages
 
@@ -62,7 +63,7 @@ Developed as a university project to represent **Kutaisi International Universit
 - **i18next + locale files** for translation management and automatic language detection.
 - **Shadcn UI** for accessible and themeable component design.
 - **EmailJS integration** for client-side form submission without a backend.
-- **LocalStorage** used to simulate authentication persistence.
+- **LocalStorage** used to simulate authentication persistence (should be replaced with proper auth).
 
 ---
 
@@ -73,7 +74,7 @@ You can view the deployed project here (vercel is down right now, this is an old
 
 ### Clone the repository
 ```bash
-git clone https://github.com/your-username/kiu_website.git
+git clone https://github.com/Mosa-5/Kiu_website
 cd kiu_website
 ```
 
