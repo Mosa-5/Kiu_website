@@ -70,6 +70,14 @@ Developed as a university project to represent **Kutaisi International Universit
 ## Live Demo
 You can view the deployed project here (vercel is down right now, this is an older version): https://kiu-website.vercel.app/
 
+---
+
+## Design
+The website design was created in Figma. You can view the design files here:
+[View Figma Design](https://www.figma.com/design/bhYExjkqjBHDOdPFwPhdRn/KIU?node-id=0-1&p=f&t=5eDTpvY1cko9pobe-0)
+
+---
+
 ## Installation & Setup
 
 ### Clone the repository
