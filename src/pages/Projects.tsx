@@ -1,6 +1,6 @@
 import ProjectsGrid from "@/components/projects/ProjectsGrid";
 import ProjectsHero from "@/components/projects/ProjectsHero";
-import PageWrapper from "./PageWrapper";
+import PageWrapper from "../components/ui/page-wrapper/PageWrapper";
 
 const Projects = () => {
   return (

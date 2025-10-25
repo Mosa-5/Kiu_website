@@ -1,6 +1,6 @@
 import YouthUniDetail from "@/components/projects/youth-uni/YouthUniDetail";
 import YouthUniHero from "@/components/projects/youth-uni/YouthUniHero";
-import PageWrapper from "./PageWrapper";
+import PageWrapper from "../components/ui/page-wrapper/PageWrapper";
 
 const YouthUni = () => {
   return (

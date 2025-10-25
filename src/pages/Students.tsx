@@ -1,6 +1,6 @@
 import StudentsDetail from "@/components/students/StudentsDetail";
 import StudentsHero from "@/components/students/StudentsHero";
-import PageWrapper from "./PageWrapper";
+import PageWrapper from "../components/ui/page-wrapper/PageWrapper";
 
 const Students = () => {
   return (

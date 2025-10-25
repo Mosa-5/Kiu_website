@@ -1,6 +1,6 @@
 import NewsHero from "@/components/news/NewsHero";
 import SectionSwitcher from "@/components/news/SectionSwitcher";
-import PageWrapper from "./PageWrapper";
+import PageWrapper from "../components/ui/page-wrapper/PageWrapper";
 
 const News = () => {
   return (

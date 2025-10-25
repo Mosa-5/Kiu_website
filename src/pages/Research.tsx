@@ -1,6 +1,6 @@
 import ResearchDetail from "@/components/research/ResearchDetail";
 import ResearchHero from "@/components/research/ResearchHero";
-import PageWrapper from "./PageWrapper";
+import PageWrapper from "../components/ui/page-wrapper/PageWrapper";
 
 const Research = () => {
   return (

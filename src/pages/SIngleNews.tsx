@@ -1,7 +1,7 @@
 import NewsDetail from "@/components/news-detail/NewsDetail";
 import NewsDetailsHero from "@/components/news-detail/NewsDetailsHero";
 import SimilarNews from "@/components/news-detail/SimilarNews";
-import PageWrapper from "./PageWrapper";
+import PageWrapper from "../components/ui/page-wrapper/PageWrapper";
 
 const SingleNews = () => {
   return (

@@ -1,6 +1,6 @@
 import { CampusDetail } from "@/components/campus/CampusDetail";
 import CampusHero from "@/components/campus/CampusHero";
-import PageWrapper from "@/pages/PageWrapper";
+import PageWrapper from "@/components/ui/page-wrapper/PageWrapper";
 
 const CampusPage = () => {
   return (

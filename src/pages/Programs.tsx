@@ -1,6 +1,6 @@
 import ProgramHero from "@/components/programs/ProgramsHero";
 import ProgramTabs from "@/components/programs/ProgramsTabs";
-import PageWrapper from "./PageWrapper";
+import PageWrapper from "../components/ui/page-wrapper/PageWrapper";
 
 const Programs = () => {
   return (

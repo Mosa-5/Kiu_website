@@ -1,6 +1,6 @@
 import { kiuLogo } from "@/assets";
 import { Link } from "react-router-dom";
-import MobileMenu from "../ui/MobileMenu";
+import MobileMenu from "../ui/mobile-menu";
 import { container, content, logo } from "./HeaderMobile.styles";
 
 const HeaderMobile = () => {
