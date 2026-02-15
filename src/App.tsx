@@ -1,7 +1,8 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import Layout from "./layout";
+import Layout from "./layouts";
 import NotFound from "./pages/NotFound";
+import Home from "./pages/Home";
 import { Loader2 } from "lucide-react";
 import Students from "./pages/Students";
 import Research from "./pages/Research";
@@ -10,7 +11,6 @@ import { preloadCriticalImages } from "./utils/imagePreloader";
 const CampusPage = lazy(() => import("./pages/Campus"));
 const News = lazy(() => import("./pages/News"));
 const SingleNews = lazy(() => import("./pages/SIngleNews"));
-const Home = lazy(() => import("./pages/Home"));
 const SingleProgram = lazy(() => import("./pages/SingleProgram"));
 const Projects = lazy(() => import("./pages/Projects"));
 const YouthUni = lazy(() => import("./pages/YouthUni"));
@@ -28,7 +28,8 @@ const LoadingFallback = () => (
 
 function App() {
   useEffect(() => {
-    preloadCriticalImages();
+    const lang = window.location.pathname.startsWith("/ka") ? "ka" : "en";
+    preloadCriticalImages(lang);
   }, []);
 
   return (
@@ -142,14 +143,7 @@ function App() {
             </Suspense>
           }
         />
-        <Route
-          index
-          element={
-            <Suspense fallback={<LoadingFallback />}>
-              <Home />
-            </Suspense>
-          }
-        />
+        <Route index element={<Home />} />
       </Route>
       {/* Catch-all route for any other unmatched paths */}
       <Route

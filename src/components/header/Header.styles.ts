@@ -1,11 +1,11 @@
 import { cva } from "class-variance-authority";
 
 export const header = cva(
-  `max-sm:hidden flex items-center z-10 justify-center w-full fixed left-1/2 -translate-x-1/2 border-1 h-[80px] transition-all duration-200`,
+  `max-sm:hidden flex items-center z-10 justify-center w-full drop-shadow-sm drop-shadow-blue-150 fixed left-1/2 -translate-x-1/2 border-1 h-[80px] transition-all duration-200`,
   {
     variants: {
       scrolled: {
-        true: `max-w-full border-b-2 border-t-0 border-b-main rounded-none top-0 bg-white`,
+        true: `max-w-full rounded-none top-0 bg-white h-[96px]`,
         false: `max-w-[1680px] rounded-2xl top-[24px] bg-[#FFFFFFE5] shadow-default`,
       },
     },

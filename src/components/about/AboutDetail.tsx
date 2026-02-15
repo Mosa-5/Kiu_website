@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { AboutIcon } from "../../assets/icons/icons";
-import { SideSectionsSheet } from "../ui/sections-sidebar";
 import { useAboutTranslations } from "../../hooks/useAboutTranslations";
 import {
   container,
@@ -35,11 +34,12 @@ import {
   calendarButton,
   calendarButtonArrow,
 } from "./AboutDetail.styles";
-import { useParams } from "react-router-dom";
+
 import { Wolfgang } from "@/assets";
 
+
 const AboutDetail: React.FC = () => {
-  const { lang } = useParams<{ lang?: string }>();
+
   const {
     t,
     getTranslatedArray,
@@ -47,31 +47,6 @@ const AboutDetail: React.FC = () => {
     getTranslatedMembers,
     getTranslatedPrograms,
   } = useAboutTranslations();
-
-  const [isOpen, setIsOpen] = useState(false);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (!element) return;
-
-    const offset = 100;
-    const elementPosition =
-      element.getBoundingClientRect().top + window.scrollY;
-    const scrollPosition = elementPosition - offset;
-
-    window.scrollTo({
-      top: scrollPosition,
-      behavior: "smooth",
-    });
-
-    setIsOpen(false);
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const sections = getTranslatedArray("sections").map((section: any) => ({
-    id: section.id,
-    label: section.label,
-  }));
 
   const introParagraphs = getTranslatedArray("intro.paragraphs");
   const presidentParagraphs = getTranslatedArray("president.paragraphs");
@@ -89,17 +64,6 @@ const AboutDetail: React.FC = () => {
   );
 
   return (
-    <>
-      {/* Side Navigation */}
-      <SideSectionsSheet
-        sections={sections}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        scrollToSection={scrollToSection}
-        language={lang || "en"}
-      />
-
-      {/* Main Content */}
       <div className={container()}>
         {/* Intro Section */}
         <section id="intro" className={section({ isFirst: true })}>
@@ -273,7 +237,6 @@ const AboutDetail: React.FC = () => {
           </div>
         </section>
       </div>
-    </>
   );
 };
 

@@ -27,6 +27,10 @@ const LanguageSelect = () => {
   const handleLanguageChange = (newLang: string) => {
   const currentScroll = window.scrollY; // save current scroll
 
+  // Set lang attribute immediately so font-size change happens
+  // before React re-renders, avoiding a visible resize flash
+  document.documentElement.lang = newLang;
+
   setSelectedValue(newLang);
   i18n.changeLanguage(newLang);
 

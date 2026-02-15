@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { getProgramsData } from "./data/programs/ProgramsData";
-import { SideSectionsSheet } from "@/components/ui/sections-sidebar";
 import { useTranslation } from "react-i18next";
 
 import AboutSchoolSection from "./sections/AboutSchool";
@@ -15,9 +14,8 @@ import NewsletterArchiveSection from "./sections/NewsletterArchive";
 
 const SingleProgramDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [isOpen, setIsOpen] = useState(false);
   const { i18n } = useTranslation();
-  
+
   const programsData = getProgramsData(i18n.language);
   const programData = programsData[id || ""];
 
@@ -30,7 +28,6 @@ const SingleProgramDetail: React.FC = () => {
     main: "text-mainDark",
     bg: "bg-headingBg",
   };
-
 
   if (!programData) {
     return (
@@ -45,66 +42,21 @@ const SingleProgramDetail: React.FC = () => {
     );
   }
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (!element) return;
-    const offset = 80;
-    const elementPosition =
-      element.getBoundingClientRect().top + window.scrollY;
-    const scrollPosition = elementPosition - offset;
-
-    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
-    setIsOpen(false);
-  };
-
-  const sectionsEn = [
-    { id: "about-school", label: "About School" },
-    { id: "about-program", label: "About Program" },
-    { id: "curriculum-brief", label: "Curriculum Brief" },
-    { id: "minor-program", label: "Minor Program" },
-    { id: "program-supervisor", label: "Program Supervisor" },
-    { id: "academic-personnel", label: "Academic Personnel" },
-    { id: "tuition-costs", label: "Tuition Fee and Living Costs" },
-    { id: "newsletter-archive", label: "SMCS Newsletter Archive" },
-  ];
-
-  const sectionsKa = [
-    { id: "about-school", label: "სკოლის შესახებ" },
-    { id: "about-program", label: "პროგრამის შესახებ" },
-    { id: "curriculum-brief", label: "სასწავლო გეგმის მოკლე მიმოხილვა" },
-    { id: "minor-program", label: "მინორული პროგრამა" },
-    { id: "program-supervisor", label: "პროგრამის ხელმძღვანელი" },
-    { id: "academic-personnel", label: "აკადემიური პერსონალი" },
-    { id: "tuition-costs", label: "სწავლის საფასური და ცხოვრების ხარჯები" },
-    { id: "newsletter-archive", label: "SMCS საინფორმაციო ბიულეტენის არქივი" },
-  ];
-
-  const sections = i18n.language === "ka" ? sectionsKa : sectionsEn;
-
   return (
-    <>
-      <SideSectionsSheet
-        sections={sections}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        scrollToSection={scrollToSection}
+    <div className="max-w-[1680px] max-sm:px-4 mx-auto font-sans">
+      <AboutSchoolSection
+        programData={programData}
+        mainColorClass={main}
+        headingBgClass={bg}
       />
-
-      <div className="max-w-[1680px] max-sm:px-4 mx-auto font-sans">
-        <AboutSchoolSection
-          programData={programData}
-          mainColorClass={main}
-          headingBgClass={bg}
-        />
-        <AboutProgramSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
-        <CurriculumBriefSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
-        <MinorProgramSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
-        <ProgramSupervisorSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
-        <AcademicPersonnelSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
-        <TuitionCostsSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
-        <NewsletterArchiveSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
-      </div>
-    </>
+      <AboutProgramSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+      <CurriculumBriefSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+      <MinorProgramSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+      <ProgramSupervisorSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+      <AcademicPersonnelSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+      <TuitionCostsSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+      <NewsletterArchiveSection programData={programData} mainColorClass={main} headingBgClass={bg}/>
+    </div>
   );
 };
 

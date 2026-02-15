@@ -4,8 +4,8 @@
     "buttonLabel": "Home"
   },
   "sections": [
-    { "id": "intro", "label": "Intro" },
-    { "id": "president", "label": "Honorary President's Welcome Note" },
+    { "id": "intro", "label": "Our History" },
+    { "id": "president", "label": "Honorary President" },
     { "id": "advisory", "label": "International Advisory Council" },
     { "id": "team", "label": "Team" },
     { "id": "programs", "label": "Academic Programs" },

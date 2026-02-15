@@ -1,4 +1,14 @@
 {
+  "sections": [
+    { "id": "intro", "label": "Intro" },
+    { "id": "legal", "label": "Legal Directory" },
+    { "id": "mobility", "label": "Academic Mobility" },
+    { "id": "campus", "label": "Campus" },
+    { "id": "library", "label": "Library" },
+    { "id": "grant-program", "label": "Student Grant Program" },
+    { "id": "erasmus", "label": "Erasmus" },
+    { "id": "calendar", "label": "Academic Calendar" }
+  ],
   "calendar": {
     "title": "Academic Calendar",
     "description": "Please refer to this calendar for important academic dates and deadlines for the semester."
