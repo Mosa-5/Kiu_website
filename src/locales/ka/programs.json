@@ -9,5 +9,15 @@
     "Master": "მაგისტრატურა",
     "Doctoral": "დოქტორანტურა"
   },
-  "noPrograms": "პროგრამები არ არის ხელმისაწვდომი"
+  "noPrograms": "პროგრამები არ არის ხელმისაწვდომი",
+  "singleProgramSections": [
+    { "id": "about-school", "label": "სკოლის შესახებ" },
+    { "id": "about-program", "label": "პროგრამის შესახებ" },
+    { "id": "curriculum-brief", "label": "სასწავლო გეგმის მოკლე მიმოხილვა" },
+    { "id": "minor-program", "label": "მინორული პროგრამა" },
+    { "id": "program-supervisor", "label": "პროგრამის ხელმძღვანელი" },
+    { "id": "academic-personnel", "label": "აკადემიური პერსონალი" },
+    { "id": "tuition-costs", "label": "სწავლის საფასური და ცხოვრების ხარჯები" },
+    { "id": "newsletter-archive", "label": "SMCS საინფორმაციო ბიულეტენის არქივი" }
+  ]
 }

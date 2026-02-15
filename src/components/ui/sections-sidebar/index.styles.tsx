@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const container = cva("sticky top-3/7 z-50 h-0 w-0");
+export const container = cva("md:hidden sticky top-3/7 z-50 h-0 w-0");
 
 export const sheetContent = cva([
   "w-[230px] sm:w-[300px] h-fit top-1/2 -translate-y-1/2 rounded-r-2xl",
