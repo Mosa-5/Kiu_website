@@ -3,6 +3,14 @@
     "title": "მიღება",
     "buttonLabel": "მთავარი გვერდი"
   },
+  "sections": [
+    { "id": "intro", "label": "შესავალი" },
+    { "id": "programs", "label": "პროგრამები" },
+    { "id": "about-kiu", "label": "KIU-ს შესახებ" },
+    { "id": "campus", "label": "კამპუსი" },
+    { "id": "apply", "label": "როგორ მივიღოთ" },
+    { "id": "timeline", "label": "კალენდარი" }
+  ],
   "intro": {
     "title": "შესავალი",
     "subtitle": "ქუთაისის საერთაშორისო უნივერსიტეტი აცხადებს საერთაშორისო სტუდენტების მიღებას",

@@ -3,6 +3,80 @@
     "title": "Vacancies",
     "buttonLabel": "Home Page"
   },
+  "sections": [
+    { "id": "positions", "label": "Positions" },
+    { "id": "competitions", "label": "Competitions" },
+    { "id": "expression-of-interest", "label": "Expression of Interest" }
+  ],
+  "vacancyLabels": {
+    "deadline": "Deadline",
+    "type": "Type",
+    "department": "Department",
+    "status": "Status",
+    "closed": "Closed",
+    "open": "Open",
+    "details": "View Details"
+  },
+  "openPositions": {
+    "title": "Open Positions",
+    "empty": "There are no open positions at this time. Please check back later or submit an Expression of Interest below.",
+    "items": [
+      {
+        "title": "Assistant Professor of Computer Science",
+        "department": "School of Technology",
+        "type": "Full Time",
+        "deadline": "March 15, 2026"
+      },
+      {
+        "title": "Lecturer in Business Administration",
+        "department": "School of Business",
+        "type": "Full Time",
+        "deadline": "March 30, 2026"
+      }
+    ]
+  },
+  "closedPositions": {
+    "title": "Recently Closed Positions",
+    "empty": "No recently closed positions to display.",
+    "items": [
+      {
+        "title": "Associate Professor of Mathematics",
+        "department": "School of Technology",
+        "type": "Full Time",
+        "deadline": "January 20, 2026"
+      }
+    ]
+  },
+  "ongoingCompetitions": {
+    "title": "Ongoing Competitions",
+    "empty": "There are no ongoing competitions at this time.",
+    "items": [
+      {
+        "title": "Academic Position Competition — School of Technology",
+        "department": "School of Technology",
+        "type": "Academic Competition",
+        "deadline": "April 1, 2026"
+      }
+    ]
+  },
+  "completedCompetitions": {
+    "title": "Completed Competitions",
+    "empty": "No completed competitions to display.",
+    "items": [
+      {
+        "title": "Academic Position Competition — School of Business",
+        "department": "School of Business",
+        "type": "Academic Competition",
+        "deadline": "December 15, 2025"
+      },
+      {
+        "title": "Teaching Assistant Selection — Mathematics",
+        "department": "School of Technology",
+        "type": "Assistant Selection",
+        "deadline": "November 30, 2025"
+      }
+    ]
+  },
   "detail": {
     "heading": "Expression Of Interest",
     "intro": "If you are interested to work with us you can see our vacancies or contact us at",

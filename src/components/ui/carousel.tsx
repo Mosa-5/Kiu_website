@@ -183,9 +183,9 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-14 h-14 sm:w-16 sm:h-16 rounded-full border-mainLight cursor-pointer group hover:bg-main",
+        "absolute w-14 h-14 sm:w-16 sm:h-16 sm:max-3xl:w-12 sm:max-3xl:h-12 rounded-full border-mainLight cursor-pointer group hover:bg-main",
         orientation === "horizontal"
-          ? "top-1/2 -left-8 sm:-left-12 -translate-y-1/2"
+          ? "top-1/2 -left-8 sm:-left-12 sm:max-3xl:-left-8 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -194,7 +194,7 @@ function CarouselPrevious({
       {...props}
     >
       <svg
-        className="size-8 group-hover:fill-white fill-mainLight"
+        className="size-8 max-3xl:size-6 group-hover:fill-white fill-mainLight"
         width="16"
         height="32"
         viewBox="0 0 16 32"
@@ -224,9 +224,9 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-14 h-14 sm:w-16 sm:h-16 rounded-full cursor-pointer group border-mainLight hover:bg-main",
+        "absolute w-14 h-14 sm:w-16 sm:h-16 sm:max-3xl:w-12 sm:max-3xl:h-12 rounded-full cursor-pointer group border-mainLight hover:bg-main",
         orientation === "horizontal"
-          ? "top-1/2 -right-8 sm:-right-12 -translate-y-1/2"
+          ? "top-1/2 -right-8 sm:-right-12 sm:max-3xl:-right-8 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -235,7 +235,7 @@ function CarouselNext({
       {...props}
     >
       <svg
-        className="size-8 group-hover:fill-white fill-mainLight"
+        className="size-8 max-3xl:size-6 group-hover:fill-white fill-mainLight"
         width="16"
         height="32"
         viewBox="0 0 16 32"
@@ -265,7 +265,7 @@ function CarouselPreviousForHero({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-[48px] h-[48px] rounded-full cursor-pointer group hover:bg-main border-main border-2 max-sm:hidden",
+        "absolute w-[48px] h-[48px] max-3xl:w-[38px] max-3xl:h-[38px] rounded-full cursor-pointer group hover:bg-main border-main border-2 max-sm:hidden",
         orientation === "horizontal"
           ? "bottom-5 right-1/10"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -276,7 +276,7 @@ function CarouselPreviousForHero({
       {...props}
     >
       <svg
-        className="size-8 group-hover:fill-white fill-mainLight"
+        className="size-8 max-3xl:size-6 group-hover:fill-white fill-mainLight"
         width="16"
         height="32"
         viewBox="0 0 16 32"
@@ -307,7 +307,7 @@ function CarouselNextForHero({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-[48px] h-[48px] rounded-full cursor-pointer group hover:bg-main border-main border-2 max-sm:hidden",
+        "absolute w-[48px] h-[48px] max-3xl:w-[38px] max-3xl:h-[38px] rounded-full cursor-pointer group hover:bg-main border-main border-2 max-sm:hidden",
         orientation === "horizontal"
           ? "bottom-5 right-1/15"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -318,7 +318,7 @@ function CarouselNextForHero({
       {...props}
     >
       <svg
-        className="size-8 group-hover:fill-white fill-mainLight"
+        className="size-8 max-3xl:size-6 group-hover:fill-white fill-mainLight"
         width="16"
         height="32"
         viewBox="0 0 16 32"

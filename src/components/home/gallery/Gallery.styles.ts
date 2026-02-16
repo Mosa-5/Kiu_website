@@ -3,12 +3,12 @@ import { cva } from "class-variance-authority";
 export const container = cva("w-full py-[40px] bg-[#D9D9D940]");
 
 export const innerWrapper = cva(
-  "mx-auto flex flex-col items-center justify-center max-w-[1680px]"
+  "mx-auto flex flex-col items-center justify-center max-w-[1680px] sm:max-3xl:max-w-[1400px] sm:max-3xl:px-10"
 );
 
-export const headerSection = cva("text-center w-full mb-6 sm:mb-[48px]");
+export const headerSection = cva("text-center w-full mb-6 sm:mb-[48px] sm:max-3xl:mb-8");
 
-export const title = cva("text-main text-2xl sm:text-4xl font-semibold");
+export const title = cva("text-main text-2xl sm:text-4xl sm:max-3xl:text-[30px] font-semibold");
 
 export const carousel = cva("w-full mx-auto max-w-[1680px]");
 
@@ -19,7 +19,7 @@ export const carouselItem = cva(
 );
 
 export const card = cva([
-  "relative w-full max-w-[672px] h-[185px] sm:h-[309px] rounded-lg sm:rounded-[16px] overflow-hidden",
+  "relative w-full max-w-[672px] h-[185px] sm:h-[309px] sm:max-3xl:h-[250px] rounded-lg sm:rounded-[16px] overflow-hidden",
   "border-2s border-main shadow-sm cursor-pointer",
   "transition-all duration-500 ease-out shadow-sm",
   "hover:-translate-y-2",

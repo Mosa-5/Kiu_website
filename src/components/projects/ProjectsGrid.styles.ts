@@ -1,10 +1,10 @@
 import { cva } from "class-variance-authority";
 
-export const container = cva(["flex max-sm:flex-col sm:gap-6 sm:px-[120px]"]);
+export const container = cva(["flex max-sm:flex-col sm:gap-6 sm:max-3xl:gap-4 sm:px-[120px] sm:max-3xl:px-16"]);
 
 export const projectCard = cva([
   "relative max-sm:rounded-none max-sm:border-0 max-sm:border-y-2 hover:-translate-y-1 duration-200 sm:aspect-[550/260]",
-  "h-40 sm:h-65 rounded-2xl overflow-hidden group cursor-pointer shadow-[2px_4px_4px_rgba(0,0,0,0.25)] border-2 border-[#3C70AF]",
+  "h-40 sm:h-65 sm:max-3xl:h-52 rounded-2xl overflow-hidden group cursor-pointer shadow-[2px_4px_4px_rgba(0,0,0,0.25)] border-2 border-[#3C70AF]",
 ]);
 
 export const projectImage = cva(["w-full h-full object-cover"]);
@@ -18,5 +18,5 @@ export const projectContent = cva([
 ]);
 
 export const projectTitle = cva([
-  "text-white text-xl sm:text-2xl font-semibold text-center backdrop-blur-[1px] bg-main px-5 py-1 flex rounded-lg",
+  "text-white text-xl sm:text-2xl sm:max-3xl:text-xl font-semibold text-center backdrop-blur-[1px] bg-main px-5 sm:max-3xl:px-4 py-1 flex rounded-lg",
 ]);

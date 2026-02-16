@@ -2,9 +2,20 @@ import { AboutIcon } from "../../assets/icons/icons";
 import { Button } from "../ui/button";
 import { useVacancyForm } from "../../hooks/hooksVacancies/useVacancyForm";
 import { useVacancyTranslations } from "../../hooks/hooksVacancies/useVacancyTranslations";
+import { CalendarDays, Building2, Briefcase } from "lucide-react";
 import {
   container,
   innerContainer,
+  sectionWrapper,
+  sectionCard,
+  sectionHeading,
+  emptyState,
+  vacancyItem,
+  vacancyInfo,
+  vacancyTitle,
+  vacancyMeta,
+  vacancyBadge,
+  vacancyList,
   headerSection,
   headerBadge,
   heading,
@@ -32,6 +43,13 @@ import {
   submitButton,
 } from "./VacancyDetail.styles";
 
+interface VacancyItemData {
+  title: string;
+  department: string;
+  type: string;
+  deadline: string;
+}
+
 const VacancyDetail = () => {
   const { t, getTranslatedArray } = useVacancyTranslations();
   const {
@@ -55,8 +73,80 @@ const VacancyDetail = () => {
   );
   const mathSubjects = getTranslatedArray("detail.fieldsOfInterest.subjects");
 
+  const openItems = t("openPositions.items", { returnObjects: true }) as VacancyItemData[];
+  const closedItems = t("closedPositions.items", { returnObjects: true }) as VacancyItemData[];
+  const ongoingItems = t("ongoingCompetitions.items", { returnObjects: true }) as VacancyItemData[];
+  const completedItems = t("completedCompetitions.items", { returnObjects: true }) as VacancyItemData[];
+
+  const renderVacancyList = (items: VacancyItemData[], isOpen: boolean) => (
+    <div className={vacancyList()}>
+      {items.map((item, index) => (
+        <div key={index} className={vacancyItem()}>
+          <div className={vacancyInfo()}>
+            <h3 className={vacancyTitle()}>{item.title}</h3>
+            <div className={vacancyMeta()}>
+              <span className="inline-flex items-center gap-1">
+                <Building2 className="w-3.5 h-3.5" />
+                {item.department}
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <Briefcase className="w-3.5 h-3.5" />
+                {item.type}
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <CalendarDays className="w-3.5 h-3.5" />
+                {t("vacancyLabels.deadline")}: {item.deadline}
+              </span>
+            </div>
+          </div>
+          <span className={vacancyBadge({ status: isOpen ? "open" : "closed" })}>
+            {isOpen ? t("vacancyLabels.open") : t("vacancyLabels.closed")}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <div className={container()}>
+      {/* Positions Section */}
+      <section id="positions" className={sectionWrapper()}>
+        <div className="flex flex-col gap-8 sm:max-3xl:gap-6">
+          <div className={sectionCard()}>
+            <h2 className={sectionHeading()}>{t("openPositions.title")}</h2>
+            {openItems.length > 0
+              ? renderVacancyList(openItems, true)
+              : <p className={emptyState()}>{t("openPositions.empty")}</p>}
+          </div>
+          <div className={sectionCard()}>
+            <h2 className={sectionHeading()}>{t("closedPositions.title")}</h2>
+            {closedItems.length > 0
+              ? renderVacancyList(closedItems, false)
+              : <p className={emptyState()}>{t("closedPositions.empty")}</p>}
+          </div>
+        </div>
+      </section>
+
+      {/* Competitions Section */}
+      <section id="competitions" className={sectionWrapper()}>
+        <div className="flex flex-col gap-8 sm:max-3xl:gap-6">
+          <div className={sectionCard()}>
+            <h2 className={sectionHeading()}>{t("ongoingCompetitions.title")}</h2>
+            {ongoingItems.length > 0
+              ? renderVacancyList(ongoingItems, true)
+              : <p className={emptyState()}>{t("ongoingCompetitions.empty")}</p>}
+          </div>
+          <div className={sectionCard()}>
+            <h2 className={sectionHeading()}>{t("completedCompetitions.title")}</h2>
+            {completedItems.length > 0
+              ? renderVacancyList(completedItems, false)
+              : <p className={emptyState()}>{t("completedCompetitions.empty")}</p>}
+          </div>
+        </div>
+      </section>
+
+      {/* Expression of Interest Section */}
+      <section id="expression-of-interest" className={sectionWrapper()}>
       <div className={innerContainer()}>
         {/* Header */}
         <div className={headerSection()}>
@@ -388,6 +478,7 @@ const VacancyDetail = () => {
           </div>
         </div>
       </div>
+      </section>
     </div>
   );
 };
