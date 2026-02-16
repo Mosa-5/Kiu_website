@@ -60,7 +60,7 @@ const SideSectionsLayout: React.FC<SideSectionsLayoutProps> = ({ sections, child
   }, [sectionIds]);
 
   return (
-    <div className="flex justify-between max-w-[1700px] m-auto md:px-5 gap-7 sm:gap-13 md:gap-10">
+    <div className="flex justify-between max-w-[1700px] sm:max-3xl:max-w-[1400px] m-auto md:px-5 gap-7 sm:gap-13 md:gap-10 sm:max-3xl:gap-6">
       <SideSections
         sections={sections}
         scrollToSection={scrollToSection}
@@ -75,7 +75,7 @@ const SideSectionsLayout: React.FC<SideSectionsLayoutProps> = ({ sections, child
         language={lang || "en"}
       />
 
-      <div className="max-w-[1254px]">
+      <div className="max-w-[1254px] sm:max-3xl:max-w-[1050px]">
         {children}
       </div>
     </div>

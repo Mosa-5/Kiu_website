@@ -7,7 +7,7 @@ export const carouselContent = cva("py-3");
 export const carouselItem = cva("sm:basis-1/4 pl-4");
 
 export const card = cva(
-  "transition-transform group relative duration-400 h-[361px] sm:h-[461px] rounded-[16px] w-full p-0 overflow-hidden border shadow-sm cursor-pointer hover:-translate-y-2"
+  "transition-transform group relative duration-400 h-[361px] sm:h-[470px] sm:max-3xl:h-[390px] rounded-[16px] w-full p-0 overflow-hidden border shadow-sm cursor-pointer hover:-translate-y-2"
 );
 
 export const cardContent = cva("flex flex-col p-0 h-full");
@@ -22,10 +22,10 @@ export const image = cva("object-cover w-full aspect-[406/282]");
 
 export const contentSection = cva("px-[14px] sm:px-6 py-4 sm:py-8 h-full");
 
-export const date = cva("text-sm sm:text-base text-black font-medium");
+export const date = cva("sm:text-base sm:max-3xl:text-sm text-black font-medium");
 
 export const newsTitle = cva(
-  "mt-4 text-base sm:text-lg font-medium text-newsTitle leading-[140%]"
+  "mt-4 sm:text-lg sm:max-3xl:text-sm font-medium text-newsTitle leading-[140%]"
 );
 
 export const carouselButton = cva("border-2");

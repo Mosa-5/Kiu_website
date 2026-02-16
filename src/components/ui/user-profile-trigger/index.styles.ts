@@ -1,8 +1,8 @@
 import { cva } from "class-variance-authority";
 
 export const selectTrigger = cva([
-  "max-sm:w-full max-sm:flex-1  px-3 py-[5px] text-sm flex items-center gap-2 justify-center hover:cursor-pointer",
-  "focus-visible:ring-0 border-0 shadow-none text-lg text-main",
+  "max-sm:w-full max-sm:flex-1  px-3 max-3xl:px-2 py-[5px] text-sm flex items-center gap-2 justify-center hover:cursor-pointer",
+  "focus-visible:ring-0 border-0 shadow-none text-lg max-3xl:text-base text-main",
   "bg-mainLight [&>span]:text-white rounded-sm",
 ]);
 

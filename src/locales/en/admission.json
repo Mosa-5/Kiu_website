@@ -3,6 +3,14 @@
     "title": "Admission",
     "buttonLabel": "Home Page"
   },
+  "sections": [
+    { "id": "intro", "label": "Introduction" },
+    { "id": "programs", "label": "Programs" },
+    { "id": "about-kiu", "label": "About KIU" },
+    { "id": "campus", "label": "Campus" },
+    { "id": "apply", "label": "How to Apply" },
+    { "id": "timeline", "label": "Timeline" }
+  ],
   "intro": {
     "title": "Intro",
     "subtitle": "KIU Announces International Students Enrollment",

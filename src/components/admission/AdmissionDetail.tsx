@@ -32,7 +32,7 @@ const AdmissionDetail: React.FC = () => {
   return (
     <div className={container()}>
       {/* Header */}
-      <section className={headerSection()}>
+      <section id="intro" className={headerSection()}>
         <div className={headerBox()}>
           <h1 className={headerTitle()}>{t("intro.title")}</h1>
           <span className={headerIcon()}>{AboutIcon}</span>
@@ -41,7 +41,7 @@ const AdmissionDetail: React.FC = () => {
       </section>
 
       {/* Intro */}
-      <section className={introSection()}>
+      <section id="programs" className={introSection()}>
         <RenderParagraphs
           paragraphs={getTranslatedParagraphs("intro.paragraphs")}
         />
@@ -70,7 +70,7 @@ const AdmissionDetail: React.FC = () => {
       </section>
 
       {/* Closing */}
-      <section className={closingSection()}>
+      <section id="about-kiu" className={closingSection()}>
         <RenderParagraphs
           paragraphs={getTranslatedParagraphs("intro.closingParagraphs")}
         />
