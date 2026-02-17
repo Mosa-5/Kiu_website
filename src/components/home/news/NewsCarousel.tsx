@@ -39,6 +39,7 @@ const NewsCarousel: React.FC<{
       opts={{
         align: "start",
         loop: true,
+        watchResize: false,
       }}
     >
       <CarouselContent className={carouselContent()}>

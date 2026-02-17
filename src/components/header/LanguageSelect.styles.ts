@@ -1,8 +1,8 @@
 import { cva } from "class-variance-authority";
 
 export const trigger = cva(`
-  w-full max-sm:flex-1 sm:w-[118px] max-3xl:sm:w-[100px] h-[72px] max-3xl:h-[56px] flex items-center gap-2 justify-center focus-visible:ring-0 border-0 shadow-none text-lg max-3xl:text-base font-medium
-  text-main [&>svg:last-child]:hidden max-sm:bg-mainLight max-sm:text-white max-sm:rounded-sm
+  w-full max-sm:flex-1 max-xl:lg:w-[80px] max-3xl:xl:w-[100px] h-[72px] max-3xl:h-[56px] flex items-center gap-2 justify-center focus-visible:ring-0 border-0 shadow-none text-lg max-3xl:text-base font-medium
+  text-main [&>svg:last-child]:hidden max-lg:bg-mainLight max-lg:text-white max-sm:rounded-sm
 `);
 
 export const content = cva(`

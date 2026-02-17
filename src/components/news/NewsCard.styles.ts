@@ -1,8 +1,8 @@
 import { cva } from "class-variance-authority";
 
 export const cardContainer = cva([
-  "overflow-hidden relative group gap-0 hover:shadow-lg transition-all cursor-pointer max-w-[402px] sm:max-3xl:max-w-[340px]",
-  "max-h-[726px] sm:max-3xl:max-h-[620px] border-2 hover:-translate-y-1 duration-200",
+  "overflow-hidden relative group gap-0 lg:hover:shadow-lg transition-all cursor-pointer max-w-[402px] sm:max-3xl:max-w-[340px]",
+  "max-h-[726px] sm:max-3xl:max-h-[620px] border-2 lg:hover:-translate-y-1 duration-200",
 ]);
 
 export const imageWrapper = cva(
@@ -27,5 +27,5 @@ export const cardDescription = cva(
 
 export const cardHoverEffect = cva([
   "absolute bottom-0 left-0 w-full h-[5px] bg-main opacity-0",
-  "group-hover:opacity-100 transition-all duration-200",
+  "lg:group-hover:opacity-100 transition-all duration-200",
 ]);

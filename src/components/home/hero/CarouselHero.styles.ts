@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const container = cva(
-  "w-full relative mb-16 sm:mb-36 sm:max-3xl:mb-24 border-b-3 border-b-main bg-black"
+  "w-full relative mb-16 md:mb-36 md:max-3xl:mb-24 border-b-3 border-b-main bg-black"
 );
 
 export const carousel = cva("w-full h-full");
@@ -11,7 +11,7 @@ export const carouselContent = cva("w-full h-full -ml-0");
 export const carouselItem = cva("w-full h-full pl-0");
 
 export const carouselImage = cva(
-  "h-[308px] sm:h-[707px] sm:max-3xl:h-[550px] w-full brightness-70 object-cover"
+  "h-[308px] md:h-[707px] md:max-3xl:h-[550px] w-full brightness-70 object-cover"
 );
 
 export const dotContainer = cva(

@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const container = cva(
-  "max-md:hidden sticky top-40 z-40 w-[315px] sm:max-3xl:w-[240px] shrink-0 h-fit"
+  "max-lg:hidden sticky top-40 z-40 w-[315px] sm:max-3xl:w-[240px] shrink-0 h-fit"
 );
 
 export const nav = cva("flex flex-col gap-3 sm:max-3xl:gap-2");

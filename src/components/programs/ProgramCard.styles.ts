@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const card = cva([
-  "group relative max-w-[544px] h-32 sm:h-[259px] sm:max-3xl:h-[210px] w-full",
+  "group relative w-full sm:max-w-[544px] h-32 sm:h-[259px] sm:max-3xl:h-[210px] w-full",
   "sm:border-2 border-y-2 border-main sm:rounded-2xl overflow-hidden",
   "shadow-default bg-cover bg-center hover:cursor-pointer",
 ]);

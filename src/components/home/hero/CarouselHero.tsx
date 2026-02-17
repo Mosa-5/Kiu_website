@@ -116,7 +116,7 @@ const CarouselHero = () => {
     <div className={container()}>
       <Carousel
         setApi={setApi}
-        opts={{ loop: true, duration: 25 }}
+        opts={{ loop: true, duration: 25, watchResize: false }}
         className={`${carousel()} carousel-hero-animate`}
       >
         <CarouselContent className={carouselContent()}>
