@@ -7,13 +7,13 @@ export const contentWrapper = cva(
 );
 
 export const imageWrapper = cva(
-  "w-full md:float-right md:ml-4 md:mb-4 md:w-1/2 lg:w-[686px] sm:max-3xl:lg:w-[540px] h-fit"
+  "w-full md:float-right md:ml-4 md:mb-4 md:w-[45%] lg:w-[686px] sm:max-3xl:lg:w-[540px] h-fit"
 );
 
 export const image = cva("w-full h-auto rounded-lg shadow-lg");
 
 export const paragraph = cva(
-  "mb-4 sm:max-3xl:mb-3 text-sm sm:text-xl sm:max-3xl:text-lg font-medium text-gray-800 leading-[26px] sm:leading-[31px] sm:max-3xl:leading-[27px]"
+  "mb-4 sm:max-3xl:mb-3 text-sm sm:text-base lg:text-xl sm:max-3xl:lg:text-lg font-medium text-gray-800 leading-[26px] sm:leading-[27px] lg:leading-[31px] sm:max-3xl:lg:leading-[27px]"
 );
 
 export const clearFloat = cva("clear-both");

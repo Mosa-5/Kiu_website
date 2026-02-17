@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const container = cva(["flex max-sm:flex-col sm:gap-6 sm:max-3xl:gap-4 sm:px-[120px] sm:max-3xl:px-16"]);
+export const container = cva(["flex max-sm:flex-col sm:gap-6 sm:max-3xl:gap-4 sm:px-6 md:max-3xl:px-16 md:px-[120px]"]);
 
 export const projectCard = cva([
   "relative max-sm:rounded-none max-sm:border-0 max-sm:border-y-2 hover:-translate-y-1 duration-200 sm:aspect-[550/260]",

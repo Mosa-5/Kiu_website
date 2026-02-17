@@ -3,23 +3,23 @@ import { cva } from "class-variance-authority";
 export const container = cva("w-full py-[40px] bg-[#D9D9D940]");
 
 export const innerWrapper = cva(
-  "mx-auto flex flex-col items-center justify-center max-w-[1680px] sm:max-3xl:max-w-[1400px] sm:max-3xl:px-10"
+  "mx-auto flex flex-col items-center justify-center max-w-[1680px] md:max-3xl:max-w-[1400px] md:max-3xl:px-10"
 );
 
-export const headerSection = cva("text-center w-full mb-6 sm:mb-[48px] sm:max-3xl:mb-8");
+export const headerSection = cva("text-center w-full mb-6 md:mb-[48px] md:max-3xl:mb-8");
 
-export const title = cva("text-main text-2xl sm:text-4xl sm:max-3xl:text-[30px] font-semibold");
+export const title = cva("text-main text-2xl md:text-4xl md:max-3xl:text-[30px] md:max-lg:text-[24px] font-semibold");
 
-export const carousel = cva("w-full mx-auto max-w-[1680px]");
+export const carousel = cva("w-full mx-auto max-w-[1680px] sm:max-md:max-w-[480px]");
 
-export const carouselContent = cva("pb-8 sm:py-8 -ml-4");
+export const carouselContent = cva("pb-8 md:py-8 -ml-4");
 
 export const carouselItem = cva(
-  "pl-4  sm:flex-[0_0_33.333%] flex items-center justify-center"
+  "pl-4  md:flex-[0_0_33.333%] flex items-center justify-center h-fit"
 );
 
 export const card = cva([
-  "relative w-full max-w-[672px] h-[185px] sm:h-[309px] sm:max-3xl:h-[250px] rounded-lg sm:rounded-[16px] overflow-hidden",
+  "relative w-full max-w-[672px] sm:max-md:max-w-[400px] h-auto max-md:my-7 sm:max-md:h-[240px] md:h-[309px] md:max-3xl:h-[250px] rounded-lg md:rounded-[16px] overflow-hidden",
   "border-2s border-main shadow-sm cursor-pointer",
   "transition-all duration-500 ease-out shadow-sm",
   "hover:-translate-y-2",
@@ -32,15 +32,15 @@ export const image = cva("w-full h-full object-cover");
 export const carouselButton = cva("border-2");
 
 export const prevButton = cva(
-  "border-2 max-sm:w-12 max-sm:h-12 max-sm:left-1/3 max-sm:top-[100%] max-sm:-translate-x-1/2"
+  "border-2 max-md:w-12 max-md:h-12 max-md:left-[35%] max-md:top-[100%] max-md:-translate-x-1/2"
 );
 
 export const nextButton = cva(
-  "border-2 max-sm:w-12 max-sm:h-12 max-sm:right-1/3 max-sm:top-[100%] max-sm:translate-x-1/2"
+  "border-2 max-md:w-12 max-md:h-12 max-md:right-[35%] max-md:top-[100%] max-md:translate-x-1/2"
 );
 
 export const counter = cva(
-  "sm:hidden text-lg absolute left-1/2 -bottom-3 -translate-x-1/2 text-main font-semibold text-center"
+  "md:hidden text-lg absolute left-1/2 -bottom-3 -translate-x-1/2 text-main font-semibold text-center"
 );
 
 // Video container styles

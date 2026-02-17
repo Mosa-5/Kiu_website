@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const triggerButton = cva([
-  "flex max-sm:w-5/11 items-center gap-2 px-4 max-3xl:px-3 py-4 max-3xl:py-3 h-9.5 max-3xl:h-8 shadow-none rounded-sm sm:rounded-md",
+  "flex max-lg:w-5/11 items-center gap-2 px-4 max-3xl:px-3 py-4 max-3xl:py-3 max-lg:h-9.5 max-3xl:h-8 shadow-none rounded-sm sm:rounded-md",
   "bg-mainLight text-white hover:bg-main transition-colors text-base max-3xl:text-sm font-medium",
 ]);
 

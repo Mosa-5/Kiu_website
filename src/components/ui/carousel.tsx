@@ -265,9 +265,9 @@ function CarouselPreviousForHero({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-[48px] h-[48px] max-3xl:w-[38px] max-3xl:h-[38px] rounded-full cursor-pointer group hover:bg-main border-main border-2 max-sm:hidden",
+        "absolute w-[48px] h-[48px] max-3xl:w-[38px] max-3xl:h-[38px] rounded-full cursor-pointer group hover:bg-main border-main border-2 max-lg:hidden",
         orientation === "horizontal"
-          ? "bottom-5 right-1/10"
+          ? "bottom-5 right-2/15 xl:right-1/10"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -307,9 +307,9 @@ function CarouselNextForHero({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-[48px] h-[48px] max-3xl:w-[38px] max-3xl:h-[38px] rounded-full cursor-pointer group hover:bg-main border-main border-2 max-sm:hidden",
+        "absolute w-[48px] h-[48px] max-3xl:w-[38px] max-3xl:h-[38px] rounded-full cursor-pointer group hover:bg-main border-main border-2 max-lg:hidden",
         orientation === "horizontal"
-          ? "bottom-5 right-1/15"
+          ? "bottom-5 right-1/11 xl:right-1/15"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}

@@ -34,7 +34,7 @@ const MobileMenu = () => {
 
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger className="cursor-pointer hover:bg-gray-100 rounded-md duration-100">
         <svg
           width="35"
           height="35"

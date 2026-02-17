@@ -5,7 +5,7 @@ import PageWrapper from "../components/ui/page-wrapper/PageWrapper";
 const News = () => {
   return (
     <PageWrapper hero={<NewsHero />} className="bg-background">
-      <div className="px-4 sm:px-[100px]">
+      <div className="max-w-[1680px] sm:max-3xl:max-w-[1400px] mx-auto px-4 sm:px-10">
         <SectionSwitcher />
       </div>
     </PageWrapper>
