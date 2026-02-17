@@ -65,7 +65,7 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
             {isAuthenticated && currentUser ? (
               <UserProfileSelect
                 userName={currentUser.name}
