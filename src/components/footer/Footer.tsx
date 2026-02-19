@@ -136,7 +136,7 @@ const Footer = () => {
           <span className={copyrightText()}>
             Hosted on{" "}
             <a
-              href=""
+              href="https://vercel.com"
               target="_blank"
               rel="noopener noreferrer"
               className={emailLink()}

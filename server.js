@@ -17,12 +17,15 @@ app.post('/api/chat', async (req, res) => {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { prompt } = req.body;
-  if (!prompt) return res.status(400).json({ error: "Prompt required" });
+  const { context, message } = req.body;
+  if (!message) return res.status(400).json({ error: "Message required" });
 
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-    const result = await model.generateContent(prompt);
+    const model = genAI.getGenerativeModel({
+      model: "gemini-2.5-flash",
+      systemInstruction: context,
+    });
+    const result = await model.generateContent(message);
     const reply = result.response.text();
     res.status(200).json({ reply });
   } catch (err) {

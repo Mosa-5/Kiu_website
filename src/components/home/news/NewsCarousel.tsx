@@ -53,7 +53,7 @@ const NewsCarousel: React.FC<{
                 <CardContent className={cardContent()}>
                   <div className={hoverBar()} />
                   <div className={imageWrapper()}>
-                    <img src={item.image} alt="newsImg" className={image()} />
+                    <img src={item.image} alt={item.title} className={image()} />
                   </div>
                   <div className={contentSection()}>
                     <p className={date()}>{item.date}</p>

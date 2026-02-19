@@ -19,7 +19,7 @@ const criticalImagesKa = [
 const sharedCriticalImages = [
   images.ProgramHeroImage,
   images.ProgramsHeroImage,
-  images.AdmisssionHero,
+  images.AdmissionHero,
   images.FrontiersHero,
   images.newsHeroImage,
   images.VacanciesHero,

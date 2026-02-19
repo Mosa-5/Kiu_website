@@ -139,8 +139,8 @@ const CarouselHero = () => {
             key={index}
             onClick={() => api?.scrollTo(index)}
             className={carouselDot({ active: current === index + 1 })}
-            aria-label="Carousel switch"
-            title="Carousel switch"
+            aria-label={`Go to slide ${index + 1} of ${count}`}
+            title={`Go to slide ${index + 1} of ${count}`}
           />
         ))}
       </div>

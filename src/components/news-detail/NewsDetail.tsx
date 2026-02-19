@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import newsItems from "@/data/newsItems";
+import { getNewsItems } from "@/data/newsItems";
 import {
   container,
   contentWrapper,
@@ -18,7 +18,7 @@ const NewsDetail = () => {
   const currentLang = lang || "en";
   const nav = useNavigate();
   const navigate = () => nav(`/${currentLang}/news`);
-  const item = newsItems.find((news) => news.id === id);
+  const item = getNewsItems().find((news) => news.id === id);
   const { t, getTranslatedArray } = useNewsTranslations();
 
   if (!item) {

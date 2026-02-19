@@ -227,7 +227,7 @@ const AboutDetail: React.FC = () => {
         <section id="calendar" className={section()}>
           <div className={calendarContainer()}>
             <a
-              href="/path/to/academic-calendar.pdf"
+              href="#"
               download
               className={calendarButton()}
             >

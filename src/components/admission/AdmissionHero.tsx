@@ -1,5 +1,5 @@
 import HeroSection from "@/components/ui/hero-section";
-import { AdmisssionHero } from "@/assets";
+import { AdmissionHero as AdmissionHeroImage } from "@/assets";
 import { useTranslation } from "react-i18next";
 
 const AdmissionHero = () => {
@@ -8,7 +8,7 @@ const AdmissionHero = () => {
   return (
     <HeroSection
       titleText={t("hero.title")}
-      imageSrc={AdmisssionHero}
+      imageSrc={AdmissionHeroImage}
       buttonLink="/"
       buttonLabel={t("hero.buttonLabel")}
     />

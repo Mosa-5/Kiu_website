@@ -7,10 +7,11 @@ import { Loader2 } from "lucide-react";
 import Students from "./pages/Students";
 import Research from "./pages/Research";
 import { preloadCriticalImages } from "./utils/imagePreloader";
+import ErrorBoundary from "./components/ui/ErrorBoundary";
 
 const CampusPage = lazy(() => import("./pages/Campus"));
 const News = lazy(() => import("./pages/News"));
-const SingleNews = lazy(() => import("./pages/SIngleNews"));
+const SingleNews = lazy(() => import("./pages/SingleNews"));
 const SingleProgram = lazy(() => import("./pages/SingleProgram"));
 const Projects = lazy(() => import("./pages/Projects"));
 const YouthUni = lazy(() => import("./pages/YouthUni"));
@@ -33,6 +34,7 @@ function App() {
   }, []);
 
   return (
+    <ErrorBoundary>
     <Routes>
       {/* Redirect root to default language */}
       <Route path="/" element={<Navigate to="/en" replace />} />
@@ -155,6 +157,7 @@ function App() {
         }
       />
     </Routes>
+    </ErrorBoundary>
   );
 }
 

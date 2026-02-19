@@ -22,17 +22,14 @@ const NewsCardMobile = ({
   return (
     <Link
       to={`/${currentLang}/news/${id}`}
-      aria-label={`Read more about ${title}`}
+      aria-label={`Read more about ${newsTitle}`}
     >
       <Card className={card()}>
-        <div className="" />
-
         <img src={imageMain} alt={newsTitle} className={image()} />
 
         <CardContent className={cardContent()}>
           <p className={date()}>{newsDate}</p>
           <h3 className={title()}>{newsTitle}</h3>
-          <div className="" />
         </CardContent>
       </Card>
     </Link>

@@ -18,7 +18,7 @@ import HomeKa from './locales/ka/home.json';
 import AboutEn from './locales/en/about.json';
 import AboutKa from './locales/ka/about.json';
 import FooterEn from './locales/en/footer.json';
-import FooterKa from './locales/ka/footers.json';
+import FooterKa from './locales/ka/footer.json';
 import HeaderEn from './locales/en/header.json';
 import HeaderKa from './locales/ka/header.json';
 import ProgramsEn from './locales/en/programs.json';
