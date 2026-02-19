@@ -102,6 +102,20 @@ function Carousel({
     };
   }, [api, onSelect]);
 
+  React.useEffect(() => {
+    if (!api) return;
+    let timer: ReturnType<typeof setTimeout>;
+    const handleResize = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => api.reInit(), 200);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [api]);
+
   return (
     <CarouselContext.Provider
       value={{

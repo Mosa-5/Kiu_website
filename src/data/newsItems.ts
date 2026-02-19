@@ -204,8 +204,6 @@ const getNewsItems = (lang?: string): NewsItem[] => {
   return language === "ka" ? newsItemsKa : newsItemsEn;
 };
 
-export default getNewsItems();
-
 export { getNewsItems };
 
 export { newsItemsEn, newsItemsKa };

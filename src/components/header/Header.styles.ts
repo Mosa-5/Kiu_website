@@ -16,7 +16,7 @@ export const header = cva(
 );
 
 export const innerContainer = cva(
-  `flex items-center justify-between max-xl:px-2 px-4 3xl:px-8 w-full max-3xl:max-w-[1380px] max-w-[1680px]`
+  `flex items-center justify-between max-xl:px-2 px-8 sm:max-3xl:px-4 w-full max-3xl:max-w-[1380px] max-w-[1680px]`
 );
 
 export const logo = cva(` h-[55px] max-3xl:h-[45px] shrink-0`);

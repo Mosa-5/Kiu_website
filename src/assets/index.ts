@@ -63,7 +63,7 @@ export { default as MedHero } from "./programImages/medCard.webp";
 export { default as MnscHero } from "./programImages/mnscCard.webp";
 export { default as PsychHero } from "./programImages/psychCard.webp";
 
-export { default as AdmisssionHero } from "./admission-hero.webp";
+export { default as AdmissionHero } from "./admission-hero.webp";
 export { default as CampusHeroImage } from "./CampusHero.webp";
 export { default as StudentsHeroImage } from "./Students.webp";
 export { default as AcademicCalendar } from "./academic-calendar.webp";

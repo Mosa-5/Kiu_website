@@ -12,17 +12,17 @@ import AcademicPersonnelSection from "./sections/AcademicPersonnel";
 import TuitionCostsSection from "./sections/TuitionCosts";
 import NewsletterArchiveSection from "./sections/NewsletterArchive";
 
+const programThemes: Record<string, { main: string; bg: string }> = {
+  computerScience: { main: "text-mainDark", bg: "bg-headingBg" },
+  mathematics:    { main: "text-mainDarkMaths", bg: "bg-headingBgMaths" },
+};
+
 const SingleProgramDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { i18n } = useTranslation();
 
   const programsData = getProgramsData(i18n.language);
   const programData = programsData[id || ""];
-
-  const programThemes: Record<string, { main: string; bg: string }> = {
-    computerScience: { main: "text-mainDark", bg: "bg-headingBg" },
-    mathematics:    { main: "text-mainDarkMaths", bg: "bg-headingBgMaths" },
-  };
 
   const { main, bg } = programThemes[id || "computerScience"] || {
     main: "text-mainDark",

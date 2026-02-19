@@ -54,13 +54,6 @@ export default function ChatbotGemini() {
     }
   }, [isOpen, t]);
 
-  // Open chat automatically on initial load
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 1000); // Open after 1 second
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleSend = async () => {
     const userText = chatState.input.trim();
@@ -107,21 +100,14 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
 - If a user asks something unrelated to KIU, politely guide them back to university-related info.
 `;
 
-      const prompt = `${context}\nUser: ${userText}\nAssistant:`;
+      const sanitizedInput = userText
+        .replace(/[\x00-\x1F\x7F]/g, "")
+        .slice(0, 500);
 
-      //use this one for local testing
-
-      // const response = await fetch("http://localhost:3001/api/chat", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({ prompt }),
-      // });
-
-      //use this one for vercel or deployment
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt }),
+        body: JSON.stringify({ context, message: sanitizedInput }),
       });
 
       const data = await response.json();
