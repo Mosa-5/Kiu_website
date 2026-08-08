@@ -9,7 +9,7 @@ export const headerWrapper = cva(
 );
 
 export const tabsListWrapper = cva(
-  "flex items-center justify-between border-0 w-full max-w-[1100px] lg:border-b-2 border-gray-200 lg:h-[45px] sm:max-3xl:lg:h-[38px]"
+  "relative flex items-center justify-between border-0 w-full max-w-[1100px] lg:border-b-2 border-gray-200 lg:h-[45px] sm:max-3xl:lg:h-[38px]"
 );
 
 export const tabsList = cva(
@@ -17,12 +17,17 @@ export const tabsList = cva(
 );
 
 export const tabsTrigger = cva([
-  "max-lg:after:hidden border-1 border-gray-200 max-lg:bg-gray-100 max-lg:data-[state=active]:bg-main max-lg:shadow-md max-lg:data-[state=active]:border-main max-lg:rounded-sm relative rounded-none lg:border-none bg-transparent px-0 py-1.5 lg:pb-2 text-lg lg:text-[22px] sm:max-3xl:lg:text-lg font-semibold text-black",
-  "data-[state=active]:text-white lg:data-[state=active]:text-black data-[state=inactive]:text-gray-500 data-[state=active]:shadow-none data-[state=active]:after:opacity-100",
-  "after:block after:opacity-0 after:absolute after:-bottom-[5px] after:left-0 after:h-1 after:w-full after:bg-main",
-  "after:transition-opacity after:duration-200",
-  "hover:after:opacity-100 hover:cursor-pointer",
+  "border-1 border-gray-200 max-lg:bg-gray-100 max-lg:data-[state=active]:bg-main max-lg:shadow-md max-lg:data-[state=active]:border-main max-lg:rounded-sm relative rounded-none lg:border-none bg-transparent px-0 py-1.5 lg:pb-2 text-lg lg:text-[22px] sm:max-3xl:lg:text-lg font-semibold text-black",
+  "data-[state=active]:text-white lg:data-[state=active]:text-black data-[state=inactive]:text-gray-500 data-[state=active]:shadow-none",
+  "transition-colors duration-200",
+  "hover:cursor-pointer",
 ]);
+
+// Single shared underline that slides/resizes to match the active trigger,
+// instead of each trigger fading its own underline in and out.
+export const slidingIndicator = cva(
+  "hidden lg:block absolute -bottom-[2px] left-0 h-[3px] rounded-full bg-main transition-[transform,width] duration-300 ease-out"
+);
 
 export const searchWrapper = cva(
   "relative w-full lg:max-w-[400px] h-11 lg:h-12 sm:max-3xl:lg:h-10 flex items-center"

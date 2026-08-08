@@ -2,9 +2,10 @@ import React from "react";
 import { AboutIcon } from "@/assets/icons/icons";
 import {
   section,
-  sectionHeader,
+  sectionHeaderRow,
+  sectionContent,
+  sectionIndex,
   sectionTitle,
-  icon,
   paragraph,
   richTextLink,
 } from "../StudentsDetail.styles";
@@ -15,25 +16,23 @@ const IntroSection: React.FC = () => {
 
   return (
     <section id="intro" className={section({ isFirst: true })}>
-      <div className={sectionHeader()}>
+      <div className={sectionHeaderRow()}>
+        <span className={sectionIndex()}>{AboutIcon}</span>
         <h1 className={sectionTitle()}>{t("intro.title")}</h1>
-        <span className={icon()}>{AboutIcon}</span>
       </div>
 
-      <p className={paragraph()}>
-        {t("intro.description")}
-      </p>
+      <div className={sectionContent()}>
+        <p className={paragraph()}>{t("intro.description")}</p>
 
-      <p className={paragraph()}>
-        {t("intro.eligibility")}
-      </p>
+        <p className={paragraph()}>{t("intro.eligibility")}</p>
 
-      <p className={paragraph()}>
-        {t("intro.categories")}{" "}
-        <a href={`mailto:${t("intro.email")}`} className={richTextLink()}>
-          {t("intro.email")}
-        </a>
-      </p>
+        <p className={paragraph()}>
+          {t("intro.categories")}{" "}
+          <a href={`mailto:${t("intro.email")}`} className={richTextLink()}>
+            {t("intro.email")}
+          </a>
+        </p>
+      </div>
     </section>
   );
 };

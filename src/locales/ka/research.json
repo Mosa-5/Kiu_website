@@ -3,6 +3,12 @@
     "home": "მთავარი",
     "title": "კვლევა"
   },
+  "sections": [
+    { "id": "overview", "label": "კვლევის მიმოხილვა" },
+    { "id": "htc", "label": "ჰადრონული თერაპიის ცენტრი" },
+    { "id": "proton", "label": "პროტონული თერაპიის კლინიკა" },
+    { "id": "publications", "label": "პუბლიკაციები" }
+  ],
   "detail": {
     "introParagraphs": [
       [

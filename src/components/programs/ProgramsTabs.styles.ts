@@ -5,7 +5,7 @@ export const container = cva("max-w-[1680px] sm:max-3xl:max-w-[1400px] m-auto sm
 export const tabsContainer = cva("w-full gap-12 sm:max-3xl:gap-8");
 
 export const tabsListWrapper = cva(
-  "flex max-sm:px-4 items-center border-0 sm:border-b-2 border-gray-200 w-full sm:h-[45px] sm:max-3xl:h-[38px]"
+  "relative flex max-sm:px-4 items-center border-0 sm:border-b-2 border-gray-200 w-full sm:h-[45px] sm:max-3xl:h-[38px]"
 );
 
 export const tabsList = cva(
@@ -13,17 +13,23 @@ export const tabsList = cva(
 );
 
 export const tabsTrigger = cva([
-  "max-sm:after:hidden  border-1 border-gray-200 max-sm:bg-gray-100 max-sm:data-[state=active]:bg-main max-sm:shadow-md",
+  "border-1 border-gray-200 max-sm:bg-gray-100 max-sm:data-[state=active]:bg-main max-sm:shadow-md",
   "max-sm:data-[state=active]:border-main max-sm:rounded-sm relative rounded-none sm:border-none bg-transparent px-0 py-1.5",
   "sm:pb-2 text-lg sm:text-[22px] sm:max-3xl:text-lg font-semibold text-black data-[state=active]:text-white sm:data-[state=active]:text-black",
-  "data-[state=inactive]:text-gray-500 data-[state=active]:shadow-none data-[state=active]:after:opacity-100",
-  "after:block after:opacity-0 after:absolute after:-bottom-[5px] after:left-0 after:h-1 after:w-full after:bg-main",
-  "after:transition-opacity after:duration-200",
-  "hover:after:opacity-100 hover:cursor-pointer",
+  "data-[state=inactive]:text-gray-500 data-[state=active]:shadow-none",
+  "transition-colors duration-200",
+  "hover:cursor-pointer",
 ]);
 
-export const activeIndicator = cva(
-  "absolute left-0 -bottom-[1px] h-[2px] w-full bg-blue-200 data-[state=active]:block hidden"
+// Single shared underline that slides/resizes to match the active trigger,
+// instead of each trigger fading its own underline in and out.
+export const slidingIndicator = cva(
+  "hidden sm:block absolute -bottom-[2px] left-0 h-[3px] rounded-full bg-main transition-[transform,width] duration-300 ease-out"
 );
 
-export const tabsContent = cva("");
+// Transform-only entrance — no opacity/fade component, so cards stay
+// fully visible throughout and only glide into place. That avoids the
+// "flash" a fade-in gives when a whole grid pops in at once.
+export const tabsContent = cva(
+  "data-[state=active]:animate-in data-[state=active]:slide-in-from-bottom-2 duration-[250ms] ease-out"
+);

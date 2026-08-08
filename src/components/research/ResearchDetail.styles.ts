@@ -1,49 +1,55 @@
 import { cva } from "class-variance-authority";
 
-export const container = cva("max-w-[1680px] sm:max-3xl:max-w-[1400px] max-sm:px-4 sm:px-10 mx-auto bg-white");
+export const container = cva(["max-sm:px-4 font-sans"]);
 
-export const contentWrapper = cva("max-sm:flex-col max-sm:flex relative");
+export const section = cva(["mb-12 sm:max-3xl:mb-8 scroll-mt-8"], {
+  variants: {
+    isFirst: {
+      true: ["scroll-mt-0"],
+      false: ["border-t border-slate-200 pt-10 sm:max-3xl:pt-8"],
+    },
+  },
+  defaultVariants: {
+    isFirst: false,
+  },
+});
 
-export const introWrapper = cva("max-sm:flex-col-reverse max-sm:flex relative");
+export const sectionHeaderRow = cva([
+  "flex items-center gap-3 sm:max-3xl:gap-2 mb-6 sm:max-3xl:mb-4",
+]);
 
-export const imageWrapper = cva(
-  "float-right sm:ml-4 sm:max-3xl:ml-3 mb-4 w-full md:w-1/2 lg:w-[685px] sm:max-3xl:lg:w-[540px] h-fit"
-);
+export const sectionContent = cva(["sm:pl-12 sm:max-3xl:pl-10"]);
 
-export const image = cva(
-  "w-full sm:h-[302px] sm:max-3xl:h-[240px] rounded-lg shadow-lg object-cover"
-);
+export const sectionIndex = cva([
+  "hidden sm:flex items-center justify-center w-9 h-9 sm:max-3xl:w-8 sm:max-3xl:h-8 rounded-full bg-headingBg border border-mainLight/30 shrink-0 [&>svg]:w-4 [&>svg]:h-4 sm:max-3xl:[&>svg]:w-3.5 sm:max-3xl:[&>svg]:h-3.5",
+]);
 
-export const paragraph = cva("mb-[14px] sm:max-3xl:mb-3 text-sm sm:text-lg sm:max-3xl:text-base text-gray-800");
+export const sectionTitle = cva(["font-semibold text-2xl sm:text-3xl sm:max-3xl:text-2xl text-mainDark"]);
 
-export const clearFloat = cva("clear-both");
+export const paragraph = cva(["mb-[14px] sm:max-3xl:mb-3 text-sm sm:text-lg sm:max-3xl:text-base text-gray-800 max-w-[90ch]"]);
 
-export const sectionTitle = cva("font-semibold text-2xl sm:max-3xl:text-xl text-main mb-5 sm:max-3xl:mb-4 mt-8 sm:max-3xl:mt-6");
+export const link = cva(["text-link hover:text-linkDark underline underline-offset-2"]);
 
-export const bulletList = cva("ml-4 sm:ml-5 mb-4 sm:mb-20 sm:max-3xl:mb-14");
+export const mediaLayout = cva([
+  "sm:grid sm:grid-cols-[420px_1fr] sm:max-3xl:grid-cols-[340px_1fr] gap-8 sm:max-3xl:gap-6 items-start",
+]);
 
-export const listItem = cva("mb-2 text-sm sm:text-lg sm:max-3xl:text-base text-gray-800 list-disc");
+export const mediaImage = cva([
+  "mb-6 sm:mb-0 w-full h-[220px] sm:h-[280px] sm:max-3xl:h-[230px]",
+]);
 
-export const newsletterlink = cva(
-  "text-link hover:text-linkDark underline underline-offset-2"
-);
+export const mediaImageTag = cva([
+  "w-full h-full object-cover rounded-lg shadow-lg",
+]);
 
-export const htcImageWrapper = cva(
-  "float-left sm:mr-4 sm:max-3xl:mr-3 mb-4 w-full md:w-1/2 lg:w-[685px] sm:max-3xl:lg:w-[540px] h-fit"
-);
+export const bulletList = cva(["ml-4 sm:ml-5 mb-4 sm:mb-6 sm:max-3xl:mb-5 space-y-2 max-w-[90ch]"]);
 
-export const htcSectionWrapper = cva(
-  "max-sm:flex-col-reverse max-sm:flex relative"
-);
+export const listItem = cva(["text-sm sm:text-lg sm:max-3xl:text-base text-gray-800 list-disc"]);
 
-export const protonSection = cva("sm:mt-12 sm:max-3xl:mt-8");
+export const yearWrapper = cva([
+  "mt-6 sm:max-3xl:mt-4 border-l-2 border-slate-200 pl-5 sm:max-3xl:pl-4",
+]);
 
-export const publicationsSection = cva("sm:mt-12 sm:max-3xl:mt-8");
+export const yearTitle = cva(["font-semibold text-lg sm:max-3xl:text-base text-mainDark mb-2"]);
 
-export const yearWrapper = cva("mt-6 sm:max-3xl:mt-4");
-
-export const overflowHidden = cva("overflow-hidden");
-
-export const link = cva(
-  "text-link hover:text-linkDark underline underline-offset-2"
-);
+export const conferenceSection = cva(["text-sm sm:text-lg sm:max-3xl:text-base text-gray-800 mb-1"]);

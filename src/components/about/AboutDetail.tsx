@@ -1,21 +1,29 @@
 import React from "react";
-import { AboutIcon } from "../../assets/icons/icons";
+import {
+  AboutIcon,
+  SpeakerIcon,
+  PersonnelIcon,
+  SupervisorIcon,
+  ProgramIcon,
+} from "../../assets/icons/icons";
 import { useAboutTranslations } from "../../hooks/useAboutTranslations";
 import {
   container,
   section,
-  sectionHeader,
+  sectionHeaderRow,
+  sectionContent,
+  sectionIndex,
   sectionTitle,
-  icon,
   paragraph,
-  signatureContainer,
+  pullQuote,
+  quoteBlock,
   signatureName,
   signatureTitle,
-  signatureDate,
   signatureLink,
-  presidentImage,
-  presidentImageTag,
-  clearFloat,
+  signatureByline,
+  signatureAvatar,
+  signatureAvatarImage,
+  signatureMeta,
   advisoryMemberContainer,
   advisoryMember,
   advisoryMemberName,
@@ -27,8 +35,8 @@ import {
   programIntroText,
   programMasterText,
   programFutureText,
-  futureDisciplinesGrid,
-  disciplineBadge,
+  futureDisciplinesText,
+  futureDisciplinesDot,
   closingText,
   calendarContainer,
   calendarButton,
@@ -37,6 +45,14 @@ import {
 
 import { Wolfgang } from "@/assets";
 
+const getInitials = (name: string): string =>
+  name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
 
 const AboutDetail: React.FC = () => {
 
@@ -64,74 +80,89 @@ const AboutDetail: React.FC = () => {
   );
 
   return (
-      <div className={container()}>
-        {/* Intro Section */}
-        <section id="intro" className={section({ isFirst: true })}>
-          <div className={sectionHeader()}>
-            <h1 className={sectionTitle()}>{t("intro.title")}</h1>
-            <span className={icon()}>{AboutIcon}</span>
+    <div className={container()}>
+      {/* Intro Section */}
+      <section id="intro" className={section({ isFirst: true })}>
+        <div className={sectionHeaderRow()}>
+          <span className={sectionIndex()}>{AboutIcon}</span>
+          <h1 className={sectionTitle()}>{t("intro.title")}</h1>
+        </div>
+
+        <div className={sectionContent()}>
+          <div className={quoteBlock()}>
+            {introParagraphs.map((para, i) => (
+              <p key={i} className={paragraph({ quote: true })}>
+                {i === 0 && "“"}
+                {para}
+                {i === introParagraphs.length - 1 && "”"}
+              </p>
+            ))}
           </div>
 
-          {introParagraphs.map((para, i) => (
-            <p key={i} className={paragraph()}>
-              {para}
-            </p>
-          ))}
-
-          <div className={signatureContainer()}>
-            <p className={signatureName()}>{t("intro.signature.name")}</p>
-            <p className={signatureTitle()}>{t("intro.signature.title")}</p>
-            <p className={signatureDate()}>{t("intro.signature.date")}</p>
-            <a href="#" className={signatureLink()}>
-              {t("intro.signature.linkText")}
-            </a>
+          <div className={signatureByline()}>
+            <span className={signatureAvatar()}>
+              {getInitials(t("intro.signature.name"))}
+            </span>
+            <div>
+              <p className={signatureName()}>{t("intro.signature.name")}</p>
+              <p className={signatureTitle()}>{t("intro.signature.title")}</p>
+              <p className={signatureMeta()}>
+                <span>{t("intro.signature.date")}</span>
+                <span aria-hidden="true">·</span>
+                <a href="#" className={signatureLink()}>
+                  {t("intro.signature.linkText")}
+                </a>
+              </p>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Honorary President's Welcome Note Section */}
-        <section id="president" className={section()}>
-          <div className={sectionHeader()}>
-            <h2 className={sectionTitle()}>{t("president.title")}</h2>
-            <span className={icon()}>{AboutIcon}</span>
+      {/* Honorary President's Welcome Note Section */}
+      <section id="president" className={section()}>
+        <div className={sectionHeaderRow()}>
+          <span className={sectionIndex()}>{SpeakerIcon}</span>
+          <h2 className={sectionTitle()}>{t("president.title")}</h2>
+        </div>
+
+        <div className={sectionContent()}>
+          <p className={pullQuote()}>“{t("president.greeting")}</p>
+
+          <div className={quoteBlock()}>
+            {presidentParagraphs.map((para, i) => (
+              <p key={i} className={paragraph({ quote: true })}>
+                {para}
+                {i === presidentParagraphs.length - 1 && "”"}
+              </p>
+            ))}
           </div>
 
-          <h3 className={sectionTitle({ size: "medium" })}>
-            {t("president.subtitle")}
-          </h3>
-
-          <p className={paragraph({ size: "large" })}>
-            {t("president.greeting")}
-          </p>
-
-          <div className={presidentImage()}>
+          <div className={signatureByline()}>
             <img
               src={Wolfgang}
               alt="Prof. Dr. Wolfgang A. Herrmann"
-              className={presidentImageTag()}
+              className={signatureAvatarImage()}
             />
+            <div>
+              <p className={signatureName()}>
+                {t("president.signatureName")}
+              </p>
+              <a href="#" className={signatureLink()}>
+                {t("president.signatureLinkText")}
+              </a>
+            </div>
           </div>
+        </div>
+      </section>
 
-          {presidentParagraphs.map((para, i) => (
-            <p key={i} className={paragraph()}>
-              {para}
-            </p>
-          ))}
+      {/* International Advisory Council Section */}
+      <section id="advisory" className={section()}>
+        <div className={sectionHeaderRow()}>
+          <span className={sectionIndex()}>{PersonnelIcon}</span>
+          <h2 className={sectionTitle()}>{t("advisoryCouncil.title")}</h2>
+        </div>
 
-          <div className={`${clearFloat()} ${signatureContainer()}`}>
-            <p className={signatureName()}>{t("president.signatureName")}</p>
-            <a href="#" className={signatureLink()}>
-              {t("president.signatureLinkText")}
-            </a>
-          </div>
-        </section>
-
-        {/* International Advisory Council Section */}
-        <section id="advisory" className={section()}>
-          <div className={sectionHeader()}>
-            <h2 className={sectionTitle()}>{t("advisoryCouncil.title")}</h2>
-            <span className={icon()}>{AboutIcon}</span>
-          </div>
-
+        <div className={sectionContent()}>
           <div className={advisoryMemberContainer()}>
             {advisoryMembers.map((member, i) => (
               <div key={i} className={advisoryMember()}>
@@ -144,15 +175,17 @@ const AboutDetail: React.FC = () => {
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Team Section */}
-        <section id="team" className={section()}>
-          <div className={sectionHeader()}>
-            <h2 className={sectionTitle()}>{t("team.title")}</h2>
-            <span className={icon()}>{AboutIcon}</span>
-          </div>
+      {/* Team Section */}
+      <section id="team" className={section()}>
+        <div className={sectionHeaderRow()}>
+          <span className={sectionIndex()}>{SupervisorIcon}</span>
+          <h2 className={sectionTitle()}>{t("team.title")}</h2>
+        </div>
 
+        <div className={sectionContent()}>
           {teamParagraphs.map((para, i) => (
             <p key={i} className={paragraph()}>
               {para.parts.map((part, j) => {
@@ -167,15 +200,17 @@ const AboutDetail: React.FC = () => {
               })}
             </p>
           ))}
-        </section>
+        </div>
+      </section>
 
-        {/* Academic Programs Section */}
-        <section id="programs" className={section()}>
-          <div className={sectionHeader()}>
-            <h2 className={sectionTitle()}>{t("academicPrograms.title")}</h2>
-            <span className={icon()}>{AboutIcon}</span>
-          </div>
+      {/* Academic Programs & Calendar Section */}
+      <section id="programs" className={section()}>
+        <div className={sectionHeaderRow()}>
+          <span className={sectionIndex()}>{ProgramIcon}</span>
+          <h2 className={sectionTitle()}>{t("academicPrograms.title")}</h2>
+        </div>
 
+        <div className={sectionContent()}>
           {introText.map((text, i) => (
             <p key={i} className={programIntroText()}>
               {text}
@@ -185,7 +220,6 @@ const AboutDetail: React.FC = () => {
           <ul className={programList()}>
             {undergraduatePrograms.map((prog, i) => (
               <li key={i} className={programListItem()}>
-                •{" "}
                 <a href={prog.url} className={programLink()}>
                   {prog.text}
                 </a>
@@ -200,7 +234,6 @@ const AboutDetail: React.FC = () => {
           <ul className={programList()}>
             {masterPrograms.map((prog, i) => (
               <li key={i} className={programListItem()}>
-                •{" "}
                 <a href={prog.url} className={programLink()}>
                   {prog.text}
                 </a>
@@ -212,31 +245,28 @@ const AboutDetail: React.FC = () => {
             {t("academicPrograms.futureText")}
           </p>
 
-          <div className={futureDisciplinesGrid()}>
+          <p className={futureDisciplinesText()}>
             {futureDisciplines.map((discipline, i) => (
-              <div key={i} className={disciplineBadge()}>
+              <span key={i}>
                 {discipline}
-              </div>
+                {i < futureDisciplines.length - 1 && (
+                  <span className={futureDisciplinesDot()}> · </span>
+                )}
+              </span>
             ))}
-          </div>
+          </p>
 
           <p className={closingText()}>{t("academicPrograms.closingText")}</p>
-        </section>
 
-        {/* Academic Calendar Section */}
-        <section id="calendar" className={section()}>
           <div className={calendarContainer()}>
-            <a
-              href="#"
-              download
-              className={calendarButton()}
-            >
+            <a href="#" download className={calendarButton()}>
               {t("academicPrograms.calendarLinkText")}
               <span className={calendarButtonArrow()}>↓</span>
             </a>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+    </div>
   );
 };
 

@@ -10,16 +10,12 @@ import {
   navLinkBase,
 } from "./Header.styles";
 import { useHeaderTranslations } from "../../hooks/hooksHeader/useHeaderTranslation";
-import { useAuth } from "../../hooks/hooksHeader/useAuth";
-import AuthDialog from "../ui/auth-dialog";
-import UserProfileSelect from "../ui/user-profile-trigger";
 
 const Header = () => {
   const { lang } = useParams<{ lang: string }>();
   const currentLang = lang || "en";
   const [scrolled, setScrolled] = useState(false);
   const { t } = useHeaderTranslations();
-  const { isAuthenticated, currentUser, logout } = useAuth();
 
   const getLogo = () => {
     return currentLang === "ka" ? kiuGeoLogo : kiuLogo;
@@ -66,18 +62,6 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center gap-2">
-            {isAuthenticated && currentUser ? (
-              <UserProfileSelect
-                userName={currentUser.name}
-                onLogout={logout}
-                lmsText={t("auth.goToLMS")}
-                logoutText={t("auth.logout")}
-                profileText={t("auth.profile")}
-              />
-            ) : (
-              <AuthDialog buttonText={t("auth.login")} />
-            )}
-
             <LanguageSelect />
           </div>
         </div>

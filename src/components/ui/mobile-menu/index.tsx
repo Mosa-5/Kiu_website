@@ -9,16 +9,12 @@ import {
   SheetTrigger,
 } from "../sheet";
 import LanguageSelect from "@/components/header/LanguageSelect";
-import AuthDialog from "../auth-dialog";
-import { useAuth } from "@/hooks/hooksHeader/useAuth";
 import { useHeaderTranslations } from "@/hooks/hooksHeader/useHeaderTranslation";
-import UserProfileSelect from "../user-profile-trigger";
 import { sheetTitle, menuContainer, topBar, navLink } from "./index.styles";
 
 const MobileMenu = () => {
   const { lang } = useParams<{ lang: string }>();
   const { t } = useHeaderTranslations();
-  const { isAuthenticated, currentUser, logout } = useAuth();
 
   const navLinks = [
     { label: t("nav.about"), path: "/about-us" },
@@ -56,17 +52,6 @@ const MobileMenu = () => {
             <div className={menuContainer()}>
               <div className={topBar()}>
                 <LanguageSelect />
-                {isAuthenticated && currentUser ? (
-                  <UserProfileSelect
-                    userName="Profile"
-                    onLogout={logout}
-                    lmsText={t("auth.goToLMS")}
-                    logoutText={t("auth.logout")}
-                    profileText={t("auth.profile")}
-                  />
-                ) : (
-                  <AuthDialog buttonText={t("auth.login")} />
-                )}
               </div>
               {navLinks.map((link) => (
                 <SheetClose key={link.path} asChild>

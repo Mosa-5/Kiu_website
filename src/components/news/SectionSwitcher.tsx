@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback, useLayoutEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -10,6 +10,7 @@ import {
   tabsListWrapper,
   tabsList,
   tabsTrigger,
+  slidingIndicator,
   searchWrapper,
   searchIcon,
   searchInput,
@@ -24,6 +25,10 @@ const SectionSwitcher = () => {
   const [items, setItems] = useState(getNewsItems());
   const [searchQuery, setSearchQuery] = useState("");
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("");
+  const [activeTab, setActiveTab] = useState("All");
+
+  const tabsListWrapperRef = useRef<HTMLDivElement | null>(null);
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
 
   useEffect(() => {
     setItems(getNewsItems());
@@ -69,11 +74,44 @@ const SectionSwitcher = () => {
     setSearchQuery(e.target.value);
   };
 
+  const updateIndicator = useCallback(() => {
+    const wrapperEl = tabsListWrapperRef.current;
+    if (!wrapperEl) return;
+
+    const activeEl = wrapperEl.querySelector<HTMLElement>(
+      '[data-state="active"]'
+    );
+    if (!activeEl) return;
+
+    const wrapperRect = wrapperEl.getBoundingClientRect();
+    const activeRect = activeEl.getBoundingClientRect();
+
+    setIndicatorStyle({
+      left: activeRect.left - wrapperRect.left,
+      width: activeRect.width,
+    });
+  }, []);
+
+  // Recompute on tab change / language change (label widths differ per
+  // language) before paint, so the indicator never flashes at a stale size.
+  useLayoutEffect(() => {
+    updateIndicator();
+  }, [activeTab, t, updateIndicator]);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateIndicator);
+    return () => window.removeEventListener("resize", updateIndicator);
+  }, [updateIndicator]);
+
   return (
     <div className={container()}>
-      <Tabs defaultValue="All" className={tabsContainer()}>
+      <Tabs
+        value={activeTab}
+        onValueChange={setActiveTab}
+        className={tabsContainer()}
+      >
         <div className={headerWrapper()}>
-          <div className={tabsListWrapper()}>
+          <div className={tabsListWrapper()} ref={tabsListWrapperRef}>
             <TabsList className={tabsList()}>
               {categoryKeys.map((cat, index) => (
                 <TabsTrigger key={cat} value={cat} className={tabsTrigger()}>
@@ -81,6 +119,15 @@ const SectionSwitcher = () => {
                 </TabsTrigger>
               ))}
             </TabsList>
+
+            <span
+              className={slidingIndicator()}
+              style={{
+                transform: `translateX(${indicatorStyle.left}px)`,
+                width: `${indicatorStyle.width}px`,
+              }}
+              aria-hidden="true"
+            />
           </div>
 
           <div className={searchWrapper()}>

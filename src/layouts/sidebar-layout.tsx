@@ -1,6 +1,6 @@
 import { SideSectionsSheet } from "@/components/ui/sections-sidebar";
 import SideSections from "@/components/ui/sections-sidebar-new";
-import { useCallback, useEffect, useMemo, useState, type PropsWithChildren } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type PropsWithChildren } from "react";
 import { useParams } from "react-router-dom";
 
 interface Section {
@@ -12,11 +12,57 @@ interface SideSectionsLayoutProps extends PropsWithChildren {
   sections: Section[];
 }
 
+// Ease-in-out cubic — gives the programmatic scroll a consistent, gentle
+// feel across browsers instead of relying on native `behavior: "smooth"`,
+// which varies in speed/easing from browser to browser.
+const easeInOutCubic = (t: number) =>
+  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
 const SideSectionsLayout: React.FC<SideSectionsLayoutProps> = ({ sections, children }) => {
   const { lang } = useParams<{ lang?: string }>();
 
   const [activeSection, setActiveSection] = useState<string>("");
   const [isOpen, setIsOpen] = useState(false);
+
+  // While a click-triggered scroll animation is running, the scroll listener
+  // below must not fight it for control of `activeSection` — that's what
+  // caused the nav highlight to flicker through intermediate sections.
+  const isAutoScrollingRef = useRef(false);
+  const scrollAnimationRef = useRef<number | null>(null);
+
+  const animateScrollTo = useCallback((targetY: number, duration = 600) => {
+    if (scrollAnimationRef.current !== null) {
+      cancelAnimationFrame(scrollAnimationRef.current);
+    }
+
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    const startTime = performance.now();
+
+    isAutoScrollingRef.current = true;
+
+    const step = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+
+      if (progress < 1) {
+        scrollAnimationRef.current = requestAnimationFrame(step);
+      } else {
+        scrollAnimationRef.current = null;
+        isAutoScrollingRef.current = false;
+      }
+    };
+
+    scrollAnimationRef.current = requestAnimationFrame(step);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (scrollAnimationRef.current !== null) {
+        cancelAnimationFrame(scrollAnimationRef.current);
+      }
+    };
+  }, []);
 
   const scrollToSection = useCallback((sectionId: string, closeMobile = false) => {
     setActiveSection(sectionId);
@@ -27,15 +73,12 @@ const SideSectionsLayout: React.FC<SideSectionsLayoutProps> = ({ sections, child
     const offset = 100;
     const elementPosition = element.getBoundingClientRect().top + window.scrollY;
 
-    window.scrollTo({
-      top: elementPosition - offset,
-      behavior: "smooth",
-    });
+    animateScrollTo(elementPosition - offset);
 
     if (closeMobile) {
       setIsOpen(false);
     }
-  }, []);
+  }, [animateScrollTo]);
 
   const scrollToSectionMobile = useCallback((sectionId: string) => {
     scrollToSection(sectionId, true);
@@ -44,7 +87,16 @@ const SideSectionsLayout: React.FC<SideSectionsLayoutProps> = ({ sections, child
   const sectionIds = useMemo(() => sections.map((s) => s.id), [sections]);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateActiveSection = () => {
+      ticking = false;
+
+      // Skip while we're auto-scrolling to a clicked section — otherwise
+      // the section closest to the viewport mid-transit briefly wins and
+      // the highlight flickers before settling on the intended target.
+      if (isAutoScrollingRef.current) return;
+
       const offsets = sectionIds.map((id) => {
         const el = document.getElementById(id);
         if (!el) return { id, top: Infinity };
@@ -55,7 +107,13 @@ const SideSectionsLayout: React.FC<SideSectionsLayoutProps> = ({ sections, child
       setActiveSection(closest.id);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(updateActiveSection);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [sectionIds]);
 
@@ -75,7 +133,7 @@ const SideSectionsLayout: React.FC<SideSectionsLayoutProps> = ({ sections, child
         language={lang || "en"}
       />
 
-      <div className="max-w-[1254px] sm:max-3xl:max-w-[1050px]">
+      <div className="w-full min-w-0 max-w-[1254px] sm:max-3xl:max-w-[1050px]">
         {children}
       </div>
     </div>

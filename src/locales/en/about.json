@@ -8,8 +8,7 @@
     { "id": "president", "label": "Honorary President" },
     { "id": "advisory", "label": "International Advisory Council" },
     { "id": "team", "label": "Team" },
-    { "id": "programs", "label": "Academic Programs" },
-    { "id": "calendar", "label": "Academic Calendar" }
+    { "id": "programs", "label": "Academic Programs" }
   ],
   "intro": {
     "title": "Intro",

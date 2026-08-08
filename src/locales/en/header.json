@@ -10,21 +10,6 @@
     "campus": "Campus",
     "vacancies": "Vacancies"
   },
-  "auth": {
-    "login": "Login",
-    "logout": "Logout",
-    "goToLMS": "LMS",
-    "profile": "Profile"
-  },
-  "LogDialog": {
-    "login" : "Login",
-    "signUp": "Sign Up",
-    "fullName": "Full Name",
-    "email" : "Email",
-    "password": "Password",
-    "logInQuestion": "Don't have an account?",
-    "signUpQuestion": "Already have an account?"
-  },
    "chatbot": {
     "welcomeMessage": "Hello! I'm KIU Assistant, a friendly chatbot here to help you with any questions about Kutaisi International University. How can I assist you today?",
     "title": "KIU Assistant",

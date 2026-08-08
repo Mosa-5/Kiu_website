@@ -1,3 +1,12 @@
+import {
+  paragraph,
+  richTextLink,
+  programGroup,
+  programGroupTitle,
+  programGroupList,
+  programGroupItem,
+} from "../AdmissionDetail.styles";
+
 export const RenderParagraphs = ({
   paragraphs,
 }: {
@@ -6,15 +15,11 @@ export const RenderParagraphs = ({
   }>;
 }) => (
   <>
-    {paragraphs.map((paragraph, i) => (
-      <p key={i} className="mb-6 text-sm sm:text-lg">
-        {paragraph.parts.map((part, j) =>
+    {paragraphs.map((para, i) => (
+      <p key={i} className={paragraph()}>
+        {para.parts.map((part, j) =>
           part.type === "link" ? (
-            <a
-              key={j}
-              href={part.url}
-              className="text-link underline underline-offset-2 hover:text-linkDark font-medium"
-            >
+            <a key={j} href={part.url} className={richTextLink()}>
               {part.text}
             </a>
           ) : (
@@ -36,20 +41,15 @@ export const ProgramGrid = ({
   if (!programs || programs.length === 0) return null;
 
   return (
-    <div className="mb-8">
-      {title && (
-        <p className="mb-4 max-sm:text-center text-lg font-medium">{title}</p>
-      )}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className={programGroup()}>
+      {title && <p className={programGroupTitle()}>{title}</p>}
+      <ul className={programGroupList()}>
         {programs.map((program, i) => (
-          <div
-            key={i}
-            className="px-4 py-3 bg-main rounded-md text-center font-medium text-white shadow-md min-h-[60px] flex items-center justify-center"
-          >
+          <li key={i} className={programGroupItem()}>
             {program}
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

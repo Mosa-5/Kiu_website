@@ -1,10 +1,11 @@
 import React from "react";
-import { AboutIcon } from "@/assets/icons/icons";
+import { ArchieveIcon } from "@/assets/icons/icons";
 import {
   section,
-  sectionHeader,
+  sectionHeaderRow,
+  sectionContent,
+  sectionIndex,
   sectionTitle,
-  icon,
   paragraph,
   richTextLink,
 } from "../StudentsDetail.styles";
@@ -15,33 +16,27 @@ const LibrarySection: React.FC = () => {
 
   return (
     <section id="library" className={section()}>
-      <div className={sectionHeader()}>
+      <div className={sectionHeaderRow()}>
+        <span className={sectionIndex()}>{ArchieveIcon}</span>
         <h2 className={sectionTitle()}>{t("library.title")}</h2>
-        <span className={icon()}>{AboutIcon}</span>
       </div>
 
-      <p className={paragraph()}>
-        {t("library.description1")}
-      </p>
+      <div className={sectionContent()}>
+        <p className={paragraph()}>{t("library.description1")}</p>
 
-      <p className={paragraph()}>
-        {t("library.description2")}
-      </p>
+        <p className={paragraph()}>{t("library.description2")}</p>
 
-      <p className={paragraph()}>
-        {t("library.description3")}
-      </p>
+        <p className={paragraph()}>{t("library.description3")}</p>
 
-      <p className={paragraph()}>
-        {t("library.description4")}
-      </p>
+        <p className={paragraph()}>{t("library.description4")}</p>
 
-      <p className={paragraph()}>
-        {t("library.contactInfo")}{" "}
-        <a href={`mailto:${t("library.email")}`} className={richTextLink()}>
-          {t("library.email")}
-        </a>
-      </p>
+        <p className={paragraph()}>
+          {t("library.contactInfo")}{" "}
+          <a href={`mailto:${t("library.email")}`} className={richTextLink()}>
+            {t("library.email")}
+          </a>
+        </p>
+      </div>
     </section>
   );
 };

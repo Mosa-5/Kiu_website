@@ -3,6 +3,12 @@
     "home": "Home",
     "title": "Research"
   },
+  "sections": [
+    { "id": "overview", "label": "Research Overview" },
+    { "id": "htc", "label": "Hadron Therapy Center" },
+    { "id": "proton", "label": "Proton Therapy Clinic" },
+    { "id": "publications", "label": "Publications" }
+  ],
   "detail": {
     "introParagraphs" : [
       [
