@@ -129,50 +129,23 @@ npm run preview
 
 ---
 
-## Test Automation Suite Summary
+## Testing
 
-This repository includes a comprehensive automated testing framework for the KIU Website.
-**Testing source code repository:** [https://github.com/lenossm/kiu-website-testing]
+The project uses **Vitest** for component unit tests and **WebdriverIO** for a production-style browser smoke test.
 
----
-
-### Included Components
-
-- 11 Cypress end-to-end (E2E) test files covering all major website sections
-- 3 Jest unit test suites for core utility functions
-- Custom reusable utilities and validation helpers
-- Full TypeScript support for all test files
-- Pre-configured Cypress and Jest environments ready for execution
-
----
-
-### Quick Start
+### Run tests locally
 
 ```bash
-npm install
-npx cypress open          # Launch Cypress Test Runner (interactive)
-npx cypress run           # Execute all E2E tests headlessly
-npx jest                  # Run all Jest unit tests
-npx jest --coverage       # Generate a test coverage report
+npm test             # Run the Vitest unit test suite once
+npm run test:watch   # Run unit tests in watch mode
+npm run test:e2e     # Build the site, serve it locally, and run WebdriverIO
 ```
 
----
+The unit tests cover reusable UI behavior and key chatbot interactions. The WebdriverIO smoke test verifies that the English home route loads and that a visitor can open the chatbot in a headless Chrome browser.
 
-### Test Coverage Overview
+### Continuous integration
 
-- Comprehensive testing across Homepage, Navigation, Hero Slider, News, Programs, Video Gallery, Campus, About, Accessibility, Performance, and Responsive Design
-- Unit testing for key utility modules, including date formatting, input validation, and helper functions
-- Over 100 individual test cases ensuring consistent functionality and stability
-
----
-
-### Key Features
-
-- Responsive design verification across multiple viewports
-- Accessibility compliance based on WCAG guidelines
-- Performance benchmarking and DOM load monitoring
-- Custom Cypress commands (`cy.isInViewport()`, `cy.waitForImages()`)
-- Modular and reusable testing utilities
+GitHub Actions runs the unit tests and browser smoke test on pushes to `main`, pull requests targeting `main`, and every Monday at 07:00 UTC. The workflow can also be started manually from the Actions tab.
 
 ---
 
