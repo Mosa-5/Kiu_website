@@ -111,9 +111,12 @@ const Gallery = () => {
     }
   };
 
-  // Generate thumbnail URL with no-referrer policy
+  // Generate thumbnail URL with no-referrer policy.
+  // hqdefault (480x360) instead of maxresdefault (1280x720, YouTube's
+  // largest preset) — these thumbnails render at ~380px wide, so maxres
+  // was ~3.4x oversized for no visual benefit.
   const getThumbnailUrl = (videoId: string) => {
-    return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+    return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
   };
 
   return (

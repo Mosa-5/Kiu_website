@@ -1,0 +1,27 @@
+# Kutaisi International University (KIU)
+
+> Kutaisi International University (KIU) is a bilingual (English/Georgian) university in Kutaisi, Georgia, offering Bachelor's, Master's, Single-Cycle, and Doctoral programs in Computer Science, Mathematics, Management, and other fields, with an international partnership with the Technical University of Munich (TUM).
+
+KIU is a newly established international research university in Kutaisi, Georgia. It aims to counter regional brain drain by offering internationally competitive, English-language higher education, modern campus facilities, and an international faculty. The site is available in English at `/en/...` and Georgian at `/ka/...`.
+
+## Admissions & Programs
+
+- [Programs](https://kiu-website.vercel.app/en/programs): Bachelor's, Master's, Single-Cycle, and Doctoral degree programs in Computer Science, Mathematics, Management, Psychology, and Design.
+- [Admission](https://kiu-website.vercel.app/en/admission): Admission requirements, application process, and deadlines for Georgian and international students.
+- [About Us](https://kiu-website.vercel.app/en/about-us): University history, mission, leadership, international advisory council, and academic team.
+
+## Campus & Student Life
+
+- [Campus](https://kiu-website.vercel.app/en/campus): Campus facilities, dormitories, and photo tour.
+- [Students](https://kiu-website.vercel.app/en/students): Student services, academic mobility, the student grant program, Erasmus+ exchanges, and the legal directory.
+- [Vacancies](https://kiu-website.vercel.app/en/vacancies): Open academic and administrative job opportunities at KIU.
+
+## Research & News
+
+- [Research](https://kiu-website.vercel.app/en/research): Research overview, the Hadron Therapy Center, the Proton Therapy Clinic, and publications.
+- [News](https://kiu-website.vercel.app/en/news): University news, events, and announcements.
+- [Projects](https://kiu-website.vercel.app/en/projects): KIU project initiatives, including the Youth University program and the Advancing the Frontiers conference.
+
+## Optional
+
+- [Georgian-language site](https://kiu-website.vercel.app/ka): Full site content in Georgian (ქართული), mirroring the English pages above under `/ka/...`.

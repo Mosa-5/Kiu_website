@@ -153,7 +153,7 @@ export const CampusDetail = () => {
                   }}
                 >
                   <img
-                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                    src={`https://img.youtube.com/vi/${videoId}/sddefault.jpg`}
                     alt={videoTitleAttr}
                     referrerPolicy="no-referrer"
                     loading="lazy"
@@ -192,7 +192,7 @@ export const CampusDetail = () => {
               ) : (
                 <>
                   <img
-                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                    src={`https://img.youtube.com/vi/${videoId}/sddefault.jpg`}
                     alt={videoTitleAttr}
                     referrerPolicy="no-referrer"
                     className={thumbnailImage()}

@@ -51,9 +51,9 @@ const Layout = () => {
       <SeoHead />
       <Header />
       <HeaderMobile />
-      <div className="max-sm:mt-[67px]">
+      <main className="max-sm:mt-[67px]">
         <Outlet />
-      </div>
+      </main>
       <Footer />
       <Chatbot />
     </div>
