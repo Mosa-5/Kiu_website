@@ -45,7 +45,12 @@ const Header = () => {
       <div className={header({ scrolled })}>
         <div className={innerContainer()}>
           <Link to={`/${currentLang}`} aria-label="Home">
-            <img className={logo()} src={getLogo()} alt="Kiu logo" />
+            <img
+              className={logo()}
+              src={getLogo()}
+              alt="Kiu logo"
+              fetchPriority="high"
+            />
           </Link>
 
           <nav className={nav()}>

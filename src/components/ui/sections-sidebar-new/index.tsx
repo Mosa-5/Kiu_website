@@ -16,6 +16,7 @@ interface SideSectionsProps {
   sections: Section[];
   scrollToSection: (id: string) => void;
   activeSection: string;
+  variant?: "sidebar" | "boxed";
 }
 
 const translations: Record<string, string> = {
@@ -27,27 +28,26 @@ const SideSections: React.FC<SideSectionsProps> = ({
   sections,
   scrollToSection,
   activeSection,
+  variant = "sidebar",
 }) => {
   const { lang } = useParams<{ lang?: string }>();
   const title = translations[lang || "en"] || translations.en;
 
   return (
-    <div className={container()}>
-      <div>
-        <h2 className={navTitle()}>{title}</h2>
-        <nav className={nav()}>
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => scrollToSection(section.id)}
-              className={navButton({ active: activeSection === section.id })}
-              aria-label={section.label}
-            >
-              {section.label}
-            </button>
-          ))}
-        </nav>
-      </div>
+    <div className={container({ variant })}>
+      <h2 className={navTitle()}>{title}</h2>
+      <nav className={nav()}>
+        {sections.map((section) => (
+          <button
+            key={section.id}
+            onClick={() => scrollToSection(section.id)}
+            className={navButton({ active: activeSection === section.id })}
+            aria-label={section.label}
+          >
+            {section.label}
+          </button>
+        ))}
+      </nav>
     </div>
   );
 };

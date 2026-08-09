@@ -1,7 +1,5 @@
-import { SideSectionsSheet } from "@/components/ui/sections-sidebar";
 import SideSections from "@/components/ui/sections-sidebar-new";
 import { useCallback, useEffect, useMemo, useRef, useState, type PropsWithChildren } from "react";
-import { useParams } from "react-router-dom";
 
 interface Section {
   id: string;
@@ -19,10 +17,7 @@ const easeInOutCubic = (t: number) =>
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
 const SideSectionsLayout: React.FC<SideSectionsLayoutProps> = ({ sections, children }) => {
-  const { lang } = useParams<{ lang?: string }>();
-
   const [activeSection, setActiveSection] = useState<string>("");
-  const [isOpen, setIsOpen] = useState(false);
 
   // While a click-triggered scroll animation is running, the scroll listener
   // below must not fight it for control of `activeSection` — that's what
@@ -64,7 +59,7 @@ const SideSectionsLayout: React.FC<SideSectionsLayoutProps> = ({ sections, child
     };
   }, []);
 
-  const scrollToSection = useCallback((sectionId: string, closeMobile = false) => {
+  const scrollToSection = useCallback((sectionId: string) => {
     setActiveSection(sectionId);
 
     const element = document.getElementById(sectionId);
@@ -74,15 +69,7 @@ const SideSectionsLayout: React.FC<SideSectionsLayoutProps> = ({ sections, child
     const elementPosition = element.getBoundingClientRect().top + window.scrollY;
 
     animateScrollTo(elementPosition - offset);
-
-    if (closeMobile) {
-      setIsOpen(false);
-    }
   }, [animateScrollTo]);
-
-  const scrollToSectionMobile = useCallback((sectionId: string) => {
-    scrollToSection(sectionId, true);
-  }, [scrollToSection]);
 
   const sectionIds = useMemo(() => sections.map((s) => s.id), [sections]);
 
@@ -125,15 +112,16 @@ const SideSectionsLayout: React.FC<SideSectionsLayoutProps> = ({ sections, child
         activeSection={activeSection}
       />
 
-      <SideSectionsSheet
-        sections={sections}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        scrollToSection={scrollToSectionMobile}
-        language={lang || "en"}
-      />
-
       <div className="w-full min-w-0 max-w-[1254px] sm:max-3xl:max-w-[1050px]">
+        {/* Same list, same styling as the desktop sidebar — just boxed and
+            placed inline at the top of the page instead of a sticky column. */}
+        <SideSections
+          sections={sections}
+          scrollToSection={scrollToSection}
+          activeSection={activeSection}
+          variant="boxed"
+        />
+
         {children}
       </div>
     </div>

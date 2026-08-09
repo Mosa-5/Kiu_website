@@ -87,12 +87,28 @@ export { default as heroimg2Ka } from "@/assets/hero-2_ka.webp";
 export { default as heroimg3Ka } from "@/assets/hero-3_ka.webp";
 export { default as heroimg4Ka } from "@/assets/hero-4_ka.webp";
 export { default as heroimg5Ka } from "@/assets/hero-5_ka.webp";
+//mobile-width variants (english)
+export { default as heroimg1Sm } from "@/assets/hero-1_sm.webp";
+export { default as heroimg2Sm } from "@/assets/hero-2_sm.webp";
+export { default as heroimg3Sm } from "@/assets/hero-3_sm.webp";
+export { default as heroimg4Sm } from "@/assets/hero-4_sm.webp";
+export { default as heroimg5Sm } from "@/assets/hero-5_sm.webp";
+//mobile-width variants (georgian)
+export { default as heroimg1KaSm } from "@/assets/hero-1_ka_sm.webp";
+export { default as heroimg2KaSm } from "@/assets/hero-2_ka_sm.webp";
+export { default as heroimg3KaSm } from "@/assets/hero-3_ka_sm.webp";
+export { default as heroimg4KaSm } from "@/assets/hero-4_ka_sm.webp";
+export { default as heroimg5KaSm } from "@/assets/hero-5_ka_sm.webp";
 
 //home campus images
 export { default as campus1 } from "@/assets/campus-1.webp";
 export { default as campus2 } from "@/assets/campus-2.webp";
 export { default as campus3 } from "@/assets/campus-3.webp";
 export { default as campus4 } from "@/assets/campus-4.webp";
+export { default as campus1Sm } from "@/assets/campus-1_sm.webp";
+export { default as campus2Sm } from "@/assets/campus-2_sm.webp";
+export { default as campus3Sm } from "@/assets/campus-3_sm.webp";
+export { default as campus4Sm } from "@/assets/campus-4_sm.webp";
 
 //program images
 //english
@@ -112,6 +128,12 @@ export { default as news3 } from "./news-3.webp";
 export { default as news4 } from "./news-4.webp";
 export { default as news5 } from "./news-5.webp";
 export { default as news6 } from "./news-6.webp";
+export { default as news1Sm } from "./news-1_sm.webp";
+export { default as news2Sm } from "./news-2_sm.webp";
+export { default as news3Sm } from "./news-3_sm.webp";
+export { default as news4Sm } from "./news-4_sm.webp";
+export { default as news5Sm } from "./news-5_sm.webp";
+export { default as news6Sm } from "./news-6_sm.webp";
 
 // export { default as programImg } from "./program_img.webp";
 // Carousel arrows

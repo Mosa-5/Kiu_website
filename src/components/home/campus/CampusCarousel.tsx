@@ -15,9 +15,23 @@ import {
   dot,
 } from "./CampusCarousel.styles";
 
-import { campus1, campus2, campus3, campus4 } from "@/assets";
+import {
+  campus1,
+  campus2,
+  campus3,
+  campus4,
+  campus1Sm,
+  campus2Sm,
+  campus3Sm,
+  campus4Sm,
+} from "@/assets";
 
-const campusimages = [campus2, campus1, campus3, campus4];
+const campusimages = [
+  { full: campus2, sm: campus2Sm },
+  { full: campus1, sm: campus1Sm },
+  { full: campus3, sm: campus3Sm },
+  { full: campus4, sm: campus4Sm },
+];
 
 const CampusCarousel = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -51,11 +65,14 @@ const CampusCarousel = () => {
         <CarouselContent className={carouselContent()}>
           {campusimages.map((img, index) => (
             <CarouselItem className={carouselItem()} key={index}>
-              <img
-                className={carouselImage()}
-                src={img}
-                alt={`campus img ${index + 1}`}
-              />
+              <picture>
+                <source media="(max-width: 639px)" srcSet={img.sm} />
+                <img
+                  className={carouselImage()}
+                  src={img.full}
+                  alt={`campus img ${index + 1}`}
+                />
+              </picture>
             </CarouselItem>
           ))}
         </CarouselContent>

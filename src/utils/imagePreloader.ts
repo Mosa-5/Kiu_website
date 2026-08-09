@@ -1,20 +1,42 @@
 import * as images from "@/assets";
 
-const criticalImagesEn = [
-  images.heroimg1,
-  images.heroimg2,
-  images.heroimg3,
-  images.heroimg4,
-  images.heroimg5,
-];
+// Matches the <picture> breakpoint used in CarouselHero (max-width: 639px) —
+// preloading the desktop-resolution hero images on a mobile viewport would
+// undermine the point of having mobile-sized variants at all.
+const isMobileViewport = () =>
+  typeof window !== "undefined" && window.innerWidth < 640;
 
-const criticalImagesKa = [
-  images.heroimg1Ka,
-  images.heroimg2Ka,
-  images.heroimg3Ka,
-  images.heroimg4Ka,
-  images.heroimg5Ka,
-];
+const criticalImagesEn = isMobileViewport()
+  ? [
+      images.heroimg1Sm,
+      images.heroimg2Sm,
+      images.heroimg3Sm,
+      images.heroimg4Sm,
+      images.heroimg5Sm,
+    ]
+  : [
+      images.heroimg1,
+      images.heroimg2,
+      images.heroimg3,
+      images.heroimg4,
+      images.heroimg5,
+    ];
+
+const criticalImagesKa = isMobileViewport()
+  ? [
+      images.heroimg1KaSm,
+      images.heroimg2KaSm,
+      images.heroimg3KaSm,
+      images.heroimg4KaSm,
+      images.heroimg5KaSm,
+    ]
+  : [
+      images.heroimg1Ka,
+      images.heroimg2Ka,
+      images.heroimg3Ka,
+      images.heroimg4Ka,
+      images.heroimg5Ka,
+    ];
 
 const sharedCriticalImages = [
   images.ProgramHeroImage,

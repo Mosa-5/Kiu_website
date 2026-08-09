@@ -45,7 +45,7 @@ const NewsGrid = ({ items }: NewsGridProps) => {
             <div className="md:hidden">
               <NewsCardMobile
                 id={item.id}
-                image={item.image}
+                image={item.imageSm}
                 date={item.date}
                 title={item.title}
                 description={item.description}

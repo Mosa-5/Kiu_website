@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import {
   Sheet,
   SheetClose,
@@ -15,6 +15,7 @@ import { sheetTitle, menuContainer, topBar, navLink } from "./index.styles";
 const MobileMenu = () => {
   const { lang } = useParams<{ lang: string }>();
   const { t } = useHeaderTranslations();
+  const location = useLocation();
 
   const navLinks = [
     { label: t("nav.about"), path: "/about-us" },
@@ -47,25 +48,35 @@ const MobileMenu = () => {
       <SheetContent side="left">
         <SheetHeader>
           <SheetTitle className={sheetTitle()}>Menu</SheetTitle>
+          {/* Radix requires a description for a11y — kept visually hidden
+              since the real content below isn't a "description". */}
+          <SheetDescription className="sr-only">
+            Site navigation menu
+          </SheetDescription>
 
-          <SheetDescription>
-            <div className={menuContainer()}>
-              <div className={topBar()}>
-                <LanguageSelect />
-              </div>
-              {navLinks.map((link) => (
+          <div className={menuContainer()}>
+            <div className={topBar()}>
+              <LanguageSelect />
+            </div>
+            {navLinks.map((link) => {
+              const fullPath = `/${lang}${link.path}`;
+              const isActive =
+                location.pathname === fullPath ||
+                location.pathname.startsWith(`${fullPath}/`);
+
+              return (
                 <SheetClose key={link.path} asChild>
                   <Link
-                    className={navLink()}
-                    to={`/${lang}${link.path}`}
+                    className={navLink({ active: isActive })}
+                    to={fullPath}
                     aria-label="Navigation button"
                   >
                     {link.label}
                   </Link>
                 </SheetClose>
-              ))}
-            </div>
-          </SheetDescription>
+              );
+            })}
+          </div>
         </SheetHeader>
       </SheetContent>
     </Sheet>

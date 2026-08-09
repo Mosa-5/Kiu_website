@@ -8,6 +8,7 @@ interface NewsItem {
   description: string;
   category?: string;
   image?: string;
+  imageSm?: string;
 }
 
 export const useNewsItems = (): NewsItem[] => {

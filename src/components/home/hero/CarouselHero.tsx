@@ -18,6 +18,16 @@ import {
   heroimg3Ka,
   heroimg4Ka,
   heroimg5Ka,
+  heroimg1Sm,
+  heroimg2Sm,
+  heroimg3Sm,
+  heroimg4Sm,
+  heroimg5Sm,
+  heroimg1KaSm,
+  heroimg2KaSm,
+  heroimg3KaSm,
+  heroimg4KaSm,
+  heroimg5KaSm,
 } from "@/assets";
 
 import {
@@ -32,13 +42,19 @@ import {
 import { useParams } from "react-router-dom";
 import "./CarouselHero.css";
 
-const heroImagesEn = [heroimg1, heroimg2, heroimg3, heroimg4, heroimg5];
+const heroImagesEn = [
+  { full: heroimg1, sm: heroimg1Sm },
+  { full: heroimg2, sm: heroimg2Sm },
+  { full: heroimg3, sm: heroimg3Sm },
+  { full: heroimg4, sm: heroimg4Sm },
+  { full: heroimg5, sm: heroimg5Sm },
+];
 const heroImagesKa = [
-  heroimg1Ka,
-  heroimg2Ka,
-  heroimg3Ka,
-  heroimg4Ka,
-  heroimg5Ka,
+  { full: heroimg1Ka, sm: heroimg1KaSm },
+  { full: heroimg2Ka, sm: heroimg2KaSm },
+  { full: heroimg3Ka, sm: heroimg3KaSm },
+  { full: heroimg4Ka, sm: heroimg4KaSm },
+  { full: heroimg5Ka, sm: heroimg5KaSm },
 ];
 
 const CarouselHero = () => {
@@ -122,11 +138,15 @@ const CarouselHero = () => {
         <CarouselContent className={carouselContent()}>
           {heroImages.map((img, index) => (
             <CarouselItem className={carouselItem()} key={index}>
-              <img
-                className={carouselImage()}
-                src={img}
-                alt={`hero img ${index + 1}`}
-              />
+              <picture>
+                <source media="(max-width: 639px)" srcSet={img.sm} />
+                <img
+                  className={carouselImage()}
+                  src={img.full}
+                  alt={`hero img ${index + 1}`}
+                  fetchPriority={index === 0 ? "high" : undefined}
+                />
+              </picture>
             </CarouselItem>
           ))}
         </CarouselContent>

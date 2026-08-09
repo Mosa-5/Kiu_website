@@ -7,9 +7,23 @@ export interface NewsItem {
   description: string;
   category?: string;
   image: string;
+  imageSm: string;
 }
 
-import { news1, news2, news3, news4, news5, news6 } from "@/assets";
+import {
+  news1,
+  news2,
+  news3,
+  news4,
+  news5,
+  news6,
+  news1Sm,
+  news2Sm,
+  news3Sm,
+  news4Sm,
+  news5Sm,
+  news6Sm,
+} from "@/assets";
 
 const newsItemsEn: NewsItem[] = [
   {
@@ -20,6 +34,7 @@ const newsItemsEn: NewsItem[] = [
       "Please see the 2025-2026 Fall Semester course schedule available online. Registration begins today for all returning students.",
     category: "Bachelor's",
     image: news1,
+    imageSm: news1Sm,
   },
   {
     id: "kiu-innovation-summer-school-closing",
@@ -30,6 +45,7 @@ const newsItemsEn: NewsItem[] = [
       "Local tech companies collaborate to establish a new research and development center focusing on sustainable technology solutions.",
     category: "Campus",
     image: news2,
+    imageSm: news2Sm,
   },
   {
     id: "community-health-initiative-launches",
@@ -39,6 +55,7 @@ const newsItemsEn: NewsItem[] = [
       "A comprehensive health program begins this month, offering free screenings and wellness workshops to residents across all districts.",
     category: "Master's",
     image: news3,
+    imageSm: news3Sm,
   },
   {
     id: "transportation-infrastructure-updates",
@@ -48,6 +65,7 @@ const newsItemsEn: NewsItem[] = [
       "Major improvements to public transit systems commence with new bus routes and upgraded railway connections throughout the metropolitan area.",
     category: "Doctoral",
     image: news4,
+    imageSm: news4Sm,
   },
   {
     id: "environmental-protection-measures",
@@ -57,6 +75,7 @@ const newsItemsEn: NewsItem[] = [
       "New regulations for green building standards and renewable energy incentives take effect to support sustainable urban development.",
     category: "Single-Cycle",
     image: news5,
+    imageSm: news5Sm,
   },
   {
     id: "education-reform-bill-passes",
@@ -66,6 +85,7 @@ const newsItemsEn: NewsItem[] = [
       "Comprehensive education legislation receives approval, introducing updated curricula and enhanced funding for public school systems.",
     category: "Bachelor's",
     image: news6,
+    imageSm: news6Sm,
   },
   {
     id: "university-science-laboratory-opens",
@@ -75,6 +95,7 @@ const newsItemsEn: NewsItem[] = [
       "The state-of-the-art lab will focus on renewable energy experiments and cutting-edge biological research.",
     category: "Campus",
     image: news1,
+    imageSm: news1Sm,
   },
   {
     id: "sports-complex-expansion-announced",
@@ -84,6 +105,7 @@ const newsItemsEn: NewsItem[] = [
       "Plans approved to expand the city's sports facilities, including new arenas and community recreation centers.",
     category: "Master's",
     image: news2,
+    imageSm: news2Sm,
   },
   {
     id: "historic-building-restored-downtown",
@@ -93,6 +115,7 @@ const newsItemsEn: NewsItem[] = [
       "A landmark structure receives preservation efforts and will reopen as a cultural and educational hub.",
     category: "Doctoral",
     image: news3,
+    imageSm: news3Sm,
   },
   {
     id: "public-safety-awareness-campaign",
@@ -102,6 +125,7 @@ const newsItemsEn: NewsItem[] = [
       "Officials begin outreach programs to increase safety education across neighborhoods.",
     category: "Single-Cycle",
     image: news4,
+    imageSm: news4Sm,
   },
 ];
 
@@ -114,6 +138,7 @@ const newsItemsKa: NewsItem[] = [
       "გთხოვთ იხილოთ 2025-2026 შემოდგომის სემესტრის საკურსო განრიგი ხელმისაწვდომი ონლაინ. რეგისტრაცია იწყება დღეს ყველა დაბრუნებული სტუდენტისთვის.",
     category: "Bachelor's",
     image: news1,
+    imageSm: news1Sm,
   },
   {
     id: "kiu-innovation-summer-school-closing",
@@ -124,6 +149,7 @@ const newsItemsKa: NewsItem[] = [
       "ადგილობრივი ტექ-კომპანიები თანამშრომლობენ კვლევისა და განვითარების ახალი ცენტრის შესაქმნელად, რომელიც ფოკუსირებულია მდგრადი ტექნოლოგიური გადაწყვეტილებების შემუშავებაზე.",
     category: "Campus",
     image: news2,
+    imageSm: news2Sm,
   },
   {
     id: "community-health-initiative-launches",
@@ -133,6 +159,7 @@ const newsItemsKa: NewsItem[] = [
       "ყოვლისმომცველი ჯანმრთელობის პროგრამა იწყება ამ თვეში, რომელიც სთავაზობს უფასო გამოკვლევებსა და ჯანმრთელობის სემინარებს ყველა უბნის მაცხოვრებლებს.",
     category: "Master's",
     image: news3,
+    imageSm: news3Sm,
   },
   {
     id: "transportation-infrastructure-updates",
@@ -142,6 +169,7 @@ const newsItemsKa: NewsItem[] = [
       "საზოგადოებრივი ტრანსპორტის სისტემების მთავარი გაუმჯობესება იწყება ახალი ავტობუსის მარშრუტებითა და განახლებული რკინიგზის შეერთებებით მეტროპოლიტენური ტერიტორიის მასშტაბით.",
     category: "Doctoral",
     image: news4,
+    imageSm: news4Sm,
   },
   {
     id: "environmental-protection-measures",
@@ -151,6 +179,7 @@ const newsItemsKa: NewsItem[] = [
       "ახალი რეგულაციები მწვანე სამშენებლო სტანდარტებისა და განახლებადი ენერგიის სტიმულებისთვის ძალაში შედის მდგრადი ურბანული განვითარების მხარდასაჭერად.",
     category: "Single-Cycle",
     image: news5,
+    imageSm: news5Sm,
   },
   {
     id: "education-reform-bill-passes",
@@ -160,6 +189,7 @@ const newsItemsKa: NewsItem[] = [
       "ყოვლისმომცველმა საგანმანათლებლო კანონმდებლობამ მიიღო დამტკიცება, რომელიც შემოაქვს განახლებული სასწავლო გეგმები და გაძლიერებული დაფინანსება საჯარო სასკოლო სისტემებისთვის.",
     category: "Bachelor's",
     image: news6,
+    imageSm: news6Sm,
   },
   {
     id: "university-science-laboratory-opens",
@@ -169,6 +199,7 @@ const newsItemsKa: NewsItem[] = [
       "უახლესი ლაბორატორია ფოკუსირებული იქნება განახლებადი ენერგიის ექსპერიმენტებსა და წამყვან ბიოლოგიურ კვლევაზე.",
     category: "Campus",
     image: news1,
+    imageSm: news1Sm,
   },
   {
     id: "sports-complex-expansion-announced",
@@ -178,6 +209,7 @@ const newsItemsKa: NewsItem[] = [
       "დამტკიცდა გეგმები ქალაქის სპორტული დაწესებულებების გაფართოებისთვის, მათ შორის ახალი არენები და საზოგადოებრივი რეკრეაციული ცენტრები.",
     category: "Master's",
     image: news2,
+    imageSm: news2Sm,
   },
   {
     id: "historic-building-restored-downtown",
@@ -187,6 +219,7 @@ const newsItemsKa: NewsItem[] = [
       "ნიშანდობლივი სტრუქტურა იღებს კონსერვაციის ძალისხმევას და კვლავ გაიხსნება როგორც კულტურული და საგანმანათლებლო ცენტრი.",
     category: "Doctoral",
     image: news3,
+    imageSm: news3Sm,
   },
   {
     id: "public-safety-awareness-campaign",
@@ -196,6 +229,7 @@ const newsItemsKa: NewsItem[] = [
       "ოფიციალური პირები იწყებენ საინფორმაციო პროგრამებს უსაფრთხოების განათლების გასაზრდელად უბნებში.",
     category: "Single-Cycle",
     image: news4,
+    imageSm: news4Sm,
   },
 ];
 
