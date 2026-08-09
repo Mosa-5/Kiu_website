@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import Layout from "./layouts";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
@@ -28,10 +28,17 @@ const LoadingFallback = () => (
 );
 
 function App() {
+  const location = useLocation();
+
+  // Re-run on every route change, not just the initial mount -- otherwise
+  // only the very first page a visitor lands on ever gets its hero
+  // preloaded, and every client-side navigation after that has to wait for
+  // the <img> tag itself to discover the image, which loses the race
+  // against the hero fade-in animation.
   useEffect(() => {
-    const lang = window.location.pathname.startsWith("/ka") ? "ka" : "en";
+    const lang = location.pathname.startsWith("/ka") ? "ka" : "en";
     preloadCriticalImages(lang);
-  }, []);
+  }, [location.pathname]);
 
   return (
     <ErrorBoundary>

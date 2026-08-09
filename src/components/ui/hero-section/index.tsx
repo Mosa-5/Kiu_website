@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate, useParams } from "react-router-dom";
 import {
@@ -32,6 +33,21 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   const nav = useNavigate();
   const navigate = () => nav(`/${currentLang}${buttonLink}`);
 
+  // The fade-in animation is CSS and fires the instant the <img> mounts --
+  // if the image itself hasn't loaded yet (e.g. a fresh client-side nav to
+  // a page whose hero wasn't preloaded in time), the animation finishes
+  // against an empty slot and the image pops in late. Gate the animation
+  // class on actual load so it always starts in sync with the image being
+  // ready, whether that's instant (cached) or delayed (cold fetch).
+  const imgRef = useRef<HTMLImageElement>(null);
+  const [imgLoaded, setImgLoaded] = useState(false);
+
+  useEffect(() => {
+    // Reset for the new image, then immediately re-check in case it was
+    // already preloaded/cached (the load event won't fire again for those).
+    setImgLoaded(imgRef.current?.complete ?? false);
+  }, [imageSrc]);
+
   return (
     <div className={heroContainer()}>
       <picture>
@@ -39,10 +55,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           <source media="(max-width: 639px)" srcSet={imageSrcSm} />
         )}
         <img
+          ref={imgRef}
           src={imageSrc}
           alt={titleText}
-          className={`${heroImage()} hero-image-animate`}
+          className={`${heroImage()} ${imgLoaded ? "hero-image-animate" : "opacity-0"}`}
           fetchPriority="high"
+          onLoad={() => setImgLoaded(true)}
         />
       </picture>
 
