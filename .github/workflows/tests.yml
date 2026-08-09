@@ -22,6 +22,12 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Match ChromeDriver to the runner's Chrome version
+        shell: bash
+        run: |
+          chrome_version="$(google-chrome --product-version || google-chrome-stable --product-version)"
+          chrome_major="${chrome_version%%.*}"
+          npm install --no-save --package-lock=false "chromedriver@${chrome_major}"
       - name: Run unit tests
         run: npm test
       - name: Run browser smoke test
