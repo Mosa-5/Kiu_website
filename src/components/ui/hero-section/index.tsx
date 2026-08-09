@@ -12,6 +12,7 @@ import "./HeroSection.css"; // Add this import
 interface HeroSectionProps {
   titleText: string;
   imageSrc: string;
+  imageSrcSm?: string;
   buttonLink?: string;
   buttonLabel?: string;
   buttonIcon?: React.ReactNode;
@@ -20,6 +21,7 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({
   titleText,
   imageSrc,
+  imageSrcSm,
   buttonLink = "/",
   buttonLabel = "Home Page",
   buttonIcon,
@@ -32,11 +34,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <div className={heroContainer()}>
-      <img
-        src={imageSrc}
-        alt={titleText}
-        className={`${heroImage()} hero-image-animate`}
-      />
+      <picture>
+        {imageSrcSm && (
+          <source media="(max-width: 639px)" srcSet={imageSrcSm} />
+        )}
+        <img
+          src={imageSrc}
+          alt={titleText}
+          className={`${heroImage()} hero-image-animate`}
+          fetchPriority="high"
+        />
+      </picture>
 
       <div className={contentWrapper()}>
         <h1 className={`${title()} hero-title-animate`}>{titleText}</h1>

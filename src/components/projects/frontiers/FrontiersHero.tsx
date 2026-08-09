@@ -1,5 +1,5 @@
 import HeroSection from "@/components/ui/hero-section";
-import { FrontiersHero } from "@/assets";
+import { FrontiersHero, FrontiersHeroSm } from "@/assets";
 import { useFrontiersTranslations } from "../../../hooks/useFrontiersTranslations";
 
 const AdvancingFrontiersHero = () => {
@@ -9,6 +9,7 @@ const AdvancingFrontiersHero = () => {
     <HeroSection
       titleText={t("hero.title")}
       imageSrc={FrontiersHero}
+      imageSrcSm={FrontiersHeroSm}
       buttonLink="/projects"
       buttonLabel={t("hero.buttonLabel")}
     />

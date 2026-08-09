@@ -66,6 +66,8 @@ const ProgramHome = () => {
               src={currentLang === "ka" ? program.imgka : program.img}
               alt={program.label}
               className={programImageVariants()}
+              width={828}
+              height={321}
             />
           ))}
         </div>

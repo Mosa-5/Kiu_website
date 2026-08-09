@@ -1,5 +1,5 @@
 import HeroSection from "@/components/ui/hero-section";
-import { ProjectsHeroImage } from "@/assets";
+import { ProjectsHeroImage, ProjectsHeroImageSm } from "@/assets";
 import { useProjectsTranslations } from "../../hooks/useProjectsTranslations";
 
 const SingleProjectHero = () => {
@@ -9,6 +9,7 @@ const SingleProjectHero = () => {
     <HeroSection
       titleText={t("hero.title")}
       imageSrc={ProjectsHeroImage}
+      imageSrcSm={ProjectsHeroImageSm}
       buttonLink="/"
       buttonLabel={t("hero.buttonLabel")}
     />

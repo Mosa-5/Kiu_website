@@ -1,6 +1,7 @@
 import HeroSection from "@/components/ui/hero-section";
 import {
   ProgramHeroImage,
+  ProgramHeroImageSm,
   MathHero,
   MathAndApplHero,
   MnscHero,
@@ -17,10 +18,11 @@ import { useTranslation } from "react-i18next";
 
 const programHeroConfig: Record<
   string,
-  { image: string; titleEn: string; titleKa: string }
+  { image: string; imageSm?: string; titleEn: string; titleKa: string }
 > = {
   computerScience: {
     image: ProgramHeroImage,
+    imageSm: ProgramHeroImageSm,
     titleEn: "Computer Science",
     titleKa: "კომპიუტერული მეცნიერებები",
   },
@@ -93,6 +95,7 @@ const SingleProgramHero = () => {
     <HeroSection
       titleText={title}
       imageSrc={config.image}
+      imageSrcSm={config.imageSm}
       buttonLink="/programs"
       buttonLabel={
         i18n.language === "ka" ? "უკან პროგრამებზე" : "Back to Programs"

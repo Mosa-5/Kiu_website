@@ -1,5 +1,5 @@
 import HeroSection from "@/components/ui/hero-section";
-import { CampusHeroImage } from "@/assets";
+import { CampusHeroImage, CampusHeroImageSm } from "@/assets";
 import { useCampusTranslations } from "../../hooks/useCampusTranslations";
 
 const CampusHero = () => {
@@ -9,6 +9,7 @@ const CampusHero = () => {
     <HeroSection
       titleText={t("hero.title")}
       imageSrc={CampusHeroImage}
+      imageSrcSm={CampusHeroImageSm}
       buttonLink="/"
       buttonLabel={t("hero.breadcrumbs.home")}
     />

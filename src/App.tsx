@@ -4,8 +4,6 @@ import Layout from "./layouts";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 import { Loader2 } from "lucide-react";
-import Students from "./pages/Students";
-import Research from "./pages/Research";
 import { preloadCriticalImages } from "./utils/imagePreloader";
 import ErrorBoundary from "./components/ui/ErrorBoundary";
 
@@ -20,6 +18,8 @@ const About = lazy(() => import("./pages/About"));
 const Programs = lazy(() => import("./pages/Programs"));
 const Vacancies = lazy(() => import("./pages/Vacancies"));
 const Admission = lazy(() => import("./pages/Admission"));
+const Students = lazy(() => import("./pages/Students"));
+const Research = lazy(() => import("./pages/Research"));
 
 const LoadingFallback = () => (
   <div className="flex justify-center items-center min-h-[70vh] sm:min-h-screen">

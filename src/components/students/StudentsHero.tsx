@@ -1,5 +1,5 @@
 import HeroSection from "@/components/ui/hero-section";
-import { StudentsHeroImage } from "@/assets";
+import { StudentsHeroImage, StudentsHeroImageSm } from "@/assets";
 import { useStudentsTranslations } from "@/hooks/useStudentsTranslations";
 
 const StudentsHero = () => {
@@ -9,6 +9,7 @@ const StudentsHero = () => {
     <HeroSection
       titleText={t("hero.title")}
       imageSrc={StudentsHeroImage}
+      imageSrcSm={StudentsHeroImageSm}
       buttonLink="/"
       buttonLabel={t("hero.home")}
     />

@@ -18,7 +18,7 @@ export const floatingButton = cva(
 export const chatWindow = cva(
   [
     "fixed bottom-[20px] max-sm:right-1/2 max-sm:translate-x-1/2 right-[20px] z-2",
-    "sm:w-[470px] sm:max-3xl:w-[400px] w-[348px] sm:h-[560px] sm:max-3xl:h-[480px] bg-white shadow-xl border-main rounded-xl overflow-hidden",
+    "sm:w-[470px] sm:max-3xl:w-[400px] w-[348px] h-[480px] sm:h-[560px] sm:max-3xl:h-[480px] bg-white shadow-xl border-main rounded-xl overflow-hidden",
     "border-2 flex flex-col transition-all duration-300 origin-bottom-right",
   ],
   {
@@ -57,10 +57,13 @@ export const loadingText = cva("text-gray-500 text-base animate-pulse");
 export const inputContainer = cva("p-3 sm:max-3xl:p-2 border-t flex gap-2");
 
 export const input = cva([
-  "flex-1 border rounded-md px-2 py-2 sm:py-2 shadow-sm text-lg sm:max-3xl:text-base w-40 sm:w-auto",
+  "flex-1 h-11 border rounded-md px-2 shadow-sm text-lg sm:max-3xl:text-base w-40 sm:w-auto",
   "focus:outline-none focus:ring-2 focus:ring-main transition-all",
 ]);
 
+// Explicit height matching `input` above — h-full doesn't reliably resolve
+// here since the flex row they sit in (inputContainer) has no definite
+// height of its own for a percentage to resolve against.
 export const sendButton = cva(
-  "w-12 h-full shadow-sm transition-colors disabled:opacity-50"
+  "w-12 h-11 shadow-sm transition-colors disabled:opacity-50"
 );

@@ -1,4 +1,5 @@
 import newsHeroImage from "@/assets/image.webp";
+import newsHeroImageSm from "@/assets/image_sm.webp";
 import { getNewsItems } from "@/data/newsItems";
 import { useParams } from "react-router-dom";
 import {
@@ -24,11 +25,14 @@ const NewsDetailsHero = () => {
 
   return (
     <div className={container()}>
-      <img
-        src={newsHeroImage}
-        alt="News Hero"
-        className={`${heroImage()} hero-image-animate`}
-      />
+      <picture>
+        <source media="(max-width: 639px)" srcSet={newsHeroImageSm} />
+        <img
+          src={newsHeroImage}
+          alt="News Hero"
+          className={`${heroImage()} hero-image-animate`}
+        />
+      </picture>
       <div className={`${contentBox()} hero-content-animate`}>
         <div className={contentInner()}>
           <h1 className={title()}>{item.title}</h1>

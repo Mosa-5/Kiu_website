@@ -1,5 +1,5 @@
 import HeroSection from "@/components/ui/hero-section";
-import { VacanciesHero } from "@/assets";
+import { VacanciesHero, VacanciesHeroSm } from "@/assets";
 import { useVacancyTranslations } from "../../hooks/hooksVacancies/useVacancyTranslations";
 
 const VacancyHero = () => {
@@ -9,6 +9,7 @@ const VacancyHero = () => {
     <HeroSection
       titleText={t("hero.title")}
       imageSrc={VacanciesHero}
+      imageSrcSm={VacanciesHeroSm}
       buttonLink="/"
       buttonLabel={t("hero.buttonLabel")}
     />
