@@ -27,9 +27,7 @@ export default function ChatbotGemini() {
     input: "",
     loading: false,
   });
-
   const { t } = useHeaderTranslations();
-
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const initialMessageSent = useRef(false);
 
@@ -37,23 +35,15 @@ export default function ChatbotGemini() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chatState.messages]);
 
-  // Show welcome message the first time the chat opens
   useEffect(() => {
     if (isOpen && !initialMessageSent.current) {
       setChatState((prev) => ({
         ...prev,
-        messages: [
-          ...prev.messages,
-          {
-            sender: "bot",
-            text: t("chatbot.welcomeMessage"),
-          },
-        ],
+        messages: [...prev.messages, { sender: "bot", text: t("chatbot.welcomeMessage") }],
       }));
       initialMessageSent.current = true;
     }
   }, [isOpen, t]);
-
 
   const handleSend = async () => {
     const userText = chatState.input.trim();
@@ -67,67 +57,33 @@ export default function ChatbotGemini() {
     }));
 
     try {
-      const context = `
-You are KIU Assistant — a friendly and helpful chatbot for Kutaisi International University (KIU), located in Kutaisi, Georgia.
-
- YOUR PERSONALITY & PURPOSE:
-- You are polite, warm, and professional.
-- You represent KIU, a modern, international research university in Kutaisi, Georgia.
-- You help with admissions, programs, campus life, and general information.
-
- LANGUAGE RULE:
-- Automatically detect whether the user is writing in Georgian or English.
-- If the user writes in Georgian, reply **entirely in Georgian** with natural, polite wording.
-- If the user writes in English, reply in English.
-- If unclear, default to English.
-
- UNIVERSITY INFORMATION:
-- KIU (Kutaisi International University) offers top-quality education and research.
-- Partnered with the Technical University of Munich (TUM).
-- Main programs: Computer Science, Mathematics, Management, Psychology, Medicine, Design, Mathematics and AI.
-- Campus accommodation: 
-  • 250 GEL (2-person room)
-  • 500 GEL (single room)
-  • 300 GEL (ground floor, with special documentation)
-- Website: https://www.kiu.edu.ge
-- Email: support@kiu.ge
-- Admissions and program info are on the official website.
-- If unsure, guide users to info@kiu.edu.ge.
-
- GUIDELINES:
-- Be concise but friendly.
-- Always give clear answers.
-- If a user asks something unrelated to KIU, politely guide them back to university-related info.
-`;
-
-      const sanitizedInput = userText
-        .replace(/[\x00-\x1F\x7F]/g, "")
-        .slice(0, 500);
-
+      const sanitizedInput = userText.replace(/[\x00-\x1F\x7F]/g, "").slice(0, 500);
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ context, message: sanitizedInput }),
+        body: JSON.stringify({ message: sanitizedInput }),
       });
-
       const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          response.status === 429
+            ? data.error || "You've reached the limit of 5 messages. Please try again in 30 minutes."
+            : "Sorry, I had trouble processing your question.",
+        );
+      }
 
       setChatState((prev) => ({
         ...prev,
         messages: [...prev.messages, { sender: "bot", text: data.reply }],
         loading: false,
       }));
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
+      const errorMessage = error instanceof Error ? error.message : "Sorry, I had trouble processing your question.";
       setChatState((prev) => ({
         ...prev,
-        messages: [
-          ...prev.messages,
-          {
-            sender: "bot",
-            text: "Sorry, I had trouble processing your question.",
-          },
-        ],
+        messages: [...prev.messages, { sender: "bot", text: errorMessage }],
         loading: false,
       }));
     }
@@ -135,16 +91,10 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
 
   return (
     <>
-      {/* Floating Button */}
-      <Button
-        onClick={() => setIsOpen(true)}
-        className={floatingButton({ isOpen })}
-        aria-label="Open chatbot assistant"
-      >
+      <Button onClick={() => setIsOpen(true)} className={floatingButton({ isOpen })} aria-label="Open chatbot assistant">
         <MessageSquare size={24} />
       </Button>
 
-      {/* Chat Window */}
       <div className={chatWindow({ isOpen })}>
         <div className={chatHeader()}>
           {t("chatbot.title")}
@@ -152,15 +102,12 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
         </div>
 
         <div className={messagesContainer()}>
-          {chatState.messages.map((msg, i) => (
-            <div key={i} className={messageBox({ sender: msg.sender })}>
-              {msg.text}
+          {chatState.messages.map((message, index) => (
+            <div key={index} className={messageBox({ sender: message.sender })}>
+              {message.text}
             </div>
           ))}
-
-          {chatState.loading && (
-            <div className={loadingText()}>{t("chatbot.thinking")}</div>
-          )}
+          {chatState.loading && <div className={loadingText()}>{t("chatbot.thinking")}</div>}
           <div ref={messagesEndRef} />
         </div>
 
@@ -168,18 +115,11 @@ You are KIU Assistant — a friendly and helpful chatbot for Kutaisi Internation
           <input
             className={input()}
             value={chatState.input}
-            onChange={(e) =>
-              setChatState((prev) => ({ ...prev, input: e.target.value }))
-            }
+            onChange={(event) => setChatState((prev) => ({ ...prev, input: event.target.value }))}
             placeholder={t("chatbot.placeholder")}
-            onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            onKeyDown={(event) => event.key === "Enter" && handleSend()}
           />
-          <Button
-            className={sendButton()}
-            onClick={handleSend}
-            disabled={chatState.loading}
-            aria-label="Send chat message"
-          >
+          <Button className={sendButton()} onClick={handleSend} disabled={chatState.loading} aria-label="Send chat message">
             <Send size={21} className="m-auto" />
           </Button>
         </div>
